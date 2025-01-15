@@ -1,0 +1,20 @@
+[
+    {
+        "block_color":"red",
+        "x":100,
+        "y":1,
+        "z":101
+    },
+    {
+        "block_color":"yellow",
+        "x":101,
+        "y":1,
+        "z":101
+    },
+    {
+        "block_color":"purple",
+        "x":102,
+        "y":1,
+        "z":101
+    }
+]
