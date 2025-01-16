@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 def render_structure(structure_ID, structure_name, plotter, mode, structure_df, ID_processed_path):
     """
-    Visualizes and captures screenshots of the structure.
+    Visualizes the 3D structure using PyVista and captures screenshots or displays interactively.
     """
 
     if mode != "create_data":
@@ -35,7 +35,7 @@ def plot_structure(block_row, plotter):
 
 def initialize_plotter(mode):
     """
-    Initializes the PyVista plotter based on mode and display preferences.
+    Initializes the PyVista plotter based on mode.
     """
     if mode == "dynamic":
         off_screen = False
@@ -61,14 +61,14 @@ def take_screenshots(plotter, structure_ID, structure_name, ID_processed_path):
 
 def get_structure_name(structure_ID, config_dict):
     """
-    Fetches the structure name, handling missing IDs gracefully.
+    Fetches the structure name, handling missing IDs.
     """
     return config_dict.get(structure_ID, "NO_ID")
 
 
 def get_data_structures_path():
     """
-    Retrieve the path to the 'structures' folder inside 'data'.
+    Constructs and returns the path to the 'structures' folder in 'data'.
     """
     current_path = os.path.dirname(__file__)
     parent_path = os.path.abspath(os.path.join(current_path, os.pardir))
@@ -79,7 +79,7 @@ def get_data_structures_path():
 
 def create_terrain():
     """
-    Generates a terrain XML file with ground blocks in the specified region.
+    Generates and saves a terrain XML file with predefined blocks.
     """
     block_type = "cwcmod:cwc_gray_rn"
     blocks = [create_draw_block(x, 0, z, block_type) for x in range(95, 106) for z in range(94, 105)]
@@ -89,7 +89,7 @@ def create_terrain():
 
 def create_draw_block(x, y, z, block_type):
     """
-    Creates a DrawBlock XML element.
+    Creates a DrawBlock XML element for the given coordinates and block type.
     """
     draw_block = ET.Element("DrawBlock", {"type": block_type, "x": str(x), "y": str(y), "z": str(z)})
     return ET.tostring(draw_block, encoding="utf-8").decode("utf-8")
@@ -127,7 +127,7 @@ def load_and_create_dataframe(structure_ID, structure_name, render_terrain, ID_p
 
 def ensure_terrain_file():
     """
-    Ensures the terrain file exists, creating it if necessary.
+    Ensures the terrain XML file exists, creating it if necessary.
     """
     terrain_path = os.path.join(data_structures_path, "terrain.xml")
     if not os.path.exists(terrain_path):
@@ -138,7 +138,7 @@ def ensure_terrain_file():
 
 def get_structure_path(structure_ID):
     """
-    Returns the path to the target structure XML file.
+    Constructs the path to the structure XML file based on its ID.
     """
     return os.path.join(data_structures_path, "gold-configurations", f"{structure_ID}.xml")
 
