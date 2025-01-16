@@ -1,14 +1,81 @@
 import os
 import xml.etree.ElementTree as ET
 import pandas as pd
-import json
+import pyvista as pv
+from tqdm import tqdm
 
-def get_main_data_path():
+
+def render_structure(structure_ID, structure_name, plotter, mode, structure_df, ID_processed_path):
+    """
+    Visualizes and captures screenshots of the structure.
+    """
+
+    if mode != "create_data":
+        # Only use tqdm if the mode is not 'create_data'
+        tqdm.pandas(desc=f"Plotting structure {structure_ID}_{structure_name}")
+        structure_df.progress_apply(lambda row: plot_structure(row, plotter), axis=1)
+    else:
+        structure_df.apply(lambda row: plot_structure(row, plotter), axis=1)
+
+    plotter.window_size = [640, 640]
+    if mode == "dynamic":
+        plotter.show()
+    else:
+        take_screenshots(plotter, structure_ID, structure_name, ID_processed_path)
+
+
+def plot_structure(block_row, plotter):
+    """
+    Plots a 3D block for a single row in the DataFrame.
+    """
+    block_color, x, y, z = block_row
+    cube = pv.Cube(center=(x, z, y), x_length=1, y_length=1, z_length=1)
+    plotter.add_mesh(cube, color=block_color, show_edges=True)
+
+
+def initialize_plotter(mode):
+    """
+    Initializes the PyVista plotter based on mode and display preferences.
+    """
+    if mode == "dynamic":
+        off_screen = False
+    else: off_screen = True
+    return pv.Plotter(off_screen=off_screen)
+
+
+def take_screenshots(plotter, structure_ID, structure_name, ID_processed_path):
+    """
+    Takes four perspective screenshots and saves them.
+    """
+    angles = {'0_front': 90, '1_right': 180, '2_back': 270, '3_left': 360}
+    plotter.view_xz()
+    plotter.camera.elevation = 30
+
+    for label, angle in angles.items():
+        screenshot_path = os.path.join(ID_processed_path, f"screenshot_{structure_ID}_{structure_name}_{label}.jpg")
+        plotter.screenshot(screenshot_path)
+        plotter.camera.azimuth = angle
+        plotter.render()  # Render the structure again
+        #print(f"'{screenshot_path}' created")
+
+
+def get_structure_name(structure_ID, config_dict):
+    """
+    Fetches the structure name, handling missing IDs gracefully.
+    """
+    return config_dict.get(structure_ID, "NO_ID")
+
+
+def get_data_structures_path():
+    """
+    Retrieve the path to the 'structures' folder inside 'data'.
+    """
     current_path = os.path.dirname(__file__)
     parent_path = os.path.abspath(os.path.join(current_path, os.pardir))
     main_path = os.path.abspath(os.path.join(parent_path, os.pardir))
-    data_path = os.path.join(main_path, "data")
-    return data_path
+    data_structures_path = os.path.join(main_path, "data", "structures")
+    return data_structures_path
+
 
 def create_terrain():
     """
@@ -16,8 +83,8 @@ def create_terrain():
     """
     block_type = "cwcmod:cwc_gray_rn"
     blocks = [create_draw_block(x, 0, z, block_type) for x in range(95, 106) for z in range(94, 105)]
-    save_xml("terrain.xml", blocks)
-    print("XML file 'terrain.xml' created successfully.")
+    save_xml(os.path.join(data_structures_path, "terrain.xml"), blocks)
+    print(f"XML file 'terrain.xml' successfully created at `{data_structures_path}`.")
 
 
 def create_draw_block(x, y, z, block_type):
@@ -28,15 +95,15 @@ def create_draw_block(x, y, z, block_type):
     return ET.tostring(draw_block, encoding="utf-8").decode("utf-8")
 
 
-def save_xml(filename, content):
+def save_xml(filepath, content):
     """
     Saves XML content to a file.
     """
-    with open(filename, "w") as file:
+    with open(filepath, "w") as file:
         file.write("\n".join(content))
 
 
-def load_and_create_dataframe(structure_ID, structure_name, render_terrain, processed_folder_path, save=False):
+def load_and_create_dataframe(structure_ID, structure_name, render_terrain, ID_processed_path, save="save"):
     """
     Combines terrain and structure XML data, parses it into a DataFrame, and optionally saves it.
     """
@@ -52,8 +119,8 @@ def load_and_create_dataframe(structure_ID, structure_name, render_terrain, proc
 
     combined_content = combine_xml(terrain_content, structure_content, render_terrain)
     structure_df = parse_xml_to_dataframe(combined_content)
-    if save:
-        save_dataframe(structure_df, structure_ID, structure_name, processed_folder_path)
+    if save == "save":
+        save_dataframe(structure_df, structure_ID, structure_name, ID_processed_path)
 
     return structure_df
 
@@ -62,7 +129,7 @@ def ensure_terrain_file():
     """
     Ensures the terrain file exists, creating it if necessary.
     """
-    terrain_path = os.path.join(os.path.dirname(__file__), "terrain.xml")
+    terrain_path = os.path.join(data_structures_path, "terrain.xml")
     if not os.path.exists(terrain_path):
         print("Creating 'terrain.xml'...")
         create_terrain()
@@ -73,7 +140,7 @@ def get_structure_path(structure_ID):
     """
     Returns the path to the target structure XML file.
     """
-    return os.path.join(os.path.dirname(__file__), "gold-configurations", f"{structure_ID}.xml")
+    return os.path.join(data_structures_path, "gold-configurations", f"{structure_ID}.xml")
 
 
 def load_file(file_path):
@@ -126,4 +193,5 @@ def save_dataframe(structure_df, structure_ID, structure_name, processed_path):
     structure_df.to_json(filename, orient="records", indent=4)
     #print(f"File '{filename}' created successfully.")
 
-main_data_path = get_main_data_path()
+
+data_structures_path = get_data_structures_path()
