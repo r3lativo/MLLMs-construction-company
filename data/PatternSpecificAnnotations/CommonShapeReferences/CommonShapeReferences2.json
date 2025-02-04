@@ -1,0 +1,144 @@
+{
+    "dialogue": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello again builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we will start using green blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i need you to build 4 green blocks straight from where you are standing, all on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now i need you to put a green block on either side of the second existing block, on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "so on the middle blocks?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "they need to be attached to the same block, preferable to the one closer to you",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "so it looks like a cross",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now, i need you to place a block diagonal from one of those new blocks, in the forward direction",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like a cactus?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now we are done with the green",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "can you place a red block above the 4 greens with a space in between the green line and the new block?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "just need 1 block space in between the green and the new red block",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh i see",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes like that",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now can you place 4 yellow blocks on each flat side of the red block?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "its a flower!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes it is, you are very observant builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "to finish, we need 4 orange blocks to fill in the corners of the 3x3 head of the flower",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder, we have successfully completed our mission!",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        }
+    ]
+}
