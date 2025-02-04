@@ -1,6 +1,7 @@
 import json
 import sys
 
+
 def parse_and_convert(txt_file, json_file):
     dialogue = []
     
@@ -11,7 +12,7 @@ def parse_and_convert(txt_file, json_file):
     for line in mod_content.split("\n"):
         line = line.strip()
         if not line:
-            continue 
+            continue
         
         if ":" in line:
             speaker, text = line.split(":", 1)
@@ -20,7 +21,7 @@ def parse_and_convert(txt_file, json_file):
     with open(json_file, 'w', encoding='utf-8') as file:
         json.dump({"dialogue": dialogue}, file, indent=4, ensure_ascii=False)  # Convert txt to JSON
 
-    print(f"Dialogue parsed and converted!")
+    print("Dialogue parsed and converted!")
 
 parse_and_convert(sys.argv[1], sys.argv[2])
 
