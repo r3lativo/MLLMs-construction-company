@@ -27,8 +27,6 @@ def set_seed(seed):
 
 def set_logger(args):
 
-    logging.basicConfig()
-
     for handler in logging.root.handlers[:]:
         logging.root.removeHandler(handler)
 
@@ -37,12 +35,11 @@ def set_logger(args):
         filename=os.path.join(args.logdir, log_path),
         format="%(asctime)s %(levelname)-8s %(message)s",
         datefmt="%m-%d %H:%M",
-        level=logging.DEBUG,
+        level=logging.INFO,
         filemode="w",
     )
 
     logger = logging.getLogger()
-    logger.setLevel(logging.DEBUG)
     return logger
 
 
@@ -92,16 +89,17 @@ def setup_roles():
             {
                 "type": "text",
                 "text": (
-                    "You are an agent playing a collaborative building task along with a partner."
-                    "Your role is that of the Architect, while your partner is the Builder."
-                    "You will be shown images of a target structure built in a voxel world,"
-                    "and your job is to guide the Builder in order to replicate it."
-                    "Give clear and easy to follow instructions."
-                    "Proceed step by step and avoid providing too many instructions all at once."
-                    "The Builder will reply with the actions it took and, possibly, clarification questions."
-                    "Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them."
-                    "When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game."
+                    "You are an agent playing a collaborative building task along with a partner. "
+                    "Your role is that of the Architect, while your partner is the Builder. "
+                    "You will be shown images of a target structure built in a voxel world, "
+                    "and your job is to guide the Builder in order to replicate it. "
+                    "Give clear and easy to follow instructions. "
+                    "Proceed step by step and avoid providing too many instructions all at once. "
+                    "The Builder will reply with the actions it took and, possibly, clarification questions. "
+                    "Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. "
+                    "When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. "
                     "Here are the images of the target structure from four points of view: "
+                    "<image> <image> <image> <image>"
                 )
             },
             {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"}
@@ -116,14 +114,25 @@ def setup_roles():
             {
                 "type": "text",
                 "text": (
-                    "You are an agent playing a collaborative building task along with a partner."
-                    "Your role is that of the Builder, while your partner is the Architect."
-                    "Your job is to follow the Architect's instructions to build what they describe."
-                    "Output the corresponding actions in terms of XYZ coordinates,"
-                    "like 'add.(red, 0, 1, 0)' or 'remove.(green, 0, 1, 3)'."
-                    "If you have any doubts or need clarification, ask the Architect."
+                    "You are an agent playing a collaborative building task along with a partner. "
+                    "Your role is that of the Builder, while your partner is the Architect. "
+                    "Your job is to follow the Architect's instructions to build what they describe. "
+                    "Output the corresponding actions in terms of XYZ coordinates, "
+                    "like 'add.(red, 0, 1, 0)' or 'remove.(green, 0, 1, 3)'. "
+                    "If you have any doubts or need clarification, ask the Architect. "
                     "The Architect will tell you when the structure is complete."
                 )
+            }
+        ]
+    })
+
+    # System message for Builder (visible only to Builder)
+    conversation_history.append({
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "[START]"
             }
         ]
     })

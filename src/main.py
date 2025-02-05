@@ -37,12 +37,6 @@ def generate_response(model, processor, conversation, role_name, images=None, ma
     
     # Build the prompt using the processor's chat template.
     prompt = processor.apply_chat_template(filtered_conversation, add_generation_prompt=True)
-    
-    if images is not None:
-        # Ensure that there is one <image> token per image.
-        image_placeholders = " ".join(["<image>"] * len(images))
-        # Here, we prepend the image placeholders. Adjust as needed for your template.
-        prompt = image_placeholders + "\n" + prompt
 
     inputs = processor(
         images=images,
@@ -52,11 +46,11 @@ def generate_response(model, processor, conversation, role_name, images=None, ma
     ).to(model.device)
     
     generate_ids = model.generate(**inputs, max_new_tokens=max_new_tokens)
-    output = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+    output = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
     
     # Minimal cleanup to remove special tokens (adjust as needed)
-    response_text = output.replace("[INST]", "").replace("[/INST]", "").strip()
-    return response_text
+    #response_text = output.replace("[INST]", "").replace("[/INST]", "").strip()
+    return output
 
 
 def load_structure(structure_id):
@@ -100,9 +94,9 @@ if __name__ == "__main__":
 
     # Arguments in plain English
     plain_args = (
-        f"Architect: {args.model_id_A}, Builder: {args.model_id_B}\n"
-        f"Device: {args.device}, Quantization: {args.quantization}\n"
-        f"Max new tokens: {args.max_new_tokens}, Temperature: {args.temperature}\n"   
+        f"Architect: {args.model_id_A}, Builder: {args.model_id_B}, "
+        f"Device: {args.device}, Quantization: {args.quantization}, "
+        f"Max new tokens: {args.max_new_tokens}, Temperature: {args.temperature}"   
     )
     logger.info(plain_args)
 
@@ -124,28 +118,16 @@ if __name__ == "__main__":
 
         # ----- Architect's Turn -----
         # For the first turn, pass the images; later turns might not require images.
-        if current_round == 0:
-            # Generate a response for Model A.
-            #generate_response(model, processor, conversation, role_name, images=None, max_new_tokens=128)
-            modelA_response = generate_response(
-                model=model_A,
-                processor=processor_A,
-                conversation=conversation_history,
-                role_name="Architect",
-                images=s_images_list,
-                max_new_tokens=args.max_new_tokens
-            )
-
         modelA_response = generate_response(
             model=model_A,
             processor=processor_A,
             conversation=conversation_history,
             role_name="Architect",
-            images=None,
+            images=s_images_list if current_round == 0 else None,
             max_new_tokens=args.max_new_tokens
         )
 
-        logger.info("Architect:", modelA_response)
+        logger.info("Architect: %s", modelA_response)
 
         # Append Architect's response to the conversation history.
         conversation_history.append({
@@ -170,7 +152,7 @@ if __name__ == "__main__":
             max_new_tokens=200
         )
 
-        logger.info("Builder:", modelB_response)
+        logger.info("Builder: %s", modelB_response)
 
         # Append Builder's response to the conversation history.
         conversation_history.append({
