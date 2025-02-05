@@ -14,7 +14,7 @@ def get_args():
     parser.add_argument("--model_id_B", type=str, default="llava-hf/llava-v1.6-mistral-7b-hf")
     parser.add_argument("--quantization", type=int, default=4)
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
-    parser.add_argument("--logdir", type=str, required=False, default="../logs/", help="Log directory path")
+    parser.add_argument("--logdir", type=str, required=False, default="../results/", help="Log directory path")
     parser.add_argument("--max_new_tokens", type=int, default=128)
     parser.add_argument("--temperature", type=float, default=0.1)
     parser.add_argument("--max_rounds", type=int, default=10)
@@ -43,16 +43,25 @@ def load_structure(structure_id):
     # Load the structure JSON
     try:
         json_path = os.path.join(structure_path, f"{structure_id}.json")
-        structure_json = json.load(open(json_path, "r"))
+        s_json = json.load(open(json_path, "r"))
     except FileNotFoundError:
         raise FileNotFoundError(f"Structure {structure_id} not found.")
     
+    s_images_list = []
+
     # Load the images
-    #TODO
-
-    # RETURN json, [list of images]
-    #TODO
-
+    for filename in os.listdir(structure_path):
+        # Check if the file has a JPG or JPEG extension (case insensitive)
+        if filename.lower().endswith(('.jpg', '.jpeg')):
+            img_path = os.path.join(structure_path, filename)
+            try:
+                # Open the image file using PIL
+                img = Image.open(img_path)
+                s_images_list.append(img)
+            except IOError:
+                raise IOError(f"Warning: Could not open image {img_path}")
+    
+    return s_json, s_images_list
 
 
 
@@ -78,8 +87,7 @@ if __name__ == "__main__":
     
     
     # LOAD IMAGES FROM STRUCTURE
-    # TODO
-    structure_json, structure_images = load_structure(args.structure_id)
+    s_json, s_images_list = load_structure(args.structure_id)
 
     # Initialize conversation loop
     current_round = 0
@@ -95,7 +103,7 @@ if __name__ == "__main__":
             processor=processor_A,
             conversation=conversation_history,
             role_name="Architect",
-            images=structure_images,
+            images=s_images_list,
             max_new_tokens=args.max_new_tokens
         )
 
