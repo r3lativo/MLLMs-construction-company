@@ -1,7 +1,7 @@
 import argparse
 import os
 from natsort import natsorted
-from renderer_utils import *
+from render_utils import *
 
 
 def get_args():
