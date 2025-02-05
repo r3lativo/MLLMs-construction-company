@@ -1,7 +1,21 @@
 import argparse
 import os
 from natsort import natsorted
-from utils import *
+from renderer_utils import *
+
+
+def get_args():
+    parser = argparse.ArgumentParser(description="Render a 3D structure from XML files")
+    parser.add_argument("-m", "--mode", default="dynamic", choices=["dynamic", "circular", "create_data"],
+                        help="Dynamic interactive view / Circular view and screenshots / Process data inside 'gold-configurations'")
+    parser.add_argument("-i", "--ID_structure", default="C1",
+                        help="Structure ID to render")
+    parser.add_argument("-t", "--render_terrain", default="render", choices=["render", "skip"],
+                        help="Whether to render terrain or skip it (structure only)")
+    parser.add_argument("-s", "--save_JSON", default="temp", choices=["save", "temp"],
+                        help="Save JSON to file")
+    args = parser.parse_args()
+    return args
 
 
 def handle_structure_data(structure_ID, structure_name, mode, gold_processed_path):
@@ -68,16 +82,7 @@ def main():
     """
     Entry point for rendering and processing 3D structures based on arguments provided by the user.
     """
-    parser = argparse.ArgumentParser(description="Render a 3D structure from XML files")
-    parser.add_argument("-m", "--mode", default="dynamic", choices=["dynamic", "circular", "create_data"],
-                        help="Dynamic interactive view / Circular view and screenshots / Process data inside 'gold-configurations'")
-    parser.add_argument("-i", "--ID_structure", default="C1",
-                        help="Structure ID to render")
-    parser.add_argument("-t", "--render_terrain", default="render", choices=["render", "skip"],
-                        help="Whether to render terrain or skip it (structure only)")
-    parser.add_argument("-s", "--save_JSON", default="temp", choices=["save", "temp"],
-                        help="Save JSON to file")
-    args = parser.parse_args()
+    args = get_args()
 
     # Paths
     gold_configurations_path = os.path.join(data_structures_path, "gold-configurations")

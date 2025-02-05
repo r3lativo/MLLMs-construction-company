@@ -71,8 +71,7 @@ def get_data_structures_path():
     Constructs and returns the path to the 'structures' folder in 'data'.
     """
     current_path = os.path.dirname(__file__)
-    parent_path = os.path.abspath(os.path.join(current_path, os.pardir))
-    main_path = os.path.abspath(os.path.join(parent_path, os.pardir))
+    main_path = os.path.abspath(os.path.join(current_path, os.pardir))
     data_structures_path = os.path.join(main_path, "data", "structures")
     return data_structures_path
 
