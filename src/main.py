@@ -24,13 +24,39 @@ def get_args():
     return args
 
 
-def generate_response():
-    #FILTER CONVERSATION
+def generate_response(model, processor, conversation, role_name, images=None, max_new_tokens=128):
+    """
+    Generates a response for the given model using the (filtered) conversation history.
+    
+    - Filters out system messages that are not intended for the current model.
+    - role_name should be the current model's identifier (e.g., "Architect" or "Builder").
+    """
 
-    # BUILD THE PROMPT USING THE PROCESSOR's CHAT TEMPLATE
+    # Filter conversation for the current model.
+    filtered_conversation = filter_conversation(conversation, target_model=role_name)
+    
+    # Build the prompt using the processor's chat template.
+    prompt = processor.apply_chat_template(filtered_conversation, add_generation_prompt=True)
+    
+    if images is not None:
+        # Ensure that there is one <image> token per image.
+        image_placeholders = " ".join(["<image>"] * len(images))
+        # Here, we prepend the image placeholders. Adjust as needed for your template.
+        prompt = image_placeholders + "\n" + prompt
 
-    # MAKE IT MODULAR TO HAVE IMAGES OR NOT!!!!
-    pass
+    inputs = processor(
+        images=images,
+        text=prompt,
+        padding=True,
+        return_tensors="pt"
+    ).to(model.device)
+    
+    generate_ids = model.generate(**inputs, max_new_tokens=max_new_tokens)
+    output = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+    
+    # Minimal cleanup to remove special tokens (adjust as needed)
+    response_text = output.replace("[INST]", "").replace("[/INST]", "").strip()
+    return response_text
 
 
 def load_structure(structure_id):
@@ -98,12 +124,24 @@ if __name__ == "__main__":
 
         # ----- Architect's Turn -----
         # For the first turn, pass the images; later turns might not require images.
+        if current_round == 0:
+            # Generate a response for Model A.
+            #generate_response(model, processor, conversation, role_name, images=None, max_new_tokens=128)
+            modelA_response = generate_response(
+                model=model_A,
+                processor=processor_A,
+                conversation=conversation_history,
+                role_name="Architect",
+                images=s_images_list,
+                max_new_tokens=args.max_new_tokens
+            )
+
         modelA_response = generate_response(
             model=model_A,
             processor=processor_A,
             conversation=conversation_history,
             role_name="Architect",
-            images=s_images_list,
+            images=None,
             max_new_tokens=args.max_new_tokens
         )
 
