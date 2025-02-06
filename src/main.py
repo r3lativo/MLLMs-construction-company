@@ -17,14 +17,14 @@ def get_args():
     parser.add_argument("--logdir", type=str, required=False, default="../results/", help="Log directory path")
     parser.add_argument("--max_new_tokens", type=int, default=128)
     parser.add_argument("--temperature", type=float, default=0.1)
-    parser.add_argument("--max_rounds", type=int, default=10)
+    parser.add_argument("--max_rounds", type=int, default=5)
     parser.add_argument("--init_seed", type=int, default=0, help="Random seed")
     parser.add_argument("--structure_id", type=str, required=True)
     args = parser.parse_args()
     return args
 
 
-def generate_response(model, processor, conversation, role_name, images=None, max_new_tokens=128):
+def generate_response(model, processor, conversation, target_name, images=None, max_new_tokens=128):
     """
     Generates a response for the given model using the (filtered) conversation history.
     
@@ -33,7 +33,7 @@ def generate_response(model, processor, conversation, role_name, images=None, ma
     """
 
     # Filter conversation for the current model.
-    filtered_conversation = filter_conversation(conversation, target_model=role_name)
+    filtered_conversation = filter_conversation(conversation, target_model=target_name)
     
     # Build the prompt using the processor's chat template.
     prompt = processor.apply_chat_template(filtered_conversation, add_generation_prompt=True)
@@ -123,16 +123,15 @@ if __name__ == "__main__":
             model=model_A,
             processor=processor_A,
             conversation=conversation_history,
-            role_name="Architect",
+            target_name="Architect",
             images=s_images_list if current_round == 0 else None,
             max_new_tokens=args.max_new_tokens
         )
-
-        logger.info("Architect: %s", modelA_response)
+        logger.info(f"[ARCHITECT] {modelA_response}")
 
         # Append Architect's response to the conversation history.
         conversation_history.append({
-            "role": "assistant",
+            "role": "user",
             "content": [
                 {"type": "text", "text": modelA_response}
             ]
@@ -148,16 +147,15 @@ if __name__ == "__main__":
             model=model_B,
             processor=processor_B,
             conversation=conversation_history,
-            role_name="Builder",
+            target_name="Builder",
             images=None,
             max_new_tokens=args.max_new_tokens
         )
-
-        logger.info("Builder: %s", modelB_response)
+        logger.info(f"[BUILDER] {modelB_response}")
 
         # Append Builder's response to the conversation history.
         conversation_history.append({
-            "role": "assistant",
+            "role": "user",
             "content": [
                 {"type": "text", "text": modelB_response}
             ]

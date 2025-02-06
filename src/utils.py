@@ -66,7 +66,8 @@ def initialize_model(model_id, device, quantization):
         quantization_config = None
 
     # Load Processor and Model from id
-    processor = LlavaNextProcessor.from_pretrained(model_id)
+    processor = LlavaNextProcessor.from_pretrained(model_id,
+                                                   use_fast=True)  # Processor for images
     model = LlavaNextForConditionalGeneration.from_pretrained(
         model_id,
         quantization_config=quantization_config,
@@ -118,8 +119,9 @@ def setup_roles():
                     "Your role is that of the Builder, while your partner is the Architect. "
                     "Your job is to follow the Architect's instructions to build what they describe. "
                     "Output the corresponding actions in terms of XYZ coordinates, "
-                    "like 'add.(red, 0, 1, 0)' or 'remove.(green, 0, 1, 3)'. "
+                    "like 'add(red, [0, 1, 0])' or 'remove(green, [0, 1, 3])'. "
                     "If you have any doubts or need clarification, ask the Architect. "
+                    "Actions are!!!!"
                     "The Architect will tell you when the structure is complete."
                 )
             }
