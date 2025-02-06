@@ -83,9 +83,10 @@ def setup_roles():
 
     # System message for Architect (visible only to Architect)
     conversation_history.append({
-        "role": "system",
+        "role": "user",
         "target": "Architect",
         "content": [
+            {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"},
             {
                 "type": "text",
                 "text": (
@@ -99,16 +100,15 @@ def setup_roles():
                     "Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. "
                     "When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. "
                     "Here are the images of the target structure from four points of view: "
-                    "<image> <image> <image> <image>"
                 )
             },
-            {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"}
+            
         ]
     })
 
     # System message for Builder (visible only to Builder)
     conversation_history.append({
-        "role": "system",
+        "role": "user",
         "target": "Builder",
         "content": [
             {
@@ -150,8 +150,8 @@ def filter_conversation(conversation, target_model):
     """
     filtered = []
     for message in conversation:
-        if message["role"] == "system":
-            # If a system message has a "target" field, only include it if it matches the Architectt hand.
+        if message["role"] == "user":
+            # If a system message has a "target" field, only include it if it matches the role at hand.
             if "target" in message:
                 if message["target"] == target_model:
                     # Rewrite the message without the "target" key.

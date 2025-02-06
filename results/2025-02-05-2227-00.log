@@ -1,3 +1,0 @@
-02-05 22:27 INFO     Architect: llava-hf/llava-v1.6-mistral-7b-hf, Builder: llava-hf/llava-v1.6-mistral-7b-hf, Device: cuda, Quantization: 4, Max new tokens: 128, Temperature: 0.1
-02-05 22:27 INFO     Initializing models...
-02-05 22:27 INFO     ===== Round 1 =====

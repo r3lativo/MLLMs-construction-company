@@ -34,6 +34,7 @@ def generate_response(model, processor, conversation, role_name, images=None, ma
 
     # Filter conversation for the current model.
     filtered_conversation = filter_conversation(conversation, target_model=role_name)
+    print(filtered_conversation)
     
     # Build the prompt using the processor's chat template.
     prompt = processor.apply_chat_template(filtered_conversation, add_generation_prompt=True)
@@ -104,10 +105,11 @@ if __name__ == "__main__":
     logger.info("Initializing models...")
     model_A, processor_A = initialize_model(args.model_id_A, args.device, args.quantization)
     model_B, processor_B = initialize_model(args.model_id_B, args.device, args.quantization)
-    
+    logger.info("Models initialized")
     
     # LOAD IMAGES FROM STRUCTURE
     s_json, s_images_list = load_structure(args.structure_id)
+    logger.info(f"JSON and images loaded from {args.structure_id}")
 
     # Initialize conversation loop
     current_round = 0
@@ -131,7 +133,7 @@ if __name__ == "__main__":
 
         # Append Architect's response to the conversation history.
         conversation_history.append({
-            "role": "Architect",
+            "role": "assistant",
             "content": [
                 {"type": "text", "text": modelA_response}
             ]
@@ -149,14 +151,14 @@ if __name__ == "__main__":
             conversation=conversation_history,
             role_name="Builder",
             images=None,
-            max_new_tokens=200
+            max_new_tokens=args.max_new_tokens
         )
 
         logger.info("Builder: %s", modelB_response)
 
         # Append Builder's response to the conversation history.
         conversation_history.append({
-            "role": "Builder",
+            "role": "assistant",
             "content": [
                 {"type": "text", "text": modelB_response}
             ]
