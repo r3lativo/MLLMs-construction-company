@@ -34,7 +34,6 @@ def generate_response(model, processor, conversation, role_name, images=None, ma
 
     # Filter conversation for the current model.
     filtered_conversation = filter_conversation(conversation, target_model=role_name)
-    print(filtered_conversation)
     
     # Build the prompt using the processor's chat template.
     prompt = processor.apply_chat_template(filtered_conversation, add_generation_prompt=True)
@@ -51,7 +50,7 @@ def generate_response(model, processor, conversation, role_name, images=None, ma
     
     # Minimal cleanup to remove special tokens (adjust as needed)
     #response_text = output.replace("[INST]", "").replace("[/INST]", "").strip()
-    return output
+    return output[0].split("[/INST]")[-1]
 
 
 def load_structure(structure_id):
