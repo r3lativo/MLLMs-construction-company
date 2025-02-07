@@ -1,0 +1,7 @@
+02-07 16:51 INFO     Model: llava-hf/llava-v1.6-mistral-7b-hf, Quantization: 4, Device: cuda, Max new tokens: 2048, Max rounds: 5
+02-07 16:51 INFO     Initializing models...
+02-07 16:51 INFO     Models initialized
+02-07 16:51 INFO     ===== Round 1 =====
+02-07 16:54 INFO     ===== Round 2 =====
+02-07 16:54 INFO     Finishing conversation as indicated by Architect.
+02-07 16:54 INFO     Conversation ended.
