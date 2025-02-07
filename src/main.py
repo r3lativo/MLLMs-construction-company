@@ -1,5 +1,4 @@
 import torch
-from PIL import Image
 import argparse
 from utils import *
 import json
@@ -15,8 +14,7 @@ def get_args():
     parser.add_argument("--quantization", type=int, default=4)
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--logdir", type=str, required=False, default="../results/", help="Log directory path")
-    parser.add_argument("--max_new_tokens", type=int, default=128)
-    parser.add_argument("--temperature", type=float, default=0.1)
+    parser.add_argument("--max_new_tokens", type=int, default=512)
     parser.add_argument("--max_rounds", type=int, default=5)
     parser.add_argument("--init_seed", type=int, default=0, help="Random seed")
     parser.add_argument("--structure_id", type=str, required=True)
@@ -45,70 +43,54 @@ def generate_response(model, processor, conversation, target_name, images=None, 
         return_tensors="pt"
     ).to(model.device)
     
-    generate_ids = model.generate(**inputs, max_new_tokens=max_new_tokens)
-    output = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
+    generate_ids = model.generate(**inputs,
+                                  do_sample=False,     # Deterministic generation
+                                  max_new_tokens=max_new_tokens)
+    output = processor.batch_decode(generate_ids,
+                                    skip_special_tokens=True,
+                                    clean_up_tokenization_spaces=False)
     
-    # Minimal cleanup to remove special tokens (adjust as needed)
-    #response_text = output.replace("[INST]", "").replace("[/INST]", "").strip()
-    return output[0].split("[/INST]")[-1]
+    parsed = output[0].split("[/INST] ")[-1]
 
-
-def load_structure(structure_id):
-    # Where the rendered structures are
-    gold_processed_path = "../data/structures/gold-processed"
-
-    # Construct the path to the structure
-    structure_path = os.path.join(gold_processed_path, structure_id)
-
-    # Load the structure JSON
-    try:
-        json_path = os.path.join(structure_path, f"{structure_id}.json")
-        s_json = json.load(open(json_path, "r"))
-    except FileNotFoundError:
-        raise FileNotFoundError(f"Structure {structure_id} not found.")
-    
-    s_images_list = []
-
-    # Load the images
-    for filename in os.listdir(structure_path):
-        # Check if the file has a JPG or JPEG extension (case insensitive)
-        if filename.lower().endswith(('.jpg', '.jpeg')):
-            img_path = os.path.join(structure_path, filename)
-            try:
-                # Open the image file using PIL
-                img = Image.open(img_path)
-                s_images_list.append(img)
-            except IOError:
-                raise IOError(f"Warning: Could not open image {img_path}")
-    
-    return s_json, s_images_list
-
+    # Since [INST] and [/INST] are NOT single tokens (i.e., they are processede like '['+'/'+'INST'+'])
+    # the model picks it up and understands that when [/ is happening, there is a switch of role.
+    # The model then tries to force the switch of role and complete the task on its own (lol).
+    if "[/" in parsed:
+        #Truncate at the point of the unwanted token
+        parsed = parsed.split("[/")[0]
+        
+    return parsed
 
 
 if __name__ == "__main__":
 
-    args = get_args()  # Get arguments from the parser
-    mkdirs(args.logdir)  # Create directory to save log
-    logger = set_logger(args)  # Set the logger
-    set_seed(args.init_seed)  # Set seed
+    # Get arguments from the parser
+    args = get_args()
+
+    # Create directory to save log, if needed
+    mkdirs(args.logdir)  
+
+    # Load structure
+    combo_id, s_json, s_images_list = load_structure(args.structure_id)
+
+    # Set the logger and store the time
+    log_time, logger = set_logger(args, combo_id)
+
+    # Set random seed
+    set_seed(args.init_seed)
 
     # Arguments in plain English
     plain_args = (
         f"Architect: {args.model_id_A}, Builder: {args.model_id_B}, "
         f"Device: {args.device}, Quantization: {args.quantization}, "
-        f"Max new tokens: {args.max_new_tokens}, Temperature: {args.temperature}"   
+        f"Max new tokens: {args.max_new_tokens}"   
     )
     logger.info(plain_args)
 
     # Initialize models
     logger.info("Initializing models...")
-    model_A, processor_A = initialize_model(args.model_id_A, args.device, args.quantization)
-    model_B, processor_B = initialize_model(args.model_id_B, args.device, args.quantization)
+    model_A, model_B, processor = initialize_model(args.model_id_A, args.device, args.quantization)
     logger.info("Models initialized")
-    
-    # LOAD IMAGES FROM STRUCTURE
-    s_json, s_images_list = load_structure(args.structure_id)
-    logger.info(f"JSON and images loaded from {args.structure_id}")
 
     # Initialize conversation loop
     current_round = 0
@@ -121,13 +103,13 @@ if __name__ == "__main__":
         # For the first turn, pass the images; later turns might not require images.
         modelA_response = generate_response(
             model=model_A,
-            processor=processor_A,
+            processor=processor,
             conversation=conversation_history,
             target_name="Architect",
             images=s_images_list if current_round == 0 else None,
             max_new_tokens=args.max_new_tokens
         )
-        logger.info(f"[ARCHITECT] {modelA_response}")
+        print(f"[ARCHITECT]: {modelA_response}")
 
         # Append Architect's response to the conversation history.
         conversation_history.append({
@@ -145,13 +127,13 @@ if __name__ == "__main__":
         # ----- Builder's Turn -----
         modelB_response = generate_response(
             model=model_B,
-            processor=processor_B,
+            processor=processor,
             conversation=conversation_history,
             target_name="Builder",
             images=None,
             max_new_tokens=args.max_new_tokens
         )
-        logger.info(f"[BUILDER] {modelB_response}")
+        print(f"[BUILDER]: {modelB_response}")
 
         # Append Builder's response to the conversation history.
         conversation_history.append({
@@ -164,3 +146,6 @@ if __name__ == "__main__":
         current_round += 1
 
     logger.info("Conversation ended.")
+
+    with open(f"../results/{log_time}_{combo_id}.json", "w") as file:
+        json.dump(conversation_history, file, indent=4)  # indent=4 makes it pretty printed (optional)

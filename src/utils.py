@@ -7,6 +7,9 @@ from transformers import (
     LlavaNextForConditionalGeneration,
     BitsAndBytesConfig
     )
+import json
+from PIL import Image
+import pandas as pd
 
 
 def mkdirs(dirpath):
@@ -25,12 +28,14 @@ def set_seed(seed):
         torch.cuda.manual_seed(seed)
 
 
-def set_logger(args):
+def set_logger(args, combo_id):
 
     for handler in logging.root.handlers[:]:
         logging.root.removeHandler(handler)
-
-    log_path = f"{datetime.datetime.now().strftime('%Y-%m-%d-%H%M-%S')}.log"
+    
+    log_time = datetime.datetime.now().strftime('%Y-%m-%d-%H%M-%S')
+    
+    log_path = f"{log_time}_{combo_id}.log"
     logging.basicConfig(
         filename=os.path.join(args.logdir, log_path),
         format="%(asctime)s %(levelname)-8s %(message)s",
@@ -40,7 +45,7 @@ def set_logger(args):
     )
 
     logger = logging.getLogger()
-    return logger
+    return log_time, logger
 
 
 def initialize_model(model_id, device, quantization):
@@ -67,14 +72,21 @@ def initialize_model(model_id, device, quantization):
 
     # Load Processor and Model from id
     processor = LlavaNextProcessor.from_pretrained(model_id,
-                                                   use_fast=True)  # Processor for images
-    model = LlavaNextForConditionalGeneration.from_pretrained(
+                                                   padding_side="left")  
+    model_A = LlavaNextForConditionalGeneration.from_pretrained(
         model_id,
         quantization_config=quantization_config,
         torch_dtype=torch.float16,
         low_cpu_mem_usage=True,
     ).to(device)
-    return model, processor
+
+    model_B = LlavaNextForConditionalGeneration.from_pretrained(
+        model_id,
+        quantization_config=quantization_config,
+        torch_dtype=torch.float16,
+        low_cpu_mem_usage=True,
+    ).to(device)
+    return model_A, model_B, processor
 
 
 def setup_roles():
@@ -115,14 +127,20 @@ def setup_roles():
             {
                 "type": "text",
                 "text": (
-                    "You are an agent playing a collaborative building task along with a partner. "
+                    'You are an agent playing a collaborative building task along with a partner. '
                     "Your role is that of the Builder, while your partner is the Architect. "
                     "Your job is to follow the Architect's instructions to build what they describe. "
-                    "Output the corresponding actions in terms of XYZ coordinates, "
-                    "like 'add(red, [0, 1, 0])' or 'remove(green, [0, 1, 3])'. "
-                    "If you have any doubts or need clarification, ask the Architect. "
-                    "Actions are!!!!"
-                    "The Architect will tell you when the structure is complete."
+
+                    'You are in a voxel world, '
+                    'where the most northernly point is 0,0,-5; the most westerly point -5,0,0; '
+                    'the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, '
+                    'with y=0 being the minimum. '
+                    'Describe the coordinates of the blocks **you want to interact with** and their colours '
+                    '(must be one of: blue, yellow, green, orange, purple, red) and whether the action is '
+                    'to add or remove them, your confidence in your interpretation of the instruction and optionally '
+                    'a question if the instruction is potentially unclear, in the JSON format: '
+                    '{"add": [[x,y,z,"color"], ...], "remove": [[x,y,z,"color"], ...], "confidence": 0.0, "question": "..."}. '
+                    'Give the JSON only, no additional dialog.'
                 )
             }
         ]
@@ -165,3 +183,47 @@ def filter_conversation(conversation, target_model):
             filtered.append(message)
     return filtered
 
+
+def load_structure(structure_id):
+    # Where the rendered structures are
+    gold_processed_path = "../data/structures/gold-processed"
+    lookup_file = "../data/structures/configs-to-names.txt"
+
+    df = pd.read_csv(lookup_file, sep="\t", header=None, names=["code", "name"])
+    df["combined"] = df["code"] + "_" + df["name"]
+
+    # Check if the query matches any of the three columns.
+    matched_row = df[(df["code"] == structure_id) |
+                     (df["name"] == structure_id) |
+                     (df["combined"] == structure_id)]
+    if not matched_row.empty:
+        # Return the combined value from the first match.
+        combo_id = matched_row.iloc[0]["combined"]
+    else:
+        raise FileNotFoundError(f"'{structure_id}' is incorrect.")
+
+    # Construct the path to the structure
+    structure_path = os.path.join(gold_processed_path, combo_id)
+
+    # Load the structure JSON
+    try:
+        json_path = os.path.join(structure_path, f"{combo_id}.json")
+        s_json = json.load(open(json_path, "r"))
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Structure {combo_id} not found.")
+    
+    s_images_list = []
+
+    # Load the images
+    for filename in os.listdir(structure_path):
+        # Check if the file has a JPG or JPEG extension (case insensitive)
+        if filename.lower().endswith(('.jpg', '.jpeg')):
+            img_path = os.path.join(structure_path, filename)
+            try:
+                # Open the image file using PIL
+                img = Image.open(img_path)
+                s_images_list.append(img)
+            except IOError:
+                raise IOError(f"Warning: Could not open image {img_path}")
+    
+    return combo_id, s_json, s_images_list
