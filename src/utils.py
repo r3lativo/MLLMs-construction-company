@@ -13,10 +13,8 @@ import pandas as pd
 
 
 def mkdirs(dirpath):
-    try:
-        os.makedirs(dirpath)
-    except Exception:
-        pass
+    try: os.makedirs(dirpath)
+    except Exception: pass
 
 
 def set_seed(seed):
@@ -24,20 +22,18 @@ def set_seed(seed):
     Random seed to ensure reproducibility
     """
     torch.manual_seed(seed)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed(seed)
+    if torch.cuda.is_available(): torch.cuda.manual_seed(seed)
 
 
 def set_logger(args, combo_id):
 
-    for handler in logging.root.handlers[:]:
-        logging.root.removeHandler(handler)
+    for handler in logging.root.handlers[:]: logging.root.removeHandler(handler)
     
     log_time = datetime.datetime.now().strftime('%Y-%m-%d-%H%M-%S')
     
     log_path = f"{log_time}_{combo_id}.log"
     logging.basicConfig(
-        filename=os.path.join(args.logdir, log_path),
+        filename=os.path.join(args.results_dir, log_path),
         format="%(asctime)s %(levelname)-8s %(message)s",
         datefmt="%m-%d %H:%M",
         level=logging.INFO,
@@ -68,6 +64,7 @@ def initialize_model(model_id, device, quantization):
             bnb_4bit_quant_type="nf4"              # The quantization type, e.g. "nf4" or "fp4"
         )
     else:
+        print("Quantization has to either be 2 or 4.\n Quantization set to None.")
         quantization_config = None
 
     # Load Processor and Model from id

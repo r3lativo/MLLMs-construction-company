@@ -9,12 +9,11 @@ def get_args():
     Argument parser
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_id_A", type=str, default="llava-hf/llava-v1.6-mistral-7b-hf")
-    parser.add_argument("--model_id_B", type=str, default="llava-hf/llava-v1.6-mistral-7b-hf")
+    parser.add_argument("--model_id", type=str, default="llava-hf/llava-v1.6-mistral-7b-hf")
     parser.add_argument("--quantization", type=int, default=4)
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
-    parser.add_argument("--logdir", type=str, required=False, default="../results/", help="Log directory path")
-    parser.add_argument("--max_new_tokens", type=int, default=512)
+    parser.add_argument("--results_dir", type=str, required=False, default="../results/", help="Results directory path")
+    parser.add_argument("--max_new_tokens", type=int, default=2048)
     parser.add_argument("--max_rounds", type=int, default=5)
     parser.add_argument("--init_seed", type=int, default=0, help="Random seed")
     parser.add_argument("--structure_id", type=str, required=True)
@@ -58,7 +57,7 @@ def generate_response(model, processor, conversation, target_name, images=None, 
     if "[/" in parsed:
         #Truncate at the point of the unwanted token
         parsed = parsed.split("[/")[0]
-        
+
     return parsed
 
 
@@ -68,7 +67,7 @@ if __name__ == "__main__":
     args = get_args()
 
     # Create directory to save log, if needed
-    mkdirs(args.logdir)  
+    mkdirs(args.results_dir)  
 
     # Load structure
     combo_id, s_json, s_images_list = load_structure(args.structure_id)
@@ -81,32 +80,32 @@ if __name__ == "__main__":
 
     # Arguments in plain English
     plain_args = (
-        f"Architect: {args.model_id_A}, Builder: {args.model_id_B}, "
-        f"Device: {args.device}, Quantization: {args.quantization}, "
-        f"Max new tokens: {args.max_new_tokens}"   
+        f"Model: {args.model_id}, Quantization: {args.quantization}, Device: {args.device}, "
+        f"Max new tokens: {args.max_new_tokens}, Max rounds: {args.max_rounds}"   
     )
     logger.info(plain_args)
 
     # Initialize models
     logger.info("Initializing models...")
-    model_A, model_B, processor = initialize_model(args.model_id_A, args.device, args.quantization)
+    model_A, model_B, processor = initialize_model(args.model_id, args.device, args.quantization)
     logger.info("Models initialized")
 
     # Initialize conversation loop
     current_round = 0
     conversation_history = setup_roles()
 
+
+    ########## Conversation Loop ##########
     while current_round < args.max_rounds:
         logger.info(f"===== Round {current_round + 1} =====")
 
-        # ----- Architect's Turn -----
-        # For the first turn, pass the images; later turns might not require images.
+        ########## Architect's Turn ##########
         modelA_response = generate_response(
             model=model_A,
             processor=processor,
             conversation=conversation_history,
             target_name="Architect",
-            images=s_images_list if current_round == 0 else None,
+            images=s_images_list if current_round == 0 else None,  # Pass images only in first turn
             max_new_tokens=args.max_new_tokens
         )
         print(f"[ARCHITECT]: {modelA_response}")
@@ -124,7 +123,8 @@ if __name__ == "__main__":
             logger.info("Finishing conversation as indicated by Architect.")
             break
 
-        # ----- Builder's Turn -----
+
+        ########## Builder's Turn ##########
         modelB_response = generate_response(
             model=model_B,
             processor=processor,
@@ -145,7 +145,10 @@ if __name__ == "__main__":
 
         current_round += 1
 
+    ########## End Conversation ##########
     logger.info("Conversation ended.")
 
+    # Save conversation into JSON file
     with open(f"../results/{log_time}_{combo_id}.json", "w") as file:
         json.dump(conversation_history, file, indent=4)  # indent=4 makes it pretty printed (optional)
+    
