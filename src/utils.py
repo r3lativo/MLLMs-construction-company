@@ -69,6 +69,7 @@ def initialize_model(model_id, device, quantization):
 
     # Load Processor and Model from id
     processor = LlavaNextProcessor.from_pretrained(model_id,
+                                                   use_fast=True,
                                                    padding_side="left")  
     model_A = LlavaNextForConditionalGeneration.from_pretrained(
         model_id,
@@ -100,15 +101,16 @@ def setup_roles():
             {
                 "type": "text",
                 "text": (
-                    "You are an expert Architect working on a collaborative task in a voxel world with the Builder. "
-                    "You have four high-resolution images showing the target structure from front, back, left, and right. "
-                    "The Builder has no access to the target structure images. "
-                    "Guide the Builder with clear, step-by-step instructions and limit directives to one at a time. "
-                    "The voxel world is bounded by these coordinates: north (0,0,94), south (0,0,104), "
-                    "west (95,0,0), east (105,0,0), with the y-axis representing height (y=0 is ground level). "
-                    "The Builder will reply with a JSON with the actions it took and, possibly, a chat text. "
-                    "Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. "
-                    "When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. "
+                "You are an agent playing a collaborative building task along with a partner. "
+                "Your role is that of the Architect, while your partner is the Builder. "
+                "You will be shown images of a target structure built in a voxel world, "
+                "and your job is to guide the Builder in order to replicate it. "
+                "The Builder has no access to the target structure. "
+                "Give clear and easy to follow instructions. "
+                "Proceed step by step and avoid providing too many instructions all at once. "
+                "The Builder will reply with the actions it took and, possibly, clarification questions. "
+                "Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. "
+                "When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. "
                 )
             },
         ]
@@ -123,17 +125,20 @@ def setup_roles():
             {
                 "type": "text",
                 "text": (
-                    "You are an expert Builder working on a collaborative task in a voxel world with the Architect. "
-                    "Follow instructions carefully. Your goal is to replicate the target structure as described by the Architect, "
-                    "step by step. The voxel world is bounded by these coordinates: north (0,0,94), south (0,0,104), "
-                    "west (95,0,0), east (105,0,0), with the y-axis representing height (y=0 is ground level). "
-                    "IMPORTANT: Each action must add or remove exactly one block at a specific coordinate. "
-                    "Ensure that every coordinate is specified using integers only (e.g., 2, not 2.5). "
-                    "When acting, provide your moves in JSON format that lists block coordinates, actions, and "
-                    "chosen colors. Valid colors are: blue, yellow, green, orange, purple, and red. "
-                    "Include your confidence level (from 0.0 to 1.0) and, optionally, communicate with the \"chat\" parameter. "
-                    "Example format: {\"add\": [[x,y,z,\"color\"]], \"remove\": [[x,y,z,\"color\"]], "
-                    "\"confidence\": 0.0, \"chat\": \"...\"}. Do not add any extra dialogue."
+                    'You are an agent playing a collaborative building task along with a partner. '
+                    "Your role is that of the Builder, while your partner is the Architect. "
+                    "Your job is to follow the Architect's instructions to build what they describe. "
+
+                    'You are in a voxel world, '
+                    'where the most northernly point is 0,0,-5; the most westerly point -5,0,0; '
+                    'the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, '
+                    'with y=0 being the minimum. '
+                    'Describe the coordinates of the blocks you want to interact with and their colours '
+                    '(must be one of: blue, yellow, green, orange, purple, red) and whether the action is '
+                    'to add or remove them, your confidence in your interpretation of the instruction and optionally '
+                    'a question if the instruction is potentially unclear, in the JSON format: '
+                    '{"add": [[x,y,z,"color"], ...], "remove": [[x,y,z,"color"], ...], "confidence": 0.0, "question": "..."}. '
+                    'Give the JSON only, no additional dialog.'
                 )
             }
         ]

@@ -44,6 +44,7 @@ def generate_response(model, processor, conversation, target_name, images=None, 
     
     generate_ids = model.generate(**inputs,
                                   do_sample=False,     # Deterministic generation
+                                  pad_token_id=processor.tokenizer.eos_token_id,  # explicitly setting pad_token_id
                                   max_new_tokens=max_new_tokens)
     output = processor.batch_decode(generate_ids,
                                     skip_special_tokens=True,
@@ -110,6 +111,10 @@ if __name__ == "__main__":
         )
         print(f"[ARCHITECT]: {modelA_response}")
 
+        # Ensure at least 2 rounds
+        if "[FINISH]" in modelA_response and current_round < 2:
+            modelA_response.replace("[FINISH]", "")
+
         # Append Architect's response to the conversation history.
         conversation_history.append({
             "role": "user",
@@ -122,6 +127,7 @@ if __name__ == "__main__":
         if "[FINISH]" in modelA_response:
             logger.info("Finishing conversation as indicated by Architect.")
             break
+        
 
 
         ########## Builder's Turn ##########
