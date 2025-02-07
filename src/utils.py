@@ -100,18 +100,7 @@ def setup_roles():
             {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"},
             {
                 "type": "text",
-                "text": (
-                "You are an agent playing a collaborative building task along with a partner. "
-                "Your role is that of the Architect, while your partner is the Builder. "
-                "You will be shown images of a target structure built in a voxel world, "
-                "and your job is to guide the Builder in order to replicate it. "
-                "The Builder has no access to the target structure. "
-                "Give clear and easy to follow instructions. "
-                "Proceed step by step and avoid providing too many instructions all at once. "
-                "The Builder will reply with the actions it took and, possibly, clarification questions. "
-                "Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. "
-                "When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. "
-                )
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Architect, while your partner is the Builder. You will be shown images of a target structure built in a voxel world, and your job is to guide the Builder in order to replicate it. Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. Here are the images of the target structure from four points of view: "
             },
         ]
     })
@@ -124,22 +113,7 @@ def setup_roles():
         "content": [
             {
                 "type": "text",
-                "text": (
-                    'You are an agent playing a collaborative building task along with a partner. '
-                    "Your role is that of the Builder, while your partner is the Architect. "
-                    "Your job is to follow the Architect's instructions to build what they describe. "
-
-                    'You are in a voxel world, '
-                    'where the most northernly point is 0,0,-5; the most westerly point -5,0,0; '
-                    'the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, '
-                    'with y=0 being the minimum. '
-                    'Describe the coordinates of the blocks you want to interact with and their colours '
-                    '(must be one of: blue, yellow, green, orange, purple, red) and whether the action is '
-                    'to add or remove them, your confidence in your interpretation of the instruction and optionally '
-                    'a question if the instruction is potentially unclear, in the JSON format: '
-                    '{"add": [[x,y,z,"color"], ...], "remove": [[x,y,z,"color"], ...], "confidence": 0.0, "question": "..."}. '
-                    'Give the JSON only, no additional dialog.'
-                )
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Builder, while your partner is the Architect. Your job is to follow the Architect's instructions to build what they describe. You are in a voxel world, where the most northernly point is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks **you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, red) and whether the action is to add or remove them, your confidence in your interpretation of the instruction and optionally a question if the instruction is potentially unclear, in the JSON format: {\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, \"question\": \"...\"}. Give the JSON only, no additional dialog."
             }
         ]
     })

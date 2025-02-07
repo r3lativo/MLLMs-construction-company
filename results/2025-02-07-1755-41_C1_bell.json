@@ -1,0 +1,106 @@
+[
+    {
+        "role": "user",
+        "target": "Architect",
+        "content": [
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Architect, while your partner is the Builder. You will be shown images of a target structure built in a voxel world, and your job is to guide the Builder in order to replicate it. Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. Here are the images of the target structure from four points of view: "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "target": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Builder, while your partner is the Architect. Your job is to follow the Architect's instructions to build what they describe. You are in a voxel world, where the most northernly point is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks **you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, red) and whether the action is to add or remove them, your confidence in your interpretation of the instruction and optionally a question if the instruction is potentially unclear, in the JSON format: {\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, \"question\": \"...\"}. Give the JSON only, no additional dialog."
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "[START]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Alright, let's start building the target structure. From the top-down view, it looks like we have a base that is a 3x3 grid. We'll need to build up from there.\n\nFor the base, we'll need to place blocks in the following pattern:\n- The top left corner should be purple.\n- The top right corner should be green.\n- The bottom left corner should be gray.\n- The bottom right corner should be red.\n\nOnce you have the base set up, we can start building the structure. Let me know when you have the base set up, and we'll move on to the next step. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[\"-1,0,0\",\"purple\"],[\"4,0,0\",\"green\"],[\"-1,2,0\",\"gray\"],[\"4,2,0\",\"red\"]], \"confidence\": 1.0} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great job on the base! Now, let's move on to the next step.\n\nFrom the side view, we can see that there are two columns of blocks. The left column should be purple, and the right column should be green. The top of each column should be gray, and the bottom of each column should be red.\n\nPlease let me know when you have completed this step, and we'll move on to the next one. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[\"-1,0,0\",\"purple\"],[\"4,0,0\",\"green\"],[\"-1,2,0\",\"gray\"],[\"4,2,0\",\"red\"],[\"-1,1,0\",\"purple\"],[\"4,1,0\",\"green\"],[\"-1,3,0\",\"gray\"],[\"4,3,0\",\"red\"]], \"confidence\": 1.0} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Excellent! You have successfully built the second layer of the structure.\n\nNow, let's move on to the top layer. From the front view, we can see that the top layer is made up of purple and green blocks. The purple blocks should be placed in the following pattern:\n- The top left corner should be purple.\n- The top right corner should be green.\n- The bottom left corner should be purple.\n- The bottom right corner should be green.\n\nPlease let me know when you have completed this step, and we'll move on to the final step. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[\"-1,0,0\",\"purple\"],[\"4,0,0\",\"green\"],[\"-1,2,0\",\"gray\"],[\"4,2,0\",\"red\"],[\"-1,1,0\",\"purple\"],[\"4,1,0\",\"green\"],[\"-1,3,0\",\"gray\"],[\"4,3,0\",\"red\"],[\"-1,4,0\",\"purple\"],[\"4,4,0\",\"green\"],[\"-1,5,0\",\"purple\"],[\"4,5,0\",\"green\"]], \"confidence\": 1.0} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great job! You have successfully built the entire structure.\n\n[FINISH] "
+            }
+        ]
+    }
+]

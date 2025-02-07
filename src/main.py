@@ -109,11 +109,12 @@ if __name__ == "__main__":
             images=s_images_list if current_round == 0 else None,  # Pass images only in first turn
             max_new_tokens=args.max_new_tokens
         )
-        print(f"[ARCHITECT]: {modelA_response}")
-
+        
         # Ensure at least 2 rounds
         if "[FINISH]" in modelA_response and current_round < 2:
-            modelA_response.replace("[FINISH]", "")
+            modelA_response = modelA_response.replace("[FINISH]", "")
+        
+        print(f"[ARCHITECT]: {modelA_response}")
 
         # Append Architect's response to the conversation history.
         conversation_history.append({
