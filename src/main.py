@@ -17,6 +17,11 @@ def get_args():
     parser.add_argument("--max_rounds", type=int, default=5)
     parser.add_argument("--init_seed", type=int, default=0, help="Random seed")
     parser.add_argument("--structure_id", type=str, required=True)
+
+    #TODO
+    parser.add_argument("--input", type=str, default="img_only", choices=["img_only", "img_json"], help="The kind of multimodal input.")
+    parser.add_argument("--shot", type=str, default="zero", choices=["zero", "one"], help="Present or not a conversation example.")
+    # IMPLEMENT MAX ROUNDS FROM STRUCTURE LOG?
     args = parser.parse_args()
     return args
 
