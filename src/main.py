@@ -12,26 +12,26 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_id", type=str, default="llava-hf/llava-v1.6-mistral-7b-hf")
     parser.add_argument("--n_models", type=int, default=2, choices=[1,2])
-    parser.add_argument("--quantization", type=int, default=4, choices=[4,8])
+    parser.add_argument("-q,", "--quantization", type=int, default=4, choices=[4,8])
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--results_dir", type=str, required=False, default="../results/", help="Results directory path")
     parser.add_argument("--max_new_tokens", type=int, default=2048)
     parser.add_argument("--max_rounds", type=int, default=5)
     parser.add_argument("--init_seed", type=int, default=0, help="Random seed")
     parser.add_argument("--structure_id", type=str, required=True)
+    parser.add_argument("-rp", "--repetition_penalty", type=float, default=1.1)
 
     parser.add_argument("--img", type=bool, default=False)
     parser.add_argument('--use_img', dest='img', action='store_true')
     parser.add_argument("--json", type=bool, default=False)
     parser.add_argument('--use_json', dest='json', action='store_true')
-
-    #TODO
-    parser.add_argument("--shot", type=str, default="zero", choices=["zero", "one"], help="Present or not a conversation example.")
+    parser.add_argument("--shot", type=bool, default=False)
+    parser.add_argument('--oneshot', dest='shot', action='store_true')
     args = parser.parse_args()
     return args
 
 
-def generate_response(model, processor, conversation, target_name, images=None, max_new_tokens=128):
+def generate_response(model, processor, conversation, target_name, images=None, max_new_tokens=2048, rep_penalty=1.1):
     """
     Generates a response for the given model using the (filtered) conversation history.
     
@@ -49,17 +49,21 @@ def generate_response(model, processor, conversation, target_name, images=None, 
         images=images,
         text=prompt,
         padding=True,
-        return_tensors="pt"
+        return_tensors="pt",
     ).to(model.device)
     
-    generate_ids = model.generate(**inputs,
-                                  do_sample=False,     # Deterministic generation
-                                  pad_token_id=processor.tokenizer.eos_token_id,  # explicitly setting pad_token_id
-                                  max_new_tokens=max_new_tokens,
-                                  repetition_penalty=1.1)  # Avoid infinite loops
-    output = processor.batch_decode(generate_ids,
-                                    skip_special_tokens=True,
-                                    clean_up_tokenization_spaces=False)
+    generate_ids = model.generate(
+        **inputs,
+        do_sample=False,                                # Deterministic generation
+        pad_token_id=processor.tokenizer.eos_token_id,  # explicitly setting pad_token_id
+        max_new_tokens=max_new_tokens,
+        repetition_penalty=rep_penalty                  # Avoid infinite loops
+    )  
+    output = processor.batch_decode(
+        generate_ids,
+        skip_special_tokens=True,
+        clean_up_tokenization_spaces=False
+    )
     
     parsed = output[0].split("[/INST] ")[-1]
 
@@ -69,6 +73,11 @@ def generate_response(model, processor, conversation, target_name, images=None, 
     if "[/" in parsed:
         #Truncate at the point of the unwanted token
         parsed = parsed.split("[/")[0]
+    
+    #roles = ["[ARCHITECT]", "[BUILDER]"]
+    #for r in roles:
+    #    if r in parsed:
+    #        parsed = parsed.split(r)[0]
 
     return parsed
 
@@ -87,6 +96,11 @@ if __name__ == "__main__":
 
     # Load structure
     combo_id, json_text, images_list = load_structure(args.structure_id)
+
+    # Load one shot images
+    if args.shot:
+        one_shot_images = load_one_shot()
+        images_list.extend(one_shot_images)
 
     # Set the logger and store the time
     log_time, logger = set_logger(args, combo_id)
@@ -119,6 +133,7 @@ if __name__ == "__main__":
 
     while current_round < args.max_rounds:
         logger.info(f"===== Round {current_round + 1} =====")
+        print(f"===== Round {current_round + 1} =====")
 
         ########## Architect's Turn ##########
         modelA_response = generate_response(
@@ -127,14 +142,15 @@ if __name__ == "__main__":
             conversation=conversation_history,
             target_name="Architect",
             images=images_list if current_round == 0 else None,  # Pass images only in first turn
-            max_new_tokens=args.max_new_tokens
+            max_new_tokens=args.max_new_tokens,
+            rep_penalty=args.repetition_penalty
         )
         
         # Ensure at least 2 rounds
         if "[FINISH]" in modelA_response and current_round < 2:
             modelA_response = modelA_response.replace("[FINISH]", "")
         
-        print(f"[ARCHITECT]: {modelA_response}")
+        print(f"##### ARCHITECT #####\n{modelA_response}\n")
 
         # Append Architect's response to the conversation history.
         conversation_history.append({
@@ -156,10 +172,11 @@ if __name__ == "__main__":
             processor=processor,
             conversation=conversation_history,
             target_name="Builder",
-            images=None,
-            max_new_tokens=args.max_new_tokens
+            images=one_shot_images if current_round == 0 and args.shot else None,
+            max_new_tokens=args.max_new_tokens,
+            rep_penalty=args.repetition_penalty
         )
-        print(f"[BUILDER]: {modelB_response}")
+        print(f"##### BUILDER #####\n{modelB_response}\n")
 
         # Append Builder's response to the conversation history.
         conversation_history.append({

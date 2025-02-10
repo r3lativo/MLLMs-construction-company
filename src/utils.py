@@ -73,19 +73,19 @@ def initialize_model(model_id, device, q):
 
     return model
 
-
-def setup_roles(use_img, use_json, shot, json_text):
+def build_arch_prompt(use_img, use_json, json_text):
+    """
+    Build the prompt for the Architect given image or JSON optionals.
+    Returns the conversation history with the new chat text appended.
+    """
 
     img_prompt = "images of a target structure built in a voxel world, "
     json_prompt = "a JSON text file representing the target structure, "
 
-    # Use the "target" field in system messages to restrict visibility.
-    conversation_history = []
-
     ### Prompt for the Architect ###
     # IMG AND JSON
     if use_img and use_json:
-        conversation_history.append({
+        arch_prompt = {
             "role": "user",
             "target": "Architect",
             "content": [
@@ -110,10 +110,10 @@ def setup_roles(use_img, use_json, shot, json_text):
                         )
                 },
             ]
-        })
+        }
     # JSON ONLY
     elif use_json:
-        conversation_history.append({
+        arch_prompt = {
             "role": "user",
             "target": "Architect",
             "content": [
@@ -137,10 +137,10 @@ def setup_roles(use_img, use_json, shot, json_text):
                         )
                 },
             ]
-        })
+        }
     # IMG ONLY
     else:
-        conversation_history.append({
+        arch_prompt = {
             "role": "user",
             "target": "Architect",
             "content": [
@@ -163,8 +163,58 @@ def setup_roles(use_img, use_json, shot, json_text):
                         )
                 },
             ]
-        })
-    
+        }
+
+    return arch_prompt
+
+
+def setup_roles(use_img, use_json, shot, json_text):
+    """
+    Initialize the conversation by setting up the roles for Architect and Builder.
+    """
+
+    conversation_history = []
+
+    ### Prompt for the Architect
+    architect_prompt = build_arch_prompt(use_img, use_json, json_text)
+    conversation_history.append(architect_prompt)
+
+    # If one-shot, add an example
+    if shot:
+        one_shot_text = {
+        "role": "user",
+        "content": [
+                # Description and gold
+                {"type": "text", "text": "Here is also an example of a task completed by two humans. You will see the images of the gold configuration and images of the structure being built.\n[EXAMPLE]\n"},
+                {"type": "image"},
+                {"type": "text", "text": (
+                                            'hello\n'
+                                            '{"feedback": "hello"}\n'
+                                            'are u rdy to get to work?\n'
+                                            '{"feedback": "yes"}\n'
+                                            'ok\nbuild a 2x1 structure that is blue\n'
+                                            '{"feedback": "is the structure extending upwards?"}\n'
+                                            'no, it goes across\n'
+                                        )},
+                {"type": "image"},
+                {"type": "image"},
+                {"type": "text", "text": (
+                                            # ADD ACTION???
+                                            '{"feedback": "is that good?"}\n'
+                                            'now place 1 blue piece on the left block extending upwards\n'
+                                            'yes that is correct\n'
+                                        )},
+                {"type": "image"},
+                {"type": "text", "text": '{"feedback": "like that?"}\n'},
+                {"type": "image"},
+                {"type": "text", "text": (
+                                            'yes, now it is finished\n'
+                                            '{"feedback": "good job!}\n'
+                                            'you too builder\n[/EXAMPLE]'
+                                        )}
+            ],
+        }
+        conversation_history.append(one_shot_text)
 
     ### Prompt for Builder ###
     conversation_history.append({
@@ -182,9 +232,10 @@ def setup_roles(use_img, use_json, shot, json_text):
                         "and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks "
                         "**you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, "
                         "red) and whether the action is to add or remove them, your confidence in your interpretation of the "
-                        "instruction and optionally a question if the instruction is potentially unclear, in the JSON format: "
+                        #"instruction and optionally a question if the instruction is potentially unclear, in the JSON format: "
+                        "instruction and textual feedback, in the JSON format: "
                         "{\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, "
-                        "\"question\": \"...\"}. Give the JSON only, no additional dialog."
+                        "\"feedback\": \"...\"}. Give the JSON only, no additional dialog."
                     )
             }
         ]
@@ -272,3 +323,23 @@ def load_structure(structure_id):
                 raise IOError(f"Warning: Could not open image {img_path}")
     
     return combo_id, json_text, s_images_list
+
+
+def load_one_shot():
+
+    one_path = "../data/minecraft_corpus/one_shot"
+    one_shot_images = []
+
+    # Load the images
+    for filename in os.listdir(one_path):
+        # Check if the file has a JPG or JPEG extension (case insensitive)
+        if filename.lower().endswith(('.png')):
+            img_path = os.path.join(one_path, filename)
+        try:
+            # Open the image file using PIL
+            img = Image.open(img_path)
+            one_shot_images.append(img)
+        except IOError:
+            raise IOError(f"Warning: Could not open image {img_path}")
+    
+    return one_shot_images
