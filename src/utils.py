@@ -44,82 +44,154 @@ def set_logger(args, combo_id):
     return log_time, logger
 
 
-def initialize_model(model_id, device, quantization):
+def initialize_model(model_id, device, q):
     """
     Initialize model
     """
     # Quantization
-    if quantization == 2:
-        quantization_config = BitsAndBytesConfig(
-            load_in_2bit=True,
-            bnb_2bit_compute_dtype=torch.float16,  # The compute dtype for 2-bit operations
-            bnb_2bit_use_double_quant=True,        # Whether to use double quantization (optional)
-            bnb_2bit_quant_type="nf4"              # The quantization type, e.g. "nf4" or "fp4"
-        )
-    elif quantization == 4:
+    if q == 4:
         quantization_config = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_compute_dtype=torch.float16,  # The compute dtype for 4-bit operations
             bnb_4bit_use_double_quant=True,        # Whether to use double quantization (optional)
             bnb_4bit_quant_type="nf4"              # The quantization type, e.g. "nf4" or "fp4"
         )
+    elif q == 8:
+         quantization_config = BitsAndBytesConfig(
+            load_in_8bit=True,
+         )
     else:
-        print("Quantization has to either be 2 or 4.\n Quantization set to None.")
         quantization_config = None
 
-    # Load Processor and Model from id
-    processor = LlavaNextProcessor.from_pretrained(model_id,
-                                                   use_fast=True,
-                                                   padding_side="left")  
-    model_A = LlavaNextForConditionalGeneration.from_pretrained(
+    model = LlavaNextForConditionalGeneration.from_pretrained(
         model_id,
         quantization_config=quantization_config,
         torch_dtype=torch.float16,
         low_cpu_mem_usage=True,
-    ).to(device)
+        device_map=device,
+    )
 
-    model_B = LlavaNextForConditionalGeneration.from_pretrained(
-        model_id,
-        quantization_config=quantization_config,
-        torch_dtype=torch.float16,
-        low_cpu_mem_usage=True,
-    ).to(device)
-    return model_A, model_B, processor
+    return model
 
 
-def setup_roles():
+def setup_roles(use_img, use_json, shot, json_text):
+
+    img_prompt = "images of a target structure built in a voxel world, "
+    json_prompt = "a JSON text file representing the target structure, "
 
     # Use the "target" field in system messages to restrict visibility.
     conversation_history = []
 
-    # System message for Architect (visible only to Architect)
-    conversation_history.append({
-        "role": "user",
-        "target": "Architect",
-        "content": [
-            {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"},
-            {
-                "type": "text",
-                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Architect, while your partner is the Builder. You will be shown images of a target structure built in a voxel world, and your job is to guide the Builder in order to replicate it. Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. Here are the images of the target structure from four points of view: "
-            },
-        ]
-    })
+    ### Prompt for the Architect ###
+    # IMG AND JSON
+    if use_img and use_json:
+        conversation_history.append({
+            "role": "user",
+            "target": "Architect",
+            "content": [
+                {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"},
+                {
+                    "type": "text",
+                    "text":
+                        (
+                            "You are an agent playing a collaborative building task along with a partner. "
+                            "Your role is that of the Architect, while your partner is the Builder. You will be shown "
+                            "images of a target structure built in a voxel world, "
+                            f"{img_prompt}and {json_prompt}"
+                            "and your job is to guide the Builder "
+                            "in order to replicate it. Give clear and easy to follow instructions. Proceed step by step "
+                            "and avoid providing too many instructions all at once. The Builder will reply with the "
+                            "actions it took and, possibly, clarification questions. Acknowledge the Builder's actions "
+                            "and feedback in order to understand whether they are on the right track or not and to help "
+                            "them. When you think that the Builder correctly completed the structure, output '[FINISH]' "
+                            "to trigger the end of the game. Here are the images of the target structure from four points of view and "
+                            "the JSON text:\n"
+                            f"{json_text}"
+                        )
+                },
+            ]
+        })
+    # JSON ONLY
+    elif use_json:
+        conversation_history.append({
+            "role": "user",
+            "target": "Architect",
+            "content": [
+                {
+                    "type": "text",
+                    "text":
+                        (
+                            "You are an agent playing a collaborative building task along with a partner. "
+                            "Your role is that of the Architect, while your partner is the Builder. You will be shown "
+                            "images of a target structure built in a voxel world, "
+                            f"{json_prompt}"
+                            "and your job is to guide the Builder "
+                            "in order to replicate it. Give clear and easy to follow instructions. Proceed step by step "
+                            "and avoid providing too many instructions all at once. The Builder will reply with the "
+                            "actions it took and, possibly, clarification questions. Acknowledge the Builder's actions "
+                            "and feedback in order to understand whether they are on the right track or not and to help "
+                            "them. When you think that the Builder correctly completed the structure, output '[FINISH]' "
+                            "to trigger the end of the game. Here is "
+                            "the JSON text:\n"
+                            f"{json_text}"
+                        )
+                },
+            ]
+        })
+    # IMG ONLY
+    else:
+        conversation_history.append({
+            "role": "user",
+            "target": "Architect",
+            "content": [
+                {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"},
+                {
+                    "type": "text",
+                    "text":
+                        (
+                            "You are an agent playing a collaborative building task along with a partner. "
+                            "Your role is that of the Architect, while your partner is the Builder. You will be shown "
+                            "images of a target structure built in a voxel world, "
+                            f"{img_prompt}"
+                            "and your job is to guide the Builder "
+                            "in order to replicate it. Give clear and easy to follow instructions. Proceed step by step "
+                            "and avoid providing too many instructions all at once. The Builder will reply with the "
+                            "actions it took and, possibly, clarification questions. Acknowledge the Builder's actions "
+                            "and feedback in order to understand whether they are on the right track or not and to help "
+                            "them. When you think that the Builder correctly completed the structure, output '[FINISH]' "
+                            "to trigger the end of the game. Here are the images of the target structure from four points of view: "
+                        )
+                },
+            ]
+        })
+    
 
-
-        # System message for Builder (visible only to Builder)
+    ### Prompt for Builder ###
     conversation_history.append({
         "role": "user",
         "target": "Builder",
         "content": [
             {
                 "type": "text",
-                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Builder, while your partner is the Architect. Your job is to follow the Architect's instructions to build what they describe. You are in a voxel world, where the most northernly point is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks **you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, red) and whether the action is to add or remove them, your confidence in your interpretation of the instruction and optionally a question if the instruction is potentially unclear, in the JSON format: {\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, \"question\": \"...\"}. Give the JSON only, no additional dialog."
+                "text": 
+                    ( 
+                        "You are an agent playing a collaborative building task along with a partner. Your role is "
+                        "that of the Builder, while your partner is the Architect. Your job is to follow the Architect's "
+                        "instructions to build what they describe. You are in a voxel world, where the most northernly point "
+                        "is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 "
+                        "and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks "
+                        "**you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, "
+                        "red) and whether the action is to add or remove them, your confidence in your interpretation of the "
+                        "instruction and optionally a question if the instruction is potentially unclear, in the JSON format: "
+                        "{\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, "
+                        "\"question\": \"...\"}. Give the JSON only, no additional dialog."
+                    )
             }
         ]
     })
 
 
-    # System message for Builder (visible only to Builder)
+    ### Start ##
     conversation_history.append({
         "role": "user",
         "content": [
@@ -181,7 +253,7 @@ def load_structure(structure_id):
     # Load the structure JSON
     try:
         json_path = os.path.join(structure_path, f"{combo_id}.json")
-        s_json = json.load(open(json_path, "r"))
+        json_text = json.load(open(json_path, "r"))
     except FileNotFoundError:
         raise FileNotFoundError(f"Structure {combo_id} not found.")
     
@@ -199,4 +271,4 @@ def load_structure(structure_id):
             except IOError:
                 raise IOError(f"Warning: Could not open image {img_path}")
     
-    return combo_id, s_json, s_images_list
+    return combo_id, json_text, s_images_list

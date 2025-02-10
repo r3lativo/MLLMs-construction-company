@@ -1,0 +1,9 @@
+02-10 16:15 INFO     Model: llava-hf/llava-v1.6-mistral-7b-hf, Quantization: 4-bit, Device: cuda, Number of models: 1, Max new tokens: 2048, Max rounds: 5, Input Image: True, Input JSON: True
+02-10 16:15 INFO     Initializing models...
+02-10 16:15 INFO     Models initialized
+02-10 16:15 INFO     ===== Round 1 =====
+02-10 16:15 INFO     ===== Round 2 =====
+02-10 16:16 INFO     ===== Round 3 =====
+02-10 16:16 INFO     ===== Round 4 =====
+02-10 16:16 INFO     ===== Round 5 =====
+02-10 16:17 INFO     Conversation ended.

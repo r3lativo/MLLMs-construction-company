@@ -1,0 +1,12 @@
+02-10 14:25 INFO     Model: llava-hf/llava-v1.6-mistral-7b-hf, Quantization: 4, Device: cuda, Max new tokens: 2048, Max rounds: 5
+02-10 14:25 INFO     Initializing models...
+02-10 14:25 INFO     We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+02-10 14:25 INFO     We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+02-10 14:25 INFO     Models initialized
+02-10 14:25 INFO     ===== Round 1 =====
+02-10 14:25 INFO     ===== Round 2 =====
+02-10 14:25 INFO     ===== Round 3 =====
+02-10 14:26 INFO     ===== Round 4 =====
+02-10 14:26 INFO     ===== Round 5 =====
+02-10 14:26 INFO     Finishing conversation as indicated by Architect.
+02-10 14:26 INFO     Conversation ended.

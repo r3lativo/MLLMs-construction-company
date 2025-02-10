@@ -2,6 +2,7 @@ import torch
 import argparse
 from utils import *
 import json
+import sys
 
 
 def get_args():
@@ -10,7 +11,8 @@ def get_args():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_id", type=str, default="llava-hf/llava-v1.6-mistral-7b-hf")
-    parser.add_argument("--quantization", type=int, default=4)
+    parser.add_argument("--n_models", type=int, default=2, choices=[1,2])
+    parser.add_argument("--quantization", type=int, default=4, choices=[4,8])
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--results_dir", type=str, required=False, default="../results/", help="Results directory path")
     parser.add_argument("--max_new_tokens", type=int, default=2048)
@@ -18,10 +20,13 @@ def get_args():
     parser.add_argument("--init_seed", type=int, default=0, help="Random seed")
     parser.add_argument("--structure_id", type=str, required=True)
 
+    parser.add_argument("--img", type=bool, default=False)
+    parser.add_argument('--use_img', dest='img', action='store_true')
+    parser.add_argument("--json", type=bool, default=False)
+    parser.add_argument('--use_json', dest='json', action='store_true')
+
     #TODO
-    parser.add_argument("--input", type=str, default="img_only", choices=["img_only", "img_json"], help="The kind of multimodal input.")
     parser.add_argument("--shot", type=str, default="zero", choices=["zero", "one"], help="Present or not a conversation example.")
-    # IMPLEMENT MAX ROUNDS FROM STRUCTURE LOG?
     args = parser.parse_args()
     return args
 
@@ -50,7 +55,8 @@ def generate_response(model, processor, conversation, target_name, images=None, 
     generate_ids = model.generate(**inputs,
                                   do_sample=False,     # Deterministic generation
                                   pad_token_id=processor.tokenizer.eos_token_id,  # explicitly setting pad_token_id
-                                  max_new_tokens=max_new_tokens)
+                                  max_new_tokens=max_new_tokens,
+                                  repetition_penalty=1.1)  # Avoid infinite loops
     output = processor.batch_decode(generate_ids,
                                     skip_special_tokens=True,
                                     clean_up_tokenization_spaces=False)
@@ -72,11 +78,15 @@ if __name__ == "__main__":
     # Get arguments from the parser
     args = get_args()
 
+    # Check that at least one input is chosen
+    if not args.img and not args.json:
+        sys.exit("At least one between the images and the JSON text has to be chosen.\nAdd --use_img or --use_json to your input.")
+
     # Create directory to save log, if needed
     mkdirs(args.results_dir)  
 
     # Load structure
-    combo_id, s_json, s_images_list = load_structure(args.structure_id)
+    combo_id, json_text, images_list = load_structure(args.structure_id)
 
     # Set the logger and store the time
     log_time, logger = set_logger(args, combo_id)
@@ -85,23 +95,28 @@ if __name__ == "__main__":
     set_seed(args.init_seed)
 
     # Arguments in plain English
-    plain_args = (
-        f"Model: {args.model_id}, Quantization: {args.quantization}, Device: {args.device}, "
-        f"Max new tokens: {args.max_new_tokens}, Max rounds: {args.max_rounds}"   
-    )
-    logger.info(plain_args)
+    logger.info(
+        f"Model: {args.model_id}, Quantization: {args.quantization}-bit, "
+        f"Device: {args.device}, Number of models: {args.n_models}, "
+        f"Max new tokens: {args.max_new_tokens}, Max rounds: {args.max_rounds}, "
+        f"Input Image: {args.img}, Input JSON: {args.json}"
+        )
 
-    # Initialize models
+    ### Initialize models ###
     logger.info("Initializing models...")
-    model_A, model_B, processor = initialize_model(args.model_id, args.device, args.quantization)
+    processor = LlavaNextProcessor.from_pretrained(args.model_id, use_fast=True, padding_side="left")
+    model_A = initialize_model(args.model_id, args.device, args.quantization)
+    # The models are separated
+    if args.n_models == 2: model_B = initialize_model(args.model_id, args.device, args.quantization)
+    # The models are the SAME model
+    else: model_B = model_A
     logger.info("Models initialized")
 
-    # Initialize conversation loop
-    current_round = 0
-    conversation_history = setup_roles()
-
-
     ########## Conversation Loop ##########
+    # Conversation with the selected input(s) and one or zero-shot
+    conversation_history = setup_roles(args.img, args.json, args.shot, json_text)
+    current_round = 0
+
     while current_round < args.max_rounds:
         logger.info(f"===== Round {current_round + 1} =====")
 
@@ -111,7 +126,7 @@ if __name__ == "__main__":
             processor=processor,
             conversation=conversation_history,
             target_name="Architect",
-            images=s_images_list if current_round == 0 else None,  # Pass images only in first turn
+            images=images_list if args.img else None,
             max_new_tokens=args.max_new_tokens
         )
         
@@ -134,7 +149,6 @@ if __name__ == "__main__":
             logger.info("Finishing conversation as indicated by Architect.")
             break
         
-
 
         ########## Builder's Turn ##########
         modelB_response = generate_response(
