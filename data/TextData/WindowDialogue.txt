@@ -1,0 +1,42 @@
+Builder: Mission has started.
+Builder: hello. Whats our mission this time?
+Architect: we have a difficult one ahead of us this time builder. bear with me
+Builder: describe the structure?
+Architect: we will start using red blocks. if you recall from our previous mission we built an open 3x3 square as the second level of our "table
+Architect: this shape is now extending upwards instead of laying flat
+Builder: okay
+Architect: sort of like a window
+Builder: can i build anywhere?
+Architect: yes i think that will work
+Architect: now please place a red block on the left and right sides of the window, in the middle of each side
+Builder: these ones?
+Architect: yes place them adjacent to those you just removed
+Architect: perfect
+Architect: the second half of this structure is the same using purple blocks, but oriented differently. i will attempt to start you off step by step though
+Builder: so parallel?
+Builder: or perpendicular?
+Architect: it is attached to our current structure sort of parallel and rotated 90 degrees. anyway please place the first purple block on the rightmost red block
+Builder: is it connected?
+Architect: not quite
+Architect: its as if they were laying side by side and the purple one gets tilted up 90 degrees so it faces the sky
+Builder: oh so its on the ground?
+Architect: we can start off with the first few blocks and you will see soon
+Architect: the first purple block needs to be attached to the rightmost block, so that it hangs in the air and is closer to you
+Builder: here?
+Architect: if you move that block to the other side of that red block so that it is on your side and not just an extension
+Architect: yes
+Builder: is this the arm of the window?
+Architect: nowplease make the open square (window) on top of that new purple block
+Architect: yes it is
+Builder: is this good?
+Architect: ok builder i have bad news but it's an easy fix
+Architect: i gave you the wrong side
+Builder: on the back or other side?
+Architect: if you could do that exact structure so that its on the left side of the red square from where you were standing it will be correct
+Builder: here?
+Architect: yes
+Builder: is this it?
+Architect: good job builder, i am sorry for the incorrect instructions
+Architect: that is correct
+Builder: you did a good job!
+Architect: thank you for being my builder
