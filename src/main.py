@@ -126,7 +126,7 @@ if __name__ == "__main__":
             processor=processor,
             conversation=conversation_history,
             target_name="Architect",
-            images=images_list if args.img else None,
+            images=images_list if current_round == 0 else None,  # Pass images only in first turn
             max_new_tokens=args.max_new_tokens
         )
         
