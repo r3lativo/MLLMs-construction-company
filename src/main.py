@@ -31,7 +31,7 @@ def get_args():
     return args
 
 
-def generate_response(model, processor, conversation, target_name, images=None, max_new_tokens=2048, rep_penalty=1.1):
+def generate_response(model, processor, conversation, target_name, images, max_new_tokens, rep_penalty):
     """
     Generates a response for the given model using the (filtered) conversation history.
     
@@ -117,14 +117,14 @@ if __name__ == "__main__":
         )
 
     ### Initialize models ###
-    logger.info("Initializing models...")
+    logger.info("Initializing model(s)...")
     processor = LlavaNextProcessor.from_pretrained(args.model_id, use_fast=True, padding_side="left")
     model_A = initialize_model(args.model_id, args.device, args.quantization)
     # The models are separated
     if args.n_models == 2: model_B = initialize_model(args.model_id, args.device, args.quantization)
     # The models are the SAME model
     else: model_B = model_A
-    logger.info("Models initialized")
+    logger.info(f"{args.n_models} Model(s) initialized")
 
     ########## Conversation Loop ##########
     # Conversation with the selected input(s) and one or zero-shot
