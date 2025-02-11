@@ -199,13 +199,12 @@ def setup_roles(use_img, use_json, shot, json_text):
                 {"type": "image"},
                 {"type": "image"},
                 {"type": "text", "text": (
-                                            # ADD ACTION???
-                                            '{"feedback": "is that good?"}\n'
+                                            '{"add": [[0,0,-2,\"blue\"], [0,0,-3,\"blue\"]], "feedback": "is that good?"}\n'
                                             'now place 1 blue piece on the left block extending upwards\n'
                                             'yes that is correct\n'
                                         )},
                 {"type": "image"},
-                {"type": "text", "text": '{"feedback": "like that?"}\n'},
+                {"type": "text", "text": '{"add": [[0,1,-2,\"blue\"]], "feedback": "like that?"}\n'},
                 {"type": "image"},
                 {"type": "text", "text": (
                                             'yes, now it is finished\n'
