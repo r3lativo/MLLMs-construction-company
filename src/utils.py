@@ -11,6 +11,9 @@ import json
 from PIL import Image
 import pandas as pd
 
+current_path = os.path.dirname(__file__)
+main_path = os.path.abspath(os.path.join(current_path, os.pardir))
+
 
 def mkdirs(dirpath):
     try: os.makedirs(dirpath)
@@ -31,9 +34,10 @@ def set_logger(args, combo_id):
     
     log_time = datetime.datetime.now().strftime('%Y-%m-%d-%H%M-%S')
     
-    log_path = f"{log_time}_{combo_id}.log"
+    log_file_path = os.path.join(main_path, "results", f"{log_time}_{combo_id}.log")
+    #log_path = f"{log_time}_{combo_id}.log"
     logging.basicConfig(
-        filename=os.path.join(args.results_dir, log_path),
+        filename=log_file_path,
         format="%(asctime)s %(levelname)-8s %(message)s",
         datefmt="%m-%d %H:%M",
         level=logging.INFO,
@@ -87,6 +91,7 @@ def build_arch_prompt(use_img, use_json, json_text):
     if use_img and use_json:
         arch_prompt = {
             "role": "user",
+            "speaker": "system",
             "target": "Architect",
             "content": [
                 {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"},
@@ -115,6 +120,7 @@ def build_arch_prompt(use_img, use_json, json_text):
     elif use_json:
         arch_prompt = {
             "role": "user",
+            "speaker": "system",
             "target": "Architect",
             "content": [
                 {
@@ -142,6 +148,7 @@ def build_arch_prompt(use_img, use_json, json_text):
     else:
         arch_prompt = {
             "role": "user",
+            "speaker": "system",
             "target": "Architect",
             "content": [
                 {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"},
@@ -183,6 +190,7 @@ def setup_roles(use_img, use_json, shot, json_text):
     if shot:
         one_shot_text = {
         "role": "user",
+        "speaker": "system",
         "content": [
                 # Description and gold
                 {"type": "text", "text": "Here is also an example of a task completed by two humans. You will see the images of the gold configuration and images of the structure being built.\n[EXAMPLE]\n"},
@@ -219,6 +227,7 @@ def setup_roles(use_img, use_json, shot, json_text):
     ### Prompt for Builder ###
     conversation_history.append({
         "role": "user",
+        "speaker": "system",
         "target": "Builder",
         "content": [
             {
@@ -245,6 +254,7 @@ def setup_roles(use_img, use_json, shot, json_text):
     ### Start ##
     conversation_history.append({
         "role": "user",
+        "speaker": "system",
         "content": [
             {
                 "type": "text",
@@ -271,10 +281,16 @@ def filter_conversation(conversation, target_model):
             if "target" in message:
                 if message["target"] == target_model:
                     # Rewrite the message without the "target" key.
-                    filtered.append({k: v for k, v in message.items() if k != "target"})
-            # Else just include the message.
+                    new_message = {k: v for k, v in message.items() if k != "target"}
+                    if "speaker" in new_message:
+                        new_message.pop("speaker")  # Remove "speaker" if it exists
+                    filtered.append(new_message)
             else:
-                filtered.append(message)
+                # Create a new dictionary copy to avoid modifying the original
+                new_message = message.copy()
+                if "speaker" in new_message:
+                    new_message.pop("speaker")  # Remove "speaker" only in filtered
+                filtered.append(new_message)
         else:
             filtered.append(message)
     return filtered
@@ -282,8 +298,10 @@ def filter_conversation(conversation, target_model):
 
 def load_structure(structure_id):
     # Where the rendered structures are
-    gold_processed_path = "../data/structures/gold-processed"
-    lookup_file = "../data/structures/configs-to-names.txt"
+    gold_processed_path = os.path.join(main_path, "data", "structures", "gold-processed")
+    #gold_processed_path = "../data/structures/gold-processed"
+    lookup_file = os.path.join(main_path, "data", "structures", "configs-to-names.txt")
+    #lookup_file = "../data/structures/configs-to-names.txt"
 
     df = pd.read_csv(lookup_file, sep="\t", header=None, names=["code", "name"])
     df["combined"] = df["code"] + "_" + df["name"]
@@ -327,7 +345,8 @@ def load_structure(structure_id):
 
 def load_one_shot():
 
-    one_path = "../data/minecraft_corpus/one_shot"
+    one_path = os.path.join(main_path, "data", "minecraft_corpus", "one_shot")
+    #one_path = "../data/minecraft_corpus/one_shot"
     one_shot_images = []
 
     # Load the images
@@ -343,3 +362,8 @@ def load_one_shot():
             raise IOError(f"Warning: Could not open image {img_path}")
     
     return one_shot_images
+
+def save_conversation(conversation_history, json_file):
+    """Saves the conversation dynamically after each change."""
+    with open(json_file, "w") as f:
+        json.dump(conversation_history, f, indent=4)
