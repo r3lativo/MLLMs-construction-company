@@ -87,6 +87,7 @@ def build_arch_prompt(use_img, use_json, json_text):
     if use_img and use_json:
         arch_prompt = {
             "role": "user",
+            "speaker": "system",
             "target": "Architect",
             "content": [
                 {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"},
@@ -115,6 +116,7 @@ def build_arch_prompt(use_img, use_json, json_text):
     elif use_json:
         arch_prompt = {
             "role": "user",
+            "speaker": "system",
             "target": "Architect",
             "content": [
                 {
@@ -142,6 +144,7 @@ def build_arch_prompt(use_img, use_json, json_text):
     else:
         arch_prompt = {
             "role": "user",
+            "speaker": "system",
             "target": "Architect",
             "content": [
                 {"type": "image"}, {"type": "image"}, {"type": "image"}, {"type": "image"},
@@ -183,6 +186,7 @@ def setup_roles(use_img, use_json, shot, json_text):
     if shot:
         one_shot_text = {
         "role": "user",
+        "speaker": "system",
         "content": [
                 # Description and gold
                 {"type": "text", "text": "Here is also an example of a task completed by two humans. You will see the images of the gold configuration and images of the structure being built.\n[EXAMPLE]\n"},
@@ -218,6 +222,7 @@ def setup_roles(use_img, use_json, shot, json_text):
     ### Prompt for Builder ###
     conversation_history.append({
         "role": "user",
+        "speaker": "system",
         "target": "Builder",
         "content": [
             {
@@ -244,6 +249,7 @@ def setup_roles(use_img, use_json, shot, json_text):
     ### Start ##
     conversation_history.append({
         "role": "user",
+        "speaker": "system",
         "content": [
             {
                 "type": "text",
@@ -265,16 +271,16 @@ def filter_conversation(conversation, target_model):
     """
     filtered = []
     for message in conversation:
-        if message["role"] == "user":
-            # If a system message has a "target" field, only include it if it matches the role at hand.
-            if "target" in message:
-                if message["target"] == target_model:
-                    # Rewrite the message without the "target" key.
-                    filtered.append({k: v for k, v in message.items() if k != "target"})
-            # Else just include the message.
-            else:
-                filtered.append(message)
+        # If a system message has a "target" field, only include it if it matches the role at hand.
+        if "target" in message:
+            if message["target"] == target_model:
+                # Rewrite the message without the "target" key.
+                filtered.append({k: v for k, v in message.items() if k != "target"})
+        # The "speaker" parameter is only for post-processing
+        if "speaker" in message:
+            filtered.append({k: v for k, v in message.items() if k != "speaker"})
         else:
+        # Else just include the message.
             filtered.append(message)
     return filtered
 

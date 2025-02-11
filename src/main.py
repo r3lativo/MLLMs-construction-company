@@ -155,6 +155,7 @@ if __name__ == "__main__":
         # Append Architect's response to the conversation history.
         conversation_history.append({
             "role": "user",
+            "speaker": "Architect",  # Only for post-processing
             "content": [
                 {"type": "text", "text": modelA_response}
             ]
@@ -181,6 +182,7 @@ if __name__ == "__main__":
         # Append Builder's response to the conversation history.
         conversation_history.append({
             "role": "user",
+            "speaker": "Builder",  # Only for post-processing
             "content": [
                 {"type": "text", "text": modelB_response}
             ]
