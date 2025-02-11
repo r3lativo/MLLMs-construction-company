@@ -55,7 +55,7 @@ for structure in "${structures[@]}"; do
       #echo "Running experiment with structure_id: ${structure}, modality: ${modality}, shot: ${shot}"
       
       # Execute the experiment.
-      python3 main.py --quantization ${QUANTIZATION} --max_rounds ${MAX_ROUNDS} --structure_id ${structure} ${flags}
+      python3 src/main.py --quantization ${QUANTIZATION} --max_rounds ${MAX_ROUNDS} --structure_id ${structure} ${flags}
       #echo "python main.py --quantization ${QUANTIZATION} --max_rounds ${MAX_ROUNDS} --structure_id ${structure} ${flags}"
       
     done
