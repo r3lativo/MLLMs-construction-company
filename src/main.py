@@ -26,6 +26,7 @@ def get_args():
     parser.add_argument('--use_json', dest='json', action='store_true')
     parser.add_argument("--shot", type=bool, default=False)
     parser.add_argument('--oneshot', dest='shot', action='store_true')
+    parser.add_argument('--zeroshot', dest='shot', action='store_false') 
     args = parser.parse_args()
     return args
 
