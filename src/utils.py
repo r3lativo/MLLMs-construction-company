@@ -11,6 +11,9 @@ import json
 from PIL import Image
 import pandas as pd
 
+current_path = os.path.dirname(__file__)
+main_path = os.path.abspath(os.path.join(current_path, os.pardir))
+
 
 def mkdirs(dirpath):
     try: os.makedirs(dirpath)
@@ -30,10 +33,10 @@ def set_logger(args, combo_id):
     for handler in logging.root.handlers[:]: logging.root.removeHandler(handler)
     
     log_time = datetime.datetime.now().strftime('%Y-%m-%d-%H%M-%S')
-    
-    log_path = f"{log_time}_{combo_id}.log"
+
+    log_file_path = os.path.join(main_path, "results", f"{log_time}_{combo_id}.log")
     logging.basicConfig(
-        filename=os.path.join(args.results_dir, log_path),
+        filename=log_file_path,
         format="%(asctime)s %(levelname)-8s %(message)s",
         datefmt="%m-%d %H:%M",
         level=logging.INFO,
@@ -287,8 +290,10 @@ def filter_conversation(conversation, target_model):
 
 def load_structure(structure_id):
     # Where the rendered structures are
-    gold_processed_path = "../data/structures/gold-processed"
-    lookup_file = "../data/structures/configs-to-names.txt"
+    gold_processed_path = os.path.join(main_path, "data", "structures", "gold-processed")
+    #gold_processed_path = "../data/structures/gold-processed"
+    lookup_file = os.path.join(main_path, "data", "structures", "configs-to-names.txt")
+    #lookup_file = "../data/structures/configs-to-names.txt"
 
     df = pd.read_csv(lookup_file, sep="\t", header=None, names=["code", "name"])
     df["combined"] = df["code"] + "_" + df["name"]
@@ -332,7 +337,8 @@ def load_structure(structure_id):
 
 def load_one_shot():
 
-    one_path = "../data/minecraft_corpus/one_shot"
+    one_path = os.path.join(main_path, "data", "minecraft_corpus", "one_shot")
+    #one_path = "../data/minecraft_corpus/one_shot"
     one_shot_images = []
 
     # Load the images

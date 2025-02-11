@@ -14,7 +14,6 @@ def get_args():
     parser.add_argument("--n_models", type=int, default=2, choices=[1,2])
     parser.add_argument("-q,", "--quantization", type=int, default=4, choices=[4,8])
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
-    parser.add_argument("--results_dir", type=str, required=False, default="../results/", help="Results directory path")
     parser.add_argument("--max_new_tokens", type=int, default=2048)
     parser.add_argument("--max_rounds", type=int, default=5)
     parser.add_argument("--init_seed", type=int, default=0, help="Random seed")
@@ -27,11 +26,12 @@ def get_args():
     parser.add_argument('--use_json', dest='json', action='store_true')
     parser.add_argument("--shot", type=bool, default=False)
     parser.add_argument('--oneshot', dest='shot', action='store_true')
+    parser.add_argument('--zeroshot', dest='shot', action='store_false')
     args = parser.parse_args()
     return args
 
 
-def generate_response(model, processor, conversation, target_name, images, max_new_tokens, rep_penalty):
+def generate_response(model, processor, conversation, target_name, images=None, max_new_tokens=2048, rep_penalty=1.1):
     """
     Generates a response for the given model using the (filtered) conversation history.
     
@@ -91,14 +91,12 @@ if __name__ == "__main__":
     if not args.img and not args.json:
         sys.exit("At least one between the images and the JSON text has to be chosen.\nAdd --use_img or --use_json to your input.")
 
-    # Create directory to save log, if needed
-    mkdirs(args.results_dir)  
-
     # Load structure
     combo_id, json_text, images_list = load_structure(args.structure_id)
 
     # Load one shot images
     if args.shot:
+        print("Loading one-shot images too")
         one_shot_images = load_one_shot()
         images_list.extend(one_shot_images)
 
@@ -130,6 +128,7 @@ if __name__ == "__main__":
     # Conversation with the selected input(s) and one or zero-shot
     conversation_history = setup_roles(args.img, args.json, args.shot, json_text)
     current_round = 0
+    print(conversation_history)
 
     while current_round < args.max_rounds:
         logger.info(f"===== Round {current_round + 1} =====")
@@ -141,7 +140,7 @@ if __name__ == "__main__":
             processor=processor,
             conversation=conversation_history,
             target_name="Architect",
-            images=images_list if current_round == 0 else None,  # Pass images only in first turn
+            images=images_list if current_round == 0 and args.img else None,  # Pass images only in first turn
             max_new_tokens=args.max_new_tokens,
             rep_penalty=args.repetition_penalty
         )
@@ -194,6 +193,7 @@ if __name__ == "__main__":
     logger.info("Conversation ended.")
 
     # Save conversation into JSON file
-    with open(f"../results/{log_time}_{combo_id}.json", "w") as file:
+    json_file_path = os.path.join(main_path, "results", f"{log_time}_{combo_id}.json")
+    with open(json_file_path, "w") as file:
         json.dump(conversation_history, file, indent=4)  # indent=4 makes it pretty printed (optional)
     
