@@ -297,6 +297,9 @@ def run_judge(command, results_df):
     result = {
         'index': index,
         'structure_id': row['structure_id'],
+        'num_rounds': row['num_rounds'],
+        'total_time_min': row['total_time_min'],
+        'finished_by_architect': row['finished_by_architect'],
         'use_img': row['use_img'],
         'use_json': row['use_json'],
         'shot': row['shot'],
