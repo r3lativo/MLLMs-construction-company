@@ -6,6 +6,7 @@ from datetime import datetime
 from openai import OpenAI
 from tqdm import tqdm
 from dotenv import load_dotenv
+import re
 
 results_path = os.path.join(main_path, "results")
 
@@ -101,6 +102,46 @@ def parse_conv(conversation):
       return final
 
 
+def try_parse_json(raw_text: str):
+    # 1. Use a regex to look for a fenced code block of type json.
+    #    The pattern (.*?) is in DOTALL mode so it can capture across multiple lines.
+    pattern = r"```json\s*(.*?)```"
+    match = re.search(pattern, raw_text, re.DOTALL)
+    if match:
+        # If we find a block that starts with ```json and ends with ```,
+        # use only that captured text as the JSON string.
+        json_str = match.group(1).strip()
+    else:
+        # If no fenced code block, just strip the raw text in case there's whitespace, etc.
+        json_str = raw_text.strip()
+
+    # 2. Now parse the extracted string as JSON.
+    #    If this fails, we'll let it raise a JSONDecodeError and handle it as needed.
+    return json.loads(json_str)
+
+
+import json
+import re
+
+def try_parse_json(raw_text: str):
+    """
+    Attempts to parse raw_text as JSON.
+    If there's a fenced code block marked with ```json ... ```,
+    extract only that portion and parse it as JSON.
+    Otherwise, parse the entire string as JSON.
+    """
+    # Regex to capture anything between ```json and ```
+    pattern = r"```json\s*(.*?)```"
+    match = re.search(pattern, raw_text, re.DOTALL)
+    if match:
+        # Extract the content within the fence
+        json_str = match.group(1).strip()
+    else:
+        # If no fence, use raw_text as is
+        json_str = raw_text.strip()
+    return json.loads(json_str)
+
+
 def extract_conversation_data(json_path):
     """
     Extracts a combined conversation from the JSON file.
@@ -147,9 +188,9 @@ def extract_conversation_data(json_path):
                 "utterance": combined_text
             })
         elif speaker == "Builder":
-            # For Builder, try to parse the text as JSON.
+            # For Builder, try to parse the text as JSON (including code fences if present).
             try:
-                builder_response = json.loads(combined_text)
+                builder_response = try_parse_json(combined_text)
                 # Extract feedback; if it's missing or empty, use "[no_utterance]".
                 feedback = builder_response.get("feedback", "").strip()
                 if not feedback:
