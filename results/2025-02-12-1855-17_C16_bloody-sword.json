@@ -1,0 +1,894 @@
+[
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Architect, while your partner is the Builder. You will be shown images of a target structure built in a voxel world, a JSON text file representing the target structure, and your job is to guide the Builder in order to replicate it. Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. Here is the JSON text:\n[{'block_color': 'red', 'x': 98, 'y': 1, 'z': 98}, {'block_color': 'red', 'x': 97, 'y': 1, 'z': 99}, {'block_color': 'red', 'x': 98, 'y': 1, 'z': 99}, {'block_color': 'red', 'x': 99, 'y': 1, 'z': 99}, {'block_color': 'orange', 'x': 101, 'y': 1, 'z': 99}, {'block_color': 'purple', 'x': 103, 'y': 1, 'z': 99}, {'block_color': 'red', 'x': 98, 'y': 1, 'z': 100}, {'block_color': 'red', 'x': 100, 'y': 2, 'z': 99}, {'block_color': 'yellow', 'x': 101, 'y': 2, 'z': 99}, {'block_color': 'orange', 'x': 102, 'y': 2, 'z': 99}, {'block_color': 'red', 'x': 99, 'y': 3, 'z': 99}, {'block_color': 'yellow', 'x': 100, 'y': 3, 'z': 99}, {'block_color': 'yellow', 'x': 101, 'y': 3, 'z': 99}, {'block_color': 'yellow', 'x': 102, 'y': 3, 'z': 99}, {'block_color': 'orange', 'x': 103, 'y': 3, 'z': 99}, {'block_color': 'red', 'x': 98, 'y': 4, 'z': 99}, {'block_color': 'yellow', 'x': 99, 'y': 4, 'z': 99}, {'block_color': 'yellow', 'x': 100, 'y': 4, 'z': 99}, {'block_color': 'yellow', 'x': 101, 'y': 4, 'z': 99}, {'block_color': 'yellow', 'x': 98, 'y': 5, 'z': 99}, {'block_color': 'yellow', 'x': 99, 'y': 5, 'z': 99}, {'block_color': 'yellow', 'x': 100, 'y': 5, 'z': 99}, {'block_color': 'yellow', 'x': 98, 'y': 6, 'z': 99}, {'block_color': 'yellow', 'x': 99, 'y': 6, 'z': 99}]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Builder, while your partner is the Architect. Your job is to follow the Architect's instructions to build what they describe. You are in a voxel world, where the most northernly point is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks **you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, red) and whether the action is to add or remove them, your confidence in your interpretation of the instruction and textual feedback, in the JSON format: {\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, \"feedback\": \"...\"}. Give the JSON only, no additional dialog."
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "[START]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Let's start building the structure.\n\nFirst, we need to create a base for our structure. Please place a red block at position (98, 1, 98) and another one at position (97, 1, 99). Then, please place a red block at position (98, 1, 99) and another one at position (99, 1, 99). This should form a square base for our structure.\n\nOnce you have placed these blocks, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the red blocks as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the red blocks as described. Now, let's move on to the next part of the structure.\n\nPlease place an orange block at position (101, 1, 99). This should be located directly above the red blocks we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the orange block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the orange block as described. Now, let's add some more blocks to our structure.\n\nPlease place a purple block at position (103, 1, 99), directly above the orange block we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the purple block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the purple block as described. Now, let's continue building our structure.\n\nPlease place a red block at position (98, 1, 100), directly below the purple block we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the red block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the red block as described. Now, let's add some more blocks to our structure.\n\nPlease place a yellow block at position (100, 2, 99), directly below the red block we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the yellow block as described. Now, let's add some more blocks to our structure.\n\nPlease place an orange block at position (102, 2, 99), directly below the yellow block we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the orange block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the orange block as described. Now, let's add some more blocks to our structure.\n\nPlease place a red block at position (99, 3, 99), directly below the orange block we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the red block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the red block as described. Now, let's add some more blocks to our structure.\n\nPlease place a yellow block at position (100, 3, 99), directly below the red block we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the yellow block as described. Now, let's add some more blocks to our structure.\n\nPlease place a yellow block at position (101, 3, 99), directly below the yellow block we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the yellow block as described. Now, let's add some more blocks to our structure.\n\nPlease place a yellow block at position (102, 3, 99), directly below the yellow block we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the yellow block as described. Now, let's add some more blocks to our structure.\n\nPlease place a yellow block at position (103, 3, 99), directly below the yellow block we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the yellow block as described. Now, let's add some more blocks to our structure.\n\nPlease place a yellow block at position (104, 3, 99), directly below the yellow block we just placed.\n\nOnce you have placed this block, please let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"],\n        [157, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"],\n        [157, 3, 99, \"yellow\"],\n        [158, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"],\n        [157, 3, 99, \"yellow\"],\n        [158, 3, 99, \"yellow\"],\n        [159, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"],\n        [157, 3, 99, \"yellow\"],\n        [158, 3, 99, \"yellow\"],\n        [159, 3, 99, \"yellow\"],\n        [160, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"],\n        [157, 3, 99, \"yellow\"],\n        [158, 3, 99, \"yellow\"],\n        [159, 3, 99, \"yellow\"],\n        [160, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"],\n        [157, 3, 99, \"yellow\"],\n        [158, 3, 99, \"yellow\"],\n        [159, 3, 99, \"yellow\"],\n        [160, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"],\n        [157, 3, 99, \"yellow\"],\n        [158, 3, 99, \"yellow\"],\n        [159, 3, 99, \"yellow\"],\n        [160, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"],\n        [157, 3, 99, \"yellow\"],\n        [158, 3, 99, \"yellow\"],\n        [159, 3, 99, \"yellow\"],\n        [160, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"],\n        [157, 3, 99, \"yellow\"],\n        [158, 3, 99, \"yellow\"],\n        [159, 3, 99, \"yellow\"],\n        [160, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 1, 98, \"red\"],\n        [97, 1, 99, \"red\"],\n        [98, 1, 99, \"red\"],\n        [99, 1, 99, \"red\"],\n        [101, 1, 99, \"orange\"],\n        [103, 1, 99, \"purple\"],\n        [98, 1, 100, \"red\"],\n        [100, 2, 99, \"yellow\"],\n        [102, 2, 99, \"orange\"],\n        [99, 3, 99, \"red\"],\n        [100, 3, 99, \"yellow\"],\n        [101, 3, 99, \"yellow\"],\n        [102, 3, 99, \"yellow\"],\n        [103, 3, 99, \"yellow\"],\n        [104, 3, 99, \"yellow\"],\n        [105, 3, 99, \"yellow\"],\n        [106, 3, 99, \"yellow\"],\n        [107, 3, 99, \"yellow\"],\n        [108, 3, 99, \"yellow\"],\n        [109, 3, 99, \"yellow\"],\n        [110, 3, 99, \"yellow\"],\n        [111, 3, 99, \"yellow\"],\n        [112, 3, 99, \"yellow\"],\n        [113, 3, 99, \"yellow\"],\n        [114, 3, 99, \"yellow\"],\n        [115, 3, 99, \"yellow\"],\n        [116, 3, 99, \"yellow\"],\n        [117, 3, 99, \"yellow\"],\n        [118, 3, 99, \"yellow\"],\n        [119, 3, 99, \"yellow\"],\n        [120, 3, 99, \"yellow\"],\n        [121, 3, 99, \"yellow\"],\n        [122, 3, 99, \"yellow\"],\n        [123, 3, 99, \"yellow\"],\n        [124, 3, 99, \"yellow\"],\n        [125, 3, 99, \"yellow\"],\n        [126, 3, 99, \"yellow\"],\n        [127, 3, 99, \"yellow\"],\n        [128, 3, 99, \"yellow\"],\n        [129, 3, 99, \"yellow\"],\n        [130, 3, 99, \"yellow\"],\n        [131, 3, 99, \"yellow\"],\n        [132, 3, 99, \"yellow\"],\n        [133, 3, 99, \"yellow\"],\n        [134, 3, 99, \"yellow\"],\n        [135, 3, 99, \"yellow\"],\n        [136, 3, 99, \"yellow\"],\n        [137, 3, 99, \"yellow\"],\n        [138, 3, 99, \"yellow\"],\n        [139, 3, 99, \"yellow\"],\n        [140, 3, 99, \"yellow\"],\n        [141, 3, 99, \"yellow\"],\n        [142, 3, 99, \"yellow\"],\n        [143, 3, 99, \"yellow\"],\n        [144, 3, 99, \"yellow\"],\n        [145, 3, 99, \"yellow\"],\n        [146, 3, 99, \"yellow\"],\n        [147, 3, 99, \"yellow\"],\n        [148, 3, 99, \"yellow\"],\n        [149, 3, 99, \"yellow\"],\n        [150, 3, 99, \"yellow\"],\n        [151, 3, 99, \"yellow\"],\n        [152, 3, 99, \"yellow\"],\n        [153, 3, 99, \"yellow\"],\n        [154, 3, 99, \"yellow\"],\n        [155, 3, 99, \"yellow\"],\n        [156, 3, 99, \"yellow\"],\n        [157, 3, 99, \"yellow\"],\n        [158, 3, 99, \"yellow\"],\n        [159, 3, 99, \"yellow\"],\n        [160, 3, 99, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block as described.\"\n}\n``` "
+            }
+        ]
+    }
+]

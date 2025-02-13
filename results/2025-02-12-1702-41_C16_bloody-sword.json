@@ -1,0 +1,136 @@
+[
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Architect",
+        "content": [
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Architect, while your partner is the Builder. You will be shown images of a target structure built in a voxel world, images of a target structure built in a voxel world, and your job is to guide the Builder in order to replicate it. Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. Here are the images of the target structure from four points of view: "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Builder, while your partner is the Architect. Your job is to follow the Architect's instructions to build what they describe. You are in a voxel world, where the most northernly point is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks **you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, red) and whether the action is to add or remove them, your confidence in your interpretation of the instruction and textual feedback, in the JSON format: {\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, \"feedback\": \"...\"}. Give the JSON only, no additional dialog."
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "[START]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Hello! I see we have a target structure to build. Let's start by identifying the basic components of the structure. From what I can see, there are several cubes of different colors forming the structure. We need to ensure that each cube is placed correctly to recreate the target structure.\n\nLet's begin by focusing on the top part of the structure. It appears to be made up of yellow, green, and red cubes. Please place a yellow cube first, followed by a green cube, and then a red cube on top of the green one. Once you have these three cubes in place, let me know so I can provide further guidance. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [0,0,0,\"yellow\"],\n        [0,0,1,\"green\"],\n        [0,0,2,\"red\"]\n    ],\n    \"confidence\": 0.9,\n    \"feedback\": \"Please place a yellow cube first, followed by a green cube, and then a red cube on top of the green one.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great job! Now that we have the top part of the structure in place, let's move on to the middle section. This section consists of blue and white cubes. Please place a blue cube first, followed by a white cube on top of the blue one. Once you have these two cubes in place, let me know so I can provide further guidance. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [0,0,3,\"blue\"],\n        [0,0,4,\"white\"]\n    ],\n    \"confidence\": 0.9,\n    \"feedback\": \"Please place a blue cube first, followed by a white cube on top of the blue one.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Excellent work! Now let's focus on the bottom section of the structure. This section consists of black and gray cubes. Please place a black cube first, followed by a gray cube on top of the black one. Once you have these two cubes in place, let me know so I can provide further guidance. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [0,0,5,\"black\"],\n        [0,0,6,\"gray\"]\n    ],\n    \"confidence\": 0.9,\n    \"feedback\": \"Please place a black cube first, followed by a gray cube on top of the black one.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great job again! Now that we have all three sections of the structure in place, let's add some finishing touches. There are also some orange and purple cubes that make up the final details of the structure. Please place an orange cube next to the black cube, and then a purple cube next to the gray cube. Once you have these two cubes in place, let me know so I can provide further guidance. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [0,0,7,\"orange\"],\n        [0,0,8,\"purple\"]\n    ],\n    \"confidence\": 0.9,\n    \"feedback\": \"Please place an orange cube next to the black cube, and then a purple cube next to the gray cube.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "[FINISH] "
+            }
+        ]
+    }
+]

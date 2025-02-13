@@ -1,0 +1,116 @@
+[
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Architect",
+        "content": [
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Architect, while your partner is the Builder. You will be shown images of a target structure built in a voxel world, images of a target structure built in a voxel world, and your job is to guide the Builder in order to replicate it. Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. Here are the images of the target structure from four points of view: "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Builder, while your partner is the Architect. Your job is to follow the Architect's instructions to build what they describe. You are in a voxel world, where the most northernly point is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks **you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, red) and whether the action is to add or remove them, your confidence in your interpretation of the instruction and textual feedback, in the JSON format: {\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, \"feedback\": \"...\"}. Give the JSON only, no additional dialog."
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "[START]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Let's start building the target structure. From the top-down perspective provided, I can see that the structure consists of a grid of cubes. There are two distinct colors used for the cubes: gray and orange.\n\nTo begin, let's focus on the gray cubes. We need to create a base layer for our structure. Please place a gray cube at the bottom left corner of the image. Once you have done that, please place another gray cube next to it, creating a 2x2 grid. This will form the base of our structure.\n\nPlease confirm when you have completed these steps. If you need any further assistance or clarification, feel free to ask. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [0,0,0,\"gray\"],\n        [1,0,0,\"gray\"],\n        [2,0,0,\"gray\"],\n        [3,0,0,\"gray\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Base layer created successfully.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Excellent work! Now that we have the base layer established, let's move on to adding the orange cubes. From the top-down perspective, I can see that there are three orange cubes located above the gray base layer.\n\nPlease place an orange cube directly above the center of the base layer (coordinates 2,0,0). Next, please place another orange cube to the right of the first orange cube (coordinates 3,0,0). Finally, please place the third orange cube to the left of the first orange cube (coordinates 1,0,0).\n\nOnce you have placed all three orange cubes, please confirm when you have completed these steps. If you need any further assistance or clarification, feel free to ask. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [2,0,0,\"orange\"],\n        [3,0,0,\"orange\"],\n        [1,0,0,\"orange\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Orange cubes added successfully.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great job! Now that we have the base and the orange cubes in place, let's add some more details to our structure. From the side perspective, I can see that there are additional gray cubes surrounding the orange cubes.\n\nPlease place a gray cube to the left of the orange cubes (coordinates 0,0,0). Next, please place another gray cube to the right of the orange cubes (coordinates 4,0,0). Finally, please place two more gray cubes above the orange cubes (coordinates 2,0,0 and 3,0,0).\n\nOnce you have placed all the necessary gray cubes, please confirm when you have completed these steps. If you need any further assistance or clarification, feel free to ask. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [0,0,0,\"gray\"],\n        [4,0,0,\"gray\"],\n        [2,0,0,\"gray\"],\n        [3,0,0,\"gray\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Gray cubes added successfully.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Fantastic! With all the cubes in place, we have successfully replicated the target structure. Thank you for your hard work and attention to detail.\n\n[FINISH] "
+            }
+        ]
+    }
+]

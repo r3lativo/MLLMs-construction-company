@@ -1,0 +1,104 @@
+[
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Architect, while your partner is the Builder. You will be shown images of a target structure built in a voxel world, a JSON text file representing the target structure, and your job is to guide the Builder in order to replicate it. Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. Here is the JSON text:\n[{'block_color': 'orange', 'x': 99, 'y': 1, 'z': 99}, {'block_color': 'orange', 'x': 99, 'y': 1, 'z': 100}, {'block_color': 'orange', 'x': 100, 'y': 1, 'z': 100}]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Builder, while your partner is the Architect. Your job is to follow the Architect's instructions to build what they describe. You are in a voxel world, where the most northernly point is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks **you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, red) and whether the action is to add or remove them, your confidence in your interpretation of the instruction and textual feedback, in the JSON format: {\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, \"feedback\": \"...\"}. Give the JSON only, no additional dialog."
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "[START]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Let's start building the target structure.\n\nBased on the provided JSON text, I can see that we need to place three blocks with the color orange. These blocks should be placed next to each other, forming a line.\n\nPlease place the first block at position (99, 1, 99). Once you have done that, please let me know so that I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[99, 1, 99,\"orange\"]]}\n{\"confidence\": 1.0, \"feedback\": \"Place the first block at position (99, 1, 99).\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the first block! Now, please place the second block at position (99, 1, 100). Once you have done that, please let me know so that I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[99, 1, 100,\"orange\"]]}\n{\"confidence\": 1.0, \"feedback\": \"Place the second block at position (99, 1, 100).\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Now, please place the third block at position (100, 1, 100). Once you have done that, please let me know so that I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[100, 1, 100,\"orange\"]]}\n{\"confidence\": 1.0, \"feedback\": \"Place the third block at position (100, 1, 100).\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Excellent! It looks like you have successfully placed all three blocks according to the provided JSON text. Please let me know if there are any issues or if you need further assistance. If everything looks good, please type '[FINISH]' to end the game. "
+            }
+        ]
+    }
+]

@@ -1,0 +1,124 @@
+[
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Architect, while your partner is the Builder. You will be shown images of a target structure built in a voxel world, a JSON text file representing the target structure, and your job is to guide the Builder in order to replicate it. Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. Here is the JSON text:\n[{'block_color': 'green', 'x': 96, 'y': 1, 'z': 100}, {'block_color': 'green', 'x': 97, 'y': 1, 'z': 100}, {'block_color': 'yellow', 'x': 104, 'y': 1, 'z': 100}, {'block_color': 'yellow', 'x': 105, 'y': 1, 'z': 100}, {'block_color': 'green', 'x': 96, 'y': 1, 'z': 101}, {'block_color': 'green', 'x': 97, 'y': 1, 'z': 101}, {'block_color': 'yellow', 'x': 104, 'y': 1, 'z': 101}, {'block_color': 'yellow', 'x': 105, 'y': 1, 'z': 101}, {'block_color': 'green', 'x': 96, 'y': 1, 'z': 102}, {'block_color': 'green', 'x': 97, 'y': 1, 'z': 102}, {'block_color': 'yellow', 'x': 104, 'y': 1, 'z': 102}, {'block_color': 'yellow', 'x': 105, 'y': 1, 'z': 102}, {'block_color': 'purple', 'x': 97, 'y': 2, 'z': 100}, {'block_color': 'purple', 'x': 98, 'y': 2, 'z': 100}, {'block_color': 'orange', 'x': 102, 'y': 2, 'z': 100}, {'block_color': 'orange', 'x': 103, 'y': 2, 'z': 100}, {'block_color': 'purple', 'x': 97, 'y': 2, 'z': 101}, {'block_color': 'purple', 'x': 98, 'y': 2, 'z': 101}, {'block_color': 'orange', 'x': 102, 'y': 2, 'z': 101}, {'block_color': 'orange', 'x': 103, 'y': 2, 'z': 101}, {'block_color': 'purple', 'x': 97, 'y': 2, 'z': 102}, {'block_color': 'purple', 'x': 98, 'y': 2, 'z': 102}, {'block_color': 'orange', 'x': 102, 'y': 2, 'z': 102}, {'block_color': 'orange', 'x': 103, 'y': 2, 'z': 102}, {'block_color': 'green', 'x': 98, 'y': 3, 'z': 100}, {'block_color': 'green', 'x': 99, 'y': 3, 'z': 100}, {'block_color': 'yellow', 'x': 100, 'y': 3, 'z': 100}, {'block_color': 'yellow', 'x': 101, 'y': 3, 'z': 100}, {'block_color': 'green', 'x': 98, 'y': 3, 'z': 101}, {'block_color': 'green', 'x': 99, 'y': 3, 'z': 101}, {'block_color': 'yellow', 'x': 100, 'y': 3, 'z': 101}, {'block_color': 'yellow', 'x': 101, 'y': 3, 'z': 101}, {'block_color': 'green', 'x': 98, 'y': 3, 'z': 102}, {'block_color': 'green', 'x': 99, 'y': 3, 'z': 102}, {'block_color': 'yellow', 'x': 100, 'y': 3, 'z': 102}, {'block_color': 'yellow', 'x': 101, 'y': 3, 'z': 102}]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Builder, while your partner is the Architect. Your job is to follow the Architect's instructions to build what they describe. You are in a voxel world, where the most northernly point is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks **you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, red) and whether the action is to add or remove them, your confidence in your interpretation of the instruction and textual feedback, in the JSON format: {\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, \"feedback\": \"...\"}. Give the JSON only, no additional dialog."
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "[START]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Let's start building the structure.\n\nFirst, we need to create a base for our structure. Please place a green block at position (96, 1, 100) and another one at position (97, 1, 100). Then, place two yellow blocks next to each other at position (104, 1, 100) and another pair of yellow blocks at position (104, 1, 101). Finally, place a green block at position (96, 1, 101) and another one at position (97, 1, 101).\n\nPlease let me know when you have finished placing these blocks. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [96, 1, 100, \"green\"],\n        [97, 1, 100, \"green\"],\n        [104, 1, 100, \"yellow\"],\n        [104, 1, 101, \"yellow\"],\n        [104, 1, 101, \"yellow\"],\n        [96, 1, 101, \"green\"],\n        [97, 1, 101, \"green\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Base created successfully.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Excellent work! Now, let's move on to the second layer of the structure.\n\nPlease place a green block at position (96, 1, 102), another green block at position (97, 1, 102), a yellow block at position (104, 1, 102), and another yellow block at position (105, 1, 102). Finally, please place a green block at position (96, 1, 103) and another green block at position (97, 1, 103).\n\nPlease let me know when you have finished placing these blocks. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [96, 1, 102, \"green\"],\n        [97, 1, 102, \"green\"],\n        [104, 1, 102, \"yellow\"],\n        [105, 1, 102, \"yellow\"],\n        [105, 1, 102, \"yellow\"],\n        [96, 1, 103, \"green\"],\n        [97, 1, 103, \"green\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Second layer created successfully.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great job again! Now, let's add some more details to the structure.\n\nPlease place a purple block at position (97, 2, 100), another purple block at position (98, 2, 100), an orange block at position (102, 2, 100), and another orange block at position (103, 2, 100). Then, please place a purple block at position (97, 2, 101), another purple block at position (98, 2, 101), an orange block at position (102, 2, 101), and another orange block at position (103, 2, 101). Finally, please place a purple block at position (97, 2, 102), another purple block at position (98, 2, 102), an orange block at position (102, 2, 102), and another orange block at position (103, 2, 102).\n\nPlease let me know when you have finished placing these blocks. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [97, 2, 100, \"purple\"],\n        [98, 2, 100, \"purple\"],\n        [102, 2, 100, \"orange\"],\n        [103, 2, 100, \"orange\"],\n        [102, 2, 101, \"orange\"],\n        [103, 2, 101, \"orange\"],\n        [97, 2, 101, \"purple\"],\n        [98, 2, 101, \"purple\"],\n        [102, 2, 102, \"orange\"],\n        [103, 2, 102, \"orange\"],\n        [97, 2, 102, \"purple\"],\n        [98, 2, 102, \"purple\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Details added successfully.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Fantastic! We are almost there. Just a few more steps to go.\n\nPlease place a green block at position (98, 3, 100), another green block at position (99, 3, 100), a yellow block at position (100, 3, 100), and another yellow block at position (101, 3, 100). Then, please place a green block at position (98, 3, 101), another green block at position (99, 3, 101), a yellow block at position (100, 3, 101), and another yellow block at position (101, 3, 101). Finally, please place a green block at position (98, 3, 102), another green block at position (99, 3, 102), a yellow block at position (100, 3, 102), and another yellow block at position (101, 3, 102).\n\nPlease let me know when you have finished placing these blocks. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [98, 3, 100, \"green\"],\n        [99, 3, 100, \"green\"],\n        [100, 3, 100, \"yellow\"],\n        [101, 3, 100, \"yellow\"],\n        [98, 3, 101, \"green\"],\n        [99, 3, 101, \"green\"],\n        [100, 3, 101, \"yellow\"],\n        [101, 3, 101, \"yellow\"],\n        [98, 3, 102, \"green\"],\n        [99, 3, 102, \"green\"],\n        [100, 3, 102, \"yellow\"],\n        [101, 3, 102, \"yellow\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Final layer created successfully.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "[FINISH] "
+            }
+        ]
+    }
+]

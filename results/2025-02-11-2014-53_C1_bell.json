@@ -1,0 +1,256 @@
+[
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Architect",
+        "content": [
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Architect, while your partner is the Builder. You will be shown images of a target structure built in a voxel world, images of a target structure built in a voxel world, and a JSON text file representing the target structure, and your job is to guide the Builder in order to replicate it. Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. Here are the images of the target structure from four points of view and the JSON text:\n[{'block_color': 'green', 'x': 95, 'y': 1, 'z': 100}, {'block_color': 'red', 'x': 103, 'y': 1, 'z': 100}, {'block_color': 'green', 'x': 95, 'y': 2, 'z': 100}, {'block_color': 'red', 'x': 103, 'y': 2, 'z': 100}, {'block_color': 'green', 'x': 95, 'y': 3, 'z': 100}, {'block_color': 'red', 'x': 103, 'y': 3, 'z': 100}, {'block_color': 'green', 'x': 95, 'y': 4, 'z': 100}, {'block_color': 'yellow', 'x': 99, 'y': 4, 'z': 100}, {'block_color': 'red', 'x': 103, 'y': 4, 'z': 100}, {'block_color': 'green', 'x': 95, 'y': 5, 'z': 100}, {'block_color': 'orange', 'x': 97, 'y': 5, 'z': 100}, {'block_color': 'orange', 'x': 98, 'y': 5, 'z': 100}, {'block_color': 'orange', 'x': 99, 'y': 5, 'z': 100}, {'block_color': 'orange', 'x': 100, 'y': 5, 'z': 100}, {'block_color': 'orange', 'x': 101, 'y': 5, 'z': 100}, {'block_color': 'red', 'x': 103, 'y': 5, 'z': 100}, {'block_color': 'green', 'x': 95, 'y': 6, 'z': 100}, {'block_color': 'orange', 'x': 98, 'y': 6, 'z': 100}, {'block_color': 'orange', 'x': 99, 'y': 6, 'z': 100}, {'block_color': 'orange', 'x': 100, 'y': 6, 'z': 100}, {'block_color': 'red', 'x': 103, 'y': 6, 'z': 100}, {'block_color': 'green', 'x': 95, 'y': 7, 'z': 100}, {'block_color': 'orange', 'x': 98, 'y': 7, 'z': 100}, {'block_color': 'orange', 'x': 99, 'y': 7, 'z': 100}, {'block_color': 'orange', 'x': 100, 'y': 7, 'z': 100}, {'block_color': 'red', 'x': 103, 'y': 7, 'z': 100}, {'block_color': 'green', 'x': 95, 'y': 8, 'z': 100}, {'block_color': 'orange', 'x': 99, 'y': 8, 'z': 100}, {'block_color': 'red', 'x': 103, 'y': 8, 'z': 100}, {'block_color': 'purple', 'x': 95, 'y': 9, 'z': 100}, {'block_color': 'purple', 'x': 96, 'y': 9, 'z': 100}, {'block_color': 'purple', 'x': 97, 'y': 9, 'z': 100}, {'block_color': 'purple', 'x': 98, 'y': 9, 'z': 100}, {'block_color': 'purple', 'x': 99, 'y': 9, 'z': 100}, {'block_color': 'purple', 'x': 100, 'y': 9, 'z': 100}, {'block_color': 'purple', 'x': 101, 'y': 9, 'z': 100}, {'block_color': 'purple', 'x': 102, 'y': 9, 'z': 100}, {'block_color': 'purple', 'x': 103, 'y': 9, 'z': 100}]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Builder, while your partner is the Architect. Your job is to follow the Architect's instructions to build what they describe. You are in a voxel world, where the most northernly point is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks **you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, red) and whether the action is to add or remove them, your confidence in your interpretation of the instruction and textual feedback, in the JSON format: {\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, \"feedback\": \"...\"}. Give the JSON only, no additional dialog."
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "[START]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Let's begin building the structure. Based on the image provided, I can see that we need to start by placing a green block at position (95, 1, 100). Please confirm if this is correct. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[95, 1, 100,\"green\"]], \"confidence\": 1.0, \"feedback\": \"Adding green block at (95, 1, 100)\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Excellent! Now let's add the red blocks. We need to place two red blocks at positions (103, 1, 100) and (103, 2, 100). Please confirm if this is correct. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[103, 1, 100,\"red\"],[103, 2, 100,\"red\"]], \"confidence\": 1.0, \"feedback\": \"Adding red blocks at (103, 1, 100) and (103, 2, 100)\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Now let's add the green blocks. We need to place three green blocks at positions (95, 2, 100), (95, 3, 100), and (95, 4, 100). Please confirm if this is correct. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[95, 2, 100,\"green\"],[95, 3, 100,\"green\"],[95, 4, 100,\"green\"]], \"confidence\": 1.0, \"feedback\": \"Adding green blocks at (95, 2, 100), (95, 3, 100), and (95, 4, 100)\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Excellent! Now let's add the yellow block. We need to place one yellow block at position (99, 4, 100). Please confirm if this is correct. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[99, 4, 100,\"yellow\"]], \"confidence\": 1.0, \"feedback\": \"Adding yellow block at (99, 4, 100)\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Now let's add the orange blocks. We need to place six orange blocks at positions (97, 5, 100), (98, 5, 100), (99, 5, 100), (100, 5, 100), (101, 5, 100), and (103, 5, 100). Please confirm if this is correct. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[97, 5, 100,\"orange\"],[98, 5, 100,\"orange\"],[99, 5, 100,\"orange\"],[100, 5, 100,\"orange\"],[101, 5, 100,\"orange\"],[103, 5, 100,\"orange\"]], \"confidence\": 1.0, \"feedback\": \"Adding orange blocks at (97, 5, 100), (98, 5, 100), (99, 5, 100), (100, 5, 100), (101, 5, 100), and (103, 5, 100)\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Now let's add the green block at position (95, 6, 100). Please confirm if this is correct. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[95, 6, 100,\"green\"]], \"confidence\": 1.0, \"feedback\": \"Adding green block at (95, 6, 100)\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Now let's add the orange blocks at positions (98, 6, 100), (99, 6, 100), (100, 6, 100), and (103, 6, 100). Please confirm if this is correct. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[98, 6, 100,\"orange\"],[99, 6, 100,\"orange\"],[100, 6, 100,\"orange\"],[103, 6, 100,\"orange\"]], \"confidence\": 1.0, \"feedback\": \"Adding orange blocks at (98, 6, 100), (99, 6, 100), (100, 6, 100), and (103, 6, 100)\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Now let's add the green block at position (95, 7, 100). Please confirm if this is correct. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[95, 7, 100,\"green\"]], \"confidence\": 1.0, \"feedback\": \"Adding green block at (95, 7, 100)\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Now let's add the orange blocks at positions (98, 7, 100), (99, 7, 100), (100, 7, 100), and (103, 7, 100). Please confirm if this is correct. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[98, 7, 100,\"orange\"],[99, 7, 100,\"orange\"],[100, 7, 100,\"orange\"],[103, 7, 100,\"orange\"]], \"confidence\": 1.0, \"feedback\": \"Adding orange blocks at (98, 7, 100), (99, 7, 100), (100, 7, 100), and (103, 7, 100)\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Now let's add the purple blocks at positions (95, 9, 100), (96, 9, 100), (97, 9, 100), (98, 9, 100), (99, 9, 100), (100, 9, 100), (101, 9, 100), (102, 9, 100), (103, 9, 100). Please confirm if this is correct. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "{\"add\": [[95, 9, 100,\"purple\"],[96, 9, 100,\"purple\"],[97, 9, 100,\"purple\"],[98, 9, 100,\"purple\"],[99, 9, 100,\"purple\"],[100, 9, 100,\"purple\"],[101, 9, 100,\"purple\"],[102, 9, 100,\"purple\"],[103, 9, 100,\"purple\"]], \"confidence\": 1.0, \"feedback\": \"Adding purple blocks at (95, 9, 100), (96, 9, 100), (97, 9, 100), (98, 9, 100), (99, 9, 100), (100, 9, 100), (101, 9, 100), (102, 9, 100), (103, 9, 100)\"} "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "[FINISH] "
+            }
+        ]
+    }
+]

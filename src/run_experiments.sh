@@ -1,14 +1,14 @@
 #!/bin/bash
 # run_experiments.sh
 # This script runs experiments on main.py with:
-#   - quantization = 8
+#   - quantization = 4
 #   - max_rounds = 50
 #   - structure_id: C1, C2, C4, ..., C21 (skipping C3 since it's the one shot example)
 #   - modality flags: use_img only, both use_img and use_json, and use_json only
 #   - shot type: oneshot and zeroshot
 
 # Set constant parameters
-QUANTIZATION=8
+QUANTIZATION=4
 MAX_ROUNDS=50
 
 # Create an array of structure IDs from C1 to C21, skipping C3.
