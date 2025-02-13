@@ -1,5 +1,0 @@
-You will be shown some dialogues among two agents: an Architect and a Builder. 
-The dialogues were collected during a collaborative building task, were the Architect was supposed to instruct the Builder on how to build a certain target structure.
-You will be provided some examples of dialogues among humans playing the same game, with annotations for each verification question asked by the Builder.
-A verification question is a question that the listener asks the speaker to verify that their understanding is correct.
-Given this definition and the following examples, identify and count the verification questions present in the dialogues that you will be provided.
