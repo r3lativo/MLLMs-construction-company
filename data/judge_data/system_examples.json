@@ -1,0 +1,2359 @@
+{
+    "BASE": {
+        "bell_dialogue": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello. what are we building this time?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello builder, i will tell you this. it appears we are creating a belltower. but first i will start with step by step instructions. we will start with green blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "please start with 8 green blocks extending straight up. this will need to be placed as far right as you can, preferably centered along the other axis",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "ok",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": ["ver_q"] 
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes, one moment",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "on the 8th block to the left of the green block, please create the same structure with red blocks",
+            "annotation": ["impl_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "on top the 8th block?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "sorry, my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "it should start on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i only meant 8 blocks away from the first green block, to the left",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": ["ver_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder. if you can do this without a supporting structure then please do. we need yet another row of purple blocks that is 9 long so that it lays across the green and red, on top of them",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "starting and ending from the red and green?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "excellent builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now we must create the bell. please start by extending 4 orange blocks down from the middle purple block, as if it were hanging",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": ["ver_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes. now we need 3 blocks on both sides of the bottom three blocks so that is looks like a 3x3 square hanging off of the purple row",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "okay",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "orange?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes, orange. sorry",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": ["ver_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "great. now please place 1 orange block on the bottom corners of the 3x3 square so that it is shaped like a bell",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes that is good",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "not quite. they should be on the left and right sides, not the bottom side. my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh i see. my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder. we have 1 final piece",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "please place 1 yellow block on the bottom of the bell, in the middle",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "builder, we have done it",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "you too builder! you are a master craftsman/woman",
+            "annotation": []
+        }
+    ],
+    
+    "flower_dialogue": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello again builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we will start using green blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i need you to build 4 green blocks straight from where you are standing, all on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": ["ver_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now i need you to put a green block on either side of the second existing block, on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "so on the middle blocks?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "they need to be attached to the same block, preferable to the one closer to you",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "so it looks like a cross",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": ["ver_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now, i need you to place a block diagonal from one of those new blocks, in the forward direction",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like a cactus?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now we are done with the green",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "can you place a red block above the 4 greens with a space in between the green line and the new block?",
+            "annotation": ["impl_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "just need 1 block space in between the green and the new red block",
+            "annotation": ["impl_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh i see",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes like that",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now can you place 4 yellow blocks on each flat side of the red block?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "its a flower!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes it is, you are very observant builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "to finish, we need 4 orange blocks to fill in the corners of the 3x3 head of the flower",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder, we have successfully completed our mission!",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        }
+    ],
+    "l_dialogue": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "are u rdy to get to work?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "ok",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "build a 2x1 structure that is blue",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is the structure extending upwards?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "no, it goes across",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is that good?",
+            "annotation": ["ver_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "now place 1 blue piece on the left block extending upwards",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes that is correct",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like that?",
+            "annotation": ["ver_qn"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes, now it is finished",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "you too builder",
+            "annotation": []
+        }
+    ],
+    "window_dialogue": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello. Whats our mission this time?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we have a difficult one ahead of us this time builder. bear with me",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "describe the structure?",
+            "annotation": ["suggestion"] 
+        },
+        {
+            "speaker": "Architect",
+            "text": "we will start using red blocks. if you recall from our previous mission we built an open 3x3 square as the second level of our \"table",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "this shape is now extending upwards instead of laying flat",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "okay",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "sort of like a window",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "can i build anywhere?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes i think that will work",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now please place a red block on the left and right sides of the window, in the middle of each side",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "these ones?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes place them adjacent to those you just removed",
+            "annotation": ["impl_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "the second half of this structure is the same using purple blocks, but oriented differently. i will attempt to start you off step by step though",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "so parallel?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "or perpendicular?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "it is attached to our current structure sort of parallel and rotated 90 degrees. anyway please place the first purple block on the rightmost red block",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is it connected?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "not quite",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "its as if they were laying side by side and the purple one gets tilted up 90 degrees so it faces the sky",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh so its on the ground?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "we can start off with the first few blocks and you will see soon",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "the first purple block needs to be attached to the rightmost block, so that it hangs in the air and is closer to you",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "if you move that block to the other side of that red block so that it is on your side and not just an extension",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this the arm of the window?",
+            "annotation": ["clar_q", "comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "nowplease make the open square (window) on top of that new purple block",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes it is",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": ["ver_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "ok builder i have bad news but it's an easy fix",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i gave you the wrong side",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "on the back or other side?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "if you could do that exact structure so that its on the left side of the red square from where you were standing it will be correct",
+            "annotation": ["impl_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this it?",
+            "annotation": ["ver_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder, i am sorry for the incorrect instructions",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "that is correct",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "you did a good job!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "thank you for being my builder",
+            "annotation": []
+        }
+    ]
+    },
+    "CLAR_Q": {
+        "dialogue_1": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "are u rdy to get to work?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "ok",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "build a 2x1 structure that is blue",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is the structure extending upwards?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "no, it goes across",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is that good?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "now place 1 blue piece on the left block extending upwards",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes that is correct",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like that?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes, now it is finished",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "you too builder",
+            "annotation": []
+        }
+    ],
+    "dialogue_2": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello. what are we building this time?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello builder, i will tell you this. it appears we are creating a belltower. but first i will start with step by step instructions. we will start with green blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "please start with 8 green blocks extending straight up. this will need to be placed as far right as you can, preferably centered along the other axis",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "ok",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": ["clar_q"] 
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes, one moment",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "on the 8th block to the left of the green block, please create the same structure with red blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "on top the 8th block?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "sorry, my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "it should start on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i only meant 8 blocks away from the first green block, to the left",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder. if you can do this without a supporting structure then please do. we need yet another row of purple blocks that is 9 long so that it lays across the green and red, on top of them",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "starting and ending from the red and green?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "excellent builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now we must create the bell. please start by extending 4 orange blocks down from the middle purple block, as if it were hanging",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes. now we need 3 blocks on both sides of the bottom three blocks so that is looks like a 3x3 square hanging off of the purple row",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "okay",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "orange?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes, orange. sorry",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "great. now please place 1 orange block on the bottom corners of the 3x3 square so that it is shaped like a bell",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes that is good",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "not quite. they should be on the left and right sides, not the bottom side. my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh i see. my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder. we have 1 final piece",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "please place 1 yellow block on the bottom of the bell, in the middle",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "builder, we have done it",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "you too builder! you are a master craftsman/woman",
+            "annotation": []
+        }
+    ],
+    "dialogue_3": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello again builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we will start using green blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i need you to build 4 green blocks straight from where you are standing, all on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now i need you to put a green block on either side of the second existing block, on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "so on the middle blocks?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "they need to be attached to the same block, preferable to the one closer to you",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "so it looks like a cross",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now, i need you to place a block diagonal from one of those new blocks, in the forward direction",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like a cactus?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now we are done with the green",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "can you place a red block above the 4 greens with a space in between the green line and the new block?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "just need 1 block space in between the green and the new red block",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh i see",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes like that",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now can you place 4 yellow blocks on each flat side of the red block?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "its a flower!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes it is, you are very observant builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "to finish, we need 4 orange blocks to fill in the corners of the 3x3 head of the flower",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder, we have successfully completed our mission!",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        }
+    ],
+    "dialogue_4": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello. Whats our mission this time?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we have a difficult one ahead of us this time builder. bear with me",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "describe the structure?",
+            "annotation": [] 
+        },
+        {
+            "speaker": "Architect",
+            "text": "we will start using red blocks. if you recall from our previous mission we built an open 3x3 square as the second level of our \"table",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "this shape is now extending upwards instead of laying flat",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "okay",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "sort of like a window",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "can i build anywhere?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes i think that will work",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now please place a red block on the left and right sides of the window, in the middle of each side",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "these ones?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes place them adjacent to those you just removed",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "the second half of this structure is the same using purple blocks, but oriented differently. i will attempt to start you off step by step though",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "so parallel?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "or perpendicular?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "it is attached to our current structure sort of parallel and rotated 90 degrees. anyway please place the first purple block on the rightmost red block",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is it connected?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "not quite",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "its as if they were laying side by side and the purple one gets tilted up 90 degrees so it faces the sky",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh so its on the ground?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "we can start off with the first few blocks and you will see soon",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "the first purple block needs to be attached to the rightmost block, so that it hangs in the air and is closer to you",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "if you move that block to the other side of that red block so that it is on your side and not just an extension",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this the arm of the window?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "nowplease make the open square (window) on top of that new purple block",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes it is",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "ok builder i have bad news but it's an easy fix",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i gave you the wrong side",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "on the back or other side?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "if you could do that exact structure so that its on the left side of the red square from where you were standing it will be correct",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this it?",
+            "annotation": ["clar_q"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder, i am sorry for the incorrect instructions",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "that is correct",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "you did a good job!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "thank you for being my builder",
+            "annotation": []
+        }
+    ]
+    },
+    "COMM_SH_REF":{
+        "dialogue_1": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello. what are we building this time?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello builder, i will tell you this. it appears we are creating a belltower. but first i will start with step by step instructions. we will start with green blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "please start with 8 green blocks extending straight up. this will need to be placed as far right as you can, preferably centered along the other axis",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "ok",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": [] 
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes, one moment",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "on the 8th block to the left of the green block, please create the same structure with red blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "on top the 8th block?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "sorry, my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "it should start on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i only meant 8 blocks away from the first green block, to the left",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder. if you can do this without a supporting structure then please do. we need yet another row of purple blocks that is 9 long so that it lays across the green and red, on top of them",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "starting and ending from the red and green?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "excellent builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now we must create the bell. please start by extending 4 orange blocks down from the middle purple block, as if it were hanging",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes. now we need 3 blocks on both sides of the bottom three blocks so that is looks like a 3x3 square hanging off of the purple row",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "okay",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "orange?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes, orange. sorry",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "great. now please place 1 orange block on the bottom corners of the 3x3 square so that it is shaped like a bell",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes that is good",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "not quite. they should be on the left and right sides, not the bottom side. my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh i see. my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder. we have 1 final piece",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "please place 1 yellow block on the bottom of the bell, in the middle",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "builder, we have done it",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "you too builder! you are a master craftsman/woman",
+            "annotation": []
+        }
+    ],
+    "dialogue_2": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello again builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we will start using green blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i need you to build 4 green blocks straight from where you are standing, all on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now i need you to put a green block on either side of the second existing block, on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "so on the middle blocks?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "they need to be attached to the same block, preferable to the one closer to you",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "so it looks like a cross",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now, i need you to place a block diagonal from one of those new blocks, in the forward direction",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like a cactus?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now we are done with the green",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "can you place a red block above the 4 greens with a space in between the green line and the new block?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "just need 1 block space in between the green and the new red block",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh i see",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes like that",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now can you place 4 yellow blocks on each flat side of the red block?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "its a flower!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes it is, you are very observant builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "to finish, we need 4 orange blocks to fill in the corners of the 3x3 head of the flower",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder, we have successfully completed our mission!",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        }
+    ],
+    "dialogue_3": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello. Whats our mission this time?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we have a difficult one ahead of us this time builder. bear with me",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "describe the structure?",
+            "annotation": [] 
+        },
+        {
+            "speaker": "Architect",
+            "text": "we will start using red blocks. if you recall from our previous mission we built an open 3x3 square as the second level of our \"table",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "this shape is now extending upwards instead of laying flat",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "okay",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "sort of like a window",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "can i build anywhere?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes i think that will work",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now please place a red block on the left and right sides of the window, in the middle of each side",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "these ones?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes place them adjacent to those you just removed",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "the second half of this structure is the same using purple blocks, but oriented differently. i will attempt to start you off step by step though",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "so parallel?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "or perpendicular?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "it is attached to our current structure sort of parallel and rotated 90 degrees. anyway please place the first purple block on the rightmost red block",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is it connected?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "not quite",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "its as if they were laying side by side and the purple one gets tilted up 90 degrees so it faces the sky",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh so its on the ground?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we can start off with the first few blocks and you will see soon",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "the first purple block needs to be attached to the rightmost block, so that it hangs in the air and is closer to you",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "if you move that block to the other side of that red block so that it is on your side and not just an extension",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this the arm of the window?",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "nowplease make the open square (window) on top of that new purple block",
+            "annotation": ["comm_sh_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes it is",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "ok builder i have bad news but it's an easy fix",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i gave you the wrong side",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "on the back or other side?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "if you could do that exact structure so that its on the left side of the red square from where you were standing it will be correct",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this it?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder, i am sorry for the incorrect instructions",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "that is correct",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "you did a good job!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "thank you for being my builder",
+            "annotation": []
+        }
+    ]
+    },
+    "IMPL_REF": {
+        "dialogue_1": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello. what are we building this time?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello builder, i will tell you this. it appears we are creating a belltower. but first i will start with step by step instructions. we will start with green blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "please start with 8 green blocks extending straight up. this will need to be placed as far right as you can, preferably centered along the other axis",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "ok",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": [] 
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes, one moment",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "on the 8th block to the left of the green block, please create the same structure with red blocks",
+            "annotation": ["impl_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "on top the 8th block?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "sorry, my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "it should start on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i only meant 8 blocks away from the first green block, to the left",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder. if you can do this without a supporting structure then please do. we need yet another row of purple blocks that is 9 long so that it lays across the green and red, on top of them",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "starting and ending from the red and green?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "excellent builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now we must create the bell. please start by extending 4 orange blocks down from the middle purple block, as if it were hanging",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes. now we need 3 blocks on both sides of the bottom three blocks so that is looks like a 3x3 square hanging off of the purple row",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "okay",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "orange?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes, orange. sorry",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "great. now please place 1 orange block on the bottom corners of the 3x3 square so that it is shaped like a bell",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes that is good",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "not quite. they should be on the left and right sides, not the bottom side. my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh i see. my mistake",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder. we have 1 final piece",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "please place 1 yellow block on the bottom of the bell, in the middle",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "builder, we have done it",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "you too builder! you are a master craftsman/woman",
+            "annotation": []
+        }
+    ],
+    "dialogue_2": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "hello again builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we will start using green blocks",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i need you to build 4 green blocks straight from where you are standing, all on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now i need you to put a green block on either side of the second existing block, on the ground",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "so on the middle blocks?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "they need to be attached to the same block, preferable to the one closer to you",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "so it looks like a cross",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like this?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now, i need you to place a block diagonal from one of those new blocks, in the forward direction",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "like a cactus?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now we are done with the green",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "can you place a red block above the 4 greens with a space in between the green line and the new block?",
+            "annotation": ["impl_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "just need 1 block space in between the green and the new red block",
+            "annotation": ["impl_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh i see",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes like that",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now can you place 4 yellow blocks on each flat side of the red block?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "its a flower!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes it is, you are very observant builder",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "to finish, we need 4 orange blocks to fill in the corners of the 3x3 head of the flower",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder, we have successfully completed our mission!",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "good job!",
+            "annotation": []
+        }
+    ],
+    "dialogue_3": [
+        {
+            "speaker": "Builder",
+            "text": "Mission has started.",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "hello. Whats our mission this time?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we have a difficult one ahead of us this time builder. bear with me",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "describe the structure?",
+            "annotation": [] 
+        },
+        {
+            "speaker": "Architect",
+            "text": "we will start using red blocks. if you recall from our previous mission we built an open 3x3 square as the second level of our \"table",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "this shape is now extending upwards instead of laying flat",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "okay",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "sort of like a window",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "can i build anywhere?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes i think that will work",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "now please place a red block on the left and right sides of the window, in the middle of each side",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "these ones?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes place them adjacent to those you just removed",
+            "annotation": ["impl_ref"]
+        },
+        {
+            "speaker": "Architect",
+            "text": "perfect",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "the second half of this structure is the same using purple blocks, but oriented differently. i will attempt to start you off step by step though",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "so parallel?",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "or perpendicular?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "it is attached to our current structure sort of parallel and rotated 90 degrees. anyway please place the first purple block on the rightmost red block",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is it connected?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "not quite",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "its as if they were laying side by side and the purple one gets tilted up 90 degrees so it faces the sky",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "oh so its on the ground?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "we can start off with the first few blocks and you will see soon",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "the first purple block needs to be attached to the rightmost block, so that it hangs in the air and is closer to you",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "if you move that block to the other side of that red block so that it is on your side and not just an extension",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this the arm of the window?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "nowplease make the open square (window) on top of that new purple block",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes it is",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this good?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "ok builder i have bad news but it's an easy fix",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "i gave you the wrong side",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "on the back or other side?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "if you could do that exact structure so that its on the left side of the red square from where you were standing it will be correct",
+            "annotation": ["impl_ref"]
+        },
+        {
+            "speaker": "Builder",
+            "text": "here?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "yes",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "is this it?",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "good job builder, i am sorry for the incorrect instructions",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "that is correct",
+            "annotation": []
+        },
+        {
+            "speaker": "Builder",
+            "text": "you did a good job!",
+            "annotation": []
+        },
+        {
+            "speaker": "Architect",
+            "text": "thank you for being my builder",
+            "annotation": []
+        }
+    ]
+    }
+}
