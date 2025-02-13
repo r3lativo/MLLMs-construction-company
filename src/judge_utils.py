@@ -257,7 +257,7 @@ def ask_judge(evaluation_type, conversation):
 def run_judge(command, results_df):
 
   # Name of the output JSON file
-  output_file = f"judge_analysis_{command}.json"
+  output_file = os.path.join(main_path, "analysis", f"judge_analysis_{command}.json")
 
   # Check if output JSON file exists; if so, load existing results, else create an empty list.
   if os.path.exists(output_file):
@@ -268,6 +268,12 @@ def run_judge(command, results_df):
 
   # Iterate over each row in the DataFrame
   for index, row in results_df.iterrows():
+
+# Check if this index is already present in the JSON results.
+    if any(item.get('index') == index for item in results):
+        print(f"Conversation {index} is already judged. Skipping...")
+        continue
+
     print(f"Judging conversation {index}...")
     
     # Open and load the JSON file
