@@ -284,16 +284,19 @@ def run_judge(command, results_df):
     except:
       print(f"Rating undefined - check json.")
       pass
-    
+
+    # Save rating into the dataframe too
+    results_df.loc[index, command] = rating
     
     # Create a dictionary with desired columns and the judge result
     result = {
-      'structure_id': row['structure_id'],
-      'use_img': row['use_img'],
-      'use_json': row['use_json'],
-      'shot': row['shot'],
-      'judge': judge_output,
-      'rating': rating,
+        'index': index,
+        'structure_id': row['structure_id'],
+        'use_img': row['use_img'],
+        'use_json': row['use_json'],
+        'shot': row['shot'],
+        'judge': judge_output,
+        'rating': rating,
     }
     
     # Append the result to our list
