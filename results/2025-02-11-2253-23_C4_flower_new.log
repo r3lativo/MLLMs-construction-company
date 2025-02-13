@@ -1,0 +1,20 @@
+02-11 22:53 INFO     Model: llava-hf/llava-v1.6-mistral-7b-hf, Quantization: 4-bit, Device: cuda, Number of models: 2, Max new tokens: 2048, Repetition Penalty: 1.1, Max rounds: 50, use_img: True, use_json: True
+02-11 22:53 INFO     Initializing models...
+02-11 22:53 INFO     Models initialized
+02-11 22:53 INFO     ===== Round 1 =====
+02-11 22:53 INFO     ===== Round 2 =====
+02-11 22:53 INFO     ===== Round 3 =====
+02-11 22:53 INFO     ===== Round 4 =====
+02-11 22:54 INFO     ===== Round 5 =====
+02-11 22:54 INFO     ===== Round 6 =====
+02-11 22:54 INFO     ===== Round 7 =====
+02-11 22:54 INFO     ===== Round 8 =====
+02-11 22:54 INFO     ===== Round 9 =====
+02-11 22:54 INFO     ===== Round 10 =====
+02-11 22:54 INFO     ===== Round 11 =====
+02-11 22:54 INFO     ===== Round 12 =====
+02-11 22:55 INFO     ===== Round 13 =====
+02-11 22:55 INFO     ===== Round 14 =====
+02-11 22:55 INFO     ===== Round 15 =====
+02-11 22:55 INFO     Finishing conversation as indicated by Architect.
+02-11 22:55 INFO     Conversation ended.

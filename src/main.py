@@ -26,7 +26,7 @@ def get_args():
     parser.add_argument('--use_json', dest='json', action='store_true')
     parser.add_argument("--shot", type=bool, default=False)
     parser.add_argument('--oneshot', dest='shot', action='store_true')
-    parser.add_argument('--zeroshot', dest='shot', action='store_false')
+    parser.add_argument('--zeroshot', dest='shot', action='store_false') 
     args = parser.parse_args()
     return args
 
@@ -110,8 +110,8 @@ if __name__ == "__main__":
     logger.info(
         f"Model: {args.model_id}, Quantization: {args.quantization}-bit, "
         f"Device: {args.device}, Number of models: {args.n_models}, "
-        f"Max new tokens: {args.max_new_tokens}, Max rounds: {args.max_rounds}, "
-        f"Input Image: {args.img}, Input JSON: {args.json}"
+        f"Max new tokens: {args.max_new_tokens}, Repetition Penalty: {args.repetition_penalty}, Max rounds: {args.max_rounds}, "
+        f"use_img: {args.img}, use_json: {args.json}"
         )
 
     ### Initialize models ###
@@ -128,7 +128,7 @@ if __name__ == "__main__":
     # Conversation with the selected input(s) and one or zero-shot
     conversation_history = setup_roles(args.img, args.json, args.shot, json_text)
     current_round = 0
-    print(conversation_history)
+    json_file_path = os.path.join(main_path, "results", f"{log_time}_{combo_id}.json")
 
     while current_round < args.max_rounds:
         logger.info(f"===== Round {current_round + 1} =====")
@@ -154,7 +154,7 @@ if __name__ == "__main__":
         # Append Architect's response to the conversation history.
         conversation_history.append({
             "role": "user",
-            "speaker": "Architect",  # Only for post-processing
+            "speaker": "Architect",
             "content": [
                 {"type": "text", "text": modelA_response}
             ]
@@ -162,6 +162,7 @@ if __name__ == "__main__":
 
         # Check if Architect signaled to finish.
         if "[FINISH]" in modelA_response:
+            save_conversation(conversation_history, json_file_path)
             logger.info("Finishing conversation as indicated by Architect.")
             break
         
@@ -181,19 +182,16 @@ if __name__ == "__main__":
         # Append Builder's response to the conversation history.
         conversation_history.append({
             "role": "user",
-            "speaker": "Builder",  # Only for post-processing
+            "speaker": "Builder",
             "content": [
                 {"type": "text", "text": modelB_response}
             ]
         })
 
+        save_conversation(conversation_history, json_file_path)
         current_round += 1
 
     ########## End Conversation ##########
     logger.info("Conversation ended.")
 
-    # Save conversation into JSON file
-    json_file_path = os.path.join(main_path, "results", f"{log_time}_{combo_id}.json")
-    with open(json_file_path, "w") as file:
-        json.dump(conversation_history, file, indent=4)  # indent=4 makes it pretty printed (optional)
     

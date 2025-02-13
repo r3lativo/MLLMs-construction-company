@@ -33,8 +33,9 @@ def set_logger(args, combo_id):
     for handler in logging.root.handlers[:]: logging.root.removeHandler(handler)
     
     log_time = datetime.datetime.now().strftime('%Y-%m-%d-%H%M-%S')
-
+    
     log_file_path = os.path.join(main_path, "results", f"{log_time}_{combo_id}.log")
+    #log_path = f"{log_time}_{combo_id}.log"
     logging.basicConfig(
         filename=log_file_path,
         format="%(asctime)s %(levelname)-8s %(message)s",
@@ -274,14 +275,21 @@ def filter_conversation(conversation, target_model):
     """
     filtered = []
     for message in conversation:
-        # If a system message has a "target" field, only include it if it matches the role at hand.
-        if "target" in message:
-            if message["target"] == target_model:
-                # Rewrite the message without the "target" key.
-                filtered.append({k: v for k, v in message.items() if k != "target"})
-        # The "speaker" parameter is only for post-processing
-        if "speaker" in message:
-            filtered.append({k: v for k, v in message.items() if k != "speaker"})
+        if message["role"] == "user":
+            # If a system message has a "target" field, only include it if it matches the role at hand.
+            if "target" in message:
+                if message["target"] == target_model:
+                    # Rewrite the message without the "target" key.
+                    new_message = {k: v for k, v in message.items() if k != "target"}
+                    if "speaker" in new_message:
+                        new_message.pop("speaker")  # Remove "speaker" if it exists
+                    filtered.append(new_message)
+            else:
+                # Create a new dictionary copy to avoid modifying the original
+                new_message = message.copy()
+                if "speaker" in new_message:
+                    new_message.pop("speaker")  # Remove "speaker" only in filtered
+                filtered.append(new_message)
         else:
         # Else just include the message.
             filtered.append(message)
@@ -354,3 +362,8 @@ def load_one_shot():
             raise IOError(f"Warning: Could not open image {img_path}")
     
     return one_shot_images
+
+def save_conversation(conversation_history, json_file):
+    """Saves the conversation dynamically after each change."""
+    with open(json_file, "w") as f:
+        json.dump(conversation_history, f, indent=4)

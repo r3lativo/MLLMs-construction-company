@@ -1,0 +1,136 @@
+[
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Architect",
+        "content": [
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "image"
+            },
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Architect, while your partner is the Builder. You will be shown images of a target structure built in a voxel world, images of a target structure built in a voxel world, and your job is to guide the Builder in order to replicate it. Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them. When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game. Here are the images of the target structure from four points of view: "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "target": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "You are an agent playing a collaborative building task along with a partner. Your role is that of the Builder, while your partner is the Architect. Your job is to follow the Architect's instructions to build what they describe. You are in a voxel world, where the most northernly point is 0,0,-5; the most westerly point -5,0,0; the most eastern point is 5,0,0; the most southern 0,0,5 and the y-axis is up and down, with y=0 being the minimum. Describe the coordinates of the blocks **you want to interact with** and their colours (must be one of: blue, yellow, green, orange, purple, red) and whether the action is to add or remove them, your confidence in your interpretation of the instruction and textual feedback, in the JSON format: {\"add\": [[x,y,z,\"color\"], ...], \"remove\": [[x,y,z,\"color\"], ...], \"confidence\": 0.0, \"feedback\": \"...\"}. Give the JSON only, no additional dialog."
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "[START]"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great! Let's start building the target structure. From the top-left perspective, we can see that the structure has a square base with a colorful pattern on top. We need to build this base first. Please place a gray block on the bottom left corner of the grid. Then, starting from the center of the base, add blue blocks diagonally towards the top right corner. Next, add red blocks diagonally towards the bottom right corner. Finally, add green blocks diagonally towards the bottom left corner. Once you have these blocks placed, let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [0,0,0,\"gray\"],\n        [2,0,0,\"blue\"],\n        [4,0,0,\"red\"],\n        [1,2,0,\"blue\"],\n        [3,2,0,\"blue\"],\n        [5,2,0,\"red\"],\n        [1,4,0,\"blue\"],\n        [3,4,0,\"blue\"],\n        [5,4,0,\"red\"],\n        [1,6,0,\"blue\"],\n        [3,6,0,\"blue\"],\n        [5,6,0,\"red\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the gray block at the bottom left corner of the grid.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Thank you for placing the gray block at the bottom left corner of the grid. Now, please add the blue, red, and green blocks as described earlier. Once you have finished placing these blocks, let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [0,0,0,\"gray\"],\n        [2,0,0,\"blue\"],\n        [4,0,0,\"red\"],\n        [1,2,0,\"blue\"],\n        [3,2,0,\"blue\"],\n        [5,2,0,\"red\"],\n        [1,4,0,\"blue\"],\n        [3,4,0,\"blue\"],\n        [5,4,0,\"red\"],\n        [1,6,0,\"blue\"],\n        [3,6,0,\"blue\"],\n        [5,6,0,\"red\"],\n        [1,8,0,\"green\"],\n        [3,8,0,\"green\"],\n        [5,8,0,\"green\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please add the blue, red, and green blocks as described earlier.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "Great job! Now that we have the base of the structure, let's move on to the next part. From the top-right perspective, we can see that there is a small tower on top of the base. We need to build this tower next. Please place a brown block on top of the blue block in the center of the base. Then, add two more brown blocks on top of each other on either side of the central brown block. Finally, add a gray block on top of the three brown blocks. Once you have finished placing these blocks, let me know so I can provide further instructions. "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [0,0,0,\"gray\"],\n        [2,0,0,\"blue\"],\n        [4,0,0,\"red\"],\n        [1,2,0,\"blue\"],\n        [3,2,0,\"blue\"],\n        [5,2,0,\"red\"],\n        [1,4,0,\"blue\"],\n        [3,4,0,\"blue\"],\n        [5,4,0,\"red\"],\n        [1,6,0,\"blue\"],\n        [3,6,0,\"blue\"],\n        [5,6,0,\"red\"],\n        [1,8,0,\"green\"],\n        [3,8,0,\"green\"],\n        [5,8,0,\"green\"],\n        [2,9,0,\"brown\"],\n        [4,9,0,\"brown\"],\n        [6,9,0,\"brown\"],\n        [2,10,0,\"brown\"],\n        [4,10,0,\"brown\"],\n        [6,10,0,\"brown\"],\n        [2,11,0,\"brown\"],\n        [4,11,0,\"brown\"],\n        [6,11,0,\"brown\"],\n        [2,12,0,\"gray\"]\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the brown blocks on top of the blue block in the center of the base, and then add two more brown blocks on top of each other on either side of the central brown block.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [],\n    \"confidence\": 1.0,\n    \"feedback\": \"Great job! Now that we have the base and the tower, let's move on to the final part. From the front perspective, we can see that there is a colorful pattern on top of the tower. We need to build this pattern next. Please place a yellow block on top of the gray block. Then, add a red block next to the yellow block. Finally, add a blue block next to the red block. Once you have finished placing these blocks, let me know so I can provide further instructions.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Builder",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [\n        [2,12,0,\"gray\"],\n        [2,13,0,\"yellow\"],\n        [4,13,0,\"red\"],\n        [6,13,0,\"blue\"\n    ],\n    \"confidence\": 1.0,\n    \"feedback\": \"Please place the yellow block on top of the gray block, and then add a red block next to the yellow block, and finally add a blue block next to the red block.\"\n}\n``` "
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "speaker": "Architect",
+        "content": [
+            {
+                "type": "text",
+                "text": "```json\n{\n    \"add\": [],\n    \"confidence\": 1.0,\n    \"feedback\": \"[FINISH] Great job! You successfully replicated the target structure. Well done!\"\n}\n``` "
+            }
+        ]
+    }
+]
