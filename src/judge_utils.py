@@ -86,8 +86,11 @@ def load_all_results(results_path):
             info_dict["finished_by_architect"] = finished_by_architect
             
             data.append(info_dict)
-    
-    return pd.DataFrame(data)
+
+    df = pd.DataFrame(data)
+    df['shot'] = df['shot'].fillna("zero-shot")
+
+    return df
 
 
 

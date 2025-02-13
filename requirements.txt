@@ -11,3 +11,4 @@ transformers==4.48.2
 accelerate==1.3.0
 bitsandbytes==0.45.1
 pillow==11.1.0
+openai

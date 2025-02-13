@@ -1,4 +1,4 @@
-02-12 14:01 INFO     Model: llava-hf/llava-v1.6-mistral-7b-hf, Quantization: 4-bit, Device: cuda, Number of models: 2, Max new tokens: 2048, Repetition Penalty: 1.1, Max rounds: 50, use_img: True, use_json: False
+02-12 14:01 INFO     Model: llava-hf/llava-v1.6-mistral-7b-hf, Quantization: 4-bit, Device: cuda, Number of models: 2, Max new tokens: 2048, Repetition Penalty: 1.1, Max rounds: 50, use_img: True, use_json: False, shot: one-shot
 02-12 14:01 INFO     Initializing models...
 02-12 14:01 INFO     Models initialized
 02-12 14:01 INFO     ===== Round 1 =====
