@@ -41,8 +41,7 @@ def load_all_results(results_path):
             # Setup dictionary
             info_dict = {}
             info_dict["run_time"] = run_time_str
-            info_dict["structure_name"] = structure_name
-            info_dict["json_file"] = json_name
+            info_dict["structure_id"] = structure_name
 
             for pair in header.split(','):
                 if ':' in pair:
@@ -82,8 +81,9 @@ def load_all_results(results_path):
                 total_round_time = 0
 
             info_dict["num_rounds"] = num_rounds
-            info_dict["total_round_time_min"] = (total_round_time / 60) if total_round_time != 0 else 1
+            info_dict["total_time_min"] = (total_round_time / 60) if total_round_time != 0 else 1
             info_dict["finished_by_architect"] = finished_by_architect
+            info_dict["json_file"] = json_name
             
             data.append(info_dict)
 
@@ -248,5 +248,57 @@ def ask_judge(evaluation_type, conversation):
       }
     ]
   )
+  answer = completion.choices[0].message.content
 
-  return completion.choices[0].message.content
+  return answer
+
+
+
+def run_judge(command, results_df):
+
+  # Name of the output JSON file
+  output_file = f"judge_analysis_{command}.json"
+
+  # Check if output JSON file exists; if so, load existing results, else create an empty list.
+  if os.path.exists(output_file):
+    with open(output_file, "r") as f:
+      results = json.load(f)
+  else:
+    results = []
+
+  # Iterate over each row in the DataFrame
+  for index, row in results_df.iterrows():
+    print(f"Judging conversation {index}...")
+    
+    # Open and load the JSON file
+    json_path = os.path.join(results_path, row["json_file"])
+    parsed_conversation, _ = extract_conversation_data(json_path)
+    
+    # Process the JSON data with ask_judge function
+    judge_output = ask_judge(command, parsed_conversation)
+    rating = "Undefined"
+
+    try:
+      rating = int(judge_output[-1])
+      print(f"Rating: {rating}")
+    except:
+      print(f"Rating undefined - check json.")
+      pass
+    
+    
+    # Create a dictionary with desired columns and the judge result
+    result = {
+      'structure_id': row['structure_id'],
+      'use_img': row['use_img'],
+      'use_json': row['use_json'],
+      'shot': row['shot'],
+      'judge': judge_output,
+      'rating': rating,
+    }
+    
+    # Append the result to our list
+    results.append(result)
+    
+    # Update the JSON file with the new results
+    with open(output_file, "w") as f:
+      json.dump(results, f, indent=4)

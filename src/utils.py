@@ -296,6 +296,57 @@ def filter_conversation(conversation, target_model):
     return filtered
 
 
+def generate_response(model, processor, conversation, target_name, images=None, max_new_tokens=2048, rep_penalty=1.1):
+    """
+    Generates a response for the given model using the (filtered) conversation history.
+    
+    - Filters out system messages that are not intended for the current model.
+    - role_name should be the current model's identifier (e.g., "Architect" or "Builder").
+    """
+
+    # Filter conversation for the current model.
+    filtered_conversation = filter_conversation(conversation, target_model=target_name)
+    
+    # Build the prompt using the processor's chat template.
+    prompt = processor.apply_chat_template(filtered_conversation, add_generation_prompt=True)
+
+    inputs = processor(
+        images=images,
+        text=prompt,
+        padding=True,
+        return_tensors="pt",
+    ).to(model.device)
+    
+    generate_ids = model.generate(
+        **inputs,
+        do_sample=False,                                # Deterministic generation
+        pad_token_id=processor.tokenizer.eos_token_id,  # explicitly setting pad_token_id
+        max_new_tokens=max_new_tokens,
+        repetition_penalty=rep_penalty                  # Avoid infinite loops
+    )  
+    output = processor.batch_decode(
+        generate_ids,
+        skip_special_tokens=True,
+        clean_up_tokenization_spaces=False
+    )
+    
+    parsed = output[0].split("[/INST] ")[-1]
+
+    # Since [INST] and [/INST] are NOT single tokens (i.e., they are processede like '['+'/'+'INST'+'])
+    # the model picks it up and understands that when [/ is happening, there is a switch of role.
+    # The model then tries to force the switch of role and complete the task on its own (lol).
+    if "[/" in parsed:
+        #Truncate at the point of the unwanted token
+        parsed = parsed.split("[/")[0]
+    
+    #roles = ["[ARCHITECT]", "[BUILDER]"]
+    #for r in roles:
+    #    if r in parsed:
+    #        parsed = parsed.split(r)[0]
+
+    return parsed
+
+
 def load_structure(structure_id):
     # Where the rendered structures are
     gold_processed_path = os.path.join(main_path, "data", "structures", "gold-processed")
