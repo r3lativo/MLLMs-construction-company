@@ -177,7 +177,7 @@ def extract_conversation_data(json_path):
     def parse_conv(conversation):
       final = ""
       for t in conversation:
-        final += f"{t["speaker"]}: {t["utterance"]}\n"
+        final += f"{t['speaker']}: {t['utterance']}\n"
       return final
 
     parsed_conversation = parse_conv(conversation_data)
