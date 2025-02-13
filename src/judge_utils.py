@@ -94,6 +94,12 @@ def load_all_results(results_path):
     return df
 
 
+def parse_conv(conversation):
+      final = ""
+      for t in conversation:
+        final += f"{t['speaker']}: {t['utterance']}\n"
+      return final
+
 
 def extract_conversation_data(json_path):
     """
@@ -116,13 +122,14 @@ def extract_conversation_data(json_path):
          - 'speaker': "Architect"
          - 'utterance': the full text from the Architect.
     """
+    conversation_data = []
+
     try:
         with open(json_path, 'r') as f:
             conversation = json.load(f)
     except:
-        sys.exit(f"COULD NOT FIND {json_path} FILE")
-
-    conversation_data = []
+        print(f"COULD NOT FIND {json_path} FILE")
+        return
 
     for msg in conversation:
         speaker = msg.get("speaker", "")
@@ -174,13 +181,6 @@ def extract_conversation_data(json_path):
             continue
         
     b_actions_list = [t["actions"] for t in conversation_data if t.get("speaker") == "Builder"]
-
-    def parse_conv(conversation):
-      final = ""
-      for t in conversation:
-        final += f"{t['speaker']}: {t['utterance']}\n"
-      return final
-
     parsed_conversation = parse_conv(conversation_data)
 
     return parsed_conversation, b_actions_list
@@ -249,10 +249,10 @@ def ask_judge(evaluation_type, conversation):
       }
     ]
   )
-  answer = completion.choices[0].message.content
-
-  return answer
-
+  try:
+      return completion.choices[0].message.content
+  except TypeError:
+      return "[Empty answer]"
 
 
 def run_judge(command, results_df):
@@ -276,11 +276,14 @@ def run_judge(command, results_df):
         tqdm.write(f"Conversation {index} is already judged. Skipping...")
         continue
 
-    tqdm.write(f"Processing row {index+1} of {total_rows}")
+    tqdm.write(f"Processing row {index} of {total_rows-1}")
     
     # Open and load the JSON file
     json_path = os.path.join(results_path, row["json_file"])
-    parsed_conversation, _ = extract_conversation_data(json_path)
+    try:
+        parsed_conversation, _ = extract_conversation_data(json_path)
+    except:
+        continue
     
     # Process the JSON data with ask_judge function
     judge_output = ask_judge(command, parsed_conversation)
