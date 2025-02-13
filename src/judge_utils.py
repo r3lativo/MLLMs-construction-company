@@ -5,6 +5,7 @@ import json
 from datetime import datetime
 from openai import OpenAI
 import sys
+from tqdm import tqdm
 
 results_path = os.path.join(main_path, "results")
 
@@ -267,14 +268,15 @@ def run_judge(command, results_df):
     results = []
 
   # Iterate over each row in the DataFrame
-  for index, row in results_df.iterrows():
+  total_rows = len(results_df)
+  for index, row in tqdm(results_df.iterrows(), total=len(results_df)):
 
 # Check if this index is already present in the JSON results.
     if any(item.get('index') == index for item in results):
-        print(f"Conversation {index} is already judged. Skipping...")
+        tqdm.write(f"Conversation {index} is already judged. Skipping...")
         continue
 
-    print(f"Judging conversation {index}...")
+    tqdm.write(f"Processing row {index+1} of {total_rows}")
     
     # Open and load the JSON file
     json_path = os.path.join(results_path, row["json_file"])
@@ -286,13 +288,10 @@ def run_judge(command, results_df):
 
     try:
       rating = int(judge_output[-1])
-      print(f"Rating: {rating}")
+      tqdm.write(f"Rating: {rating}")
     except:
-      print(f"Rating undefined - check json.")
+      tqdm.write(f"Rating undefined - check json.")
       pass
-
-    # Save rating into the dataframe too
-    results_df.loc[index, command] = rating
     
     # Create a dictionary with desired columns and the judge result
     result = {

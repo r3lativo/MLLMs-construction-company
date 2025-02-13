@@ -14,7 +14,3 @@ if __name__ == "__main__":
     commands = ["BASE", "CLAR_Q", "COMM_SH_REF", "IMPL_REF"]
     for cmd in commands:
         run_judge(cmd, results_data)
-    
-    # Save DataFrame to pickle file
-    pickle_path = os.path.join(main_path, "analysis", 'results_data.pkl')
-    results_data.to_pickle(pickle_path)
