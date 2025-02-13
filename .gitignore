@@ -1,3 +1,4 @@
 # Ignore any file or folder with "test" in its name or path
 *test*
 __pycache__
+.env

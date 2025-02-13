@@ -4,8 +4,8 @@ import pandas as pd
 import json
 from datetime import datetime
 from openai import OpenAI
-import sys
 from tqdm import tqdm
+from dotenv import load_dotenv
 
 results_path = os.path.join(main_path, "results")
 
@@ -215,6 +215,11 @@ def get_system_examples(json_file, cmd):
 
 
 def ask_judge(evaluation_type, conversation):
+  
+  # Load the apikey
+  env_path = os.path.join(main_path, '.env')
+  load_dotenv(dotenv_path=env_path)
+  deepseek_api = os.environ.get('DEEPSEEK_API_KEY')
 
   # Load files
   judge_data_path = os.path.join(main_path, "data", "judge_data")
@@ -228,8 +233,7 @@ def ask_judge(evaluation_type, conversation):
   # Load Deepseek
   client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    #api_key="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",
-    api_key="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",
+    api_key=deepseek_api
   )
   
   # Create request
