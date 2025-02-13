@@ -228,7 +228,8 @@ def ask_judge(evaluation_type, conversation):
   # Load Deepseek
   client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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",
+    #api_key="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",
+    api_key="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",
   )
   
   # Create request
