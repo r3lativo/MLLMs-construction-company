@@ -7,12 +7,12 @@
 `<Architect>` build a 2x1 structure that is blue<br>
 `<Builder>` is the structure extending upwards?<br>
 `<Architect>` no, it goes across<br>
-[Builder puts down a blue block at X:0 Y:1 Z:-2]
-[Builder puts down a blue block at X:0 Y:1 Z:-3]
+![image 1](data/one_shot_example/images/image_1.png)
+![image 2](data/one_shot_example/images/image_2.png)
 `<Builder>` is that good?<br>
 `<Architect>` now place 1 blue piece on the left block extending upwards<br>
 `<Architect>` yes that is correct<br>
-[Builder puts down a blue block at X:0 Y:2 Z:-2]
+![final image](data/one_shot_example/images/final_image.png)
 `<Builder>` like that?<br>
 `<Architect>` yes, now it is finished<br>
 `<Builder>` good job!<br>
