@@ -1,8 +1,6 @@
 # MLLMs Construction Company 👷  
 **Investigating Multimodal LLMs' Communicative Skills in a Collaborative Building Task**
 
-Repository for the related project of Grounded Language Processing, course offered at UniTn in 2024/25
-
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀     
 ⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⠾⢻⣿⡟⠻⠶⢦⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀     
@@ -16,8 +14,8 @@ Repository for the related project of Grounded Language Processing, course offer
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠃⠀⠀⠀     
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠃⡀⠀⠀     
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠋⠈⠛⠀⠀     
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⢸⣿⡇⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⠀     
-⠀⠀⠀⠀⠀⠀⠀⢀⣴⠾⠋⢸⣿⡇⠈⠳⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀     
+⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⣀⢸⣿⡇⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⠀     
+⠀ ⠀⠀⠀⠀⠀⢀⣴⠾⠋⢸⣿⡇⠈⠳⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀     
 ⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠈⠛⠃⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀     
 
 
@@ -43,17 +41,10 @@ Our experiments are inspired by previous work on collaborative building tasks in
 │   ├── parsed_actions_with_metrics.json
 ├── data
 │   ├── judge_data
-│   │   ├── system_examples.json
-│   │   └── system_prompts.json
+│   ├── llava_prompts
+│   ├── one_shot_example
 │   ├── minecraft_corpus
-│   │   ├── data-3-30
-│   │   ├── data-format.md
-│   │   └── one_shot
 │   └── structures
-│       ├── configs-to-names.txt
-│       ├── gold-configurations
-│       ├── gold-processed
-│       └── terrain.xml
 ├── README.md
 ├── requirements.txt
 ├── results
@@ -128,4 +119,60 @@ This repository underpins the experimental setup detailed in our report:
 
 **Results**  
   Experiment logs and JSON results stored in the `results` directory are analyzed both quantitatively and qualitatively.
+
+
+## One Shot Example
+
+`<Builder>` Mission has started.<br>
+`<Architect>` hello<br>
+`<Builder>` hello<br>
+`<Architect>` are u rdy to get to work?<br>
+`<Builder>` yes<br>
+`<Architect>` ok<br>
+`<Architect>` build a 2x1 structure that is blue<br>
+`<Builder>` is the structure extending upwards?<br>
+`<Architect>` no, it goes across<br>
+![image 1](data/one_shot_example/images/image_1.png)<br>
+![image 2](data/one_shot_example/images/image_2.png)<br>
+`<Builder>` is that good?<br>
+`<Architect>` now place 1 blue piece on the left block extending upwards<br>
+`<Architect>` yes that is correct<br>
+![final image](data/one_shot_example/images/final_image.png)<br>
+`<Builder>` like that?<br>
+`<Architect>` yes, now it is finished<br>
+`<Builder>` good job!<br>
+`<Architect>` you too builder<br>
+
+
+## Tables and Results
+### Table 1: The six experimental conditions. TS is short for target structure.  
+
+
+|                | Zero-shot       | One-shot        |
+|--------------|---------------|---------------|
+| **Text-only**  | TS: JSON      | TS: JSON      |
+| **Mixed**      | TS: JSON + Image | TS: JSON + Image |
+| **Images-only** | TS: Image      | TS: Image      |
+
+
+### Table 2: Builders' and architects' most typical communication patterns as recorded in Narayan-Chen (2019).  
+
+
+| **Builder**                  | **Architect**                  |
+|------------------------------|--------------------------------|
+| Clarification questions      | References to common shapes   |
+|                              | Implicit references           |
+
+
+### Table 3: Summary of mean human likeness (HL, 1–5) and mean structure matching (accuracy and precision) for one-shot and zero-shot experiments under different IMG and JSON input conditions.  
+
+
+|                | IMG  | JSON  | HL   | Accuracy | Precision |
+|--------------|------|------|------|----------|----------|
+| **One-shot**  | No   | JSON  | 1.00 | 0.00     | 0.00     |
+|              | IMG  | No    | 1.77 | 0.00     | 0.00     |
+|              | IMG  | JSON  | 1.15 | 0.09     | 0.09     |
+| **Zero-shot** | No   | JSON  | 1.31 | 0.31     | 0.65     |
+|              | IMG  | No    | 1.50 | 0.00     | 0.00     |
+|              | IMG  | JSON  | 1.67 | 0.26     | 0.42     |
 
