@@ -1,0 +1,9 @@
+# Directories
+data_path: "data"
+prompts_path: "data/0_prompts"
+
+# Model hyperparameters
+model_id: "llava-hf/llava-v1.6-mistral-7b-hf"
+temperature: 0.7
+top_p: 0.9
+top_k: "None"
