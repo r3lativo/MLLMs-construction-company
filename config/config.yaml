@@ -3,7 +3,8 @@ data_path: "data"
 prompts_path: "data/0_prompts"
 
 # Model hyperparameters
-model_id: "llava-hf/llava-v1.6-mistral-7b-hf"
-temperature: 0.7
-top_p: 0.9
+architect_model_id: "mistralai/Mistral-Small-3.1-24B-Instruct-2503"
+builder_model_id: "mistralai/Mistral-Small-3.1-24B-Instruct-2503"
+temperature: 0.15
+top_p: 1.0
 top_k: "None"
