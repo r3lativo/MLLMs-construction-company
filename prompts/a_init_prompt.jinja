@@ -3,19 +3,3 @@ You are an agent playing a collaborative building task along with a partner. You
 Give clear and easy to follow instructions. Proceed step by step and avoid providing too many instructions all at once. The Builder will reply with the actions it took and, possibly, clarification questions. Acknowledge the Builder's actions and feedback in order to understand whether they are on the right track or not and to help them.
 
 When you think that the Builder correctly completed the structure, output '[FINISH]' to trigger the end of the game.
-
-{%- set description_parts = [] -%}
-{%- if use_json -%}
-    {%- set _ = description_parts.append("JSON description") -%}
-{%- endif -%}
-{%- if use_img -%}
-    {%- set _ = description_parts.append("image") -%}
-{%- endif -%}
-
-{# Check if there are any parts to describe #}
-{%- if description_parts -%}
-Here's the {{ description_parts | join(" and the ") }} of the target structure:
-{%- if use_json -%}
-{{ json_description }}
-{%- endif -%}
-{%- endif -%}
