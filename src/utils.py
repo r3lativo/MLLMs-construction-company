@@ -2,6 +2,7 @@ import datetime
 import logging
 import os
 import torch
+from openai import OpenAI
 from transformers import (
     LlavaNextProcessor,
     LlavaNextForConditionalGeneration,
@@ -10,6 +11,7 @@ from transformers import (
 import json
 from PIL import Image
 import pandas as pd
+from dotenv import load_dotenv
 
 current_path = os.path.dirname(__file__)
 main_path = os.path.abspath(os.path.join(current_path, os.pardir))
@@ -76,6 +78,7 @@ def initialize_model(model_id, device, q):
     )
 
     return model
+
 
 def build_arch_prompt(use_img, use_json, json_text):
     """
