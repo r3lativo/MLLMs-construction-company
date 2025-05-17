@@ -2,3 +2,5 @@
 *test*
 __pycache__
 .env
+run.sh
+**/*.log,

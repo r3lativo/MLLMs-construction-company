@@ -2,13 +2,10 @@ import openai
 import logging
 import json
 from helper import GroupedActionOutput
-from jinja2 import Environment, FileSystemLoader
 from pydantic import ValidationError
 
 
 logger = logging.getLogger(__name__)
-
-JINJA_ENV = Environment(loader=FileSystemLoader('prompts'))
 
 class Agent:
     """Base class for a virtual agent interacting with vLLM."""
@@ -17,7 +14,7 @@ class Agent:
         self.model = model
         self.vllm_api_base = vllm_api_base
         # History starts with system prompt. Message content can be a string or a list for multi-modal (only used by Architect initially).
-        self.history = [{"role": "system", "content": system_prompt}]
+        self.history = [{"role": "system", "content": system_prompt.render()}]
         self.client = openai.OpenAI(
             api_key="EMPTY",
             base_url=self.vllm_api_base,
@@ -56,14 +53,14 @@ class Agent:
 
 class Architect(Agent):
     """Represents the Architect agent."""
-    def __init__(self, model: str, system_prompt: str, jinja_template: str, structure_description_json: dict = None, structure_image_path: str = None, vllm_api_base: str = "http://localhost:8000/v1"):
+    def __init__(self, model: str, system_prompt: str, init_prompt: str, structure_description_json: dict = None, structure_image_path: str = None, vllm_api_base: str = "http://localhost:8000/v1"):
         """
         Args:
             structure_description_json (dict): Dictionary representing the structure (e.g., loaded from JSON).
             structure_image_path (str): Path to an image file of the structure.
         """
         super().__init__("Architect", model, system_prompt, vllm_api_base)
-        self.template = JINJA_ENV.get_template(jinja_template)
+        self.init_prompt = init_prompt
         self.structure_description_json = structure_description_json
         self.structure_image_path = structure_image_path
         self._started = False
@@ -81,7 +78,7 @@ class Architect(Agent):
         if use_json:
             try:
                 # Convert JSON dict to a readable string format for the model
-                json_string_raw = json.dumps(self.structure_description_json, indent=2)
+                json_string_raw = json.dumps(self.structure_description_json)
                 # Wrap JSON in markdown code block for clarity
                 json_string_for_template = f"```json\n{json_string_raw}\n```"
             except TypeError as e:
@@ -90,7 +87,7 @@ class Architect(Agent):
                 json_string_for_template = None
 
         # Render the text part using the Jinja template
-        initial_text = self.template.render(
+        initial_text = self.init_prompt.render(
             use_json=use_json,
             use_img=use_img,
             json_description=json_string_for_template # Pass the formatted JSON string
@@ -138,7 +135,8 @@ class Architect(Agent):
             first_instruction_text = self._call_model(self.history)
 
             if first_instruction_text:
-                 self.logger.info(f"{self.name} first instruction: {first_instruction_text[:200]}...")
+                 self.logger.debug(f"{self.name} first instruction: {first_instruction_text}")
+                 print(f"{self.name} first instruction: {first_instruction_text}")
                  # Add the generated instruction to history as assistant's response
                  self.add_message_to_history("assistant", first_instruction_text)
                  self._started = True
@@ -175,7 +173,8 @@ class Architect(Agent):
         architect_response_text = self._call_model(self.history)
 
         if architect_response_text:
-            self.logger.info(f"{self.name}: {architect_response_text[:200]}...")
+            self.logger.debug(f"{self.name}: {architect_response_text}")
+            print(f"{self.name}: {architect_response_text}")
             # Add Architect's text response to history as assistant
             self.add_message_to_history("assistant", architect_response_text)
         else:
@@ -190,20 +189,15 @@ class Builder(Agent):
     JSON_BLOCK_START = "```json"
     JSON_BLOCK_END   = "```"
 
-    def __init__(self, model: str, system_prompt: str, jinja_template: str, action_handler, vllm_api_base: str = "http://localhost:8000/v1"):
+    def __init__(self, model: str, system_prompt: str, action_handler, vllm_api_base: str = "http://localhost:8000/v1"):
         """
         Args:
-            jinja_decision (str): Jinja specifically for the decision step.
-            jinja_communication (str): Jinja specifically for generating communication.
-            jinja_action (str): Jinja specifically for generating actions.
+            jinja_template (str): The prompt for the Builder.
             action_handler: An object with methods like place_block.
         """
         # The system prompt will be a base, and specific prompts will be used for each model call
         super().__init__("Builder", model, system_prompt, vllm_api_base)
         self.action_handler = action_handler
-
-        # Load specific prompts for each Builder model type
-        self.template = JINJA_ENV.get_template(jinja_template)
 
     def process_architect_instruction(self, architect_message_text: str):
         """
@@ -211,7 +205,6 @@ class Builder(Agent):
         Returns raw model output (text), parsed communication text, and list of action details.
         """
         self.logger.info(f"\n--- {self.name} received instruction from Architect ---")
-        self.logger.info(f"Architect: {architect_message_text[:200]}...")
 
         # Add Architect's text message to Builder's history
         self.add_message_to_history("user", architect_message_text)
@@ -219,6 +212,8 @@ class Builder(Agent):
         self.logger.info(f"\n--- {self.name} is generating response and potential actions ---")
         # Builder calls the model with its history (which is text-only from Architect)
         raw_model_output = self._call_model(self.history)
+        self.logger.debug(f"Builder raw output: {raw_model_output}")
+        print(f"Builder raw output: {raw_model_output}")
 
         if raw_model_output is None:
             self.logger.error(f"{self.name}: Failed to generate raw output.")
@@ -245,8 +240,6 @@ class Builder(Agent):
         if json_start_index != -1 and json_end_index != -1:
             json_string = raw_output[json_start_index + len(self.JSON_BLOCK_START):json_end_index].strip()
             # Clean up potential markdown code block indicator (e.g., 'json\n{...}')
-            if json_string.lower().startswith("json"):
-                 json_string = json_string[4:].strip()
 
             try:
                 parsed_data = json.loads(json_string)
@@ -269,7 +262,6 @@ class Builder(Agent):
              actions = [] # No structured actions found
 
         return communication, actions
-    
 
     def _validate_and_parse_grouped_actions(data: dict):
         """
@@ -293,7 +285,6 @@ class Builder(Agent):
             # You might want to log the failed data for debugging:
             # logger.debug(f"Failed data: {data}")
             return None
-
 
     def execute_actions(self, grouped_output: GroupedActionOutput):
         """

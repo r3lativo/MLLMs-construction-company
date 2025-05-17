@@ -1,8 +1,53 @@
 from pydantic import BaseModel, Field
 from typing import Any
 import logging
+import openai
 
 logger = logging.getLogger(__name__)
+
+
+class Agent:
+    """Base class for a virtual agent interacting with vLLM."""
+    def __init__(self, name: str, model: str, system_prompt: str, vllm_api_base: str = "http://localhost:8000/v1"):
+        self.name = name
+        self.model = model
+        self.vllm_api_base = vllm_api_base
+        # History starts with system prompt. Message content can be a string or a list for multi-modal (only used by Architect initially).
+        self.history = [{"role": "system", "content": system_prompt.render()}]
+        self.client = openai.OpenAI(
+            api_key="EMPTY",
+            base_url=self.vllm_api_base,
+        )
+        self.logger = logging.getLogger(self.__class__.__name__)
+        self.logger.info(f"{self.name} initialized.")
+
+    def _call_model(self, messages):
+        """Internal method to call the vLLM API with the given messages."""
+        try:
+            # Use the chat completions endpoint
+            chat_completion = self.client.chat.completions.create(
+                model=self.model,
+                messages=messages
+            )
+            # The response content can be a string or None
+            return chat_completion.choices[0].message.content
+        except Exception as e:
+            self.logger.error(f"Error calling vLLM API for {self.name}: {e}")
+            return None
+
+    def add_message_to_history(self, role: str, content):
+        """Adds a message to the agent's history."""
+        # Content can be string or list of content blocks for multi-modal
+        self.history.append({"role": role, "content": content})
+
+    def get_history(self):
+        """Returns the agent's current conversation history."""
+        return self.history
+
+    def clear_history(self):
+        """Clears the conversation history except for the initial system prompt."""
+        self.history = [self.history[0]] # Keep only the system prompt
+        self.logger.info(f"{self.name}'s history cleared.")
 
 
 class GroupedActionOutput(BaseModel):

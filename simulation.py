@@ -1,9 +1,11 @@
 import json
 import logging
 from logging.handlers import RotatingFileHandler
-from agents import Architect, Builder
+from architect import Architect
+from builder import Builder
 from action_handler import World
 from config import config
+from jinja2 import Environment, FileSystemLoader
 
 # --- Logging Setup ---
 
@@ -19,8 +21,18 @@ logger = logging.getLogger()  # Get the root logger
 logger.setLevel(logging.DEBUG)
 logger.addHandler(log_handler)
 
+JINJA_ENV = Environment(loader=FileSystemLoader('prompts'))
 
-def run_simulation(architect_model: str, builder_model: str, structure_info: dict, max_turns: int = 20, render_interval: int = 5, world_output_format: str = 'json', renderer_command: list = None):
+
+def run_simulation(
+        architect_model: str,
+        builder_model: str,
+        structure_info: dict,
+        max_turns: int = 5,
+        render_interval: int = 1,
+        world_output_format: str = 'json',
+        renderer_command: list = None
+    ):
     """
     Runs the Architect-Builder simulation.
     """
@@ -28,26 +40,16 @@ def run_simulation(architect_model: str, builder_model: str, structure_info: dic
 
     world = World()
 
-    # --- Load and Render Prompts using Jinja ---
-    architect_template_vars = {}
-    builder_template_vars = {
-        'json_block_start': Builder.JSON_BLOCK_START,
-        'json_block_end': Builder.JSON_BLOCK_END,
-        'action_json_schema_description': json.dumps(BuilderOutput.model_json_schema(), indent=2) # Use Pydantic schema
-    }
-
-    architect_system_prompt = load_template('architect_system_prompt.j2', **architect_template_vars)
-    builder_system_prompt = load_template('builder_system_prompt.j2', **builder_template_vars)
-
     architect = Architect(
         model=architect_model,
-        system_prompt=architect_system_prompt,
+        system_prompt=JINJA_ENV.get_template('a_sys_prompt.jinja'),
+        init_prompt=JINJA_ENV.get_template('a_init_prompt.jinja'),
         structure_description_json=structure_info.get('json_data'),
         structure_image_path=structure_info.get('image_path')
     )
     builder = Builder(
         model=builder_model,
-        system_prompt=builder_system_prompt,
+        system_prompt=JINJA_ENV.get_template('b_sys_prompt.jinja'),
         action_handler=world
     )
 
@@ -60,7 +62,11 @@ def run_simulation(architect_model: str, builder_model: str, structure_info: dic
 
         # --- Builder's Turn ---
         # Builder processes the Architect's text message
-        raw_builder_output, builder_communication, builder_actions = builder.process_architect_instruction(architect_message_to_builder)
+        (
+            raw_builder_output,
+            builder_communication,
+            builder_actions
+        ) = builder.process_architect_instruction(architect_message_to_builder)
 
         # --- Orchestrator handles Builder's Actions ---
         if builder_actions: # builder_actions is now a list of Action Pydantic models
@@ -90,7 +96,8 @@ def run_simulation(architect_model: str, builder_model: str, structure_info: dic
                     elif world_output_format == 'xml':
                          tmp_file.write(world_state_data)
                     logger.info(f"World state saved to temporary file: {temp_file_path}")
-
+                
+                """
                 render_output = None
                 if renderer_command:
                     full_command = renderer_command + [temp_file_path]
@@ -114,19 +121,26 @@ def run_simulation(architect_model: str, builder_model: str, structure_info: dic
                               logger.info(f"Removed temporary file: {temp_file_path}")
                          except OSError as e:
                               logger.error(f"Error removing temporary file {temp_file_path}: {e}")
-
+                
                 if render_output:
                     world_state_feedback = f"Renderer reported: {render_output}"
                 else:
                     world_state_feedback = world.get_state_description_for_architect()
                     logger.info("Using direct world state description for feedback.")
+                """
+                world_state_feedback = world.get_state_description_for_architect()
+                logger.info(f"World state feedback for Architect: {world_state_feedback}...")
+                print(f"World state feedback for Architect: {world_state_feedback}...")
 
-                logger.info(f"World state feedback for Architect: {world_state_feedback[:100]}...")
-
+        print(builder.get_history())
 
         # --- Architect's Turn ---
-        architect_next_message_to_builder = architect.process_builder_output(raw_builder_output, world_state_feedback)
+        architect_next_message_to_builder = architect.process_builder_output(builder_communication, world_state_feedback)
         architect_message_to_builder = architect_next_message_to_builder
+
+        print(architect.get_history())
+
+        print(world.get_state_description_for_architect)
 
 
     logger.info("\n--- Simulation Ended ---")
@@ -144,40 +158,21 @@ if __name__ == "__main__":
     VLLM_API_BASE_URL = "http://localhost:8000/v1" # Your vLLM server address
 
     # Ensure vLLM is running with these models and --openai-compatible flag
+    flower_json = "data/structures/gold-processed/C4_flower_new/C4_flower_new.json"
+    with open(flower_json, 'r') as f:
+        structure_json_data = json.load(f)
 
     # --- Example Structure Information ---
-    # Option 1: JSON description
-    structure_json_data = {
-      "name": "Small Wall",
-      "description": "A 3 block long, 2 block high wall using yellow blocks.",
-      "blocks": [
-        {"position": [0, 0, 0], "color": "yellow"},
-        {"position": [1, 0, 0], "color": "yellow"},
-        {"position": [2, 0, 0], "color": "yellow"},
-        {"position": [0, 1, 0], "color": "yellow"},
-        {"position": [1, 1, 0], "color": "yellow"},
-        {"position": [2, 1, 0], "color": "yellow"}
-      ]
-    }
-    structure_info_json = {'json_data': structure_json_data}
-
-    # Option 2: Image path (Requires a multi-modal Architect model and vLLM setup)
-    # structure_info_image = {'image_path': 'path/to/your/structure_image.png'} # Replace with a real path
-
-    # Option 3: Both
-    # structure_info_both = {'json_data': structure_json_data, 'image_path': 'path/to/your/structure_image.png'} # Replace with a real path
-
-    # Choose which structure info to use
-    structure_info_for_sim = structure_info_json
+    structure_info = {'json_data': structure_json_data}#, 'image_path': 'data/structures/gold-processed/C4_flower_new/screenshot_C4_flower_new_0_front.jpg'}
 
     RENDERER_CMD = None # Set to None if you don't have a renderer or don't want to run it
 
     run_simulation(
         architect_model=ARCHITECT_MODEL_NAME,
         builder_model=BUILDER_MODEL_NAME,
-        structure_info=structure_info_for_sim,
+        structure_info=structure_info,
         max_turns=10, # Adjust max turns as needed
         render_interval=3, # Provide world state feedback to Architect every 3 turns
-        world_output_format='xml',
+        world_output_format='json',
         renderer_command=RENDERER_CMD # Pass your renderer command here
     )
