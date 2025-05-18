@@ -1,6 +1,8 @@
 # Ignore any file or folder with "test" in its name or path
 *test*
-__pycache__
+**/__pycache__/
 .env
 run.sh
-**/*.log,
+**/*.log
+/chat_histories/*
+/world_states/*
