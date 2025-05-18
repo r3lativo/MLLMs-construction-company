@@ -47,15 +47,17 @@ def take_screenshots(plotter, structure_ID, structure_name, ID_processed_path):
     """
     Takes four perspective screenshots and saves them.
     """
-    angles = {'0_front': 90, '1_right': 180, '2_back': 270, '3_left': 360}
+    #angles = {'0_front': 0, '1_right': 90, '2_back': 180, '3_left': 270} # 4 Images at 90° each
+    angles = {str(i): i * 36 for i in range(10)}  # 10 Images at 36° each
+    plotter.set_background("pv")
     plotter.view_xz()
     plotter.camera.elevation = 30
 
     for label, angle in angles.items():
-        screenshot_path = os.path.join(ID_processed_path, f"screenshot_{structure_ID}_{structure_name}_{label}.jpg")
-        plotter.screenshot(screenshot_path)
         plotter.camera.azimuth = angle
         plotter.render()  # Render the structure again
+        screenshot_path = os.path.join(ID_processed_path, f"screenshot_{structure_ID}_{structure_name}_{label}.jpg")
+        plotter.screenshot(screenshot_path)
         #print(f"'{screenshot_path}' created")
 
 
