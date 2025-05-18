@@ -1,8 +1,5 @@
 import logging
 
-logger = logging.getLogger(__name__)
-
-
 class World:
     """Represents the virtual world where blocks are placed."""
     def __init__(self):
@@ -48,40 +45,38 @@ class World:
         try:
             x, y, z = int(x), int(y), int(z)
         except ValueError:
-             self.logger.error(f"Error: Invalid coordinates for get_block: ({x}, {y}, {z})")
-             return None # Invalid coordinates
+            self.logger.error(f"Error: Invalid coordinates for get_block: ({x}, {y}, {z})")
+            return None # Invalid coordinates
 
         return self.blocks.get((x, y, z))
 
-    def get_state_as_json(self):
-        """Returns the world state as a JSON-serializable dictionary."""
-        # Convert tuple keys to strings for JSON compatibility
-        return {f"{x},{y},{z}": color for (x, y, z), color in self.blocks.items()}
+    def get_state_as_json(self) -> list[dict]:
+        """
+        Returns the world state as a JSON-serializable list of dictionaries,
+        matching the structure: [{"block_color": "...", "x": ..., "y": ..., "z": ...}].
+        """
+        world_blocks_list = []
+        for (x, y, z), color in self.blocks.items():
+            world_blocks_list.append({
+                "block_color": color,
+                "x": x,
+                "y": y,
+                "z": z
+            })
+        return world_blocks_list
 
-    def get_state_as_xml(self):
-         """Returns the world state as a simple XML string (example)."""
-         xml_string = "<world>\n"
-         for (x, y, z), color in self.blocks.items():
-              xml_string += f'  <block x="{x}" y="{y}" z="{z}" color="{color}"/>\n'
-         xml_string += "</world>"
-         return xml_string
-
-    def get_state_description_for_architect(self):
-        """Generates a textual description of the current world state for the Architect."""
+    def get_state_description_for_architect(self) -> str:
+        """
+        Generates a textual description of the current world state for the Architect.
+        Returns "The world is currently empty." if no blocks, otherwise returns
+        the JSON representation of the world state as a formatted string.
+        """
         if not self.blocks:
             return "The world is currently empty."
-
-        description = "Current blocks in the world:\n"
-        # Limit the description length for context windows if needed
-        items = []
-        for (x, y, z), color in self.blocks.items():
-            items.append(f"- {color} block at ({x}, {y}, {z})")
-        # Sort for consistent output (optional)
-        # items.sort()
-        description += "\n".join(items[:20]) # List up to 20 blocks
-        if len(items) > 20:
-             description += f"\n... and {len(items) - 20} more blocks."
-        return description
+        else:
+            # Get the list of dictionaries and convert it to a pretty-printed JSON string
+            return self.get_state_as_json()
 
     def __str__(self):
+        """Returns the world state description for the Architect."""
         return self.get_state_description_for_architect()
