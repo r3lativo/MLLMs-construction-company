@@ -3,13 +3,15 @@
     {%- set _ = description_parts.append("JSON description") -%}
 {%- endif -%}
 {%- if use_img -%}
-    {%- set _ = description_parts.append("image") -%}
+    {%- set _ = description_parts.append("image(s)") -%}
 {%- endif -%}
 
 {# Check if there are any parts to describe #}
 {%- if description_parts -%}
-Here's the {{ description_parts | join(" and the ") }} of the target structure:
+Here's the {{ description_parts | join(" and the ") }} of the target structure. 
 {%- if use_json -%}
 {{ json_description }}
 {%- endif -%}
 {%- endif -%}
+
+[START]
