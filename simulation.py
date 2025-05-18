@@ -73,7 +73,7 @@ def _initialize_simulation_components(architect_model: str, builder_model: str, 
         system_prompt=JINJA_ENV.get_template('a_sys_prompt.jinja'),
         init_prompt=JINJA_ENV.get_template('a_init_prompt.jinja'),
         structure_description_json=structure_info.get('json_data'),
-        structure_image_path=structure_info.get('image_path')
+        structure_image_paths=structure_info.get('image_paths')
     )
     builder = Builder(
         model=builder_model,
@@ -207,6 +207,8 @@ def run_simulation(
             world_state_feedback = world.get_state_description_for_architect()
             logger.info(f"Orchestrator: Skipping external render this turn. Using direct world state description as feedback.")
 
+        if "[FINISH]" in architect_message_to_builder:
+            break
 
         # 6. Architect's Turn: Process Feedback and Instruct Next
         logger.info(f"\n--- Turn {turn}: Architect's Phase ---")
@@ -216,7 +218,7 @@ def run_simulation(
 
 
     logger.info("\n--- Simulation Ended ---")
-    logger.info(f"\nFinal World State:\n{str(world)}")
+    logger.info(f"\nFinal World State:\n{world}")
 
 
 if __name__ == "__main__":
@@ -236,9 +238,19 @@ if __name__ == "__main__":
         logging.error(f"Error decoding JSON from: {flower_json}. Please check file format.")
         exit(1)
 
+    directory_to_search = "data/structures/gold-processed/C1_bell/"
+    image_extensions = ('.jpg', '.jpeg', '.png', '.webp')
+
+    all_image_files = [
+        os.path.join(root, filename)
+        for root, _, files in os.walk(directory_to_search) # Traverses through main folder and all subfolders
+        for filename in files                               # Iterates over each file found
+        if os.path.splitext(filename)[1].lower() in image_extensions # Checks if the file's extension is an image type
+    ]
+
     structure_info = {
-        'json_data': structure_json_data,
-        'image_path': "data/structures/gold-processed/C4_flower_new/screenshot_C4_flower_new_0_front.jpg"
+        #'json_data': structure_json_data,
+        'image_paths': all_image_files
     }
 
     # --- Configure Renderer Command ---

@@ -5,11 +5,34 @@ import base64 # Import base64 for encoding
 import os     # Import os for path handling
 from config import config
 from pydantic import BaseModel, Field
-from typing import Any
-
+from typing import Any, List, Optional
 
 # Assume pydantic models are defined elsewhere or passed correctly
 # from your_pydantic_models_file import GroupedActionOutput # Example
+
+def encode_image_to_data_uri(image_path: str):
+    """
+    Reads an image file, Base64 encodes it, and returns a data URI.
+    Returns None if the file is not found or encoding fails.
+    """
+    if not os.path.exists(image_path):
+        logging.error(f"Image file not found at {image_path}")
+        return None
+
+    try:
+        with open(image_path, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
+
+        mime_type = "image/jpeg"
+        if image_path.lower().endswith(".png"): mime_type = "image/png"
+        elif image_path.lower().endswith(".gif"): mime_type = "image/gif"
+        elif image_path.lower().endswith(".webp"): mime_type = "image/webp"
+
+        return f"data:{mime_type};base64,{encoded_string}"
+    except Exception as e:
+        logging.error(f"Error encoding image {image_path}: {e}")
+        return None
+
 
 class Agent:
     """Base class for Architect and Builder agents."""
@@ -26,101 +49,117 @@ class Agent:
         self.add_message_to_history("system", system_prompt.render())
         self.logger.info(f"{self.name} initialized with model '{self.model}' and system prompt.")
 
-    def add_message_to_history(self, role: str, text_content: str = None, image_path: str = None, image_url: str = None):
+    def add_message_to_history(self,
+                               role: str,
+                               text_content: Optional[str] = None,
+                               image_paths: Optional[List[str]] = None, # NOW ACCEPTS A LIST OF LOCAL PATHS
+                               image_urls: Optional[List[str]] = None): # NOW ACCEPTS A LIST OF EXTERNAL URLs
         """
-        Adds a message (text, image, or both) to the agent's history.
-        Multimodal messages are stored as a list of 'parts' in the 'content' field.
+        Adds a message (text, multiple images, or both) to the agent's history.
+        Conditionally formats 'content' as a string or a list of parts based on message type.
 
         Args:
             role (str): The role of the message sender (e.g., "user", "assistant", "system").
             text_content (str, optional): The text part of the message. Defaults to None.
-            image_path (str, optional): Local file path to an image. Image will be Base64 encoded. Defaults to None.
-            image_url (str, optional): URL to an image. Defaults to None.
+            image_paths (list[str], optional): A list of local file paths to images. Images will be Base64 encoded. Defaults to None.
+            image_urls (list[str], optional): A list of external URLs to images. Defaults to None.
         """
-        message_content = []
+        # Determine if this message requires multimodal content (list of parts)
+        # It's multimodal if either image_paths or image_urls lists are provided and non-empty.
+        is_multimodal_message = (
+            (image_paths is not None and len(image_paths) > 0) or
+            (image_urls is not None and len(image_urls) > 0)
+        )
 
-        if text_content:
-            message_content.append({"type": "text", "text": text_content})
+        if is_multimodal_message:
+            # For multimodal messages (e.g., user with image), content is a list of parts
+            message_content_parts = []
 
-        if image_path:
-            try:
-                if not os.path.exists(image_path):
-                    self.logger.error(f"Image file not found: {image_path}. Skipping image attachment.")
-                else:
-                    with open(image_path, "rb") as image_file:
-                        encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
-                    
-                    # Infer MIME type from file extension
-                    mime_type = "image/jpeg" # Default
-                    if image_path.lower().endswith(".png"):
-                        mime_type = "image/png"
-                    elif image_path.lower().endswith(".gif"):
-                        mime_type = "image/gif"
-                    # Add more types as needed
+            # Add text content if provided
+            if text_content and text_content.strip():
+                message_content_parts.append({"type": "text", "text": text_content})
 
-                    image_part = {
-                        "type": "image_url",
-                        "image_url": {"url": f"data:{mime_type};base64,{encoded_string}"}
-                    }
-                    message_content.append(image_part)
-                    self.logger.debug(f"Encoded image from {image_path} to Base64 and added to history.")
-            except Exception as e:
-                self.logger.error(f"Error processing image {image_path}: {e}. Skipping image attachment.")
-        elif image_url:
-            image_part = {
-                "type": "image_url",
-                "image_url": {"url": image_url}
-            }
-            message_content.append(image_part)
-            self.logger.debug(f"Added image URL {image_url} to history.")
+            # Process multiple local image paths if provided
+            if image_paths:
+                for img_path in image_paths:
+                    image_data_uri = encode_image_to_data_uri(img_path) # Call the global helper
+                    if image_data_uri:
+                        message_content_parts.append({"type": "image_url", "image_url": {"url": image_data_uri}})
+                        self.logger.debug(f"Encoded image from {img_path} to Base64 and added to history.")
+                    else:
+                        self.logger.error(f"Could not encode image from {img_path}. Skipping this image attachment.")
 
-        if not message_content:
-            self.logger.warning(f"Attempted to add empty message for role {role}. No text or image provided.")
-            return
+            # Process multiple image URLs if provided
+            if image_urls:
+                for img_url in image_urls:
+                    if img_url and img_url.strip(): # Ensure URL is not empty/whitespace
+                        message_content_parts.append({"type": "image_url", "image_url": {"url": img_url}})
+                        self.logger.debug(f"Added image URL {img_url} to history.")
+                    else:
+                        self.logger.warning("Empty or invalid image URL provided. Skipping attachment.")
 
-        self.history.append({
-            "role": role,
-            "content": message_content
-        })
+            # If no content parts were successfully added, skip the message
+            if not message_content_parts:
+                self.logger.warning(f"Attempted to add empty multimodal message for role {role}. No text, valid images, or valid URLs provided. Message skipped.")
+                return
 
-    def get_history(self) -> list:
+            self.history.append({
+                "role": role,
+                "content": message_content_parts # This will be a list of dictionaries (parts)
+            })
+        else:
+            # For purely text-based messages (system, assistant, or text-only user), content is a string
+            if text_content is None or not text_content.strip():
+                self.logger.warning(f"Attempted to add empty text message for role {role}. Message skipped.")
+                return
+
+            self.history.append({
+                "role": role,
+                "content": text_content # This will be a plain string
+            })
+
+    def get_history(self) -> List[dict]:
         """Returns the agent's conversation history."""
         return self.history
 
-    def _call_model(self, messages: list):
+    def _call_model(self, messages: List[dict]) -> Optional[str]:
         """Makes an API call to the language model."""
         headers = {"Content-Type": "application/json"}
         payload = {
             "model": self.model,
-            "messages": messages, # This 'messages' structure now supports multimodal content
+            "messages": messages,
         }
+
+        api_timeout_seconds = config.get("api_timeout_seconds", 600)
 
         try:
             self.logger.debug(f"Calling model '{self.model}' at {self.vllm_api_base}/chat/completions...")
+            self.logger.debug(f"Payload sent to model: {json.dumps(payload, indent=2)}") # Log the full payload
+
             response = requests.post(
                 f"{self.vllm_api_base}/chat/completions",
                 headers=headers,
                 json=payload,
-                timeout=config.get("api_timeout_seconds", 600) # Use config for timeout
+                timeout=api_timeout_seconds
             )
             response.raise_for_status() # Raise an exception for HTTP errors (4xx or 5xx)
             response_json = response.json()
 
-            # Extract the content from the response
             if 'choices' in response_json and len(response_json['choices']) > 0:
-                # Assuming the model returns a simple text content
-                # For multimodal models, content might still be a string, or require specific parsing
+                # Assuming the model returns a simple text content for its response
                 return response_json['choices'][0]['message']['content']
             else:
                 self.logger.warning(f"Model response has no choices: {response_json}")
                 return None
 
         except requests.exceptions.Timeout:
-            self.logger.error(f"API call to {self.name}'s model timed out after {config.get('api_timeout_seconds', 600)} seconds.")
+            self.logger.error(f"API call to {self.name}'s model timed out after {api_timeout_seconds} seconds.")
             return None
         except requests.exceptions.RequestException as e:
             self.logger.error(f"Error during API call to {self.name}'s model: {e}")
-            self.logger.error(f"Response content: {response.text}")
+            if hasattr(e, 'response') and e.response is not None:
+                self.logger.error(f"Response status code: {e.response.status_code}")
+                self.logger.error(f"Response content: {e.response.text}")
             return None
         except json.JSONDecodeError as e:
             self.logger.error(f"Failed to decode JSON response from {self.name}'s model: {e}")
@@ -131,11 +170,6 @@ class Agent:
         except Exception as e:
             self.logger.error(f"An unexpected error occurred in {self.name}'s _call_model: {e}")
             return None
-
-    def clear_history(self):
-        """Clears the conversation history except for the initial system prompt."""
-        self.history = [self.history[0]] # Keep only the system prompt
-        self.logger.info(f"{self.name}'s history cleared.")
 
 
 class GroupedActionOutput(BaseModel):

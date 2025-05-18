@@ -1,4 +1,5 @@
 import logging
+import json
 
 class World:
     """Represents the virtual world where blocks are placed."""
@@ -75,7 +76,8 @@ class World:
             return "The world is currently empty."
         else:
             # Get the list of dictionaries and convert it to a pretty-printed JSON string
-            return self.get_state_as_json()
+            data = self.get_state_as_json()
+            return json.dumps(data, indent=2)
 
     def __str__(self):
         """Returns the world state description for the Architect."""

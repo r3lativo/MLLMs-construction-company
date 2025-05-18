@@ -1,10 +1,11 @@
 from helper import Agent # Ensure this import is correct
+from typing import Any, List, Optional
 
 class Architect(Agent):
     """Represents the Architect agent."""
 
     def __init__(self, model: str, system_prompt: str, init_prompt: str,
-                 structure_description_json: dict, structure_image_path: str = None,
+                 structure_description_json: dict, structure_image_paths: Optional[List[str]] = None,
                  vllm_api_base: str = "http://localhost:8000/v1"):
         """
         Args:
@@ -12,13 +13,13 @@ class Architect(Agent):
             system_prompt (str): The system prompt template for the Architect.
             init_prompt (str): The initial prompt template for the Architect to start the project.
             structure_description_json (dict): The target structure in JSON format.
-            structure_image_path (str, optional): Path to an image visualizing the target structure. Defaults to None.
+            structure_image_paths (list[str], optional): A list of local file paths to images. Defaults to None.
             vllm_api_base (str): The base URL for the vLLM API.
         """
         super().__init__("Architect", model, system_prompt, vllm_api_base)
         self.init_prompt = init_prompt
         self.structure_description_json = structure_description_json
-        self.structure_image_path = structure_image_path
+        self.structure_image_paths = structure_image_paths
         self.logger.info("Architect initialized.")
 
 
@@ -31,7 +32,7 @@ class Architect(Agent):
 
         # Determine use_json and use_img status
         use_json = bool(self.structure_description_json)
-        use_img = bool(self.structure_image_path)
+        use_img = bool(self.structure_image_paths)
 
         # Render the initial prompt using the structure description
         init_message_content = self.init_prompt.render(
@@ -42,9 +43,9 @@ class Architect(Agent):
         
         # Add the initial message to Architect's history.
         # Now supporting image_path for local files
-        if self.structure_image_path:
-            self.add_message_to_history("user", init_message_content, image_path=self.structure_image_path)
-            self.logger.debug(f"Architect added initial instruction with image from path: {self.structure_image_path}")
+        if use_img:
+            self.add_message_to_history("user", init_message_content, image_paths=self.structure_image_paths)
+            self.logger.debug(f"Architect added initial instruction with image from path: {self.structure_image_paths}")
         else:
             self.add_message_to_history("user", init_message_content)
             self.logger.debug("Architect added initial instruction (text-only).")
