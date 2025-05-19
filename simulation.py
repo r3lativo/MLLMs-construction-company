@@ -2,7 +2,6 @@ import json
 import logging
 from logging.handlers import RotatingFileHandler
 import os
-import shutil
 import tempfile
 import subprocess # Needed for running the renderer command
 
@@ -11,14 +10,9 @@ from builder import Builder
 from action_handler import World
 from config import config
 from jinja2 import Environment, FileSystemLoader
+import glob # We'll use this to find JSON files dynamically
+from natsort import natsorted
 
-# --- Global Constants & Setup ---
-HISTORY_DIR = "chat_histories"
-WORLD_STATE_DIR = "world_states"
-ARCHITECT_HISTORY_FILE = os.path.join(HISTORY_DIR, "architect_history.json")
-BUILDER_HISTORY_FILE = os.path.join(HISTORY_DIR, "builder_history.json")
-
-JINJA_ENV = Environment(loader=FileSystemLoader('prompts'))
 
 # --- Helper Functions ---
 
@@ -37,16 +31,9 @@ def _setup_logging():
     root_logger.addHandler(log_handler)
     return root_logger
 
-def _cleanup_output_directories(logger: logging.Logger):
-    """Removes existing output directories to ensure a clean slate for a new simulation."""
-    for directory in [HISTORY_DIR, WORLD_STATE_DIR]:
-        if os.path.exists(directory):
-            shutil.rmtree(directory)
-            logger.info(f"Removed old directory: {directory}")
-
 def _save_agent_history(agent_name: str, history: list, file_path: str, logger: logging.Logger):
     """Saves an agent's full conversation history to a JSON file."""
-    os.makedirs(HISTORY_DIR, exist_ok=True)
+    #os.makedirs(HISTORY_DIR, exist_ok=True)
     try:
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(history, f, indent=2, ensure_ascii=False)
@@ -54,10 +41,10 @@ def _save_agent_history(agent_name: str, history: list, file_path: str, logger: 
     except Exception as e:
         logger.error(f"Error saving {agent_name}'s history to {file_path}: {e}")
 
-def _save_world_state(world_data: list[dict], turn: int, logger: logging.Logger):
+def _save_world_state(world_data: list[dict], turn: int, logger: logging.Logger, current_results_output_path):
     """Saves the current world state to a JSON file, named by turn."""
-    os.makedirs(WORLD_STATE_DIR, exist_ok=True)
-    file_path = os.path.join(WORLD_STATE_DIR, f"world_state_turn_{turn:03d}.json")
+    #os.makedirs(WORLD_STATE_DIR, exist_ok=True)
+    file_path = os.path.join(current_results_output_path, f"world_state_turn_{turn:03d}.json")
     try:
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(world_data, f, indent=2, ensure_ascii=False)
@@ -92,7 +79,7 @@ def _process_builder_turn(builder: Builder, architect_message: str, logger: logg
     logger.info(f"Builder: Actions identified: {len(builder_actions.actions)} types, {sum(len(v) for v in builder_actions.actions.values())} total actions.")
     return builder_communication, builder_actions
 
-def _orchestrate_world_update(world: World, builder_actions: any, turn: int, logger: logging.Logger, builder: Builder): # Add builder to parameters
+def _orchestrate_world_update(world: World, builder_actions: any, turn: int, logger: logging.Logger, builder: Builder, current_results_output_path):
     """Executes Builder's actions and saves the resulting world state."""
     if builder_actions:
         logger.info(f"Orchestrator: Executing Builder's actions for turn {turn}...")
@@ -100,7 +87,7 @@ def _orchestrate_world_update(world: World, builder_actions: any, turn: int, log
     
     # Save the world state after actions for this turn
     current_world_state_data = world.get_state_as_json()
-    _save_world_state(current_world_state_data, turn, logger)
+    _save_world_state(current_world_state_data, turn, logger, current_results_output_path)
 
 def _generate_world_feedback(world: World, turn: int, renderer_command: list, logger: logging.Logger) -> str:
     """
@@ -172,9 +159,14 @@ def run_simulation(
     Runs the Architect-Builder collaborative simulation.
     """
     logger = _setup_logging()
-    logger.info("--- Starting Simulation ---")
 
-    _cleanup_output_directories(logger)
+    structure_name = structure_info.get("name")
+    current_results_output_path = os.path.join(RESULTS_ROOT_DIR, structure_name)
+    architect_history_file = os.path.join(current_results_output_path, "architect_history.json")
+    builder_history_file = os.path.join(current_results_output_path, "builder_history.json")
+    logger.info(f"--- Starting Simulation for {structure_name} ---")
+
+    #_cleanup_output_directories(logger)
 
     # 1. Initialize Agents and World
     world, architect, builder = _initialize_simulation_components(architect_model, builder_model, structure_info, logger)
@@ -182,7 +174,7 @@ def run_simulation(
     # 2. Architect Starts the Project
     logger.info("\n--- Architect: Initiating project ---")
     architect_message_to_builder = architect.start_project()
-    _save_agent_history(architect.name, architect.get_history(), ARCHITECT_HISTORY_FILE, logger)
+    _save_agent_history(architect.name, architect.get_history(), architect_history_file, logger)
 
 
     turn = 0
@@ -193,10 +185,10 @@ def run_simulation(
         # 3. Builder's Turn: Receive, Process, Act
         logger.info(f"\n--- Turn {turn}: Builder's Phase ---")
         builder_communication, builder_actions = _process_builder_turn(builder, architect_message_to_builder, logger)
-        _save_agent_history(builder.name, builder.get_history(), BUILDER_HISTORY_FILE, logger)
+        _save_agent_history(builder.name, builder.get_history(), builder_history_file, logger)
 
         # 4. Orchestrator: Update World Based on Builder's Actions
-        _orchestrate_world_update(world, builder_actions, turn, logger, builder)
+        _orchestrate_world_update(world, builder_actions, turn, logger, builder, current_results_output_path)
 
         # 5. Orchestrator: Generate World Feedback for Architect (and optionally render)
         world_state_feedback = None
@@ -214,58 +206,140 @@ def run_simulation(
         logger.info(f"\n--- Turn {turn}: Architect's Phase ---")
         architect_next_message_to_builder = _process_architect_turn(architect, builder_communication, world_state_feedback, logger)
         architect_message_to_builder = architect_next_message_to_builder # Update message for next turn
-        _save_agent_history(architect.name, architect.get_history(), ARCHITECT_HISTORY_FILE, logger)
+        _save_agent_history(architect.name, architect.get_history(), architect_history_file, logger)
 
+    #architect_final_history = architect.get_history()
+    #builder_final_history = builder.get_history()
+    #final_world_state_data = world
 
     logger.info("\n--- Simulation Ended ---")
     logger.info(f"\nFinal World State:\n{world}")
+    #return architect_final_history, builder_final_history, final_world_state_data
 
+
+
+ARCHITECT_MODEL_NAME = config.get("architect_model_id")
+BUILDER_MODEL_NAME = config.get("builder_model_id")
+VLLM_API_BASE_URL = "http://localhost:8000/v1"
+
+JINJA_ENV = Environment(loader=FileSystemLoader('prompts'))
+
+BASE_STRUCTURES_DIR = "data/structures/gold-processed"
+RESULTS_ROOT_DIR = "new_results" # New root directory for all results
+
+RENDERER_CMD = None # Or your actual command
 
 if __name__ == "__main__":
-    ARCHITECT_MODEL_NAME = config.get("architect_model_id")
-    BUILDER_MODEL_NAME = config.get("builder_model_id")
-    VLLM_API_BASE_URL = "http://localhost:8000/v1" # Your vLLM server address
+    # Ensure the base results directory exists
+    os.makedirs(RESULTS_ROOT_DIR, exist_ok=True)
 
-    # Load structure information
-    structure_json = "data/structures/gold-processed/C4_flower_new/C1_bell.json"
-    try:
-        with open(structure_json, 'r') as f:
-            structure_data = json.load(f)
-    except FileNotFoundError:
-        logging.error(f"Structure JSON file not found: {structure_json}. Please ensure the path is correct.")
-        exit(1)
-    except json.JSONDecodeError:
-        logging.error(f"Error decoding JSON from: {structure_json}. Please check file format.")
-        exit(1)
-
-    directory_to_search = "data/structures/gold-processed/C1_bell/"
-    image_extensions = ('.jpg', '.jpeg', '.png', '.webp')
-
-    all_image_files = [
-        os.path.join(root, filename)
-        for root, _, files in os.walk(directory_to_search) # Traverses through main folder and all subfolders
-        for filename in files                               # Iterates over each file found
-        if os.path.splitext(filename)[1].lower() in image_extensions # Checks if the file's extension is an image type
+    # Get a list of all structure directories (e.g., ['C1_bell', 'C4_flower_new'])
+    structure_names = [
+        d for d in os.listdir(BASE_STRUCTURES_DIR)
+        if os.path.isdir(os.path.join(BASE_STRUCTURES_DIR, d))
     ]
 
-    structure_info = {
-        #'json_data': structure_data,
-        'image_paths': all_image_files
-    }
+    if not structure_names:
+        logging.warning(f"No structure directories found in {BASE_STRUCTURES_DIR}. Exiting.")
+        exit(0)
 
-    # --- Configure Renderer Command ---
-    # IMPORTANT: Replace with the actual command to run your external renderer.
-    # It should accept a single argument: the path to the temporary JSON file.
-    # Example: RENDERER_CMD = ["/path/to/your/renderer_executable", "--output_image", "output.png"]
-    # For testing, you might use a simple script that just echoes the file path or processes it.
-    RENDERER_CMD = None # Set to None if you don't have a renderer or don't want to run it
-    # RENDERER_CMD = ["python", "scripts/mock_renderer.py"] # Example for a mock renderer script
+    logging.info(f"Found {len(structure_names)} structures to simulate: {structure_names}")
 
-    run_simulation(
-        architect_model=ARCHITECT_MODEL_NAME,
-        builder_model=BUILDER_MODEL_NAME,
-        structure_info=structure_info,
-        max_turns=10,
-        render_interval=1, # Provide world state feedback to Architect every turn
-        renderer_command=RENDERER_CMD
-    )
+
+    # ... (start of the for loop) ...
+    
+    for structure_name in natsorted(structure_names): # sorted() helps with consistent order
+        logging.info(f"\n--- Starting processing for structure: {structure_name} ---")
+
+        current_structure_data_path = os.path.join(BASE_STRUCTURES_DIR, structure_name)
+        current_results_output_path = os.path.join(RESULTS_ROOT_DIR, structure_name)
+
+        # Create the specific results directory for this structure
+        os.makedirs(current_results_output_path, exist_ok=True)
+        logging.info(f"Results directory for '{structure_name}' created at: {current_results_output_path}")
+
+        # 4a. Load Structure JSON Data
+        structure_data = None
+        # Find any JSON file in the current structure's folder.
+        # We'll pick the first one found, or you can add logic to pick a specific name
+        json_files_in_current_structure = glob.glob(os.path.join(current_structure_data_path, "*.json"))
+        
+        if not json_files_in_current_structure:
+            logging.error(f"No JSON file found in {current_structure_data_path}. Skipping this structure.")
+            continue # Skip to the next structure in the loop
+        
+        json_to_load = json_files_in_current_structure[0] # Take the first JSON file found
+        
+        try:
+            with open(json_to_load, 'r') as f:
+                structure_data = json.load(f)
+            logging.info(f"Loaded structure JSON from: {json_to_load}")
+        except json.JSONDecodeError:
+            logging.error(f"Error decoding JSON from: {json_to_load}. Skipping this structure.")
+            continue
+        except Exception as e:
+            logging.error(f"An unexpected error occurred loading JSON from {json_to_load}: {e}. Skipping this structure.")
+            continue
+
+        # 4b. Collect All Image Files for the Current Structure
+        image_extensions = ('.jpg', '.jpeg', '.png', '.webp')
+        all_image_files = []
+        for root, _, files in os.walk(current_structure_data_path):
+            for filename in files:
+                if os.path.splitext(filename)[1].lower() in image_extensions:
+                    all_image_files.append(os.path.join(root, filename))
+        
+        if not all_image_files:
+            logging.warning(f"No image files found in {current_structure_data_path}. Proceeding without images.")
+
+        structure_info = {
+            'name': structure_name, # Handy to pass the name for internal logging/identification
+            'json_data': structure_data,
+            'image_paths': all_image_files
+        }
+        logging.info(f"Prepared structure_info for '{structure_name}' with {len(all_image_files)} images.")
+
+        # SIMULATION START
+        logging.info(f"Starting simulation for structure '{structure_name}'...")
+        try:
+            # Call run_simulation and capture its return values
+            architect_history, builder_history, final_world_state = run_simulation(
+                architect_model=ARCHITECT_MODEL_NAME,
+                builder_model=BUILDER_MODEL_NAME,
+                structure_info=structure_info,
+                max_turns=10,
+                render_interval=1,
+                renderer_command=RENDERER_CMD
+            )
+            logging.info(f"Simulation for '{structure_name}' completed successfully.")
+
+            # Save Architect Chat History
+            architect_chat_path = os.path.join(current_results_output_path, "architect_chat_history.json")
+            with open(architect_chat_path, 'w') as f:
+                json.dump(architect_history, f, indent=2) # indent=2 makes it readable
+            logging.info(f"Architect chat history saved to: {architect_chat_path}")
+
+            # Save Builder Chat History
+            builder_chat_path = os.path.join(current_results_output_path, "builder_chat_history.json")
+            with open(builder_chat_path, 'w') as f:
+                json.dump(builder_history, f, indent=2)
+            logging.info(f"Builder chat history saved to: {builder_chat_path}")
+
+            # Save World States
+            world_state_path = os.path.join(current_results_output_path, "final_world_state.json") # Renamed for clarity
+            with open(world_state_path, 'w') as f:
+                json.dump(final_world_state, f, indent=2)
+            logging.info(f"Final world state saved to: {world_state_path}")
+            
+            logging.info(f"--- All results for '{structure_name}' saved. ---")
+
+
+        except Exception as e:
+            logging.error(f"Error encountered during simulation for '{structure_name}': {e}")
+            import traceback
+            logging.error(traceback.format_exc()) # Print full traceback for debugging
+            continue # Skip to the next structure if this one fails
+    
+    # ... (end of the for loop) ...
+
+    logging.info("\n--- All structure simulations finished! ---")
