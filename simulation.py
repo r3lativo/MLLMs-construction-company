@@ -227,15 +227,15 @@ if __name__ == "__main__":
     VLLM_API_BASE_URL = "http://localhost:8000/v1" # Your vLLM server address
 
     # Load structure information
-    flower_json = "data/structures/gold-processed/C4_flower_new/C4_flower_new.json"
+    structure_json = "data/structures/gold-processed/C4_flower_new/C1_bell.json"
     try:
-        with open(flower_json, 'r') as f:
-            structure_json_data = json.load(f)
+        with open(structure_json, 'r') as f:
+            structure_data = json.load(f)
     except FileNotFoundError:
-        logging.error(f"Structure JSON file not found: {flower_json}. Please ensure the path is correct.")
+        logging.error(f"Structure JSON file not found: {structure_json}. Please ensure the path is correct.")
         exit(1)
     except json.JSONDecodeError:
-        logging.error(f"Error decoding JSON from: {flower_json}. Please check file format.")
+        logging.error(f"Error decoding JSON from: {structure_json}. Please check file format.")
         exit(1)
 
     directory_to_search = "data/structures/gold-processed/C1_bell/"
@@ -249,7 +249,7 @@ if __name__ == "__main__":
     ]
 
     structure_info = {
-        #'json_data': structure_json_data,
+        #'json_data': structure_data,
         'image_paths': all_image_files
     }
 
