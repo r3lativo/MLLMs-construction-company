@@ -49,74 +49,38 @@ class Agent:
         self.add_message_to_history("system", system_prompt.render())
         self.logger.info(f"{self.name} initialized with model '{self.model}' and system prompt.")
 
-    def add_message_to_history(self,
-                               role: str,
-                               text_content: Optional[str] = None,
-                               image_paths: Optional[List[str]] = None, # NOW ACCEPTS A LIST OF LOCAL PATHS
-                               image_urls: Optional[List[str]] = None): # NOW ACCEPTS A LIST OF EXTERNAL URLs
+    def add_message_to_history(self, role, text_content=None, image_paths=None, image_urls=None):
         """
         Adds a message (text, multiple images, or both) to the agent's history.
         Conditionally formats 'content' as a string or a list of parts based on message type.
 
         Args:
-            role (str): The role of the message sender (e.g., "user", "assistant", "system").
-            text_content (str, optional): The text part of the message. Defaults to None.
-            image_paths (list[str], optional): A list of local file paths to images. Images will be Base64 encoded. Defaults to None.
-            image_urls (list[str], optional): A list of external URLs to images. Defaults to None.
+            role: The role of the message sender (e.g., "user", "assistant", "system").
+            text_content: The text part of the message. Defaults to None.
+            image_paths: A list of local file paths to images. Images will be Base64 encoded. Defaults to None.
+            image_urls: A list of external URLs to images. Defaults to None.
         """
-        # Determine if this message requires multimodal content (list of parts)
-        # It's multimodal if either image_paths or image_urls lists are provided and non-empty.
-        is_multimodal_message = (
-            (image_paths is not None and len(image_paths) > 0) or
-            (image_urls is not None and len(image_urls) > 0)
-        )
+        # For multimodal messages (e.g., user with image), content is a list of parts
+        content = []
 
-        if is_multimodal_message:
-            # For multimodal messages (e.g., user with image), content is a list of parts
-            message_content_parts = []
+        if text_content and text_content.strip():
+            content.append({"type": "text", "text": text_content})
+        if image_paths:
+            for p in image_paths:
+                    content.append({"type": "image_url", "image_url": {"url": encode_image_to_data_uri(p)}})
+        if image_urls:
+            for u in image_urls:
+                content.append({"type": "image_url", "image_url": {"url": u}})
 
-            # Add text content if provided
-            if text_content and text_content.strip():
-                message_content_parts.append({"type": "text", "text": text_content})
-
-            # Process multiple local image paths if provided
-            if image_paths:
-                for img_path in image_paths:
-                    image_data_uri = encode_image_to_data_uri(img_path) # Call the global helper
-                    if image_data_uri:
-                        message_content_parts.append({"type": "image_url", "image_url": {"url": image_data_uri}})
-                        self.logger.debug(f"Encoded image from {img_path} to Base64 and added to history.")
-                    else:
-                        self.logger.error(f"Could not encode image from {img_path}. Skipping this image attachment.")
-
-            # Process multiple image URLs if provided
-            if image_urls:
-                for img_url in image_urls:
-                    if img_url and img_url.strip(): # Ensure URL is not empty/whitespace
-                        message_content_parts.append({"type": "image_url", "image_url": {"url": img_url}})
-                        self.logger.debug(f"Added image URL {img_url} to history.")
-                    else:
-                        self.logger.warning("Empty or invalid image URL provided. Skipping attachment.")
-
-            # If no content parts were successfully added, skip the message
-            if not message_content_parts:
-                self.logger.warning(f"Attempted to add empty multimodal message for role {role}. No text, valid images, or valid URLs provided. Message skipped.")
-                return
-
-            self.history.append({
-                "role": role,
-                "content": message_content_parts # This will be a list of dictionaries (parts)
-            })
+        if not content:  # If nothing was added, don't add an empty message
+            return
+                
+        # Simple string content for system/assistant if no images
+        if not (image_paths or image_urls) and len(content) == 1 and content[0]["type"] == "text":
+            self.history.append({"role": role, "content": content[0]["text"]})
         else:
-            # For purely text-based messages (system, assistant, or text-only user), content is a string
-            if text_content is None or not text_content.strip():
-                self.logger.warning(f"Attempted to add empty text message for role {role}. Message skipped.")
-                return
+            self.history.append({"role": role, "content": content})
 
-            self.history.append({
-                "role": role,
-                "content": text_content # This will be a plain string
-            })
 
     def get_history(self) -> List[dict]:
         """Returns the agent's conversation history."""
@@ -125,16 +89,12 @@ class Agent:
     def _call_model(self, messages: List[dict]) -> Optional[str]:
         """Makes an API call to the language model."""
         headers = {"Content-Type": "application/json"}
-        payload = {
-            "model": self.model,
-            "messages": messages,
-        }
+        payload = {"model": self.model, "messages": messages }
 
         api_timeout_seconds = config.get("api_timeout_seconds", 600)
 
         try:
-            self.logger.debug(f"Calling model '{self.model}' at {self.vllm_api_base}/chat/completions...")
-            self.logger.debug(f"Payload sent to model: {json.dumps(payload, indent=2)}") # Log the full payload
+            self.logger.debug(f"Payload sent to '{self.model}': {json.dumps(payload, indent=2)}") # Log the full payload
 
             response = requests.post(
                 f"{self.vllm_api_base}/chat/completions",
@@ -144,29 +104,8 @@ class Agent:
             )
             response.raise_for_status() # Raise an exception for HTTP errors (4xx or 5xx)
             response_json = response.json()
+            return response_json['choices'][0]['message']['content']
 
-            if 'choices' in response_json and len(response_json['choices']) > 0:
-                # Assuming the model returns a simple text content for its response
-                return response_json['choices'][0]['message']['content']
-            else:
-                self.logger.warning(f"Model response has no choices: {response_json}")
-                return None
-
-        except requests.exceptions.Timeout:
-            self.logger.error(f"API call to {self.name}'s model timed out after {api_timeout_seconds} seconds.")
-            return None
-        except requests.exceptions.RequestException as e:
-            self.logger.error(f"Error during API call to {self.name}'s model: {e}")
-            if hasattr(e, 'response') and e.response is not None:
-                self.logger.error(f"Response status code: {e.response.status_code}")
-                self.logger.error(f"Response content: {e.response.text}")
-            return None
-        except json.JSONDecodeError as e:
-            self.logger.error(f"Failed to decode JSON response from {self.name}'s model: {e}")
-            return None
-        except KeyError as e:
-            self.logger.error(f"Unexpected JSON structure from {self.name}'s model: Missing key {e}. Response: {response_json}")
-            return None
         except Exception as e:
             self.logger.error(f"An unexpected error occurred in {self.name}'s _call_model: {e}")
             return None

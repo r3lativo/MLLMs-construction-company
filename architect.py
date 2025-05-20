@@ -63,7 +63,7 @@ class Architect(Agent):
         self.logger.info(f"Architect's first instruction generated: {response[:200]}...")
         return response
 
-    def process_builder_output(self, builder_communication: str, world_state_feedback: str = None):
+    def process_builder_output(self, builder_communication: str): #, world_state_feedback: str = None):
         """
         Processes the Builder's communication and world state feedback,
         then generates the next instruction for the Builder.
@@ -75,15 +75,16 @@ class Architect(Agent):
         Returns:
             str | None: The Architect's next instruction to the Builder, or None if generation fails.
         """
-        self.logger.info("\n--- Architect is processing Builder's output and world state ---")
+        self.logger.debug("\n--- Architect is processing Builder's output and world state ---")
         
         # Combine Builder's communication and world state feedback into a single user message
-        user_message_content = f"Builder's message:\n{builder_communication}"
-        if world_state_feedback:
-            user_message_content += f"\n\nCurrent World State:\n{world_state_feedback}"
+        #user_message_content = f"Builder's message:\n{builder_communication}"
+        #if world_state_feedback:
+        #    user_message_content += f"\n\nCurrent World State:\n{world_state_feedback}"
         
-        self.add_message_to_history("user", user_message_content)
-        self.logger.debug("Architect processing: Added combined Builder comms/world state to history.")
+        #self.add_message_to_history("user", user_message_content)
+        self.add_message_to_history("user", f"Builder's message:\n{builder_communication}")
+        #self.logger.debug("Architect processing: Added combined Builder comms/world state to history.")
 
         response = self._call_model(self.history)
 
@@ -92,5 +93,11 @@ class Architect(Agent):
             return None
         
         self.add_message_to_history("assistant", response)
-        self.logger.info(f"Architect's next instruction generated: {response[:200]}...")
+        self.logger.debug(f"Architect's next instruction generated: {response[:200]}...")
         return response
+
+    def add_world_state_to_history(self, world_state_description, generated_image_paths):
+
+        self.add_message_to_history("user", world_state_description, generated_image_paths)
+
+        return
