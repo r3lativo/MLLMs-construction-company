@@ -51,7 +51,7 @@ def _setup_logging() -> logging.Logger:
     log_handler.setFormatter(log_formatter)
 
     root_logger = logging.getLogger()
-    root_logger.setLevel(logging.INFO)  # Set root logger level to INFO
+    root_logger.setLevel(logging.ERROR)
     root_logger.addHandler(log_handler)
     return root_logger
 
@@ -382,7 +382,7 @@ if __name__ == "__main__":
     
     # Iterate through each structure to run simulations
     # Currently set to run only the first structure found, change `[0]` to `[:]` to run all
-    for structure_name in [structure_names[:20]]:
+    for structure_name in structure_names[:20]:
         logging.info(f"\n--- Processing structure: {structure_name} ---")
 
         current_structure_data_path = os.path.join(BASE_STRUCTURES_DIR, structure_name)
