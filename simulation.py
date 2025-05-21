@@ -44,7 +44,7 @@ def _save_agent_history(agent_name: str, history: list, file_path: str, logger: 
 def _save_world_state(world_data: list[dict], turn: int, logger: logging.Logger, current_results_output_path):
     """Saves the current world state to a JSON file, named by turn."""
     #os.makedirs(WORLD_STATE_DIR, exist_ok=True)
-    file_path = os.path.join(current_results_output_path, f"world_state_turn_{turn:03d}.json")
+    file_path = os.path.join(current_results_output_path, f"world_state_{turn:03d}.json")
     try:
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(world_data, f, indent=2, ensure_ascii=False)
@@ -67,24 +67,23 @@ def _initialize_simulation_components(architect_model: str, builder_model: str, 
         system_prompt=JINJA_ENV.get_template('b_sys_prompt.jinja'),
         action_handler=world
     )
-    logger.info("Simulation components initialized.")
+    logger.debug("Simulation components initialized.")
     return world, architect, builder
 
 def _process_builder_turn(builder: Builder, architect_message: str, logger: logging.Logger):
     """Handles the Builder's turn: processes instruction and extracts actions/communication."""
-    logger.info("Builder: Processing Architect's instruction...")
+    logger.debug("Builder: Processing Architect's instruction...")
     raw_builder_output, builder_communication, builder_actions = \
         builder.process_architect_instruction(architect_message)
-    logger.info(f"Builder: Communication: {builder_communication[:100]}...")
-    logger.info(f"Builder: Actions identified: {len(builder_actions.actions)} types, {sum(len(v) for v in builder_actions.actions.values())} total actions.")
+    logger.debug(f"Builder: Communication: {builder_communication[:100]}...")
+    logger.debug(f"Builder: Actions identified: {len(builder_actions.actions)} types, {sum(len(v) for v in builder_actions.actions.values())} total actions.")
     return builder_communication, builder_actions
 
 def _orchestrate_world_update(world: World, builder_actions: any, turn: int, logger: logging.Logger, builder: Builder, current_results_output_path):
     """Executes Builder's actions and saves the resulting world state."""
     if builder_actions:
-        logger.info(f"Orchestrator: Executing Builder's actions for turn {turn}...")
+        logger.debug(f"Orchestrator: Executing Builder's actions for turn {turn}...")
         builder.execute_actions(builder_actions)
-    
     # Save the world state after actions for this turn
     current_world_state_data = world.get_state_as_json()
     _save_world_state(current_world_state_data, turn, logger, current_results_output_path)
@@ -98,137 +97,96 @@ def plot_structure(block_row, plotter):
     cube = pv.Cube(center=(x, z, y), x_length=1, y_length=1, z_length=1)
     plotter.add_mesh(cube, color=block_color, show_edges=True)
 
+
 def take_screenshots(plotter, turn, output_path):
     # Initialize plotter
+    plotter.view_xz() 
     plotter.set_background("pv") # Sets background to PyVista's default gradient
-
     created_screenshot_paths = []
-    
     # Define angles/views for screenshots
     angles = {'front': 0, 'three_q': 45}
-
     # ABOVE view
     plotter.camera.elevation = 90
     plotter.camera.azimuth = 0
     plotter.render()
-    above_path = os.path.join(output_path, f"ws_turn_{turn:03d}_above.jpg")
+    above_path = os.path.join(output_path, f"world_state_{turn:03d}_above.jpg")
     plotter.screenshot(above_path)
     created_screenshot_paths.append(above_path)
-
     # AROUND views
     plotter.camera.elevation = 30 # Set common elevation for around views
     for label, angle in angles.items():
         plotter.camera.azimuth = angle
         plotter.render() # Render the structure again for each new view
-        screenshot_path = os.path.join(output_path, f"ws_turn_{turn:03d}_{label}.jpg")
+        screenshot_path = os.path.join(output_path, f"world_state_{turn:03d}_{label}.jpg")
         plotter.screenshot(screenshot_path)
         created_screenshot_paths.append(screenshot_path)
-    
     return created_screenshot_paths
 
 
-def generate_world_feedback(world: World, turn: int, logger: logging.Logger, output_path: str):
+def generate_world_feedback(world: World, turn: int, logger: logging.Logger, output_path: str, final: bool = False, run_type: str = "img_json"):
+    """
+    Generates text and/or image feedback for the architect based on the current world state
+    and the specified run_type. If 'final' is True, it always saves full JSON and a specific JPEG.
 
-    # --- Text feedback generation ---
-    world_state_description = f"Current World State:\n{world.get_state_description_for_architect()}"
-
-    # --- Image feedback generation ---
+    Args:
+        world (World): The current world object.
+        turn (int): The current simulation turn number.
+        logger (logging.Logger): The logger instance.
+        output_path (str): The base directory to save output files (e.g., results/structure_name/).
+        final (bool): If True, generates and saves final JSON and a specific JPEG, ignoring run_type.
+        run_type (str): Specifies the type of feedback for non-final turns ("json_only", "img_only", "img_json").
+                        Defaults to "img_json".
+    Returns:
+        Tuple[str, List[str]]: A tuple containing the text description and a list of paths
+                               to the generated image files for Architect's feedback.
+    """
+    # Setup plotter and plot structure (needed for both intermediate and final renders)
     plotter = pv.Plotter(off_screen=True, window_size=[640, 640])
-
     current_world_state_df = pd.DataFrame(world.get_state_as_json())
-    combined_df = pd.concat([TERRAIN_DF, current_world_state_df], ignore_index=True)
-
-    if not combined_df.empty:
-        combined_df.apply(lambda row: plot_structure(row, plotter), axis=1)
     
-    # Take screenshots and get their paths
-    generated_image_paths = take_screenshots(plotter, turn, output_path)
-    plotter.close()
+    combined_df = pd.concat([TERRAIN_DF, current_world_state_df], ignore_index=True)
+    combined_df.apply(lambda row: plot_structure(row, plotter), axis=1)
 
-    # --- return things to pass to architect ---
-    return world_state_description, generated_image_paths
+    # --- Feedback for Architect (intermediate turns) ---
+    if not final:
+        world_state_for_architect = ""
+        generated_image_paths = []
 
+        # Generate text feedback based on run_type
+        if run_type in ["json_only", "img_json"]:
+            world_state_for_architect = world.get_state_description_for_architect()
+            logger.debug("Generated text feedback for architect.")
 
-"""
-def _generate_world_feedback(world: World, turn: int, renderer_command: list, logger: logging.Logger) -> str:
-    #Generates feedback about the world state for the Architect, optionally
-    #using an external renderer.
-    logger.info(f"Orchestrator: Generating world feedback for Architect (Turn {turn}).")
-    world_state_feedback = None
+        # Generate image feedback based on run_type
+        if run_type in ["img_only", "img_json"]:
+            generated_image_paths = take_screenshots(plotter, turn, output_path)
+            logger.debug(f"Generated {len(generated_image_paths)} image(s) for architect feedback.")
 
-    if renderer_command:
-        # Get the world state as JSON data (list of dicts)
-        world_state_json_data = world.get_state_as_json()
-        
-        # Write to a temporary file
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as tmp_file:
-            temp_file_path = tmp_file.name
-            json.dump(world_state_json_data, tmp_file, indent=2)
-            logger.info(f"World state saved to temporary file for renderer: {temp_file_path}")
-        
-        try:
-            full_command = renderer_command + [temp_file_path]
-            logger.info(f"Running renderer command: {' '.join(full_command)}")
-            process = subprocess.run(full_command, capture_output=True, text=True, check=True)
-            render_output = process.stdout.strip()
-            logger.info(f"Renderer output (first 100 chars): {render_output[:100]}...")
-            world_state_feedback = f"Renderer reported: {render_output}"
-        except FileNotFoundError:
-            logger.error(f"Renderer command not found: {full_command[0]}. Falling back to direct world state description.")
-            world_state_feedback = world.get_state_description_for_architect()
-        except subprocess.CalledProcessError as e:
-            logger.error(f"Renderer command failed with error code {e.returncode}: {e.stderr.strip()}. Falling back to direct world state description.")
-            world_state_feedback = world.get_state_description_for_architect()
-        except Exception as e:
-            logger.error(f"Unexpected error running renderer command: {e}. Falling back to direct world state description.")
-            world_state_feedback = world.get_state_description_for_architect()
-        finally:
-            try:
-                os.remove(temp_file_path)
-                logger.info(f"Removed temporary file: {temp_file_path}")
-            except OSError as e:
-                logger.error(f"Error removing temporary file {temp_file_path}: {e}")
+        plotter.close()
+        # Return what's generated for the architect
+        return world_state_for_architect, generated_image_paths
+    
+    # --- Final version to files (always includes both JSON and JPEG) ---
     else:
-        # If no renderer command, just use the direct textual description (which is JSON string or "empty")
-        world_state_feedback = world.get_state_description_for_architect()
-        logger.info("Using direct world state description for feedback.")
+        logger.info(f"Generating final world state outputs for turn {turn}.")
 
-    print(f"World state feedback for Architect:\n{world_state_feedback[:200]}...") # Print a snippet for console visibility
-    return world_state_feedback
-"""
+        # 1. Save final world state as JSON
+        final_world_state = world.get_state_as_json()
+        final_json_path = os.path.join(output_path, "final_world_state.json")
+        with open(final_json_path, 'w') as f:
+            json.dump(final_world_state, f, indent=2)
 
-"""
-def _process_architect_turn(architect: Architect, builder_communication: str, world_state_feedback: str, logger: logging.Logger):
-    #Handles the Architect's turn: processes feedback and generates next instruction.
-    logger.info("Architect: Processing Builder's communication and world feedback...")
-    architect_next_message = architect.process_builder_output(builder_communication, world_state_feedback)
-    logger.info(f"Architect: Next instruction to Builder: {architect_next_message[:100]}...")
-    return architect_next_message
-"""
+        # 2. Save final three_quarters JPEG
+        plotter.view_xz() 
+        plotter.set_background("pv")
+        plotter.camera.elevation = 30
+        plotter.camera.azimuth = 45
+        plotter.render()
+        final_jpeg_path = os.path.join(output_path, f"final_world_state.jpg")
+        plotter.screenshot(final_jpeg_path)
+        plotter.close()
+        return "", [] # Return empty strings/lists as architect doesn't need "feedback" after final save
 
-def save_final_states(world, current_results_output_path):
-    final_world_state = world.get_state_as_json()
-    world_state_path = os.path.join(current_results_output_path, "final_world_state.json")
-    with open(world_state_path, 'w') as f:
-        json.dump(final_world_state, f, indent=2)
-
-    plotter = pv.Plotter(off_screen=True, window_size=[640, 640])
-
-    current_world_state_df = pd.read_json(final_world_state)
-    terrain_df = pd.read_json(TERRAIN_DF)
-    combined_df = pd.concat([terrain_df, current_world_state_df], ignore_index=True)
-
-    if not combined_df.empty:
-        combined_df.apply(lambda row: plot_structure(row, plotter), axis=1)
-
-    plotter.set_background("pv") # Sets background to PyVista's default gradient
-    # AROUND views
-    plotter.camera.elevation = 30 # Set common elevation for around views
-    plotter.camera.azimuth = 45
-    plotter.render() # Render the structure again for each new view
-    screenshot_path = os.path.join(current_results_output_path, f"final_world_state.jpg")
-    plotter.screenshot(screenshot_path)
-    plotter.close()
 
 # --- Main Simulation Function ---
 
@@ -244,11 +202,11 @@ def run_simulation(
     """
     logger = _setup_logging()
 
-    run = current_structure_info.get("run")
+    run_type = current_structure_info.get("run")
     structure_name = structure_info.get("name")
-    logger.info(f"Running simulation for '{structure_name}' ({run})...")
+    logger.info(f"Running simulation for '{structure_name}' ({run_type})...")
 
-    current_results_output_path = os.path.join(RESULTS_ROOT_DIR, structure_name, run)
+    current_results_output_path = os.path.join(RESULTS_ROOT_DIR, structure_name, run_type)
     os.makedirs(current_results_output_path, exist_ok=True)
     architect_history_file = os.path.join(current_results_output_path, "architect_history.json")
     builder_history_file = os.path.join(current_results_output_path, "builder_history.json")
@@ -263,9 +221,11 @@ def run_simulation(
 
 
     turn = 0
+    architect_message_to_builder_final = None # Initialize to capture the last message for final check
+
+    # Main simulation loop
     while turn < max_turns and architect_message_to_builder is not None:
         turn += 1
-        logger.info(f"\n===== Turn {turn} =====")
 
         # 3. Builder's Turn: Receive, Process, Act
         logger.info(f"\n--- Turn {turn}: Builder's Phase ---")
@@ -276,26 +236,31 @@ def run_simulation(
         _orchestrate_world_update(world, builder_actions, turn, logger, builder, current_results_output_path)
 
         # 5. Orchestrator: Generate World Feedback for Architect (and optionally render)
+        # This part handles regular, intermediate feedback to the architect
         if render_interval > 0 and turn % render_interval == 0:
-            world_state_description, generated_image_paths = generate_world_feedback(world, turn, logger, current_results_output_path)
+            world_state_description, generated_image_paths = generate_world_feedback(world, turn, logger, current_results_output_path, run_type=run_type)
             architect.add_world_state_to_history(world_state_description, generated_image_paths)
-        #else:
-            # If not rendering this turn, still provide Architect with current state description
-            #world_state_feedback = world.get_state_description_for_architect()
-            #logger.info(f"Orchestrator: Skipping external render this turn. Using direct world state description as feedback.")
-
-        # --- FINISH if the token is in the architect's last message
-        if "[FINISH]" in architect_message_to_builder:
-            save_final_states(world, current_results_output_path)
-            logger.info("\n--- Simulation Ended ---")
-            break
 
         # 6. Architect's Turn: Process Feedback and Instruct Next
         logger.info(f"\n--- Turn {turn}: Architect's Phase ---")
-        #architect_next_message_to_builder = _process_architect_turn(architect, builder_communication, world_state_feedback, logger)
         architect_next_message_to_builder = architect.process_builder_output(builder_communication)
+        
+        # Store the last message *before* potentially breaking
+        architect_message_to_builder_final = architect_next_message_to_builder 
         architect_message_to_builder = architect_next_message_to_builder # Update message for next turn
         _save_agent_history(architect.name, architect.get_history(), architect_history_file, logger)
+        
+        # Check for [FINISH] token to allow early exit
+        if architect_message_to_builder_final and "[FINISH]" in architect_message_to_builder_final:
+            logger.info(f"\n--- [FINISH] token detected in Architect's message. Ending simulation early at Turn {turn}. ---")
+            break # Exit the while loop
+
+    # --- Post-Loop Cleanup: Always generate final world state and image ---
+    logger.info("\n--- Simulation Loop Finished. Generating Final World State Outputs. ---")
+    # Use 'turn' from the last executed turn, or 'max_turns' if the loop completed naturally
+    generate_world_feedback(world, turn, logger, current_results_output_path, final=True, run_type=run_type)
+    
+    logger.info("\n--- Simulation Complete ---")
 
 
 
@@ -330,7 +295,7 @@ if __name__ == "__main__":
     # ... (start of the for loop) ...
     structure_names = natsorted(structure_names)
     
-    for structure_name in [structure_names[0]]: # sorted() helps with consistent order
+    for structure_name in [structure_names[0]]:
         logging.info(f"\n--- Starting processing for structure: {structure_name} ---")
 
         current_structure_data_path = os.path.join(BASE_STRUCTURES_DIR, structure_name)

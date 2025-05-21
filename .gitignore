@@ -3,7 +3,7 @@
 **/__pycache__/
 .env
 run.sh
-**/*.log
+**/*.log*
 /chat_histories/*
 /world_states/*
 coco2_env_creation.sh
