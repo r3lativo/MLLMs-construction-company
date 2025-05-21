@@ -16,6 +16,9 @@ import pyvista as pv
 
 # --- Constants and Global Setup ---
 
+MAX_TURNS = 20
+RENDER_INTERVAL = 1
+
 # Configure Jinja2 environment to load templates from the 'prompts' directory
 JINJA_ENV = Environment(loader=FileSystemLoader('prompts'))
 
@@ -379,7 +382,7 @@ if __name__ == "__main__":
     
     # Iterate through each structure to run simulations
     # Currently set to run only the first structure found, change `[0]` to `[:]` to run all
-    for structure_name in [structure_names[2]]:
+    for structure_name in [structure_names[:20]]:
         logging.info(f"\n--- Processing structure: {structure_name} ---")
 
         current_structure_data_path = os.path.join(BASE_STRUCTURES_DIR, structure_name)
@@ -448,8 +451,8 @@ if __name__ == "__main__":
                     architect_model=ARCHITECT_MODEL_NAME,
                     builder_model=BUILDER_MODEL_NAME,
                     structure_info=current_structure_info,
-                    max_turns=20,
-                    render_interval=3
+                    max_turns=MAX_TURNS,
+                    render_interval=RENDER_INTERVAL
                 )
                 
             except Exception as e:
