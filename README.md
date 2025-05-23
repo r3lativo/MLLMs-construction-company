@@ -20,159 +20,75 @@
 
 
 
-In this project, we implement a collaborative building task where two multimodal large language models (MLLMs) assume the roles of Architect and Builder. The goal is to study how different prompting techniques (text-only, images-only, and mixed modalities) affect the models’ ability to communicate in a human-like manner during a shared building task.
+This project features a multi-agent system where an **Architect** plans and instructs, and a **Builder** executes commands to construct structures in a simulated 3D block world.
 
-## Overview
 
-The project aims to answer questions such as:
-- How effective are MLLMs at replicating human-like communication in a collaborative task?
-- Can multimodal prompts improve dialogue quality and task success?
-- How do different experimental setups (zero-shot vs. one-shot) compare in performance?
+## 🌟 Features
 
-Our experiments are inspired by previous work on collaborative building tasks in Minecraft-like environments and expand the setting to a fully automated scenario where both agents are MLLMs. Detailed methods, experimental design, and results are discussed in the accompanying report.
+* **Collaborative AI Agents:** Architect and Builder agents work together, communicating via LLMs.
+* **Simulated 3D World:** A simple block-based environment for dynamic building.
+* **Intelligent Instruction Following:** Builder interprets natural language instructions and executes structured actions.
+* **Resource Management:** Builder tracks and manages its block inventory, dynamically provided with instructions.
+* **Multimodal Input (Architect):** Architect can interpret visual blueprints (images) alongside textual structure descriptions.
+* **LLM Integration:** Designed for seamless interaction with Large Language Models via the vLLM API.
+* **Detailed Logging:** Comprehensive logs for agent actions and world state.
 
-## Repository Structure
 
-```plaintext
-.
-├── analysis
-│   ├── judge_analysis_BASE.json
-│   ├── parsed_actions.json
-│   ├── parsed_actions_with_metrics.json
-├── data
-│   ├── judge_data
-│   ├── llava_prompts
-│   ├── one_shot_example
-│   ├── minecraft_corpus
-│   └── structures
-├── README.md
-├── requirements.txt
-├── results
-│   └── [multiple log and JSON files from experiments]
-└── src
-    ├── actions_evaluation.py
-    ├── data_analysis.ipynb
-    ├── data_preprocessing.py
-    ├── judge.py
-    ├── judge_utils.py
-    ├── main.py
-    ├── parse_and_convert.py
-    ├── render.py
-    ├── render_utils.py
-    ├── run_experiments.sh
-    ├── utils.py
-    └── worldstate_decompile.py
+## 🛠️ Setup
+
+### Prerequisites
+
+1.  **Python 3.9+**
+2.  **vLLM API Server:** You'll need a [vLLM](https://github.com/vllm-project/vllm) server running with your chosen LLM (e.g., Mistral-Small-3.1-24B-Instruct-2503). Consult vLLM's documentation for setup. Ensure it's accessible at `http://localhost:8000/v1` or update `config/config.yaml`.
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone -b restructure <https://github.com/r3lativo/MLLMs-construction-company/>
+    cd MLLMs-construction-company
+    ```
+2.  **Create and activate a virtual environment:**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate
+    ```
+3.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## 🚀 Usage
+
+Serve the model(s) you want to use via vllm
+
+```bash
+vllm serve mistralai/Mistral-Small-3.1-24B-Instruct-2503 \
+--tokenizer_mode mistral \
+--config_format mistral \
+--load_format mistral \
+--tool-call-parser mistral \
+--enable-auto-tool-choice \
+--limit_mm_per_prompt 'image=100' \
+--tensor-parallel-size 2 \
+--dtype bfloat16
 ```
 
-- **analysis/**: Contains scripts and output files for evaluating model performance, including parsed actions and metrics.
-- **data/**: Houses all necessary input data such as judge prompts, the Minecraft dialogue corpus, and configuration files for target structures.
-- **results/**: Stores experiment outputs (JSON logs, evaluation scores, etc.) for different experimental conditions.
-- **src/**: Contains the main codebase:
-  - `main.py` is the entry point that orchestrates the experiments.
-  - `data_preprocessing.py` and `parse_and_convert.py` handle data and log processing.
-  - `judge.py` and `judge_utils.py` implement evaluation of dialogue human-likeness.
-  - Other modules (e.g., `render.py`, `actions_evaluation.py`) support visualization and action evaluation.
-  - `data_analysis.ipynb` provides an interactive environment for further analysis.
+Run the simulation
 
-## Installation and Setup
-
-**Clone the Repository**
-
-   ```bash
-   git clone https://github.com/r3lativo/MLLMs-construction-company.git
-   cd MLLMs-construction-company
-   ```
-
-Ensure you have Python 3.10+ installed. Then install the required packages:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Usage
+```bash
+python simulation.py
+```
 
 
-  Use the provided shell script to run experiments:
-  
-  ```bash
-  bash src/run_experiments.sh
-  ```
+## 💡 How it Works
 
-  Alternatively, you can execute the main Python script, for example with:
-  
-  ```bash
-  python src/main.py --structure_id C1
-  ```
+The simulation involves a continuous feedback loop:
 
-
-  Open the Jupyter notebook `src/data_analysis.ipynb` to explore and visualize experiment results.
-
-## Connection to the Report
-
-This repository underpins the experimental setup detailed in our report:
-
-**Experimental Design**  
-  The code implements a collaborative building task where two LLaVA-based MLLMs interact under different input modalities (text-only, images-only, mixed) and learning conditions (zero-shot, one-shot).
-
-**Evaluation Metrics**  
-  The evaluation scripts in the `analysis` folder calculate metrics such as task success rate, accuracy, precision, and human-likeness scores.
-
-**Results**  
-  Experiment logs and JSON results stored in the `results` directory are analyzed both quantitatively and qualitatively.
-
-
-## One Shot Example
-
-`<Builder>` Mission has started.<br>
-`<Architect>` hello<br>
-`<Builder>` hello<br>
-`<Architect>` are u rdy to get to work?<br>
-`<Builder>` yes<br>
-`<Architect>` ok<br>
-`<Architect>` build a 2x1 structure that is blue<br>
-`<Builder>` is the structure extending upwards?<br>
-`<Architect>` no, it goes across<br>
-![image 1](data/one_shot_example/images/image_1.png)<br>
-![image 2](data/one_shot_example/images/image_2.png)<br>
-`<Builder>` is that good?<br>
-`<Architect>` now place 1 blue piece on the left block extending upwards<br>
-`<Architect>` yes that is correct<br>
-![final image](data/one_shot_example/images/final_image.png)<br>
-`<Builder>` like that?<br>
-`<Architect>` yes, now it is finished<br>
-`<Builder>` good job!<br>
-`<Architect>` you too builder<br>
-
-
-## Tables and Results
-### Table 1: The six experimental conditions. TS is short for target structure.  
-
-
-|                | Zero-shot       | One-shot        |
-|--------------|---------------|---------------|
-| **Text-only**  | TS: JSON      | TS: JSON      |
-| **Mixed**      | TS: JSON + Image | TS: JSON + Image |
-| **Images-only** | TS: Image      | TS: Image      |
-
-
-### Table 2: Builders' and architects' most typical communication patterns as recorded in Narayan-Chen (2019).  
-
-
-| **Builder**                  | **Architect**                  |
-|------------------------------|--------------------------------|
-| Clarification questions      | References to common shapes   |
-|                              | Implicit references           |
-
-
-### Table 3: Summary of mean human likeness (HL, 1–5) and mean structure matching (accuracy and precision) for one-shot and zero-shot experiments under different IMG and JSON input conditions.  
-
-
-|                | IMG  | JSON  | HL   | Accuracy | Precision |
-|--------------|------|------|------|----------|----------|
-| **One-shot**  | No   | JSON  | 1.00 | 0.00     | 0.00     |
-|              | IMG  | No    | 1.77 | 0.00     | 0.00     |
-|              | IMG  | JSON  | 1.15 | 0.09     | 0.09     |
-| **Zero-shot** | No   | JSON  | 1.31 | 0.31     | 0.65     |
-|              | IMG  | No    | 1.50 | 0.00     | 0.00     |
-|              | IMG  | JSON  | 1.67 | 0.26     | 0.42     |
+1.  The Architect sends initial building instructions and a blueprint (text and/or images) to the Builder.
+2.  The Builder receives instructions, crucially combined with its **current block inventory**.
+3.  Based on instructions and resources, the Builder's LLM generates and executes structured actions (e.g., `place_block`, `remove_block`) within the `World`.
+4.  The `World` modifies its state based on Builder's actions.
+5.  The Builder sends a textual update back to the Architect.
+6.  The Architect reviews the Builder's report and receives the **current world state** (JSON and/or rendered images of the world). It then issues further instructions, continuing the cycle until the structure is complete.
 
