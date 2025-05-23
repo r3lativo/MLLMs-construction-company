@@ -1,0 +1,149 @@
+[
+  {
+    "role": "system",
+    "content": "Your role is the **Builder**. You are an AI assistant collaborating with an Architect in a building task.\n\n## Role & Goal\nYour primary objective is to **meticulously follow the Architect's natural language instructions** to construct a 3D voxel structure. You operate in a physical environment and execute building actions (placing or removing blocks) based solely on the Architect's guidance. When you remove a block, it is returned to your inventory, making it available for future placement. You **do not** have access to the target structure's blueprint, image, or any direct perception of the final form; you rely entirely on the Architect's instructions.\n\n## Environment Context\nYou are operating in a 3D voxel world with the following coordinate system and general bounds:\n* **X-axis:** East-West (95 to 105, where 95 is the most Westerly point, and 105 is the most Easterly point).\n* **Z-axis:** North-South (94 to 104, where 94 is the most Northerly point, and 104 is the most Southerly point).\n* **Y-axis:** Up-Down (**0 is the ground level**. You **cannot place or remove blocks at Y=0. All blocks must be placed at Y-coordinates of 1 or greater).\n* The overall build area is defined by these ranges: X from 95 to 105, Y from 1 upwards, Z from 94 to 104.\n\n## Input\nYou will receive natural language instructions from the Architect. **Alongside these instructions, you will also receive your current block inventory for that turn.**\n\n## Output\nYour output **MUST be a JSON object ONLY**, adhering strictly to the following format. **Do not include any additional text or dialogue outside of the JSON.**\n\n```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"color\", x, y, z],\n            // ... list of blocks to place, e.g., [\"blue\", 0, 1, 0]\n        ],\n        \"remove_block\": [\n            [x, y, z],\n            // ... list of blocks to remove, e.g., [0, 0, 0]\n        ]\n    },\n    \"communication\": \"Your message to the Architect (e.g., 'Okay, placed the block.', 'Can you clarify the position of the next block?', or '' if no specific message is needed beyond actions).\"\n}\n```\n\n  * For `place_block`, `color` must be one of the specified block colors: \"blue\", \"yellow\", \"green\", \"orange\", \"purple\", \"red\".\n  * If no blocks are placed or removed in a given turn, the respective array within `\"actions\"` can be empty (`[]`).\n  * The `\"communication\"` field should be used for:\n      * Confirming that you have completed the requested actions.\n      * Asking clarifying questions if an instruction is unclear, ambiguous, or refers to an impossible action (e.g., attempting to remove a block that doesn't exist, or placing outside bounds).\n      * Reporting any issues or assumptions you had to make.\n\n## Guidelines\n\n  * **Interpret Instructions:** Carefully translate the Architect's natural language descriptions (e.g., \"on top of\", \"to the left of\", \"next to\", \"in front of\") into precise voxel coordinates within the defined 3D space.\n  * **Execute Actions:** Perform the requested `place_block` or `remove_block` operations by specifying their exact coordinates and colors in the JSON output.\n  * **Block Management:** When you remove a block, its color and quantity are added back to your available inventory. Ensure you always have the necessary blocks in your inventory to place new ones.\n  * **Strict JSON Output:** **Always respond with only the JSON object.** No conversational preambles, no conversational postscripts, just the JSON.\n  * **Clarification is Key:** If an instruction is unclear, contradictory, or refers to a block that doesn't exist (for removal), use the `\"communication\"` field to ask for clarification. **Do not guess or assume.** Provide specific details about what you don't understand.\n  * **Inventory:** **You will receive your current block inventory with each turn's instructions.** You must only place blocks that you have in your current inventory.\n    ```json\n    {\n        \"blue\": 20,\n        \"yellow\": 20,\n        \"green\": 20,\n        \"orange\": 20,\n        \"purple\": 20,\n        \"red\": 20\n    }\n    ```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "We'll start building the structure step by step.\n\n**Step 1:**\n\nTo begin, find a clear flat area in front of you and place a red block on the ground in front of you. This will be the base of our structure. Your task is to build one block at a time, starting from the ground level. If you're ready, please confirm once you've placed the red block.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"red\", 100, 1, 100]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the red block at coordinate [100, 1, 100].\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Great, I see you've placed the red block.\n\n**Step 2:**\n\nNow, place an orange block directly above the red block. This block should be one unit higher than the red block.\n\nConfirm once you've placed the orange block.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 20, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"orange\", 100, 2, 100]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the orange block at coordinate [100, 2, 100].\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect, the orange block is in place.\n\n**Step 3:**\n\nNext, place a yellow block on top of the current structure. This block should go directly above the orange block.\n\nConfirm once you've placed the yellow block.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 19, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"yellow\", 100, 3, 100]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the yellow block at coordinate [100, 3, 100].\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Excellent, you have placed the yellow block correctly.\n\n**Step 4:**\n\nNow, move slightly to the left, and place another yellow block, aligned horizontally with the current structure, but one block back. This block should be at the same vertical height as the yellow block you just placed.\n\nPlease confirm once you've placed the yellow block.\n\nYour current inventory: {'blue': 20, 'yellow': 19, 'green': 20, 'orange': 19, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"yellow\", 99, 3, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the yellow block at coordinate [99, 3, 99].\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect, the second yellow block is in place.\n\n**Step 5:**\n\nNow, place a green block on top of the second yellow block. This block should go directly above it.\n\nConfirm once you've placed the green block.\n\nYour current inventory: {'blue': 20, 'yellow': 18, 'green': 20, 'orange': 19, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"green\", 99, 4, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the green block at coordinate [99, 4, 99].\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Excellent, the first green block is placed correctly.\n\n**Step 6:**\n\nNow, move one step diagonally forward to the right, and place another green block. This block should be at the same vertical height as the green block you just placed.\n\nPlease confirm once you've placed the green block.\n\nYour current inventory: {'blue': 20, 'yellow': 18, 'green': 19, 'orange': 19, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"green\", 101, 4, 101]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the green block at coordinate [101, 4, 101].\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "It looks like you placed the green block in the wrong position. Let's correct that.\n\nMove one block to the right from the yellow block you first placed. Now place a green block one level up from the yellow block.\nPlease confirm once you've placed the green block correctly.\n\nYour current inventory: {'blue': 20, 'yellow': 18, 'green': 18, 'orange': 19, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"green\", 101, 3, 100]\n        ],\n        \"remove_block\": [\n           [101, 4, 101]\n        ]\n    },\n    \"communication\": \"I've removed the block located at [101, 4, 101]. I've placed the green block at coordinate [101, 3, 100].\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "That's almost correct. It looks like you're off by a layer.\n\nPlease place the green block one level up from the position at coordinate [101, 3, 100]. Confirm once you've placed the green block correctly.\n\nYour current inventory: {'blue': 20, 'yellow': 18, 'green': 18, 'orange': 19, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"green\", 101, 4, 100]\n        ],\n        \"remove_block\": [\n            [101, 3, 100]\n        ]\n    },\n    \"communication\": \"I've removed the block located at [101, 3, 100]. I've placed the green block at coordinate [101, 4, 100].\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Excellent, the second green block is placed correctly.\n\n**Step 7:**\n\nNext, place a blue block directly above the green block you first placed.\n\nConfirm once you've placed the blue block.\n\nYour current inventory: {'blue': 20, 'yellow': 18, 'green': 18, 'orange': 19, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"blue\", 99, 5, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"I've placed the blue block at coordinate [99, 5, 99].\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! The first blue block is in place.\n\n**Step 8:**\n\nNext, move one block to the right from the blue block you just placed and then place another blue block one level above it.\n\nConfirm once you've placed the blue block.\n\nYour current inventory: {'blue': 19, 'yellow': 18, 'green': 18, 'orange': 19, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"blue\", 100, 6, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the blue block at coordinate [100, 6, 99].\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "The blue block was placed in the incorrect position.\n\nLet's move one block to the right from the blue block you had placed first, now place another blue block up on the same level as this block.\nConfirm once you've placed the blue block.\n\nYour current inventory: {'blue': 18, 'yellow': 18, 'green': 18, 'orange': 19, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"blue\", 101, 5, 100]\n        ],\n        \"remove_block\": [\n            [100, 6, 99]\n        ]\n    },\n    \"communication\": \"I've removed the block located at [100, 6, 99]. I've placed the blue block at coordinate [101, 5, 100].\"\n}\n```"
+  }
+]

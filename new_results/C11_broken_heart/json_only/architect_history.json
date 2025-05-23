@@ -1,0 +1,151 @@
+[
+  {
+    "role": "system",
+    "content": "Your role is the **Architect**. You are an AI assistant tasked with guiding a partner, the Builder, to construct a specific 3D voxel structure.\n\n## Role & Goal\nYour primary objective is to **provide clear, precise, and step-by-step natural language instructions** to the Builder.\nYou are the sole source of information about the target structure for the Builder, and your goal is to ensure they replicate it accurately based on your guidance alone.\nYou cannot interact with the building environment directly; you can only instruct.\nThe white blocks are the ground of the world the Builder sees. You should instruct them to build on or above this level. The ground itself is not something you need to instruct the Builder to create or modify.\n\n## Input\nYou will start by receiving the **Target Structure Description,** possibly including a textual/JSON representation and/or an image of the structure to be built.\nLater on, you will receive:\n1. **Builder's Response:** Potentially asking clarification questions or confirming completion.\n2. **State of the World:** The current state of the world given the actions that the Builder took.\n\n## Output\nYour output **MUST be natural language instructions** aimed directly at the Builder.\n* **Do NOT** use specific block coordinates (e.g., \"place a block at X, Y, Z\") in your instructions. Instead, use descriptive spatial and relational language (e.g., \"place a block on top of the red one,\" \"add a blue block to the right of the existing structure,\" \"start by placing a foundation block at the center of the area\").\n* Break down complex building tasks into small, manageable steps. Focus on one or a few blocks at a time, or one distinct structural component.\n* AFTER you believe the Builder has successfully and completely replicated the target structure, you must output the exact string: `[FINISH]`. The task will then end immediately.\n\n## Guidelines\n* **Incremental Guidance:** Provide instructions in small, logical increments. Wait for the Builder's response and confirmation before issuing the next set of instructions.\n* **Block Colors:** The only block colors are \"blue\", \"yellow\", \"green\", \"orange\", \"purple\", \"red\".\n* **Adaptive Communication:**\n    * Acknowledge the Builder's reported actions and progress.\n    * Provide constructive feedback. If the Builder makes a mistake or asks for clarification, adjust your subsequent instructions or re-explain as needed.\n    * Confirm successful completion of each major step or component.\n* **Spatial Reasoning:** Understand that the Builder operates in a 3D voxel world where the Y-axis represents verticality (up/down). Formulate your instructions using spatial relationships effectively.\n* **Clarity and Simplicity:** Use straightforward, unambiguous language. Avoid jargon, overly complex sentences, or vague terms.\n* **No Direct Manipulation:** Remember, you are a purely instructional agent. You cannot directly perceive the Builder's world state beyond their responses, nor can you alter it yourself."
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Here's the JSON description of the target structure.[{'block_color': 'red', 'x': 100, 'y': 1, 'z': 100}, {'block_color': 'orange', 'x': 100, 'y': 1, 'z': 103}, {'block_color': 'red', 'x': 100, 'y': 2, 'z': 99}, {'block_color': 'red', 'x': 100, 'y': 2, 'z': 101}, {'block_color': 'orange', 'x': 100, 'y': 2, 'z': 102}, {'block_color': 'red', 'x': 100, 'y': 3, 'z': 98}, {'block_color': 'orange', 'x': 100, 'y': 3, 'z': 101}, {'block_color': 'red', 'x': 100, 'y': 3, 'z': 102}, {'block_color': 'red', 'x': 100, 'y': 4, 'z': 97}, {'block_color': 'red', 'x': 100, 'y': 4, 'z': 100}, {'block_color': 'red', 'x': 100, 'y': 4, 'z': 103}, {'block_color': 'red', 'x': 100, 'y': 5, 'z': 97}, {'block_color': 'red', 'x': 100, 'y': 5, 'z': 98}, {'block_color': 'red', 'x': 100, 'y': 5, 'z': 99}, {'block_color': 'red', 'x': 100, 'y': 5, 'z': 101}, {'block_color': 'red', 'x': 100, 'y': 5, 'z': 102}, {'block_color': 'red', 'x': 100, 'y': 5, 'z': 103}, {'block_color': 'orange', 'x': 100, 'y': 6, 'z': 98}, {'block_color': 'orange', 'x': 100, 'y': 7, 'z': 96}, {'block_color': 'orange', 'x': 100, 'y': 8, 'z': 96}, {'block_color': 'orange', 'x': 100, 'y': 8, 'z': 97}][START]"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "Thank you for the structure description.\n\nTo recreate this structure, you will mainly create the pieces and add them together from bottom to top following these steps:\n\nLet's start building the base of the structure:\n\n1. Place a red block directly on the ground layer in front of you to mark the starting point.\n2. To the right of the first red block, place an orange block.\n3. Behind the first red block, place another red block.\n4. To the right of this last red block, place another red block. There should now be two red blocks stacked one behind the other in a line, with an orange block continuing from the end of this line.\n5. Confirm when you have completed these steps."
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Current World State:\n[\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 100\n  }\n]"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Builder's message:\nCompleted steps 1 through 4. Ready for the next instruction."
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "Great! You've successfully laid down the foundation. Next, let's build up the second row of the structure:\n\n1. Place a red block directly on top of the first red block on the left.\n2. Place another red block directly on top of the second red block to the right.\n3. Between these two, place an orange block directly on top of the orange block on the ground.\n4. Confirm when you have completed these steps."
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Current World State:\n[\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 2,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 2,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 101,\n    \"y\": 2,\n    \"z\": 99\n  }\n]"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Builder's message:\nCompleted steps 1 through 3. Ready for the next instruction."
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "Great! Moving on to the third row of the structure.\n\n1. Place a red block to the left of the leftmost red block on the second row, at the same height.\n2. Place a red block directly on top of the orange block from the second row.\n3. Place another red block directly to the right of the second row's orange block, also at the same height. There should now be three blocks in a horizontal line at the third step.\n4. Confirm when you have completed these steps."
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Current World State:\n[\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 2,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 2,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 101,\n    \"y\": 2,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 99,\n    \"y\": 2,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 3,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 102,\n    \"y\": 2,\n    \"z\": 99\n  }\n]"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Builder's message:\nCompleted steps 1 through 3. Ready for the next instruction."
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "Oops. It seems like the orange block on the second row is too far right. It should be in the center, but it’s now aligned with the last blocks of the third row. Additionally, the third block on the third row should line up directly above the orange block on the second row.\n\nLet's fix this:\n\n1. Remove the orange block from the second row.\n2. Remove the two red blocks from the third row. They should be fine but let's just be aware of their positioning.\n3. Replace the orange block by placing it directly above the orange block on the first row.\n4. Now, place a red block to the left of this orange block, completing the third row.\n5. Finally, place a red block to the right of this orange block, also completing the third row.\n6. Confirm when you have completed these steps."
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Current World State:\n[\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 100,\n    \"y\": 2,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 2,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 99,\n    \"y\": 2,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 99,\n    \"y\": 3,\n    \"z\": 99\n  }\n]"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Builder's message:\nCompleted steps 1 through 5. Ready for the next instruction."
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "Now, let's move on to the fourth row:\n\n1. For the 4th row, shift the red blocks as follows: Place a block directly above the leftmost red block from the first row.\n2. Additionally on the 4th row, place a block directly above the rightmost red block from the first row.\n3. Lastly on the 4th row, place a block directly above the second red block from the second row.\n4. Confirm when you have completed these steps."
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Current World State:\n[\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 100,\n    \"y\": 2,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 2,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 99,\n    \"y\": 2,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 99,\n    \"y\": 3,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 99,\n    \"y\": 4,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 102,\n    \"y\": 4,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 4,\n    \"z\": 100\n  }\n]"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Builder's message:\nCompleted steps 1 through 3. Ready for the next instruction."
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "Apologies. It seems like there was a small mistake in my instructions, as the red block on the 4th row should have been placed a little more to the right instead of straight above the second red block of the 2nd row.\n\nLet remove the third block we recently placed and create it again but it will instead be right above the red block on the second row and on the third column.\n\n1. Remove the last block we placed on the fourth row.\n2. Place a red block directly above the second row's orange block. The fourth row is now complete.\n3. Confirm when you have completed these steps.\n\nMoving forward towards the fifth row:\n\n1. Create a red block on top of the red block to the very far left on the fourth row. This should be the first block of the fifth row.\n2. Placing below this, to its right, place another red block. This should be on top of the first red block on the third row.\n3. After that, place another red block to the right of this red block on this fifth row. This should be in the center, on top of the orange block.\n4. Finally, one more red block, to the right of the third recently placed block on the fifth row. It should be above the red block on the second row and third column.\n5. Confirm once done."
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Current World State:\n[\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 100,\n    \"y\": 2,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 2,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 99,\n    \"y\": 2,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 99,\n    \"y\": 3,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 99,\n    \"y\": 4,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 102,\n    \"y\": 4,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 4,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 99,\n    \"y\": 5,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 100,\n    \"y\": 5,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 101,\n    \"y\": 5,\n    \"z\": 99\n  },\n  {\n    \"block_color\": \"red\",\n    \"x\": 102,\n    \"y\": 5,\n    \"z\": 100\n  }\n]"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Builder's message:\nCompleted all steps. Ready for the next instruction."
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "Perfect! It's time for the orange top segment of the structure, where the structure splits into a few more blocks.\n\n1. Place an orange block one block above the orange block on the fourth row, on the forth row's center.\n2. Above this orange block, place another orange block.\n3. Now, shift one block left and one block up from this orange block we recently placed and place another orange block there.\n4. Finally, shift one block more to left and one more block to up from the previous orange block we placed and place an orange block there.\n5. Confirm when you've finished.\n\nOnce all blocks are in place and confirmed, reply with `[FINISH]`."
+  }
+]

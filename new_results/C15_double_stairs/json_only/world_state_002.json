@@ -1,0 +1,38 @@
+[
+  {
+    "block_color": "green",
+    "x": 95,
+    "y": 1,
+    "z": 94
+  },
+  {
+    "block_color": "green",
+    "x": 95,
+    "y": 1,
+    "z": 96
+  },
+  {
+    "block_color": "green",
+    "x": 95,
+    "y": 1,
+    "z": 97
+  },
+  {
+    "block_color": "yellow",
+    "x": 98,
+    "y": 1,
+    "z": 94
+  },
+  {
+    "block_color": "yellow",
+    "x": 98,
+    "y": 1,
+    "z": 96
+  },
+  {
+    "block_color": "yellow",
+    "x": 98,
+    "y": 1,
+    "z": 97
+  }
+]
