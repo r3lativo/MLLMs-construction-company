@@ -1,0 +1,51 @@
+{
+  "structure_id": "C12_diagonal-Ls",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "To begin constructing the structure, let's start with the first two red blocks in the front.\n\n1. Place a single red block about 4 blocks in front of you in the middle of your view.\n2. Then, place another red block right next to it, to the right.\n\nConfirm once you've placed these two blocks."
+    },
+    {
+      "Builder": "Placed the 2 red blocks."
+    },
+    {
+      "Architect": "Great! You have successfully placed the first set of red blocks.\n\nNext, you will create one of the segments of the snake structure behind these red blocks but attached to them.\n\n1. Place an orange block on top of the left red block.\n2. Add another orange block to the right of the first, so that the orange blocks are right next to each other.\n\nOnce you've placed these orange blocks, please confirm."
+    },
+    {
+      "Builder": "Placed the 2 orange blocks."
+    },
+    {
+      "Architect": "Perfect! You've placed the orange blocks correctly. Let's then move on to the next segment.\n\n1. Place two yellow blocks on top of the two orange blocks you just added.  One should directly above the right orange block.  The other should be on top of the left orange block.\n\nWhen you're done, please confirm!"
+    },
+    {
+      "Builder": "Placed the 2 yellow blocks."
+    },
+    {
+      "Architect": "Excellent! The yellow blocks are in the correct position.\n\nNow, let's proceed with the next segment.\n\n1. Place two green blocks on top of the yellow blocks you just added.\n2. Make sure one green block is directly above each of the yellow blocks, like before.\n\nOnce you've placed the green blocks, please confirm."
+    },
+    {
+      "Builder": "Placed the 2 green blocks."
+    },
+    {
+      "Architect": "Great job! The green blocks are in place. Next, let's move on to the next segment.\n\n1. Place two blue blocks, this time another step up faces the frontmost green block.  The leftmost is in front of and on the same level as the leftmost green block.\n2. Place the next blue block right next to it, to the right.\n\nPlease confirm once you've placed these blocks."
+    },
+    {
+      "Builder": "Placed the 2 blue blocks."
+    },
+    {
+      "Architect": "Excellent! It looks like you've placed left blue blocks correctly on top of the green blocks.\n\nFor the next segment, place the two purple blocks similarly as you added the blue blocks.  This time, however, start with a block in front and above the frontmost blue block.  Then place the second purple block right next to it.\n\nPlease confirm once you've added the purple blocks."
+    },
+    {
+      "Builder": "Confirmed, placed the two purple blocks."
+    },
+    {
+      "Architect": "Excellent!  You have now placed the two purple blocks correctly.\n\nNow we'll need to finish up by facing the proper blocks by laying down the missing blocks from behind the structure. The base missing are the blocks that go in front, facing you.\n\n1. Place two orange blocks just in front of the first two yellow blocks\n2. Place two yellow blocks just in front of the orange blocks.\n3. Place another single red block next to the starting red block to the right.\n\nPlease confirm once you've placed these blocks."
+    },
+    {
+      "Builder": "All blocks placed."
+    },
+    {
+      "Architect": "Thank you! You have successfully completed all of the steps to build the target structure. Your final structure looks great! You can stop building now."
+    }
+  ]
+}

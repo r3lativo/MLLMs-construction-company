@@ -1,0 +1,33 @@
+{
+  "structure_id": "C8_table2",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Great, let's start building this structure.\n\nThe structure consists of mainly of red and orange blocks. It is essentially a hollow square made of red blocks with an orange block at the center and one orange block directly below each of the orange blocks making up the center of the hollow square.\n\n### Step 1: Place the central orange blocks\n1. Find the center of your area.\n2. Place a single orange block on the ground.\n3. On top of this orange block, place another orange block.\n\nPlease confirm once you have placed these two orange blocks."
+    },
+    {
+      "Builder": "Placed the orange blocks at the center as requested."
+    },
+    {
+      "Architect": "excellent! The central pillars are now in place. You can refer to these blocks as the \"central pillars\" moving forward.\n\n### Step 2: Build the base of the hollow square\n1. Directly to the left of the bottom central orange block, place a single orange block on the ground.\n2. Directly to the right of the bottom central orange block, place a single orange block on the ground.\n3. Place a single red block on top of both of these orange blocks.\n\nThese two orange blocks and their red counterparts will make up the bottom of our hollow square base.\nOnce placed, please confirm."
+    },
+    {
+      "Builder": "Placed the orange blocks directly right and left from the bottom central orange block on the ground. On top of these blocks, placed a single red block. The base of the hollow square is complete at the base level."
+    },
+    {
+      "Architect": "Good Job!\n\nLet's refer to these newly placed blocks as the \"bottom right blocks\" and \"bottom left blocks\".\n\n### Step 3: Build the sides of the hollow square\n\n1. Directly below the top central orange block, place a red block. Refer to these one as the \"top middle block.\"\n2. Directly left and right of the top central pillar above the bottom left and bottom right blocks (but below the top left and top right blocks), place a red block. Refer to these as the \"top left block\" and the \"top right block.\"\n3. Finally, above the \"top middle block\", place another red block on top. Refer to this as the \"super top middle block\"\n\nPlease confirm once you have placed these blocks."
+    },
+    {
+      "Builder": "Placed Red blocks above Bottom left and bottom right blocks as requested, and placed a red block above the top orange central block. Also placed a red block on top of the red block above the bottom central orange block."
+    },
+    {
+      "Architect": "Marvelous! The hollow square is beginning to take shape.\n\n### Step 4: Finish the top of the hollow square\n\n1. Place a red block directly next to the \"top left block\". I'll call this the \"top leftmost block\".\n2. Similarly, place a red block directly next to the \"top right block\" to form a block I will call the \"top rightmost block.\"\n\nThe hollow square should now be complete.\n\nPlease confirm once you have placed these blocks.\nAfter completing this step, we will review the entire structure to ensure it meets all requirements."
+    },
+    {
+      "Builder": "Placed the red block to the left and right of the top middle block to finish the structure."
+    },
+    {
+      "Architect": "After reviewing your current progress and comparing it to the provided 3D preview pictures, I can conclude that the structure meets all the specified criteria.\n\nCongratulations, you have successfully replicated the target structure!"
+    }
+  ]
+}

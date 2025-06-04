@@ -1,0 +1,39 @@
+{
+  "structure_id": "C18_overlapping-reticles",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "Let's begin constructing the structure. First, we'll focus on the foundation layer, which consists of three blocks placed adjacent to each other in a triangle shape.\n\nStart by:\n1. Placing a **blue** block directly ahead of the center of where you're currently standing.\n2. Place a **green** block in front of the **blue** block, but shifted one block to the right.\n3. Place a **purple** block at the top of the two blocks, shifted one block behind them.\n\nOnce you have these three blocks in place, let me know, and we'll proceed to the next layer. If you have any questions or need clarification, feel free to ask!"
+    },
+    {
+      "Builder": "Placed the 3 foundation layer blocks. I assumed I started at X100, Y1 (as from the instructions, we start from 'center' and Y = 1 upwards), Z100."
+    },
+    {
+      "Architect": "Good job on placing the foundation layer blocks! In order to proceed to the next layer, let's correct the *Z coordinates* of the blocks in the previous message:\n\nThe green block's *Z coordinate* should have been 99 instead of 100, and the *Z coordinate* of the purple block should have been 100, not 99. The *X coordinate* of the purple block was also misplaced.\n\nPlease remove it and move it to its correct position that's at the top of the *blue* and *green* block, but shifted one block backwards. Note that this block should be 1 block high.\n\nConfirm once done, and we'll proceed with the next series of blocks."
+    },
+    {
+      "Builder": "The green block's Z coordinate was 99. Removed and repositioned the purple block to X100. Y2 (1 block height), Z99."
+    },
+    {
+      "Architect": "Great job on repositioning the blocks. Now that the foundation is set correctly, let's proceed with the next layer.\n\nOn the second layer, we have three structures of 2 cubes:\n1. Starting from the top of the first blue block, place a block on top of it.\n2. Starting from the top of the green first block, place a block on top of it, and shift one block to the right.\n3. Starting from the top of the purple first block, place a block on top of it, and shift one block to the left.\n\nPlease confirm once done."
+    },
+    {
+      "Builder": "Placed the three structures on the second layer."
+    },
+    {
+      "Architect": "Almost - the *Z coordinate* of the second blue block should be the same as the first one's; place another blue block on the top of the first one but shifted one block to the right.\n\nFor the second green block, remove it and add it to the right side of the first one.\n\nFinally, remove the misplaced purple block, and add it behind the first purple block.\n\nConfirm once done."
+    },
+    {
+      "Builder": "The second blue block was removed and purified and a new blue block was placed with the correct Z coordinate. Replaced both the second green and second purple blocks."
+    },
+    {
+      "Architect": "The rebuilding of the second layer looks accurate. Now let's place the third layer. We are going to add on top of the first layer structure with the same setup.\n\nOn the third layer, we have:\n1. Add a **blue** block to the top of the current one.\n2. Add a **green** block to the top of the one on the second layer.\n3. Add a **purple** block on top of the current one.\n\nConfirm once done."
+    },
+    {
+      "Builder": "three structures were added to the second layer."
+    },
+    {
+      "Architect": "The third layer seems to be complete - the only thing you did wrong is the *Z coordinate* of the second green block which is supposed to be the same as the first green block's (99). The other *Z coordinates* are correct. Fix that and respond so we can check.\n\nOnce corrected, congratulations - you have faithfully replicated the original structure.\n\nHere is you final hint:"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "structure_id": "C17_orange-flat-original-L",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "We are going to build a simple structure using orange blocks.\n\nLet's start.\n1. Place an orange block in the center of the area, two blocks forward from the middle of the white blocks in front of you.\n2. Place another orange block directly to the right of the first block.\n3. Place a final orange block on top of the two orange blocks in front of you.\n\nPlease confirm once you've done this."
+    },
+    {
+      "Builder": "Blocks placed."
+    },
+    {
+      "Architect": "Great work!\n\nYou have completed the building task! Remember, you must respond with \"\" after the task is completely finished. Let's confirm:\n\n1. In front of you, you have two orange blocks placed side by side horizontally.\n2. On top of these two blocks, there is one more orange block.\n\nIf that is correct, please say \"\""
+    }
+  ]
+}

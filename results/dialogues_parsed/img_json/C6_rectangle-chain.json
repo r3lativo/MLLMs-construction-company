@@ -1,0 +1,27 @@
+{
+  "structure_id": "C6_rectangle-chain",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "We are going to build a structure using five different colors (blue, purple, green, orange, red) with three levels ; let's start building.\n\nOur structure will have three levels. Start by building the first level as shown by the image as follows :\n\n1. Find and go to the center of wide area of the ground (the basic white blocks).\n2. Place a purple block at the center.\n3. Place a blue block to the right of the purple block you just placed.\n4. Place another blue block to the right of the previous blue block.\n5. Place another blue block to the right of the previous blue block.\n6. Place a final blue block to the right of the previous blue block.\n7. Place a purple block under (one block to the back) the first blue block you placed.\n8. Place a purple block under the second blue block you placed.\n9. Place a purple block under the third blue block you placed."
+    },
+    {
+      "Builder": "Placed the blocks as instructed. Ready for the next step."
+    },
+    {
+      "Architect": "Great job on placing the first level of the structure.\n\nLet's proceed to the second level. This level involves green blocks, a red extension, and some additional blue/purple elements.\nWe are going to build layer 2 as follows:\n\n1. Place a green block on top of the far left purple block.\n2. Place another green block to the right of the first green block (over the purple block).\n3. Place another green block to the right of the previous green block (over the first blue block).\n4. Do the same for the other blocks in this level (4 green blocks on each row)\n\nNow, for the other side of the second layer:\n\n1. Place a red block to the left of the far left green block (one block back and one block left).\n2. Place another red block to the right of the previous red block (over the same green block you've just placed).\n3. Place another red block to the right of the previous red block (one block right).\n4. Place another red block in front of the previous red block.\n5. Place another red block to the right of the previous red block.\n6. Place another red block in front of the previous red block.\n7. Place another red block to the right of the previous red block."
+    },
+    {
+      "Builder": "The second level is complete. Ready for the next instructions."
+    },
+    {
+      "Architect": "You have again accurately followed the building instructions.\n\nLet's proceed to the third level most left purple.\n\n1. You see the first green block you placed at the left.\n2. Place a purple blocks on top of the first green block from layer 2.\n3. Place a blue blocks on top of the far middle green block from layer 2.\n4. Place a blue blocks on top of  the second middle green block from layer 2.\n5. Place a blue blocks on top of the third middle green block from layer 2.\n6. Place a blue blocks on top of the far right purple block from layer 2.\n7. Place a purple blocks above the first purple block you placed in this layer.\n8. Place a purple blocks on top of the second purple block you placed in the first level.\n9. Place a purple blocks on top of the third purple block you placed in the first level."
+    },
+    {
+      "Builder": "The third level is completed as instructed."
+    },
+    {
+      "Architect": "Great job! You've successfully built the structure.\n\n."
+    }
+  ]
+}

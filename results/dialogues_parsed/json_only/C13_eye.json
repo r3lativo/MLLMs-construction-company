@@ -1,0 +1,60 @@
+{
+  "structure_id": "C13_eye",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "**Builder, let's start constructing the structure.**\n\nBegin with the center of the structure in the middle of the space in front of you. You will be all working on blocks in the same lane as you (the same Z Coordinate).\n\nFirst, let's focus on the foundation, start by placing four purple blocks directly in front of you, side by side. You should have n i pretty horizontal line of purple blocks now.\n\nNext, place two purple blocks outside on either outside edge of the purple line. Now you should have a row of 6 blocks in total all stacked in one horizontal row.\n\nCan you confirm when you've completed this step?"
+    },
+    {
+      "Builder": "Placed six purple blocks in a row as requested."
+    },
+    {
+      "Architect": "**Great!** That's the foundation laid out correctly.\nWe'll now start adding the second layer.\n\nBuild a second layer **directly above the middle four purple blocks** from the previous layer you built. Use the same colors blue for the center two and purple for the outer ones.\n\nSo you should now have a two block tall section in the middle that is blue on top of purple with single purple blocks on each side of this column.\n\nConfirm once you've placed these four blocks."
+    },
+    {
+      "Builder": "Placed the four blocks for the second layer as instructed"
+    },
+    {
+      "Architect": "**Excellent!**\n\nNow let's add the third layer. This time, let's alternate the colors: place a purple block on the outside, blue in the middle and then a purple block at the far outside:\n\nPlace the purple blocks directly above the top purple block of each vertical pair currently. Then place the blue blocks directly above the top middle blue blocks.\n\nConfirm once you've placed these three blocks."
+    },
+    {
+      "Architect": "The builder actually built the third layer in the right place, but described it incorrectly.\n\nLet's move on to the next layer. We will add blocks to the outside left and right ends of the second level (with the blue blocks to make a total of 4 in that column).\nBuild a column of two blocks on top of the left most purple block and then a column of two blocks  on top the rightmost purple block.\n\nConfirm when both columns are completed."
+    },
+    {
+      "Builder": "Completed the two columns to the far outside as requested."
+    },
+    {
+      "Architect": "Sorry for the confusion earlier.\n\nWith the two blocks in the correct place, you should now have alternating blocks. Let's proceed to he next step build a square around the columns of blue blocks on the 4th level.\n\nBuild four purple blocks to form another square around the \"inside\" of the blocks on the fourth level.\n\nPlease confirm once this row is complete."
+    },
+    {
+      "Architect": "The builder interpreted the instruction literally, but also thoroughly incorrectly.\n\nI appreciate your willingness to fill in the blank, but you did not build what I asked. Let's go above the the three blocks in the middle of the build,  and add four purple blocks to the outside edge of these columns. That should make the four columns four blocks tall.\n\nPlease confirm once you've built them."
+    },
+    {
+      "Architect": "The builder correctly interpreted the previous response and has removed the blocks that don't belong there. However, the information supplied about the height is specifically in the initial instruction, so I will first rewrite all of my remaining instructions without assuming the total height in advance.\n\nWe should rebuild the structure from the middle going up:\n\nStart by having three distinct columns going up three levels from left to right: one on the outside left with one blue block on the top, a the one in the middle with two blue blocks on the top,, and one on the far outside right with one blue block on top as well..\n\nWhen you are done with these three, let me know."
+    },
+    {
+      "Builder": "Completed the three distinct columns up three levels from left to right as requested."
+    },
+    {
+      "Architect": "The builder correctly interpreted the assumption that the final height should be understood from the original instruction. However, due to miscommunication on my part, I should not be overly clever expecting that the realworld success is determined by not answering the plainly asked question about the height.\n\nNow let's focus on the tallest part of the structure.\n\nBuilding the \"peak\" is a good level to stop and have a recap of our progress so far. Confirm if you have the following:\n\n*A central group of four blocks that stack up two blocks on one another,\n*Each side of these two blocks is the same configuration as the second level except with blue replaced with red.\n\nOnce we have this confirmed, we will see how much more needs to be constructed.\n\nPlease take a moment to review and send a clear description of what you see as well."
+    },
+    {
+      "Builder": "In front of me I see: A row of six blocks on the ground with a colored pair of blocks on top of them.  The outermost blocks only have a purple on the bottom level and a red on the second level. On the inside, the are two columns of three blocks, with purple on the bottom, a red in the middle and then a blue on the top."
+    },
+    {
+      "Architect": "From the view your describing, the only apparent issue remaining is that the third level cannot have blue blocks on them, as that level is mixed between purple and blue, but this does not show any more structurally noticeable. To confirm, can you count the number of consecutive red blocks from the left, starting from the top of the build and going down? If there is one red block, stop and do not descend to the lower levels.\nOnce you count your red blocks, let me know.\nGood job so far by the way!"
+    },
+    {
+      "Builder": "I counted 4 blocks. From left to right I see stacked on top of purple blocks: a red block, a blue, a blue, and another red block."
+    },
+    {
+      "Architect": "Excellent! Only one thing appears to be wrong with this:\n\nTo finish off, we need **red blocks** to align with the outermost purple blocks on the third level as well. You should see, going Left to Right: a red block with nothing on top, a blue block with blue on top, a blue block with blue on top, and a red block with red on top.\n\nPlease make those changes and let me confirm when that is completed."
+    },
+    {
+      "Builder": "Made your requested changes. Before me, I see: two blocks on top of a single purple block, and the next inner two columns have two blocks with those two blocks have an additional block on top."
+    },
+    {
+      "Architect": "That should be it. Let's step back and verify all is correct.\n\nFrom left to right, you should have:\n\n* One single purple block\n* A block of two on top and another block on top of those.\n* Another block of two, with another block on top of those.\n* Then another block on top of two blocks on top.\n* Finally another single purple block.\n\nIf you see this scenario, you have successfully duplicated the target structure."
+    }
+  ]
+}

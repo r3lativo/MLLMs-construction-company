@@ -1,0 +1,27 @@
+{
+  "structure_id": "C5_overlapping-chain-links",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Great, let's start building the structure.\n\nWe'll begin with the base layer. This layer consists of two parts: a horizontal line of red blocks and a vertical line of purple blocks connected to the end of the red line.\n\n1. First, place a red block directly in front of you on the ground.\n2. Then, place additional red blocks to the left of the first red block, creating a horizontal line of 6 red blocks in total.\n3. Next, place a purple block directly to the right of the last red block.\n4. Then add two more purple blocks on top of the first purple block to complete this part.\n\n Once you have completed these steps, let me know, and we'll proceed to the next layer."
+    },
+    {
+      "Builder": "Placed the red and purple blocks accordingly."
+    },
+    {
+      "Architect": "Perfect, it looks like you have the base layer exactly right.\n\nNext, we'll build the second layer.\n\n1. First, place a purple block on top of the highest purple block in the vertical line.\n2. Then, place another purple block directly to the left of that block.\n3. Place a purple block directly above the bottom-most purple block in the vertical line.\n\nLet me know when you've completed these steps so we can verify the progress."
+    },
+    {
+      "Builder": "Placed the purple blocks accordingly."
+    },
+    {
+      "Architect": "Great job! The second layer is now complete.\n\nFinally, let\u2019s add blocks to create the top and side pieces.\n\n1. Place a purple block on top of the three purple blocks you placed earlier.\n2. Then place a purple block to the left of this top purple block on the second level of the vertical line\n3. Place a red block to the left of the lowest red block in the horizontal line\n3. Place a purple block to the right of the lowest red block in the horizontal line\n5. Place a purple block on top of the right-most purple block of the second layer.\n\nThis marks the completion of the third and final layer. Confirm when this step is finished, and we will verify the structure."
+    },
+    {
+      "Builder": "Placed the blocks accordingly."
+    },
+    {
+      "Architect": "Excellent! It looks like you\u2019ve built the structure correctly."
+    }
+  ]
+}

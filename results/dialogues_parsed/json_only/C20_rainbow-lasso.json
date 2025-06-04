@@ -1,0 +1,75 @@
+{
+  "structure_id": "C20_rainbow-lasso",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "We'll start building the structure step by step.\n\n**Step 1:**\n\nTo begin, find a clear flat area in front of you and place a red block on the ground in front of you. This will be the base of our structure. Your task is to build one block at a time, starting from the ground level. If you're ready, please confirm once you've placed the red block."
+    },
+    {
+      "Builder": "Placed the red block at coordinate [100, 1, 100]."
+    },
+    {
+      "Architect": "Great, I see you've placed the red block.\n\n**Step 2:**\n\nNow, place an orange block directly above the red block. This block should be one unit higher than the red block.\n\nConfirm once you've placed the orange block."
+    },
+    {
+      "Builder": "Placed the orange block at coordinate [100, 2, 100]."
+    },
+    {
+      "Architect": "Perfect, the orange block is in place.\n\n**Step 3:**\n\nNext, place a yellow block on top of the current structure. This block should go directly above the orange block.\n\nConfirm once you've placed the yellow block."
+    },
+    {
+      "Builder": "Placed the yellow block at coordinate [100, 3, 100]."
+    },
+    {
+      "Architect": "Excellent, you have placed the yellow block correctly.\n\n**Step 4:**\n\nNow, move slightly to the left, and place another yellow block, aligned horizontally with the current structure, but one block back. This block should be at the same vertical height as the yellow block you just placed.\n\nPlease confirm once you've placed the yellow block."
+    },
+    {
+      "Builder": "Placed the yellow block at coordinate [99, 3, 99]."
+    },
+    {
+      "Architect": "Perfect, the second yellow block is in place.\n\n**Step 5:**\n\nNow, place a green block on top of the second yellow block. This block should go directly above it.\n\nConfirm once you've placed the green block."
+    },
+    {
+      "Builder": "Placed the green block at coordinate [99, 4, 99]."
+    },
+    {
+      "Architect": "Excellent, the first green block is placed correctly.\n\n**Step 6:**\n\nNow, move one step diagonally forward to the right, and place another green block. This block should be at the same vertical height as the green block you just placed.\n\nPlease confirm once you've placed the green block."
+    },
+    {
+      "Builder": "Placed the green block at coordinate [101, 4, 101]."
+    },
+    {
+      "Architect": "It looks like you placed the green block in the wrong position. Let's correct that.\n\nMove one block to the right from the yellow block you first placed. Now place a green block one level up from the yellow block.\nPlease confirm once you've placed the green block correctly."
+    },
+    {
+      "Builder": "I've removed the block located at [101, 4, 101]. I've placed the green block at coordinate [101, 3, 100]."
+    },
+    {
+      "Architect": "That's almost correct. It looks like you're off by a layer.\n\nPlease place the green block one level up from the position at coordinate [101, 3, 100]. Confirm once you've placed the green block correctly."
+    },
+    {
+      "Builder": "I've removed the block located at [101, 3, 100]. I've placed the green block at coordinate [101, 4, 100]."
+    },
+    {
+      "Architect": "Excellent, the second green block is placed correctly.\n\n**Step 7:**\n\nNext, place a blue block directly above the green block you first placed.\n\nConfirm once you've placed the blue block."
+    },
+    {
+      "Builder": "I've placed the blue block at coordinate [99, 5, 99]."
+    },
+    {
+      "Architect": "Great! The first blue block is in place.\n\n**Step 8:**\n\nNext, move one block to the right from the blue block you just placed and then place another blue block one level above it.\n\nConfirm once you've placed the blue block."
+    },
+    {
+      "Builder": "Placed the blue block at coordinate [100, 6, 99]."
+    },
+    {
+      "Architect": "The blue block was placed in the incorrect position.\n\nLet's move one block to the right from the blue block you had placed first, now place another blue block up on the same level as this block.\nConfirm once you've placed the blue block."
+    },
+    {
+      "Builder": "I've removed the block located at [100, 6, 99]. I've placed the blue block at coordinate [101, 5, 100]."
+    },
+    {
+      "Architect": "Excellent, the second blue block is placed correctly.\n\n**Step 9:**\n\nFinally, place a purple block directly above the second blue block.\n\nConfirm once you've placed the purple block.\nYou're almost done!"
+    }
+  ]
+}

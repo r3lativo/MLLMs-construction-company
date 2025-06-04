@@ -1,0 +1,60 @@
+{
+  "structure_id": "C7_scissors",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "Let's start constructing the structure. Find a place to work, preferably an open space that will fit a 7 block wide, 3 block tall, and 1 block deep structure.\n\nThe foundation will be constructed from blue blocks, laid on the ground.\n\nFirst, place five blue blocks in a row on the ground in front of you to create the base of the first layer.\nMake sure to leave enough room on either side of the five blocks so that two more blocks can be added to either side in the future.\n\nOnce you've placed those five blocks, let me know and we'll proceed to the next step."
+    },
+    {
+      "Builder": "Completed the placement of five blue blocks in a row."
+    },
+    {
+      "Architect": "Great job! You've successfully laid the first part of the foundation. Now we'll add blocks on either side to complete both rows.\n\nStarting with the leftmost block of the row you just placed, place one more blue block directly to the left of it, aligning it with the row you just created.\n\nOnce you've placed that block, let me know and I'll guide you to the next step."
+    },
+    {
+      "Builder": "Added one blue block to the left of the previously placed row."
+    },
+    {
+      "Architect": "Perfect! You've completed the first row of the foundation.\n\nNext, place one blue block on top of each of the five blocks in the center of the row.\nAgain, once you've placed those blocks, let me know!"
+    },
+    {
+      "Builder": "Added one blue block on top of each of the five center blocks."
+    },
+    {
+      "Architect": "You've completed the first two layers of the foundation.\n\nNext, we'll start adding the second layer. Place one blue block on top of each block in the middle three positions.\n\nOnce you've done that, let me know."
+    },
+    {
+      "Builder": "Completed the placement of three blue blocks on the second layer."
+    },
+    {
+      "Architect": "Our next step will be to turn these blue blocks into orange. The block in the horizontal and vertical center needs to be saved as blue.\n\nSwap to your orange blocks and replace all of the blue blocks with a orange block, except for the centrally located blue block directly above the central blue block of the ground layer.\nIt should be located in the fourth column from the right and in the second row from the top.\n\nOnce you've done that, confirm!"
+    },
+    {
+      "Architect": "I see that you replaced the correct blocks. Unfortunately, there was a mistake and you removed the blue block we were supposed to keep. Let's fix that.\n\nThis time, just replace one of the base blocks with a blue block. This Blocks should be located in the fourth column from the right in the bottom row.\nIt currently consists of an orange block.\n\nOnce you've done that we can continue further with orangen blocks.\n\nLet me know once you've done it."
+    },
+    {
+      "Builder": "This has now fixed the invisible phase we were supposed to keep."
+    },
+    {
+      "Architect": "Great job! Now the base forms the first two horizontal layers with orange and one blue.\n\nIt's time for the top horizontal layer. Change back to orangen and place one orange block on each of the blocks in the last layer, except for the centrally located blue block.\nAgain, once you've placed those blocks, let me know! We are getting close to the red section."
+    },
+    {
+      "Architect": "Let's begin with the red blocks. Same as with the orange blocks you placed before, the red blocks have to be stacked.\n\nSwitch to your red blocks. Place one on top of the first row orange block located on the left.\n\nOnce you've placed that block, let me know."
+    },
+    {
+      "Architect": "Great. Let's continue stacking the next red blocks.\n\nPlace one block on top of the second row orange block and another block on top of the third row orange block. The first should be directly to the left of the first red block, the second should be directly to the right of it.\nOnce you've done that, let me know!"
+    },
+    {
+      "Builder": "Stacked another two red blocks."
+    },
+    {
+      "Architect": "You're almost done! Your task is nearly complete.\nLet's add the last two blocks.\n\nFirst, place a red block on top of the second row orange block located on the right. This block should be directly to the right of the last placed red block.\n\nNext, place another red block on top of the first row orange block located on the right. This block should be directly below the last placed red block.\n\nOnce you've done that, we're finished and I'll confirm the structure is complete.\n\nGreat job so far! I can't wait to see the final result. Let me know once you're done."
+    },
+    {
+      "Builder": "Last section is aligned."
+    },
+    {
+      "Architect": "Your structure is complete!\n\nCongratulations!"
+    }
+  ]
+}

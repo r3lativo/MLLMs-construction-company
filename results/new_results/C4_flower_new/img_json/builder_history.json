@@ -1,0 +1,58 @@
+[
+  {
+    "role": "system",
+    "content": "Your role is the **Builder**. You are an AI assistant collaborating with an Architect in a building task.\n\n## Role & Goal\nYour primary objective is to **meticulously follow the Architect's natural language instructions** to construct a 3D voxel structure. You operate in a physical environment and execute building actions (placing or removing blocks) based solely on the Architect's guidance. When you remove a block, it is returned to your inventory, making it available for future placement. You **do not** have access to the target structure's blueprint, image, or any direct perception of the final form; you rely entirely on the Architect's instructions.\n\n## Environment Context\nYou are operating in a 3D voxel world with the following coordinate system and general bounds:\n* **X-axis:** East-West (95 to 105, where 95 is the most Westerly point, and 105 is the most Easterly point).\n* **Z-axis:** North-South (94 to 104, where 94 is the most Northerly point, and 104 is the most Southerly point).\n* **Y-axis:** Up-Down (**0 is the ground level**. You **cannot place or remove blocks at Y=0. All blocks must be placed at Y-coordinates of 1 or greater).\n* The overall build area is defined by these ranges: X from 95 to 105, Y from 1 upwards, Z from 94 to 104.\n\n## Input\nYou will receive natural language instructions from the Architect. **Alongside these instructions, you will also receive your current block inventory for that turn.**\n\n## Output\nYour output **MUST be a JSON object ONLY**, adhering strictly to the following format. **Do not include any additional text or dialogue outside of the JSON.**\n\n```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"color\", x, y, z],\n            // ... list of blocks to place, e.g., [\"blue\", 0, 1, 0]\n        ],\n        \"remove_block\": [\n            [x, y, z],\n            // ... list of blocks to remove, e.g., [0, 0, 0]\n        ]\n    },\n    \"communication\": \"Your message to the Architect (e.g., 'Okay, placed the block.', 'Can you clarify the position of the next block?', or '' if no specific message is needed beyond actions).\"\n}\n```\n\n  * For `place_block`, `color` must be one of the specified block colors: \"blue\", \"yellow\", \"green\", \"orange\", \"purple\", \"red\".\n  * If no blocks are placed or removed in a given turn, the respective array within `\"actions\"` can be empty (`[]`).\n  * The `\"communication\"` field should be used for:\n      * Confirming that you have completed the requested actions.\n      * Asking clarifying questions if an instruction is unclear, ambiguous, or refers to an impossible action (e.g., attempting to remove a block that doesn't exist, or placing outside bounds).\n      * Reporting any issues or assumptions you had to make.\n\n## Guidelines\n\n  * **Interpret Instructions:** Carefully translate the Architect's natural language descriptions (e.g., \"on top of\", \"to the left of\", \"next to\", \"in front of\") into precise voxel coordinates within the defined 3D space.\n  * **Execute Actions:** Perform the requested `place_block` or `remove_block` operations by specifying their exact coordinates and colors in the JSON output.\n  * **Block Management:** When you remove a block, its color and quantity are added back to your available inventory. Ensure you always have the necessary blocks in your inventory to place new ones.\n  * **Strict JSON Output:** **Always respond with only the JSON object.** No conversational preambles, no conversational postscripts, just the JSON.\n  * **Clarification is Key:** If an instruction is unclear, contradictory, or refers to a block that doesn't exist (for removal), use the `\"communication\"` field to ask for clarification. **Do not guess or assume.** Provide specific details about what you don't understand.\n  * **Inventory:** **You will receive your current block inventory with each turn's instructions.** You must only place blocks that you have in your current inventory.\n    ```json\n    {\n        \"blue\": 20,\n        \"yellow\": 20,\n        \"green\": 20,\n        \"orange\": 20,\n        \"purple\": 20,\n        \"red\": 20\n    }\n    ```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Alright, let's start building the structure step by step.\n\n**First, we'll tackle the green blocks on the ground.**\n\n1. **Center Block:** Place a green block directly above the center of the ground.\n2. **Horizontal Extension:** Place green blocks horizontally to the left and right of the center one, on the same level. So add 2 green blocks, one clearly on the left side, the other on the right side, so there should be 3 blocks horizontally next to each other.\n3. **Vertical Extension:** Now place green blocks directly above each of the 3 horizontal blocks you just placed. You should have 3 columns of green blocks.\n\nOnce you have these blocks in place, let me know, and we'll proceed with the next part of the structure.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"green\", 100, 1, 99],\n            [\"green\", 99, 1, 99],\n            [\"green\", 101, 1, 99],\n            [\"green\", 99, 2, 99],\n            [\"green\", 100, 2, 99],\n            [\"green\", 101, 2, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the green blocks as instructed.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Looks good! You've placed the center column and the two horizontal green blocks correctly extensions on both sides. Now we move on to the next layer.\n\n1. **Horizontal Extensions:** Place green blocks to the left and right of the leftmost and rightmost green blocks in the current layer.\n    - One should be placed left of the leftmost green block;\n    - Another one should be placed right of the rightmost green block;\n    - Both of these new blocks should be placed directly below the existing columns with green blocks spanning 3 blocks long, to the left and right of the center block. So reference the 2 green blocks you just placed and double that horizontally to each side with a new block each.\n\nOnce you have these blocks in place, confirm and we'll proceed with the next part.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 14, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"green\", 98, 1, 99],\n            [\"green\", 102, 1, 99],\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the green blocks as instructed.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "It looks like you have mistakenly not added any vertical height for the horizontal blocks on the sides.\n\nTo correct this:\n1. **Place Vertical Columns:** Place green blocks on top of each other directly on top of the outermost green blocks to match the height of the other existing columns. So you should end up with 4 vertical columns that are 3 blocks in height, and 3 columns horizontally spanning 5 adjacent blocks.\n\nOnce you have these blocks in place, double check that they are properly aligned and confirm, and we'll proceed with the next part.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 14, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"green\", 98, 2, 99],\n            [\"green\", 98, 3, 99],\n            [\"green\", 102, 2, 99],\n            [\"green\", 102, 3, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the top green blocks for vertical height alignment as instructed.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! You've correctly added the vertical height alignment for the side horizontal blocks with the required height.\n\nNow, let's move on to the next part of the structure, which involves adding the upper layer consisting of orange, yellow, and red blocks.\n\n1. **First Row of Orange and Yellow Blocks:**\n    - Place an orange block directly on top of the leftmost green block in the upper layer\n    - Place a yellow block on to the right of the orange block you just placed\n    - Place an orange block directly on top of the rightmost green block in the upper layer\n    - Add a yellow block in the center of the structure directly on top of the center green block.\n\n2. **Second Row of Orange and Yellow Blocks:**\n    - Place another row of orange and yellow blocks on top of the first row, following the same pattern:\n        * An orange block directly on top of the leftmost block in the first row;\n        * A yellow block directly on top of the block to the right;\n        * Place another orange block directly on top of the rightmost block in the first row.\n    - Place a Red block on top of the yellow block in the center of the structure.\n\nOnce you have placed these blocks, confirm, and I'll guide you through the final steps.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 10, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"orange\", 98, 4, 99],\n            [\"yellow\", 99, 4, 99],\n            [\"orange\", 102, 4, 99],\n            [\"yellow\", 100, 4, 99],\n            [\"orange\", 98, 5, 99],\n            [\"yellow\", 99, 5, 99],\n            [\"orange\", 102, 5, 99],\n            [\"red\", 100, 5, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed the top orange, yellow, and red blocks as instructed.\"\n}\n```"
+  }
+]

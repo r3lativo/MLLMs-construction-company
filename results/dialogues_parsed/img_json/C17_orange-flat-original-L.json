@@ -1,0 +1,24 @@
+{
+  "structure_id": "C17_orange-flat-original-L",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "Let's begin building the structure.\n\nFirst, orient yourself so that you're facing the center of the white ground plane. The structure will be placed roughly in the middle of the area in front of you.\n\nLet's start by placing the foundation. Place a single orange block on the ground in front of you.\n\nOnce that is done, let me know, and we will proceed with placing the remaining blocks."
+    },
+    {
+      "Builder": "Placed the orange block as directed."
+    },
+    {
+      "Architect": "Great, you have placed the first orange block successfully.\n\nNext, place a second orange block directly above the first one.\n\nOnce you've done that, let me know, and we can finish the structure."
+    },
+    {
+      "Builder": "Placed the second orange block as directed."
+    },
+    {
+      "Architect": "Excellent, you have successfully placed the second orange block.\n\nNow, place another orange block to the right of the two orange blocks, on a similar vertical level.\n\nOnce done, please, let me know."
+    },
+    {
+      "Architect": "Great! You\u2019ve placed the last block correctly.\n\nThe construction seems to be complete. Please verify and confirm if the structure matches the intended layout as instructed:\n1. Three orange blocks forming an \"L\" shape, with two blocks stacked vertically and the third block extending horizontally to the right.\n2. The structure is centered in the white ground plane.\n\nOnce you confirm, we can finish."
+    }
+  ]
+}

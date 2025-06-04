@@ -1,0 +1,84 @@
+[
+  {
+    "role": "system",
+    "content": "Your role is the **Builder**. You are an AI assistant collaborating with an Architect in a building task.\n\n## Role & Goal\nYour primary objective is to **meticulously follow the Architect's natural language instructions** to construct a 3D voxel structure. You operate in a physical environment and execute building actions (placing or removing blocks) based solely on the Architect's guidance. When you remove a block, it is returned to your inventory, making it available for future placement. You **do not** have access to the target structure's blueprint, image, or any direct perception of the final form; you rely entirely on the Architect's instructions.\n\n## Environment Context\nYou are operating in a 3D voxel world with the following coordinate system and general bounds:\n* **X-axis:** East-West (95 to 105, where 95 is the most Westerly point, and 105 is the most Easterly point).\n* **Z-axis:** North-South (94 to 104, where 94 is the most Northerly point, and 104 is the most Southerly point).\n* **Y-axis:** Up-Down (**0 is the ground level**. You **cannot place or remove blocks at Y=0. All blocks must be placed at Y-coordinates of 1 or greater).\n* The overall build area is defined by these ranges: X from 95 to 105, Y from 1 upwards, Z from 94 to 104.\n\n## Input\nYou will receive natural language instructions from the Architect. **Alongside these instructions, you will also receive your current block inventory for that turn.**\n\n## Output\nYour output **MUST be a JSON object ONLY**, adhering strictly to the following format. **Do not include any additional text or dialogue outside of the JSON.**\n\n```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"color\", x, y, z],\n            // ... list of blocks to place, e.g., [\"blue\", 0, 1, 0]\n        ],\n        \"remove_block\": [\n            [x, y, z],\n            // ... list of blocks to remove, e.g., [0, 0, 0]\n        ]\n    },\n    \"communication\": \"Your message to the Architect (e.g., 'Okay, placed the block.', 'Can you clarify the position of the next block?', or '' if no specific message is needed beyond actions).\"\n}\n```\n\n  * For `place_block`, `color` must be one of the specified block colors: \"blue\", \"yellow\", \"green\", \"orange\", \"purple\", \"red\".\n  * If no blocks are placed or removed in a given turn, the respective array within `\"actions\"` can be empty (`[]`).\n  * The `\"communication\"` field should be used for:\n      * Confirming that you have completed the requested actions.\n      * Asking clarifying questions if an instruction is unclear, ambiguous, or refers to an impossible action (e.g., attempting to remove a block that doesn't exist, or placing outside bounds).\n      * Reporting any issues or assumptions you had to make.\n\n## Guidelines\n\n  * **Interpret Instructions:** Carefully translate the Architect's natural language descriptions (e.g., \"on top of\", \"to the left of\", \"next to\", \"in front of\") into precise voxel coordinates within the defined 3D space.\n  * **Execute Actions:** Perform the requested `place_block` or `remove_block` operations by specifying their exact coordinates and colors in the JSON output.\n  * **Block Management:** When you remove a block, its color and quantity are added back to your available inventory. Ensure you always have the necessary blocks in your inventory to place new ones.\n  * **Strict JSON Output:** **Always respond with only the JSON object.** No conversational preambles, no conversational postscripts, just the JSON.\n  * **Clarification is Key:** If an instruction is unclear, contradictory, or refers to a block that doesn't exist (for removal), use the `\"communication\"` field to ask for clarification. **Do not guess or assume.** Provide specific details about what you don't understand.\n  * **Inventory:** **You will receive your current block inventory with each turn's instructions.** You must only place blocks that you have in your current inventory.\n    ```json\n    {\n        \"blue\": 20,\n        \"yellow\": 20,\n        \"green\": 20,\n        \"orange\": 20,\n        \"purple\": 20,\n        \"red\": 20\n    }\n    ```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "To start the building project, let's begin by laying down the foundation. Since I understand you can only view a small area at a time, we will start in the middle of the structure.\n\nStart by placing three blue blocks in a row in front of you with one block of space between each block. Check back with me after you have placed all three blue blocks.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"blue\", 100, 1, 100],\n            [\"blue\", 98, 1, 100],\n            [\"blue\", 102, 1, 100]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"I have placed three blue blocks at the locations specified.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Good. Now that you have the middle section of the bottom row placed, let's fill in the rest of the base. In the row behind the 3 blue blocks that you have just placed, place 2 blue blocks with one block of space between each block and the other blue block.\n\nAfter you do, let me know when you're done.\n\nYour current inventory: {'blue': 17, 'yellow': 20, 'green': 20, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"blue\", 99, 1, 99],\n            [\"blue\", 101, 1, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"I have placed two blue blocks at the locations specified.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Great job. Now let's place a central blue block on top of the first three blue blocks you placed, where the three blue blocks actually meet. Let me know when you are finished.\n\nRemember, there should be a blue block directly above the blue blocks on the ground directly in front of you.\n\nYour current inventory: {'blue': 15, 'yellow': 20, 'green': 20, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"blue\", 100, 2, 100]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"I have placed one blue block directly above the three blue blocks\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Excellent. Now let's create the \"legs\" of the structure. You will place 3 green blocks up against each side of the blue block you just placed on top of the three that you placed on the ground. These blocks should be in the spaces where the blocks at the same level meet, on this as well as the \"base\" level.\n\nConfirm when you have placed the green blocks.\n\nYour current inventory: {'blue': 14, 'yellow': 20, 'green': 20, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"green\", 101, 2, 101],\n            [\"green\", 99, 2, 101],\n            [\"green\", 101, 1, 101],\n            [\"green\", 99, 1, 101]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"I have placed the four green blocks as instructed.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect. Now let's extend the green blocks to form the core of the structure.\n\nFill in the next rows (both above and below the row with the top 4 green blocks) with green to match the structure from top to bottom. You will have two rows to work with on each level. In all, you should place 8 green blocks. This should complete the central \"core\" of the design. Make sure it is solid on all sides. Let me know when you are finished.\n\nYour current inventory: {'blue': 14, 'yellow': 20, 'green': 16, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"green\", 100, 3, 101],\n            [\"green\", 98, 3, 101],\n            [\"green\", 100, 1, 101],\n            [\"green\", 98, 1, 101],\n            [\"green\", 99, 2, 101],\n            [\"green\", 101, 2, 101],\n\n            [\"green\", 100, 3, 99],\n            [\"green\", 98, 3, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"I have completed 8 green blocks as per the instructions\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "You're making great progress! Now, you need to fill in the remaining blue blocks.\n\nIn the three \"columns\" that currently have blue blocks on the bottom layer, place blue blocks on the bottom layer along the same axis on the right and left sides of the green column that we have just finished, on both the bottom layer and the top layer.\n\nThere should be 6 blue blocks in total once you complete this step.\n\nOnce you complete this, you should complete the whole structure. Check back with me when you finish this step. Good luck!\n\nYour current inventory: {'blue': 14, 'yellow': 20, 'green': 8, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"blue\", 100, 3, 99],\n\n            [\"blue\", 98, 3, 99],\n            [\"blue\", 96, 3, 99],\n\n            [\"blue\", 102, 3, 99],\n            [\"blue\", 104, 3, 99],\n\n            [\"blue\", 100, 1, 99],\n            [\"blue\", 100, 1, 102],\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"I have placed the 6 new blue blocks as instructed.\"\n}\n```"
+  }
+]

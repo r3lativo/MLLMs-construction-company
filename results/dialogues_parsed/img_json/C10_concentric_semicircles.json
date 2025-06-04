@@ -1,0 +1,69 @@
+{
+  "structure_id": "C10_concentric_semicircles",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "Let's begin constructing the structure step by step.\nLook at the blank grid in front of you. We need to start building from the center, moving outward.\n\nBegin by placing six red blocks in a row along the horizontal centerline of the area horizontally in front of you.\n\nLet me know when you have completed this step before continuing."
+    },
+    {
+      "Builder": "I have placed six red blocks in a horizontal row in front of me."
+    },
+    {
+      "Architect": "That\u2019s correct! Our foundation row is finished. The next task is to add some blocks to either side of this row.\n\nAdd a red block on the same layer to the left of the leftmost block in this segment, and then add one block on the same layer in the same position to the right side.\n\nOnce you have completed this step, let me know so we can proceed with the next steps."
+    },
+    {
+      "Builder": "I have placed two additional red blocks to the left and right of the row."
+    },
+    {
+      "Architect": "That\u2019s correct! The main base is now complete. The next step involves adding vertical segments to this base.\n\nThere are going to be 5 pairs of red blocks. First, we will start with the middle block position. Directly above the second of the central six red blocks, add a red block. Then add another red block directly on top of it. This will serve as our first set of vertical pairs\n\n\nAfter you have completed this, let me know so we can proceed with the next sections."
+    },
+    {
+      "Architect": "Perfect, you have successfully added the first vertical pair of red blocks! We will do a similar action to add vertical pairs to the left and right.\n\nNow, you will place another set of two vertical pairs to the left of it in the center blocks. Starting with the second central block to the left, place a red block directly on top, and add another one directly on top of that.\n\nThen do the same for the second central block to the right, adding pair of vertial blocks to these.\n\nLet me know when you have finished this."
+    },
+    {
+      "Architect": "Excellent, you have added the second and third vertical pairs correctly.\n\nNow, repeat the similar action for the red block two place away from the left and to the right of your current blocks. This means we add a vertical pair to two blocks away to the left and right of your current position. This means you will place a vertical pair directly on top of the third from the left of the six central blocks and the third block from the right.\n\nFinally finish by adding a vertical pair directly on top of the endmost block on both sides.\n\nOnce you have completed this, let me know so we can proceed to the next steps."
+    },
+    {
+      "Builder": ""
+    },
+    {
+      "Architect": "Notice the world states seems to be inconsistent. The placed blocks by you doesn't look correct with where I have instructed. Please revisit the instruction to ensure that vertical pairs were specifically added directly on top of each red block. Be sure to use these instructions to correct your current build.\n\nI acknowledged your correction, so you should now adjust the pair vertical placement accordingly.\n\nOnce you are finished, let me know so we can proceed."
+    },
+    {
+      "Builder": ""
+    },
+    {
+      "Architect": "Thank you for your adjustment. While it looks like you have added the appropriate verticle pairs to some of the central elements, you missed the center block and the end ones.\n\nLet's do the correction. You need to:\n1. Add another pair of vertical red blocks directly on top of your second central block - the position you already added.\n2. Add a pair of vertical red blocks directly on top of the three outside blocks - positions 104 and 97.\n\nLet's just add this to our build for now. Once you've added these, let me know."
+    },
+    {
+      "Builder": "I have added vertical pairs to the center block and both end blocks"
+    },
+    {
+      "Architect": "Excellent, the setup for the first vertical segments have been added. Now we will create vertical columns of red blocks similar to the design outside the area right between the sections already created inside the main buldings.\n\nYou will create a simple column of red blocks of height 4 directly on top of the central three columns that you have already created. So, you should have columns of height 5 for this section.\n\nOne you are done with this, let me know."
+    },
+    {
+      "Builder": "I have created vertical columns on top of the middle sections to form section columns of height 5"
+    },
+    {
+      "Architect": "Perfect progress! You're almost finished! Go back to the vertical columns that you already completed with a height of 5 and complete the same structure inside this section by adding two blocks to the middle of the columns to make them all to height 6 in your vertical section.\n\nOnce you have completed this, let me know so we can proceed."
+    },
+    {
+      "Builder": "I do not currently have any red blocks in my inventory to complete this step."
+    },
+    {
+      "Architect": "I see, let's solve this issue. I advise you to remove all the blocks you have at height 4 positions and increase the column's height to 6 on all columns.\n\nThis suggestion won't remove the blocks already at a height of 5 or more on the outside blocks.\n\nOnce you are finished, let me know so we can proceed."
+    },
+    {
+      "Builder": "I have removed blocks from the given positions and completed the column to height 6 on the corners"
+    },
+    {
+      "Architect": "Excellent progress! Now you need to add purple blocks:\n1. Place one purple block to the left of the red block on the bottom layer that is on your far left.\n2. Two purple blocks to the right of the above red block on the bottom layer\n3. Add one purple block directly in front of the center red block on the bottom layer.\n\nThen add three yellow blocks:\n1. Place one yellow block in front of the third purple block to the right.\n2. And place two purple blocks in front of the two second purple blocks on the right.\n3. Lastly, add one yellow block in front of the last purple block on the far right.\n\nAfter completing these additions, please confirm so we can proceed."
+    },
+    {
+      "Builder": "I now completed the placement of the blocks with the colors specified with their positions"
+    },
+    {
+      "Architect": "Congratulations! The structure looks perfect.\n\nThat's the end of the build for this structure! If there are any adjustments needed or any questions you have, let me know  - but if everything is good at your end, just respond with a simple \"Done,\" and the finalization process will be started."
+    }
+  ]
+}

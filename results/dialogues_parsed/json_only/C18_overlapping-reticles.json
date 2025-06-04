@@ -1,0 +1,27 @@
+{
+  "structure_id": "C18_overlapping-reticles",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "Let's begin building the structure.\n\n### Step 1: Foundation\n1. **Place a blue block** directly in front of you.\n2. **Place a green block** to the right of the blue one.\n3. **Place a purple block** directly in front of you, but slightly behind the blue block you placed.\n\nOnce you've completed these steps, let me know, and we'll proceed to the next layer."
+    },
+    {
+      "Builder": "I've placed the blocks as described in the instructions."
+    },
+    {
+      "Architect": "Thank you for confirming.\n\n### Step 2: Second Layer\n1. **Place a blue block** one block forward from the original blue block you placed.\n2. **Place ** **another blue block** one block to the right of the original blue block you placed.\n3. **Place a green block** directly above the original green block you placed, one block forward.\n4. **Place ** **another green block** directly to the right of the green block you just placed.\n5. **Place a purple block** one block to the left of the original purple block you placed.\n6. **Place ** **another purple block** directly above the original purple block you placed, one block forward.\n\nOnce you've completed these steps, let me know, and we'll proceed to the final layer."
+    },
+    {
+      "Builder": "Placed the blocks as described in the instructions."
+    },
+    {
+      "Architect": "It looks like there is 1 block missing from the Secand Layer.\n\nLet's place the missing block from layer 2 first. **Place a purple block** directly above the original purple block you placed, one block ahead.\n\nOnce you've placed it successfully, let me know so we can proceed to the final layer."
+    },
+    {
+      "Builder": "I've placed the missing purple block."
+    },
+    {
+      "Architect": "### Step 3: Final Layer\n1. **Place a blue block directly above** the first blue block you placed originally.\n2. **Place a green block directly above** one of the green blocks in the second layer.\n3. **Place a purple block directly above** the orange block in the second layer.\n\nOnce you've completed these steps, let me know and I will confirm if the structure is complete."
+    }
+  ]
+}

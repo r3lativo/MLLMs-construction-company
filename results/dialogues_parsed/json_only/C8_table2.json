@@ -1,0 +1,21 @@
+{
+  "structure_id": "C8_table2",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "Hello Builder,\n\nLet's start constructing the structure. Follow my instructions to place each block carefully in the correct position. We'll build the structure step by step, starting from the foundation and moving upwards.\n\n1. First, we'll create the base layer. Place four orange blocks in the following arrangement:\n - Place the first orange block in what will be the front left corner of our structure.\n - Place another orange block to the right of the first orange block (but still on the base/foundation level). Now we have two side-by-side orange foundation blocks.\n - Next, add two more orange blocks to complete the base layer. Place them directly behind the previous two blocks, also at the base/foundation level.\n\nPlease confirm once you've placed all four orange blocks."
+    },
+    {
+      "Builder": "Okay, the four base orange blocks have been placed."
+    },
+    {
+      "Architect": "Thank you for confirming. The Builder's placement of the base blocks is slightly offset compared to the Target Structure Description. To proceed with appropriate adjustments, ensure the orientation of your structure matches the Target. Assuming you're orienting the base similarly, we can continue:\n\nTo create the upper layer, place six red blocks on top of the orange base layer like this:\n\n   1. Place a red block on top of the front left orange block.\n   2. Place two more red blocks to the right of the first, so that you have a line of three red blocks in the front.\n   3. Place a single red block directly behind the first red block (leftmost).\n   4. Place another single red block directly behind the rightmost block.\n   5. Place two more red blocks directly behind the two middle blocks in the front row.\n\nAfter placing these red blocks, please confirm so we can move to the next part."
+    },
+    {
+      "Builder": "Okay, the six red blocks on the upper layer have been placed correctly."
+    },
+    {
+      "Architect": "Thank you for confirming and adjusting accordingly."
+    }
+  ]
+}

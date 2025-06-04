@@ -1,0 +1,33 @@
+{
+  "structure_id": "C8_table2",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "The structure you'll be building resembles a 3D letter \"H\". It consists of a base made of orange blocks with a frame of red blocks on top.\nLet's start with the base. Start by placing orange blocks to form the base in the middle of the area in front of you.\n\nStart by placing one orange block on the ground.\nPlace an orange block to the right of this one to form a line of two blocks long."
+    },
+    {
+      "Builder": "Placed the base of two orange blocks on the ground level."
+    },
+    {
+      "Architect": "Next, let's finish the base layer. Add two more orange blocks right in front of the first one and to the right, so that you form a square that is two blocks by two blocks.\n\nPlease confirm once the base is complete."
+    },
+    {
+      "Builder": "Placed 2 more orange blocks to create a base sized 2 by 2 orange blocks."
+    },
+    {
+      "Architect": "Great! The base is now complete.\nNext, let's build the frame on top of the base. Start by placing red blocks on the two orange blocks behind the others.\n\nPlease confirm once done."
+    },
+    {
+      "Architect": "It looks like there might have been a misunderstanding in the instructions. We are making a 3D \"H\" shape.\nInstead of placing the additional red blocks towards the back, please move them forward so that they are directly on top of the 2 middle orange blocks.\n\nAfter that, please place 1 red block on the other middle orange blocks,\nuse these two newly placed red blocks as the guide to place the remaining two red blocks so that you have formed a 3x3 red layer with a hollow 1x1 in the middle.\n\nLet me know when it's done."
+    },
+    {
+      "Architect": "Thank you for the update.\n\nNext, add 1 red block to the left of the row of red blocks you've just placed. Then place the fourth red block to the very right of the last red block you last placed.\n\nLet me know when it's done."
+    },
+    {
+      "Builder": "Placed 2 more red blocks to match 3D letter H shape."
+    },
+    {
+      "Architect": "Excellent work! The structure looks complete now. You've successfully built the 3D \"H\" shape."
+    }
+  ]
+}

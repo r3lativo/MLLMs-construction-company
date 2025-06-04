@@ -1,0 +1,39 @@
+{
+  "structure_id": "C15_double_stairs",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "Lets start!\n\nBegin by identifying the center of the area by moving approximately 5 blocks to the left of your current position, then 4 blocks forward.\n\nNow, start by placing a **green block** directly in front of you on the ground.\nPlace another **green block** to the right of the first green block you just placed.\nOn the same row, place a **yellow block** directly to the right of the last green block.\nPlace another **yellow block** to the right of the first yellow block.\n\nOnce these four blocks are placed you should have a 2x2 square made of 2 green, and 2 yellow blocks, starting from left to right.\n\nPlease acknowledge if the 4 blocks are in place, and let me know if you have any questions before we proceed."
+    },
+    {
+      "Builder": "I have placed 2 green blocks followed by 2 yellow blocks in front of me, forming a 2x2 square"
+    },
+    {
+      "Architect": "Builder, the blocks you have placed are not positioned correctly.\nWe are aiming to place the structures starting a bit to the left. The blocks should be located to the left of your currently placed blocks.\nPlease remove the blocks and reposition yourself by moving approximately 5 blocks to the **LEFT** of your current position first.\n\nNow place 2 **green blocks** directly in front of you on the ground.\nPlace another 2 **yellow blocks** directly to the right of the green blocks.\n\nOnce these four blocks are placed you should have a 2x2 square made of 2 green, and 2 yellow blocks, starting from left to right.\n\nPlease acknowledge if the 4 blocks are in place, and let me know if you have any questions before we proceed."
+    },
+    {
+      "Builder": "The 4 blocks are at incorrect coordinates. Removed all 4 blocks."
+    },
+    {
+      "Architect": "Great job removing the previous blocks.\n\nNow, once you have made sure you moved roughly 5 blocks to the **LEFT**, place:\n\n* 2 **green blocks** on top of each other directly in front of you on the ground.\n* 2 **yellow blocks** on top of each other to the right of the green blocks.\n\nPlease acknowledge if the 4 blocks are in place, and let me know if you have any questions before we proceed."
+    },
+    {
+      "Builder": "Placed 2 green blocks (stacked) at (93,1,101), (93,2,101), and 2 yellow blocks (stacked) at  (94,1,101),  (94,2, 101) on the ground. If this looks good, let's proceed?"
+    },
+    {
+      "Architect": "Perfect! Let's proceed.\nOn top of the placed structures, you will now work on creating the higher layers.\n\nStarting with the green section:\n* On top of the 2 placed green blocks (one block on each level), place another **green block** on each one.\n* On the row above (the top of the green blocks), begin placing 2 **green blocks** to the right of the top green blocks creating a new structure 1 block high and 3 blocks long.\n\nNow, moving to the yellow section:\n* On top of the 2 placed yellow blocks (one block on each level), place another **yellow block** on each one.\n* On the row above (the top of the yellow blocks), begin placing 2 **yellow blocks** to the right of the top yellow blocks creating a new structure 1 block high and 3 blocks long.\n\nThis forms the first two layers of the elevation. Once this is done, please let me know and we can proceed to the middle purple & orange sections."
+    },
+    {
+      "Builder": "Unsure of this Green & yellow structure? External triangle?"
+    },
+    {
+      "Architect": "You are close.  If you look at the initial images, that green and yellow piece to the far right is missing. Once you see it, it should be obvious.\n\nHowever, we have yet to build the two purple & orange structures in the center.\nCurrently, the future spaces for the purple and orange blocks are both on the ground level, and appear on the left side of the green and yellow blocks.\n\nPlease clear the  top placed yellow at the top at `[\"yellow\", 94, 4, 101],`.\n\nNow we shall focus on the middle section, starting with purple:\n\nOn the ground 2 blocks left and 1 block up from the green structure, place a **purple block**.\nThen, on top of the purple block, add another **purple block**.\nTo the right of the top purple block, create a structure 1 block high 2 blocks long.\n\nNow move on to the orange section:\nOn the ground 2 blocks to the right of the purple block and 1 block up from the green structure, place an **orange block**.\nThen, on top of the orange block, place another **orange block**.\nTo the right of the top orange block, create a structure 1 block high 2 blocks long.\n\nOnce this is complete you should be able to see the entire structure in the image provided.\nLet me know if this makes sense and if you have any questions."
+    },
+    {
+      "Builder": "If I am understanding your instructions correctly, I will remove the yellow block at (94,4,101)  and create these purple and yellow structures."
+    },
+    {
+      "Architect": "Great job! That should give us a really nice solid structure.\n\nAt this point, you should see the 3 sections which make up the structure, with the gaps in the middle:\n1. 3 Green Blocks on the left,\n2. 3 Orange blocks with 2 purple blocks in front of them, and\n3. 3 Yellow blocks on the right.\n\nFirst, starting with the yellow section:\n* Add two more **yellow blocks** on top of the previous yellow structure.\n* Follow it by adding another **yellow block** on top of these yellow blocks.\n\nNow, to the Green section:\n* Add two more **green blocks** on top of the previously created green structure.\n* Add another **green block** on top of those green blocks.\n\nFinally, to the Orange/Purple section:\n* Add a total of 3 more **purple blocks** to the top of the currently existing purple structure.\n* Add 3 more **orange blocks** extending 1 block up from the previous orange blocks.\n* Finally, add 3 **red blocks** to the bottom of the previously created Orange structure.\n\nOnce this is done, you have completed the entire structure.\n\nGreat job!"
+    }
+  ]
+}

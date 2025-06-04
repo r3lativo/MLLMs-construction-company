@@ -1,0 +1,32 @@
+[
+  {
+    "block_color": "green",
+    "x": 100,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "green",
+    "x": 101,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "green",
+    "x": 102,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "green",
+    "x": 103,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "green",
+    "x": 100,
+    "y": 2,
+    "z": 100
+  }
+]

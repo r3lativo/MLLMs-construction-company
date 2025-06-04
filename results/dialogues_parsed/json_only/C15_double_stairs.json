@@ -1,0 +1,48 @@
+{
+  "structure_id": "C15_double_stairs",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "First, let's break down the structure into manageable sections. We have two primary components in this structure:\n\n1. Two separate foundation layers of green and yellow short lines.\n2. Two overlaid bridges of green and yellow small lanes on top of a purple and orange base that connects the two foundation layers.\n\nLet's begin with the first foundation layer. You will need to create two separate short lines next to each other:\n\n1. Start by placing four green blocks on the ground next to each other.\n2. Then, place four yellow blocks on the ground, separated by a gap from the green blocks.\n\nOnce you have completed that section, we can move on to the next steps. Please confirm when you have finished this part."
+    },
+    {
+      "Builder": "Okay, placed the green and yellow layer sections as specified."
+    },
+    {
+      "Architect": "It looks like you've placed the green blocks adjacent to the yellow ones. Instead, please place the green and yellow blocks in two separate lines next to each other. The green layer should be made up of four blocks in the same line, and likewise the yellow layer.\n\nPlease confirm once you have made the adjustment."
+    },
+    {
+      "Builder": "Okay, placed the green and yellow layer sections as specified."
+    },
+    {
+      "Architect": "Thank you! I see the blocks are positioned side by side along the Z axis this time. However, the two line foundations should actually be laid out next to each other along the X axis and extend in the Z axis.\n\nSo, please arrange the layers so that they are next to each other along the X axis instead of Z.\n\nHere's a reminder of the configuration:\n- Place four green blocks, lined up in the Z axis.\n- Move to the X axis and place four additional yellow blocks lined up in the Z axis next to the green ones.\n\nPlease start over with this configuration and confirm once done."
+    },
+    {
+      "Builder": "Okay, positioned the green and yellow layer sections per your latest configuration."
+    },
+    {
+      "Architect": "Thank you. The sections you've built are now in they correct positions! This is the starting layer of the structure.\nNow let's proceed to the building another layer on top of the previous creation built.\n\nYou will need to first add a base layer in between these existing sections:\n- Create two towers that line up in middle of the Z axises of the base during creation using a total of 8 purple blocks.\nJust as before place the blocks on the ground.\n- Directly next to them create another set of two towers using 8 orange blocks.\n\nOnce you have finished this section, confirm and let me know."
+    },
+    {
+      "Builder": "Created the required purple and orange sections as specified."
+    },
+    {
+      "Architect": "The second set of towers is not built. Recall previous instruction.\n\nY axis location is off for the second purple and orange tower. They should be the same as the first (Y = 1).\nThey both should be aligned along the z axis.\n\nYou need to create two towers, laid out in two layers. Purple on the left and orange on the right. Place 2 square blocks each on top of the first two layers that you just built to create the towers.\n\nLet me know when this part is done."
+    },
+    {
+      "Builder": "Thanks for the clarification. Corrected previous tower to purple and orange with proper positions and added the second layers to create towers."
+    },
+    {
+      "Architect": "Excellent! Just to be sure, confirm that:\n* the bottom X, Z coordinates are correctly aligned for each of the two groups of towers.\n* each tower has two colored blocks, in two levels separated by Y coordinates of 1 and 2.\n\nNow, let's build the bridges that will connect the top of both towers:\n* For the purple tower, place 4 green blocks in the next layer above (Y = 3).\n* For the orange tower, place 4 yellow blocks adaptedly in the same manner.\n\nFollow this sequence in placement for both towers:\n   * first choose any side that aligns with the bottommost block on your desired tower.\n   * then proceed to stack the other 3 blocks downstream in the Z axis.\n   * use the one on top of the tower block you already placed as a reference as you stack the other blocks alongside.\n\nPlease confirm when you have finished this section."
+    },
+    {
+      "Architect": "Thank you! This adds some complex detail.\nThe occurrence of green block at z = 95 on the thicker part of the tower makes the structure unviable. It should be placed spanning Y = 3 on the same z coordinates of the structure on it.\n\nAlso, move the yellow blocks so they are aligned the same way the green blocks are.\nLet me know when this is adjusted."
+    },
+    {
+      "Builder": "Readjusted the placement of green and yellow blocks to align with the base structures's z boundaries."
+    },
+    {
+      "Architect": "Your structure is complete!\n\nYou have built the complete target structure according to the description. Great job!\nHere is it in json format for reference. You have matched the exact coordinates.\n```json\n[\n  {\n    \"block_color\": \"green\",\n    \"x\": 96,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 97,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 104,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 105,\n    \"y\": 1,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 96,\n    \"y\": 1,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 97,\n    \"y\": 1,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 104,\n    \"y\": 1,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 105,\n    \"y\": 1,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 96,\n    \"y\": 1,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 97,\n    \"y\": 1,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 104,\n    \"y\": 1,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 105,\n    \"y\": 1,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"purple\",\n    \"x\": 97,\n    \"y\": 2,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"purple\",\n    \"x\": 98,\n    \"y\": 2,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 102,\n    \"y\": 2,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 103,\n    \"y\": 2,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"purple\",\n    \"x\": 97,\n    \"y\": 2,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"purple\",\n    \"x\": 98,\n    \"y\": 2,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 102,\n    \"y\": 2,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 103,\n    \"y\": 2,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"purple\",\n    \"x\": 97,\n    \"y\": 2,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"purple\",\n    \"x\": 98,\n    \"y\": 2,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 102,\n    \"y\": 2,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"orange\",\n    \"x\": 103,\n    \"y\": 2,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 98,\n    \"y\": 3,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 99,\n    \"y\": 3,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 100,\n    \"y\": 3,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 101,\n    \"y\": 3,\n    \"z\": 100\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 98,\n    \"y\": 3,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 99,\n    \"y\": 3,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 100,\n    \"y\": 3,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 101,\n    \"y\": 3,\n    \"z\": 101\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 98,\n    \"y\": 3,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"green\",\n    \"x\": 99,\n    \"y\": 3,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 100,\n    \"y\": 3,\n    \"z\": 102\n  },\n  {\n    \"block_color\": \"yellow\",\n    \"x\": 101,\n    \"y\": 3,\n    \"z\": 102\n  }\n]\n```"
+    }
+  ]
+}

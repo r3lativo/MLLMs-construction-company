@@ -1,0 +1,39 @@
+{
+  "structure_id": "C2_black-hole",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "To begin, let's create a 3x3 area foundation layer of red blocks. This is the base of the structure you're going to build. To get started, I need you to place the central red block directly above where you are staring.\n\nSo, let's start by placing a single red block directly in front of you, above the white ground."
+    },
+    {
+      "Builder": "Okay, placed the first red block in the centre."
+    },
+    {
+      "Architect": "Great! You've placed the central red block. From here, you'll create a 3x3 area around it.\n\nNext, place another red block directly in front of and one block to the left of your current position.\n\nThen, place a red block directly in front of and one block to the right of your current position.\n\nAfter that, place a red block one block to your left, on the same level as the central block."
+    },
+    {
+      "Builder": "Laying the first 3 of the 4 edges of the surrounding red blocks."
+    },
+    {
+      "Architect": "Excellent, you've correctly placed the first three blocks around the central one. One more to complete this row.\n\nPlace a red block **one block to the right** of your central red block."
+    },
+    {
+      "Builder": "Laying the final surrounding block."
+    },
+    {
+      "Architect": "Fantastic! You've completed the bottom layer of our structure. Now, we'll build the top layer.\n\nStart by placing a **purple** block directly **above** the **red block currently in front of you,** which should be one block to the left and one block in front of your current position."
+    },
+    {
+      "Builder": "Placing the first purple block."
+    },
+    {
+      "Architect": "Excellent! Now, let's create the second layer. This will be a 3x3 structure just like the bottom but made of purple blocks.\n\nNext, turn to look **at the red block directly to your left**, and place a **purple** block **on top** of it.\n\nOne piece left of the top left corner. Next, **turn so that you are looking one block to the left**, and **one block back** from your current position. You should be looking at the red block in the very back left of the understructure. Place a **purple** block **on top** of it."
+    },
+    {
+      "Builder": "Running out of purple bricks..."
+    },
+    {
+      "Architect": "Next up, head to the bottom-centre red brick of the structure and place a purple brick on top.\n\nThen, turn to face the **right side** of the structure, and place a **purple** block **on top** of the **first red block**.\n\nNext, turn **to the back-right** red brick and place a **purple** brick **on top**.\n\nFinally, you'll need another **purple** brick in the **bottom-right**.\nGreat job, and sorry you're running out of materials! This is the very final piece of the structure! You've completed the build the Builder."
+    }
+  ]
+}

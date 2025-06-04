@@ -1,0 +1,33 @@
+{
+  "structure_id": "C2_black-hole",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "The target structure consists of two main layers: a ground layer made of red blocks forming a \"cross\" shape and an upper layer made of purple blocks forming a larger \"cross\" shape with a hollow center.\n\nLet's start building the structure. Your task will be divided into two parts:\n\n1. You will build the bottom layer's central column.\n2. You will build the rest of the bottom layer.\n3. **Then** I will provide instructions for the top layer.\n\nFor the **first step**, build the bottom layer's central column of **four red blocks** directly above one another. The first block should be placed directly on the gray ground. The top of this column should be the highest point of the bottom layer overall. After you've placed these four blocks directly on top of each other on the ground, say \"Ready\" and wait for further instructions."
+    },
+    {
+      "Builder": "Ready."
+    },
+    {
+      "Architect": "Good job.\n\nFor the **next step**, you still need to build the rest of the **bottom layer**.\nThe bottom layer consists of:\n\n* 2 red blocks aligned directly left of the red column you already built, positioned so that they sit flush with the _sides_ of the column\n* 2 red blocks aligned directly right of the red column you already built\n* 2 red blocks aligned directly in front of the red column you already built\n* 2 red blocks aligned directly behind the red column you already built\n\nThis will create a 5x5 block red cross with a total height of 1 block.\n\nAfter building these, say \"Ready\" and wait for further instructions."
+    },
+    {
+      "Builder": "Ready."
+    },
+    {
+      "Architect": "You did an excellent job on that part of the structure. Now that we have the bottom layer complete, we will build the top layer.\n\nThe top layer will be centered directly above the cross you built.\n\nFirst, you'll need to build the **top layer's central column**. Place **two purple blocks** directly on top of the top-most red block in the middle of your cross (this column in the middle should have 3 blocks in total). This is the first part of the top layer.\n\nOnce that's done, say \"Ready\" for further instructions."
+    },
+    {
+      "Builder": "Ready."
+    },
+    {
+      "Architect": "Excellent!\n\nNow, let\u2019s add the rest of the top. As we add the final blocks, you should use top most purple block as your reference.\n\n1. Add 2 purple blocks aligned **directly left** of these two blocks, positioned so that they sit flush with the _sides_ of these purple blocks in the middle of the column.\n2. Add 2 purple blocks aligned **directly right** of these two blocks in the middle of the column.\n3. Add 2 purple blocks aligned **directly in front** of these two blocks in the middle of the column.\n4. Add 2 purple blocks aligned **directly behind** these two blocks.\n\nYou should now have a larger cross of purple blocks that sits flat on top of the red cross and is hollow in the middle. Once you're done, say \"Ready\" and wait for further instructions."
+    },
+    {
+      "Builder": "Ready."
+    },
+    {
+      "Architect": "Great!\n\nThe structure is now complete. The red cross with a vertical column that goes four blocks high. Moreover, on top of this red cross is a larger purple cross that sits flat on top of it and is hollowed out in the middle.\n\nIf you have confirmed that this is the case, please type \"\"."
+    }
+  ]
+}

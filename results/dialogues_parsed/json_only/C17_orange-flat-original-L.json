@@ -1,0 +1,21 @@
+{
+  "structure_id": "C17_orange-flat-original-L",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "Let's begin constructing your structure. I'll guide you step-by-step.\n\n1. Start by placing an orange block on the ground in front of you. This will serve as one corner of the base.\n2. After that, to the right of that block, place another orange block on the ground. This block should be adjacent to the previous one horizontally.\n\nOnce you have completed these steps, please confirm your progress."
+    },
+    {
+      "Builder": "Okay, placed two orange blocks on the ground, one in front of me and one to the right of it (assuming we are facing north)."
+    },
+    {
+      "Architect": "I see the two orange blocks you have placed. It seems like you have placed the second block to the east, not north.\n\n3. First, remove the second orange block.\n4. Next, place an orange block adjacent to the first block and directly north/east of it with no space in between them.\n\nOnce you've done that, check your progress and let me know.\nOnce you confirmed it, we can proceed to the final step. If not, you have to retry step 3 and 4!"
+    },
+    {
+      "Builder": "Okay, removed the unnecessary orange block to the east. Then placed the orange block adjacent and directly north of it, assigning it to [100, 1, 101]."
+    },
+    {
+      "Architect": "Great job! The steps you followed were correct, you're now seeing the correct placement of the blocks. Now we can proceed to the final step.\n\n5. Put one orange block on top of the block north/east of the first block.\n6. Confirm your work.\n\nOnce you have completed these steps, confirm and we're done!"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "structure_id": "C15_double_stairs",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "block_color": "green",
+      "x": 98,
+      "y": 1,
+      "z": 100
+    },
+    {
+      "block_color": "green",
+      "x": 98,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 99,
+      "y": 1,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 99,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 100,
+      "y": 1,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 100,
+      "y": 2,
+      "z": 100
+    }
+  ]
+}

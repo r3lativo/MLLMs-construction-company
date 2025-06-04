@@ -1,0 +1,6503 @@
+[
+  {
+    "structure_id": "C1_bell",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 7,
+        "z": 107
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 107
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 107
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 3,
+        "z": 107
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 4,
+        "z": 107
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 104,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 107
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 1,
+        "z": 107
+      },
+      {
+        "block_color": "orange",
+        "x": 104,
+        "y": 2,
+        "z": 107
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 8,
+        "z": 107
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 8,
+        "z": 107
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 8,
+        "z": 107
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 8,
+        "z": 107
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 8,
+        "z": 107
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 8,
+        "z": 97
+      }
+    ]
+  },
+  {
+    "structure_id": "C2_black-hole",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 2,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C3_blue-original-L",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C4_flower_new",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 104,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "orange",
+        "x": 104,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 104,
+        "y": 3,
+        "z": 101
+      }
+    ]
+  },
+  {
+    "structure_id": "C5_overlapping-chain-links",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 102
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 103
+      }
+    ]
+  },
+  {
+    "structure_id": "C6_rectangle-chain",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "blue",
+        "x": 96,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 1,
+        "z": 95
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 1,
+        "z": 96
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 95,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "green",
+        "x": 96,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "green",
+        "x": 97,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "green",
+        "x": 96,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "green",
+        "x": 95,
+        "y": 2,
+        "z": 96
+      },
+      {
+        "block_color": "green",
+        "x": 97,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "blue",
+        "x": 95,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 93,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 92,
+        "y": 3,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 3,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 91,
+        "y": 3,
+        "z": 95
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 4,
+        "z": 96
+      },
+      {
+        "block_color": "red",
+        "x": 94,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 3,
+        "z": 96
+      },
+      {
+        "block_color": "red",
+        "x": 92,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "orange",
+        "x": 96,
+        "y": 6,
+        "z": 96
+      }
+    ]
+  },
+  {
+    "structure_id": "C7_scissors",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 6,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C8_table2",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "orange",
+        "x": 96,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "orange",
+        "x": 96,
+        "y": 1,
+        "z": 95
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 1,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 2,
+        "z": 96
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 2,
+        "z": 96
+      }
+    ]
+  },
+  {
+    "structure_id": "C9_asterisk",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 3,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 3,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C10_concentric_semicircles",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 97,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 106,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 3,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C11_broken_heart",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 5,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C12_diagonal-Ls",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 1,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 98,
+        "y": 1,
+        "z": 102
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 97,
+        "y": 2,
+        "z": 102
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 2,
+        "z": 104
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 2,
+        "z": 103
+      },
+      {
+        "block_color": "orange",
+        "x": 96,
+        "y": 2,
+        "z": 103
+      }
+    ]
+  },
+  {
+    "structure_id": "C13_eye",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 1,
+        "z": 104
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 104
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 104
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 1,
+        "z": 104
+      },
+      {
+        "block_color": "purple",
+        "x": 97,
+        "y": 1,
+        "z": 104
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 1,
+        "z": 104
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 2,
+        "z": 104
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 2,
+        "z": 104
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 2,
+        "z": 104
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 2,
+        "z": 104
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 2,
+        "z": 104
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 3,
+        "z": 104
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 2,
+        "z": 104
+      },
+      {
+        "block_color": "blue",
+        "x": 103,
+        "y": 3,
+        "z": 104
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 4,
+        "z": 104
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 4,
+        "z": 104
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 4,
+        "z": 104
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 4,
+        "z": 104
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 4,
+        "z": 104
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 4,
+        "z": 104
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 2,
+        "z": 104
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 5,
+        "z": 104
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 5,
+        "z": 104
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 6,
+        "z": 104
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 6,
+        "z": 104
+      }
+    ]
+  },
+  {
+    "structure_id": "C14_diagonal-zigzag",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 5,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C15_double_stairs",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "yellow",
+        "x": 96,
+        "y": 1,
+        "z": 96
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 1,
+        "z": 95
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 1,
+        "z": 96
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 2,
+        "z": 96
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "green",
+        "x": 96,
+        "y": 3,
+        "z": 94
+      },
+      {
+        "block_color": "green",
+        "x": 96,
+        "y": 3,
+        "z": 97
+      },
+      {
+        "block_color": "yellow",
+        "x": 97,
+        "y": 3,
+        "z": 94
+      },
+      {
+        "block_color": "yellow",
+        "x": 97,
+        "y": 3,
+        "z": 97
+      }
+    ]
+  },
+  {
+    "structure_id": "C16_bloody-sword",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 98,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 97,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 97,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 98
+      }
+    ]
+  },
+  {
+    "structure_id": "C17_orange-flat-original-L",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      }
+    ]
+  },
+  {
+    "structure_id": "C18_overlapping-reticles",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C19_slide_with_arch",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 104,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 4,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 4,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 96
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 2,
+        "z": 96
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 103,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 3,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 3,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 3,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 3,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 104,
+        "y": 3,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 5,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 4,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 103,
+        "y": 4,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 6,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 5,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 103,
+        "y": 5,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 5,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 104,
+        "y": 5,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 5,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 6,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 6,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 9,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 103,
+        "y": 9,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 10,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 10,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 11,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 103,
+        "y": 11,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 12,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 12,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 13,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 103,
+        "y": 13,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 13,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 13,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C20_rainbow-lasso",
+    "condition": "json_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 5,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C1_bell",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 105,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 105,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 7,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 9,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 2,
+        "z": 103
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 3,
+        "z": 103
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 4,
+        "z": 103
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 5,
+        "z": 103
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 6,
+        "z": 103
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 7,
+        "z": 103
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 8,
+        "z": 103
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 9,
+        "z": 103
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 103
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 3,
+        "z": 103
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 105,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 10,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 10,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 10,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 10,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 103,
+        "y": 10,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 104,
+        "y": 10,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 105,
+        "y": 10,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 104,
+        "y": 10,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 103,
+        "y": 10,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 10,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 10,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 10,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 10,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 105,
+        "y": 11,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 104,
+        "y": 11,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 103,
+        "y": 11,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 11,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 11,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 11,
+        "z": 103
+      },
+      {
+        "block_color": "yellow",
+        "x": 105,
+        "y": 11,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C2_black-hole",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 102
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 102
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 97,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 103
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 3,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C3_blue-original-L",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C4_flower_new",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C5_overlapping-chain-links",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 94,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 2,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C6_rectangle-chain",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 103,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 104,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 105,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 104,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 103,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 104,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 103,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 3,
+        "z": 102
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 3,
+        "z": 103
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 5,
+        "z": 103
+      }
+    ]
+  },
+  {
+    "structure_id": "C7_scissors",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 105,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 105,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 105,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 4,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C8_table2",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 2,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C9_asterisk",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 0,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 103,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 103,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 103,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 7,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 8,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 9,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 10,
+        "z": 101
+      }
+    ]
+  },
+  {
+    "structure_id": "C10_concentric_semicircles",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 96,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 98,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 97,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 94,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 95,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 97,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 97,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 97,
+        "y": 7,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C11_broken_heart",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 4,
+        "z": 98
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 5,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 5,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C12_diagonal-Ls",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 1,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 3,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 4,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 4,
+        "z": 95
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 4,
+        "z": 95
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 5,
+        "z": 95
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 6,
+        "z": 95
+      },
+      {
+        "block_color": "yellow",
+        "x": 98,
+        "y": 5,
+        "z": 95
+      },
+      {
+        "block_color": "yellow",
+        "x": 98,
+        "y": 6,
+        "z": 95
+      },
+      {
+        "block_color": "yellow",
+        "x": 98,
+        "y": 7,
+        "z": 95
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 6,
+        "z": 95
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 7,
+        "z": 95
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 6,
+        "z": 94
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 7,
+        "z": 94
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 8,
+        "z": 94
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 7,
+        "z": 93
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 8,
+        "z": 93
+      }
+    ]
+  },
+  {
+    "structure_id": "C13_eye",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 97,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 97,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 100,
+        "z": 2
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 2,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C14_diagonal-zigzag",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 3,
+        "z": 98
+      }
+    ]
+  },
+  {
+    "structure_id": "C15_double_stairs",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C16_bloody-sword",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 4,
+        "z": 101
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 6,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 7,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 105,
+        "y": 2,
+        "z": 104
+      },
+      {
+        "block_color": "orange",
+        "x": 104,
+        "y": 1,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C17_orange-flat-original-L",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C18_overlapping-reticles",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 2,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C19_slide_with_arch",
+    "condition": "img_only",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 4,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 5,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 4,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 5,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 3,
+        "z": 97
+      }
+    ]
+  },
+  {
+    "structure_id": "C20_rainbow-lasso",
+    "condition": "img_only",
+    "dialogue": []
+  },
+  {
+    "structure_id": "C1_bell",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 103,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 99,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 98,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 98,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 98,
+        "y": 7,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 98,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 99,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 99,
+        "y": 7,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 99,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 7,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 8,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 9,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 10,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 9,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 9,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 9,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 9,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 9,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 9,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C2_black-hole",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 102
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 6,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 6,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 6,
+        "z": 102
+      }
+    ]
+  },
+  {
+    "structure_id": "C3_blue-original-L",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C4_flower_new",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 98,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 98,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 5,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C5_overlapping-chain-links",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 3,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 4,
+        "z": 97
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 4,
+        "z": 96
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 6,
+        "z": 96
+      }
+    ]
+  },
+  {
+    "structure_id": "C6_rectangle-chain",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 103,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 104,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 103,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 103,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 2,
+        "z": 96
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 2,
+        "z": 96
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 103,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 104,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 3,
+        "z": 98
+      }
+    ]
+  },
+  {
+    "structure_id": "C7_scissors",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 104,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 104,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 4,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C8_table2",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 2,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C9_asterisk",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "blue",
+        "x": 103,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 3,
+        "z": 101
+      }
+    ]
+  },
+  {
+    "structure_id": "C10_concentric_semicircles",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 105,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 103,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 104,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 106,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 107,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "yellow",
+        "x": 109,
+        "y": 1,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C11_broken_heart",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 1,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C12_diagonal-Ls",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 98
+      }
+    ]
+  },
+  {
+    "structure_id": "C13_eye",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 97,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 97,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 97,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C14_diagonal-zigzag",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 4,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 4,
+        "z": 102
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 5,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 5,
+        "z": 102
+      }
+    ]
+  },
+  {
+    "structure_id": "C15_double_stairs",
+    "condition": "img_json",
+    "dialogue": []
+  },
+  {
+    "structure_id": "C16_bloody-sword",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 104
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 103,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 104,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 105,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 106,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 106,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 98,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 98,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 7,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 9,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 9,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C17_orange-flat-original-L",
+    "condition": "img_json",
+    "dialogue": []
+  },
+  {
+    "structure_id": "C18_overlapping-reticles",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 102,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      }
+    ]
+  },
+  {
+    "structure_id": "C19_slide_with_arch",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 102
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 102
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 3,
+        "z": 104
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 4,
+        "z": 102
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 4,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 5,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 102
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 2,
+        "z": 98
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 3,
+        "z": 98
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 7,
+        "z": 100
+      }
+    ]
+  },
+  {
+    "structure_id": "C20_rainbow-lasso",
+    "condition": "img_json",
+    "dialogue": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 101,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 98,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 99,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 5,
+        "z": 100
+      }
+    ]
+  }
+]

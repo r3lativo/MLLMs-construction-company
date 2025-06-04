@@ -1,0 +1,18 @@
+{
+  "structure_id": "C17_orange-flat-original-L",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "block_color": "orange",
+      "x": 100,
+      "y": 1,
+      "z": 100
+    },
+    {
+      "block_color": "orange",
+      "x": 100,
+      "y": 1,
+      "z": 101
+    }
+  ]
+}

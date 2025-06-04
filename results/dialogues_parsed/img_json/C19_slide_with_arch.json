@@ -1,0 +1,87 @@
+{
+  "structure_id": "C19_slide_with_arch",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "### Instructions\n\n**Start building near the center of the area on top of the white ground.**\n\n**To begin, start by creating the base of the structure.**\n\n1. Place three purple blocks side by side on top of the white ground.\n2. Build a single column out of two green blocks to the left of the purple blocks and one block away from the leftmost purple block.\n3. Place a single green block one block above and to the left of the previously placed green block.\n4. Place a single green block three blocks to the right of the tall green column and one block above the white ground.\n\nOnce this is complete, check back with me to confirm before proceeding with the next steps."
+    },
+    {
+      "Builder": "Okay, I have started building near the center on the white ground."
+    },
+    {
+      "Architect": "Thank you for confirming. You placed a row of purple blocks on the ground and placed out-of-proportion green blocks to the left, and a green block to the right of the purple blocks.\n\nPlease do this instead:\n\n1. Remove the out-of-place green block at the top of the tower.\n2. Build a single column with two green blocks to the left of the purple blocks and aligned with the ground.\n3. Continue building the rest of the green blocks according to the previous step-by-step instruction I gave you after finishing this.\n\nPlease confirm once you have adjusted the blocks accordingly and built the remaining parts of the base."
+    },
+    {
+      "Builder": "Okay, I have removed the out-of-place green block and rebuilt  according to your new instructions."
+    },
+    {
+      "Architect": "Great, now start creating the next level and connect the green blocks.\n\n1. Add a purple block on top of the leftmost purple block on the ground.\n2. Place a green block to the left of the newly placed purple block.\n3. Add another green block directly above the other green block that is on top of the ground.\n\nOnce you have done this, check back with me before proceeding with the next steps."
+    },
+    {
+      "Builder": "Okay, I have completed connecting the green blocks, according to your instructions."
+    },
+    {
+      "Architect": "You seem to be ahead, but you haven't followed my last instructions correctly.\n\nPlease undo the purple block you have added and place it in alignment with the purple base, directly on top of the centre purple block.\nOnly then continue with the next steps.\n\n1. Place two green blocks directly aligned with the two green blocks on the ground.\n2. On top of the green block in front of you, add a purple block.\n\nPlease proceed off this and confirm once you are done."
+    },
+    {
+      "Architect": "Thank you for correcting and proceeding with my previous instructions. Now, let's move on to the next steps.\n\n1. Place a red block directly to the right of the new purple block.\n2. Add another green block to the left of the existing green blocks (two stacks tall).\n3. Place a purple block directly in front of and touching the red block.\n\nPlease continue from here and confirm once the steps are completed."
+    },
+    {
+      "Architect": "In order to fulfill my instructions, please start by removing the red block that you placed incorrectly.\n\nNow, place a red block on top of the purple block you just placed.\n\nAfter that, add a purple block in front of the last green block.\n\nThen, add red blocks, starting with the one directly aligned with the green column that you built first. Continue connecting the red blocks up to 6 blocks in total.\n\nPlease confirm once you have done this."
+    },
+    {
+      "Builder": "I have repaired the mistake and, built the foundation for the next part. Please confirm when you are ready for the next steps."
+    },
+    {
+      "Architect": "The pedestal for the sculpture has been built correctly and ready to support the next tier.\n\nNext, let's work on building the top portion. The details for the next build:\n\n1. Place a purple block above the purple block in front of you.\n2. Add another green block above the green block on the left.\n3. Place another green block above the green block on the right.\n\nThen:\n\n1. Place opposite purple blocks above the two lower purple blocks.\n2. Place a final purple block on top of the central column.\n3. Place another purple block aligned with the front purple block and standing for support.\n4. Add a green block on top of the central purple block to create a stack of two.\n5. Place another green block above the green block you just built.\n6. Build a small green base above the ground in front of you. You will create a tower by stacking multiple green blocks.\n\nOnce you have successfully completed all these steps, please confirm."
+    },
+    {
+      "Builder": "The pedestal is built according to your instructions and the main structure completed."
+    },
+    {
+      "Architect": "You have placed some blocks inaccurately.\n\nPlease undo the mistakes and reshape the top green blocks into a stack of three blocks on top of the base you created.\n\nThen, place green blocks on the ground level prior to the red column and build a vertical stack to form a tower. After that, repeat to reach a height of 6 blocks.\n\nLastly, you must also even out the reddish top of your sculpture structure by adding more red blocks.\n\nPlease confirm once you have done this."
+    },
+    {
+      "Builder": "Okay, sculpture is coming together according to the last instructions."
+    },
+    {
+      "Architect": "You were supposed to build the green tower first to a height of 6 before proceeding to modify the leftmost red column.\n\n1. Remove all green blocks from the red column and place them next to the purple column to start building the green tower.\n2. Start adding green blocks one by one in ascending order until you manage to create a vertical stack of 6 blocks.\n\nAfter that, you can proceed to even the left-most red column up this time by adding two red blocks, one beneath and one right above, to the top of the red column.\n\nPlease confirm once the steps have been completed."
+    },
+    {
+      "Builder": "I have removed and replaced the green blocks as required and also built necessary vertical stacks."
+    },
+    {
+      "Architect": "At this point, you should remove the remaining errant red and green blocks in order to even out the segmented blocks and add new ones to occupy them.\n\nSpecifically:\n\n1. Remove the remaining red block you removed incorrectly.\n2. Build the green vertical starting from the ground to a stack of 6 blocks.\n3. Add additional red blocks to tidy up the red line as per the previous instruction. Remove the remaining misplaced green block and build the vertical stack.\n4. Lastly, remove the misplaced green blocks and align a tower of green blocks on the ground level before the red column.\n5. Match the height of the green tower and the red column by adding a layer of red blocks behind the high tower of green blocks.\n\nPlease confirm once you have done this, and we will reassess the structure and determine if any additional steps are necessary."
+    },
+    {
+      "Builder": "Everything done according to your list of instructions. Please confirm if you have any other next instructions."
+    },
+    {
+      "Architect": "You have continued building without following my instructions as intended. Again, you have managed to misplace the green block incorrectly.\n\nTo correct the problem, you must do this:\n\n1. Remove the misplaced green block.\n2. Align the arches correctly and finish creating the tower startingup from the ground to reach a height of 6 blocks.\n3. Lastly, undo the red build and walk back to tie it up to create the topmost red part.\n\nPlease confirm once you have done the steps correctly."
+    },
+    {
+      "Builder": "I have finished everything you asked as stated. Please confirm and continue if additional instructions are needed."
+    },
+    {
+      "Architect": "You managed to build everything not according to how I stated them.\n\nPlease remove the incorrectly stacked green columns and the red blocks from the line you made a mess of.\n\nNow, undo the last green vertical you built incorrectly and build a green vertical stack from the ground level extending up above the middle green tower.\n\nAfter cleaning the last red build and building a wall that evens out the red thickness on the red end of the sculpture. Please confirm once this has been accurately achieved."
+    },
+    {
+      "Builder": "Please check all the instruction steps done accurately this time to correct any missed details."
+    },
+    {
+      "Architect": "Following my stringent instructions, you still have managed to correct only a few things partially.\n\nTo fix this:\n\n1. Remove the red line you wrongly duplicated.\n2. Start from the ground level and build a new green column using the misplaced green blocks standing next to the sculpture.\n3. Next, try and focus on the remaining detected errors to correct erroneous builds and restructure the top and sides.\n4. Lastly, try building the top part of the sculpture.\n\nPlease confirm once you've attempted redressing these errors as described."
+    },
+    {
+      "Builder": "Accurate communication between us and correct understanding of your instructions is key to building your structure, therefore apply these corrective adjustments please."
+    },
+    {
+      "Architect": "Let's simplify the remaining steps and repeat the instructions from your point on destruction.\n\n1. Begin by removing these: green blocks, one building disappears to the right of the green column (four green blocks).\n2. Build a green vertical stack from the ground up to a red height on the ground level.\n3. Similarly for the red line, remove these: two adjacent red blocks to the red column and one behind it.\n\nNow proceed with:\n\n1. You may now proceed to construct a green vertical on the left side up and build additional blocks until multiple stacks of 6-blocks-high form a continuous vertical arch.\n2. For the left-most red column, carefully start adding blocks from the ground up and build several red stacks up to 6 blocks high. Complete this if needed by adding an additional building level behind the green tower.\n3. Finally, harmonize the phase at the top as needed by connecting the most rules, fragments of the blocks to the topmost to complete the sculpture.\n\nConfirm once you are done."
+    },
+    {
+      "Builder": "Please confirm if there is any additional assistance needed or other errors installation."
+    },
+    {
+      "Architect": "Lastly try patching the pieces together. Currently, the top side of the sculpture isn't correctly formed:\n\n1. Undertake the green bricks from the ground level up until the green column runs out.\n2. Rebuild the topmost of the arches formed with green bricks.\n3. Finally, add continuous pieces of red bricks to connect the road pieces of the puzzle. This will complete the image of the alphabet letter \"F\".\n\nPlease confirm whether the structures are correctly built, and validate if the operation to complete the build is done."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "img_only": {
+    "num_generated_structures": 20,
+    "num_target_structures": 20,
+    "total_block_tp": 71,
+    "total_block_fp": 301,
+    "total_block_fn": 372,
+    "overall_block_precision": 0.19086021505376344,
+    "overall_block_recall": 0.16027088036117382,
+    "overall_block_f1_score": 0.17423312883435585
+  },
+  "json_only": {
+    "num_generated_structures": 20,
+    "num_target_structures": 20,
+    "total_block_tp": 84,
+    "total_block_fp": 239,
+    "total_block_fn": 359,
+    "overall_block_precision": 0.26006191950464397,
+    "overall_block_recall": 0.18961625282167044,
+    "overall_block_f1_score": 0.2193211488250653
+  },
+  "img_json": {
+    "num_generated_structures": 20,
+    "num_target_structures": 20,
+    "total_block_tp": 86,
+    "total_block_fp": 243,
+    "total_block_fn": 357,
+    "overall_block_precision": 0.2613981762917933,
+    "overall_block_recall": 0.19413092550790068,
+    "overall_block_f1_score": 0.22279792746113988
+  }
+}

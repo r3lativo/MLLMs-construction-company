@@ -1,0 +1,26 @@
+{
+  "img_only": {
+    "true_positives": 1,
+    "false_positives": 19,
+    "false_negatives": 0,
+    "precision": 0.05,
+    "recall": 1.0,
+    "f1_score": 0.09523809523809523
+  },
+  "json_only": {
+    "true_positives": 1,
+    "false_positives": 19,
+    "false_negatives": 0,
+    "precision": 0.05,
+    "recall": 1.0,
+    "f1_score": 0.09523809523809523
+  },
+  "img_json": {
+    "true_positives": 1,
+    "false_positives": 19,
+    "false_negatives": 0,
+    "precision": 0.05,
+    "recall": 1.0,
+    "f1_score": 0.09523809523809523
+  }
+}

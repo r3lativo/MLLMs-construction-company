@@ -1,0 +1,39 @@
+{
+  "structure_id": "C5_overlapping-chain-links",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "Builder, let's start constructing the structure. The overall shape is L-like, with red blocks forming the base and a vertical column of purple blocks rising from it. The entire structure will be four blocks high, so plan accordingly.\n\nFirst, start by placing a foundation of red blocks. Begin at the center of the visible area. On the ground, in a straight line, place 4 red blocks side by side. Then, move your cursor one block to the right of the last red block of this foundation and place another red block right next to the first row of blocks.\nThis should form a straight line of 5 red blocks on the ground."
+    },
+    {
+      "Builder": "Okay, placed the red blocks to form the base of the L-like structure."
+    },
+    {
+      "Architect": "Excellent work. Now, we'll add another line of red blocks along the second ground level. Directly below the middle of the first row of blocks (2 blocks to the left), start building up.\n\nPlace a red block at the front of the last block of the line. It should be right in the middle, the same as the last red block of the previous row. Then, place three red blocks above the second, third and fourth block of the first row, one block on top of each. Now, add a block in front of these three new blocks, one block on top of the first block of the first row. The foundation should now have two rows. It should look like an L. Verify that it does, and let me know once you're ready to proceed."
+    },
+    {
+      "Builder": "Okay, placed the red blocks to form the second row. Please verify it looks like an L!"
+    },
+    {
+      "Architect": "It does, good job.\n\nNow, we'll continue building up. On the third ground level, right at where the L shape ends, place a red block one block above the far right red block of the second row. Then, you will add three more red blocks, one block above each of the three red blocks on second level.\n\nAfter that, we will start building up the column of purple blocks at the front, directly above the second and third row's middle block. Place the first purple block right above the middle block of the second row.\n\nOnce you've done that, confirm."
+    },
+    {
+      "Builder": "Okay, placed the blocks as you specified."
+    },
+    {
+      "Architect": "Good job. Now we need to build up the purple column. Directly above the first purple block you just placed, go up 1 more block on the Y-axis and place another purple block. Place another block right behind it on the same level.\n\nAfter that, move up 1 more block on the Y-axis and place 2 purple blocks left of both of the previous blocks on the same level. On the last level, place 1 block on the rightmost purple block of the previous level. Verify the structure matches the images provided, and confirm once ready for the final instructions."
+    },
+    {
+      "Builder": "Okay, placed the purple blocks as you described."
+    },
+    {
+      "Architect": "Excellent. Almost done!\n\nYou have built the structure  nearly completely. Move up 1 more block on the Y-axis directly above the purple block on the right and place one purple block beside the last block of the purple column on the right.\n\nConfirm once you have finished the structure.\n\nOnce you complete the structure as guided, I will let you know once the instructions are complete."
+    },
+    {
+      "Builder": "I've placed the last purple block as instructed. The structure appears to be complete."
+    },
+    {
+      "Architect": ""
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "structure_id": "C3_blue-original-L",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Let's start building. Focus on the top-down image, we will start from there.\n\nStart by identifying a central location on the ground plane to serve as the foundation for our structure. Once you've identified the center of the area you work in, place a single blue block directly on top of the ground there, creating the base of our tower.\n\nAfter placing the first block, confirm with me, and we will proceed with the next steps to build upwards."
+    },
+    {
+      "Builder": "I have placed the first block at the central point of 100, 99."
+    },
+    {
+      "Architect": "Great, you've successfully placed the foundation block at the correct central point! Now, build upwards:\n\nStarting from the blue block you placed, add another blue block directly on top of it. Confirm once you've placed this block."
+    },
+    {
+      "Builder": "I placed the second block directly on top of the first one."
+    },
+    {
+      "Architect": "Excellent. You've successfully added the second block to the tower. Now, let's extend the tower horizontally by adding a block to the side:\n\nPlace a single blue block to the immediate left of the second block. Once you've placed this block, confirm with me, and we will proceed with the next steps to complete the structure.\n\nThen extend the tower horizontally in the opposite direction by doing the same to the right of the second block. Again, once you've placed this block, confirm with me."
+    },
+    {
+      "Builder": "I placed two blocks, one immediately to the left, and one immediately to the right of the second block."
+    },
+    {
+      "Architect": "Perfect. You've successfully created the base of the tower. Now, we need to add the final block to complete the structure:\n\nPlace a single blue block directly on top of the block located at the center of the three blocks you just placed.\n\nOnce you've added the final block, confirm with me, and the structure will be complete."
+    },
+    {
+      "Builder": "I placed the final block directly on top of the middle block. The tower is now complete."
+    },
+    {
+      "Architect": "Excellent work! The structure is now complete. The final structure matches what we aimed to build. If you have any other structures in mind or need further assistance, feel free to ask!"
+    }
+  ]
+}

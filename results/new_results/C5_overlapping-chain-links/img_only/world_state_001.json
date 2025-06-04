@@ -1,0 +1,50 @@
+[
+  {
+    "block_color": "purple",
+    "x": 100,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "red",
+    "x": 99,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "red",
+    "x": 98,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "red",
+    "x": 97,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "red",
+    "x": 96,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "red",
+    "x": 95,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "purple",
+    "x": 100,
+    "y": 2,
+    "z": 100
+  },
+  {
+    "block_color": "purple",
+    "x": 100,
+    "y": 3,
+    "z": 100
+  }
+]

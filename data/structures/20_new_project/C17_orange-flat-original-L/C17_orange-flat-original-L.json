@@ -1,0 +1,20 @@
+[
+    {
+        "block_color":"orange",
+        "x":99,
+        "y":1,
+        "z":99
+    },
+    {
+        "block_color":"orange",
+        "x":99,
+        "y":1,
+        "z":100
+    },
+    {
+        "block_color":"orange",
+        "x":100,
+        "y":1,
+        "z":100
+    }
+]

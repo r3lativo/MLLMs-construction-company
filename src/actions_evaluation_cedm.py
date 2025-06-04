@@ -291,6 +291,7 @@ def evaluate_structure(structure_data, target_file_path):
         "similarity": similarity,
         "action_format": action_format
     }
+    
 
     # Reorder the structure with the new metrics
     new_structure = reorder_structure_keys(structure_data, metrics)
@@ -303,7 +304,7 @@ def evaluate_structure(structure_data, target_file_path):
 
 
 def main():
-    actions_file = os.path.join(main_path, "analysis", "parsed_actions.json")
+    actions_file = os.path.join(main_path, "results", "new_results", "C100_wannabe_olympic_rings", "")
     if os.path.exists(actions_file):
         pass
     else:
@@ -322,7 +323,7 @@ def main():
 
         # Construct the target file path; adjust the folder name as needed.
         gold_processed_path = os.path.join(
-            main_path, "data", "structures", "gold-processed")
+            main_path, "data", "structures", "gold-processed", "C100_wannabe_olympic_rings", "C100_wannabe_olympic_rings.json")
         target_file_path = os.path.join(
             gold_processed_path, structure_id, f"{structure_id}.json")
         if not os.path.exists(target_file_path):
@@ -337,7 +338,7 @@ def main():
         structure.clear()
         structure.update(new_structure)
 
-    actions_metrics_file = os.path.join(main_path, "analysis", "parsed_actions_with_metrics.json")
+    actions_metrics_file = os.path.join(main_path, "analysis", "parsed_actions_with_metrics_new_results3.json")
     with open(actions_metrics_file, "w") as out_f:
         json.dump(actions_list, out_f, indent=4)
 

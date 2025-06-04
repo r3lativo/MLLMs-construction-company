@@ -1,0 +1,39 @@
+{
+  "structure_id": "C13_eye",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Let's start with the structure.\n\nFirst we will build the red cross in mid-air.\n1. **First Layer of Cross Arms:**\n   Place 5 red blocks in a straight horizontal line at about your eye level.\n   Place 5 red blocks in a straight horizontal line to the right of where the first row of 5 ends at the same height.\n   Ensure that these two lines intersect making a cross shape.\n   Place 1 red block in the same alignment but one block length upwards from the middle of the intersection.\n   Confirm your structure so far is a cross with arms of 5x2. One arm is vertical (composed out of two blocks)\n\nGreat! Let's proceed when ready."
+    },
+    {
+      "Builder": "Placed the cross with arms of 5x2."
+    },
+    {
+      "Architect": "Thank you for that confirmation. Let's build the Box of Purples.\nPlace the 5x5 box of purple blocks directly below where the cross would appear. Align the top of the purple box so that it directly supports the cross. The purple box should be 3 blocks tall and stack each layer one on top of the previous layer as you build upwards.\n\nYou may begin now and let me know when each layer is done. If we need to, we can adjust as we go.\nGood Luck!"
+    },
+    {
+      "Builder": "Layer 1 of the 3 layer 5x5 purple box is complete."
+    },
+    {
+      "Architect": "Good work of starting the Box of Purples.\n\nNow let's move onto the second layer of the Box of Purples. Repeat the previous action but this time add another complete layer of 5x5 purple blocks on top of your previous layer.\n\nComplete the top layer, then let me know, and we will be ready for the next step."
+    },
+    {
+      "Builder": "I don't have enough purple blocks to place Layer 2 for the second layer of the Box of Purples. I need a restock."
+    },
+    {
+      "Architect": "Give me a moment and I'll make sure you have the remaining purple blocks to finish the task. Just a moment...\nGreat, you should have the extra purple blocks now.\n\nPlease place the remaining 25 Purple blocks on top of the previous Box of Purples, creating another 5x5 layer to match the ones below it, and let me know when it's done"
+    },
+    {
+      "Builder": "Second and Final layer of the 3 layer 5x5 purple box is complete."
+    },
+    {
+      "Architect": "Great job! You can remove it from your inventory as you won't need anymore purple blocks for this project.\n\nNow for the finishing touch, pick up seventy-five blue blocks and the complete the buildout by attaching building out from the hollow center of the Box of Purples, one layer at a time, creating a \"plus\" sign with arms of 3 blocks length.\n\nPlace the cross layer one at a time upwards. Confirm each layer before proceeding to the next.\n\nStart with the first layer. Place the first two on the northwind facing wall, followed by the top wall and two blocks adjacent to the north most blocks. Repeat the additional three blocks mirrored on the opposite side, finishing with the ground layer. Confirm each layer before moving.\n\nProceed and let me know when you are done."
+    },
+    {
+      "Architect": "That layer looks perfect! Please repeat the exact layer, matching it to the first layer you just placed ensuring all is mirrored through the buildout.\n\nConfirm once complete."
+    },
+    {
+      "Architect": "Layer two is looking great. Again repeat the exact layer mirroring the previous layers, 9 blocks each row, on the third layer.\n\nOnce complete confirm."
+    }
+  ]
+}

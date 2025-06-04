@@ -1,0 +1,39 @@
+{
+  "structure_id": "C16_bloody-sword",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "To the Builder,\n\n**Let's begin constructing the structure.**\n\n1. First, start at the center of your building area. Place four red blocks in a cross pattern. Make sure there is one block directly in front of you, one to your left, one directly behind you, and one to your right.\n\nPlease execute these steps. Tell me when you're ready to proceed."
+    },
+    {
+      "Builder": "Completed the placement of four red blocks in the cross pattern at the center of the building area. Ready for the next instructions."
+    },
+    {
+      "Architect": "Great, the foundation for the first part of the structure is laid.\n\n2. Equidistant from the center block and oriented so it is to the right of the cross, place five yellow blocks in a straight horizontal row, directly facing you.\n3. On the last yellow block on the right, add an orange block directly to the right of it.\n4. On the orange block, add a purple block that is directly in front.\n\nPlease execute these steps. Tell me when you're ready to proceed."
+    },
+    {
+      "Builder": "Completed the designated placements of yellow, orange, and purple blocks."
+    },
+    {
+      "Architect": "Great job, the base is now complete!\n\nNow, Let's add blocks in each of four rows of four stacked yellow blocks.\n\nStarting from the red block that is to the left of the cross shape, go up one block and add:\n\n5.  A red block on top of it.\n6.  On top of the first red block, place another red block directly above.\n7. Add a yellow block on top the second red block.\n8.  On top of the yellow block, place a yellow block.\n\nPlease execute these steps. Tell me when you're ready to proceed."
+    },
+    {
+      "Builder": "Added four red, and four yellow blocks to the specified location."
+    },
+    {
+      "Architect": "Good, Now, Move to the little tower of four blocks ontop of the red block that is to the right of the center of the cross shape.\n\n9. On top of the yellow block, stack a red block.\n10. On top of the red block, stack a yellow block.\n11. On top of the yellow block, stack a yellow block.\n12. On top of the yellow block, stack a yellow block.\n\nPlease execute these steps. Tell me when you're ready to proceed."
+    },
+    {
+      "Builder": "Stacks of four yellow blocks with a red block inbetween, ontop the yellow block to the right of the center of the cross shape is complete."
+    },
+    {
+      "Architect": "Alright,  There's only one little set of blocks remaining.\n\nMove to the highest block, on one of the yellow towers. Go left one block and down one block, and place:\n\n13. An orange block in that spot.\n14. Finally, stack one more orange block ontop of that one.\n\nPlease execute these steps. Tell me when you're ready to proceed, I'll check your work.\n\nBuilder's message:\nThis structure is now built."
+    },
+    {
+      "Builder": "The final block placements are done."
+    },
+    {
+      "Architect": "Great, That looks correct from what I see. Good job on building the structure!\n\nPlease confirm if you're satisfied with the outcome and then we can end the task."
+    }
+  ]
+}

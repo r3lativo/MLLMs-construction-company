@@ -1,0 +1,45 @@
+{
+  "structure_id": "C12_diagonal-Ls",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "To start, I want you to build this structure on the ground in front of you and follow my instructions carefully.\n\nLet's begin building from the leftmost side of the structure.\n\nFirst, place three red blocks in a vertical line on the left.\n\nAfter placing the red blocks, add two more red blocks, one on top of the top red block and the other one right next to the highest red block, horizontally.\n\n**Awaiting your response.**"
+    },
+    {
+      "Builder": "Okay, placed the red blocks as instructed."
+    },
+    {
+      "Architect": "Excellent!\n\nNext, we will start working on the next part of the sequence. Add one orange block next to the highest red block, horizontally and completely touching it.\n\nThen, add another orange block on top of the first orange block.\n\nNext, place one more orange block on top of the second orange block.\n\n**Awaiting your response.**"
+    },
+    {
+      "Builder": "Okay, placed the orange blocks near the red blocks as described."
+    },
+    {
+      "Architect": "Great! Now, let's move on to the next colored blocks.\n\nNext to the highest orange block, horizontally, place one yellow block on the second orange block from the bottom.\n\nThen, on top of the yellow block, place another yellow block.\n\nAfter that, place one more yellow block on top of the second yellow block.\n\n**Awaiting your response.**"
+    },
+    {
+      "Builder": "Okay, placed the yellow blocks next to the orange blocks."
+    },
+    {
+      "Architect": "Perfect!\n\nNow, continue with the next part of the structure by adding one green block on the second yellow block from the bottom.\n\nThen, on top of the green block, add one more green block.\n\n**Awaiting your response.**"
+    },
+    {
+      "Builder": "I have built the green blocks on top of the middle yellow block."
+    },
+    {
+      "Architect": "Excellent!\n\nNext, in front of the lowest green block, horizontally, place a blue block on the second yellow block from the bottom.\n\nOn top of the blue block, place another blue block vertically.\n\nOn top of the second blue block, place another blue block vertically.\n\n**Awaiting your response.**"
+    },
+    {
+      "Builder": "I placed the blue blocks on the second yellow block from the bottom as instructed."
+    },
+    {
+      "Architect": "Lastly, in front of the lowest blue block, horizontally, place a purple block on the second blue block from the bottom.\n\nOn top of the purple block, place another purple block vertically.\n\n**Awaiting your response.**"
+    },
+    {
+      "Builder": "I have placed the purple blocks as you described."
+    },
+    {
+      "Architect": "Great job! The structure is complete."
+    }
+  ]
+}

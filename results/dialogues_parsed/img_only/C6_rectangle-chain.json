@@ -1,0 +1,51 @@
+{
+  "structure_id": "C6_rectangle-chain",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Great, let's start building this structure step by step. Let's start by constructing the bottom layer.\n\nFirst, place a row of 6 green blocks in front of you.\n\nPlease confirm once you've placed the green blocks."
+    },
+    {
+      "Builder": "Okay, I've placed the 6 green blocks."
+    },
+    {
+      "Architect": "Thank you. Now, start adding blocks to form the remaining three layers. From your perspective, the leftmost blocks of each layer should be aligned with the first green block you placed.\n\nTo the left, place a row of 5 red blocks on top of the first row of 4 green blocks.\n\nPlease confirm once you've placed the red blocks."
+    },
+    {
+      "Builder": "Okay, I've placed the 5 red blocks."
+    },
+    {
+      "Architect": "Excellent. Now, place a single yellow block on top of the fifth green block, aligned with it directly above.\n\nPlease confirm once you've placed the yellow block."
+    },
+    {
+      "Builder": "Okay, I've placed one yellow block."
+    },
+    {
+      "Architect": "Great! Now let's move on to placing the blue blocks. 3D printing usually goes from left to right, bottom to top; we've established the left column, so add  one layer going from back to front.\nPlace a row of 4 blue blocks directly in front of the last 4 green blocks.\n\nPlease confirm once you've placed the blue blocks."
+    },
+    {
+      "Builder": "Okay, I've placed the 4 blue blocks."
+    },
+    {
+      "Architect": "Perfect. Now, place 2 more blue blocks on top of the last 2 blue blocks, with the last one in the back.\n\nPlease confirm once you've placed the 2 blue blocks."
+    },
+    {
+      "Builder": "Okay, I've placed the last 2 blue blocks."
+    },
+    {
+      "Architect": "Next is to place three purple blocks. Start by placing one just above the top blue block, then place a purple block in front of the yellow block, and then place a purple block in front of that purple block.\n\nPlease confirm once you've placed the 3 purple blocks."
+    },
+    {
+      "Builder": "Okay, I've placed all 3 purple blocks."
+    },
+    {
+      "Architect": "Perfect! Now, let's add the final 2 more red blocks.\nPlace 1 red block above the leftmost purple block, making sure it is aligned above the middle purple block. Ontop of the yellow block add a red block.\n\nPlease confirm once both red blocks are added."
+    },
+    {
+      "Builder": "Okay, I've placed all 2 red blocks."
+    },
+    {
+      "Architect": "The structure appears complete. Congratulations!"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "block_color": "red",
+    "x": 96,
+    "y": 1,
+    "z": 99
+  },
+  {
+    "block_color": "purple",
+    "x": 98,
+    "y": 1,
+    "z": 99
+  },
+  {
+    "block_color": "yellow",
+    "x": 100,
+    "y": 1,
+    "z": 99
+  },
+  {
+    "block_color": "purple",
+    "x": 104,
+    "y": 1,
+    "z": 99
+  },
+  {
+    "block_color": "red",
+    "x": 105,
+    "y": 1,
+    "z": 99
+  },
+  {
+    "block_color": "red",
+    "x": 96,
+    "y": 2,
+    "z": 99
+  },
+  {
+    "block_color": "purple",
+    "x": 98,
+    "y": 2,
+    "z": 99
+  },
+  {
+    "block_color": "yellow",
+    "x": 100,
+    "y": 2,
+    "z": 99
+  },
+  {
+    "block_color": "purple",
+    "x": 104,
+    "y": 2,
+    "z": 99
+  },
+  {
+    "block_color": "red",
+    "x": 105,
+    "y": 2,
+    "z": 99
+  }
+]

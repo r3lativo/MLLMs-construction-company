@@ -1,0 +1,929 @@
+{
+  "c1_bell.json": {
+    "evaluation": {
+      "similarity": 0.18,
+      "color_cost": 6.9,
+      "move_cost": 16.0,
+      "insert_cost": 19.0,
+      "delete_cost": 16.5
+    },
+    "structure": [
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 4,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 5,
+        "z": 99
+      },
+      {
+        "block_color": "yellow",
+        "x": 100,
+        "y": 6,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 7,
+        "z": 107
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 107
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 2,
+        "z": 107
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 3,
+        "z": 107
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 4,
+        "z": 107
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 104,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 1,
+        "z": 107
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 1,
+        "z": 107
+      },
+      {
+        "block_color": "orange",
+        "x": 104,
+        "y": 2,
+        "z": 107
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 2,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 102,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 104,
+        "y": 8,
+        "z": 99
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 8,
+        "z": 107
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 8,
+        "z": 107
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 8,
+        "z": 107
+      },
+      {
+        "block_color": "purple",
+        "x": 102,
+        "y": 8,
+        "z": 107
+      },
+      {
+        "block_color": "purple",
+        "x": 103,
+        "y": 8,
+        "z": 107
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 8,
+        "z": 97
+      }
+    ]
+  },
+  "c2_black-hole.json": {
+    "evaluation": {
+      "similarity": 0.61,
+      "color_cost": 0.3,
+      "move_cost": 0.5,
+      "insert_cost": 8.0,
+      "delete_cost": 2.0
+    },
+    "structure": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "red",
+        "x": 101,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 98,
+        "y": 2,
+        "z": 99
+      }
+    ]
+  },
+  "c3_blue-original-l.json": {
+    "evaluation": {
+      "similarity": 0.83,
+      "color_cost": 0,
+      "move_cost": 0,
+      "insert_cost": 0.5,
+      "delete_cost": 0.5
+    },
+    "structure": [
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      }
+    ]
+  },
+  "c4_flower_new.json": {
+    "evaluation": {
+      "similarity": 0.34,
+      "color_cost": 2.1,
+      "move_cost": 3.5,
+      "insert_cost": 8.0,
+      "delete_cost": 5.0
+    },
+    "structure": [
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 104,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "orange",
+        "x": 103,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "orange",
+        "x": 104,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "yellow",
+        "x": 104,
+        "y": 3,
+        "z": 101
+      }
+    ]
+  },
+  "c5_overlapping-chain-links.json": {
+    "evaluation": {
+      "similarity": 0.4,
+      "color_cost": 1.5,
+      "move_cost": 2.5,
+      "insert_cost": 9.5,
+      "delete_cost": 5.0
+    },
+    "structure": [
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 3,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 4,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 100,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "purple",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 102
+      },
+      {
+        "block_color": "purple",
+        "x": 99,
+        "y": 1,
+        "z": 103
+      }
+    ]
+  },
+  "c6_rectangle-chain.json": {
+    "evaluation": {
+      "similarity": 0.45,
+      "color_cost": 6.3,
+      "move_cost": 6.0,
+      "insert_cost": 15.5,
+      "delete_cost": 11.0
+    },
+    "structure": [
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "blue",
+        "x": 96,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 1,
+        "z": 95
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 1,
+        "z": 96
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 1,
+        "z": 97
+      },
+      {
+        "block_color": "green",
+        "x": 95,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "green",
+        "x": 96,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "green",
+        "x": 97,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "red",
+        "x": 95,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "green",
+        "x": 96,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "green",
+        "x": 95,
+        "y": 2,
+        "z": 96
+      },
+      {
+        "block_color": "green",
+        "x": 97,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "blue",
+        "x": 95,
+        "y": 2,
+        "z": 97
+      },
+      {
+        "block_color": "red",
+        "x": 93,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 92,
+        "y": 3,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 3,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 91,
+        "y": 3,
+        "z": 95
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 4,
+        "z": 96
+      },
+      {
+        "block_color": "red",
+        "x": 94,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "purple",
+        "x": 95,
+        "y": 3,
+        "z": 96
+      },
+      {
+        "block_color": "red",
+        "x": 92,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "purple",
+        "x": 96,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 5,
+        "z": 96
+      },
+      {
+        "block_color": "orange",
+        "x": 96,
+        "y": 6,
+        "z": 96
+      }
+    ]
+  },
+  "c7_scissors.json": {
+    "evaluation": {
+      "similarity": 0.65,
+      "color_cost": 3.3,
+      "move_cost": 0,
+      "insert_cost": 7.0,
+      "delete_cost": 3.0
+    },
+    "structure": [
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 97,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 98,
+        "y": 6,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 5,
+        "z": 100
+      },
+      {
+        "block_color": "red",
+        "x": 99,
+        "y": 6,
+        "z": 100
+      }
+    ]
+  },
+  "c8_table2.json": {
+    "evaluation": {
+      "similarity": 0.75,
+      "color_cost": 0,
+      "move_cost": 0.5,
+      "insert_cost": 3.0,
+      "delete_cost": 2.0
+    },
+    "structure": [
+      {
+        "block_color": "orange",
+        "x": 96,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 1,
+        "z": 94
+      },
+      {
+        "block_color": "orange",
+        "x": 96,
+        "y": 1,
+        "z": 95
+      },
+      {
+        "block_color": "orange",
+        "x": 97,
+        "y": 1,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 96,
+        "y": 2,
+        "z": 96
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 2,
+        "z": 94
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 2,
+        "z": 95
+      },
+      {
+        "block_color": "red",
+        "x": 97,
+        "y": 2,
+        "z": 96
+      }
+    ]
+  },
+  "c9_asterisk.json": {
+    "evaluation": {
+      "similarity": 0.42,
+      "color_cost": 1.8,
+      "move_cost": 4.0,
+      "insert_cost": 15.5,
+      "delete_cost": 7.0
+    },
+    "structure": [
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 98,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 102,
+        "y": 1,
+        "z": 100
+      },
+      {
+        "block_color": "blue",
+        "x": 99,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 101,
+        "y": 1,
+        "z": 99
+      },
+      {
+        "block_color": "blue",
+        "x": 100,
+        "y": 2,
+        "z": 100
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 2,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 101,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 99,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 3,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 1,
+        "z": 101
+      },
+      {
+        "block_color": "green",
+        "x": 100,
+        "y": 3,
+        "z": 99
+      },
+      {
+        "block_color": "green",
+        "x": 98,
+        "y": 3,
+        "z": 99
+      }
+    ]
+  }
+}

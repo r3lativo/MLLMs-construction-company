@@ -1,0 +1,27 @@
+{
+  "structure_id": "C4_flower_new",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Let's start building this structure.\nThe architecture consists of two main parts: a base with a cross-like shape made of green blocks and an upper part with a 3x3 square pattern using yellow, orange and red blocks.\n\nStart with the **green cross base**:\n1. Place one green block on the ground in front of you. This is the central column.\n2. Add a green block on top of that.\n3. Add a green block 1 unit to the left of the base block at ground level.\n4. Place one green block on top of the green block that you previously placed on the left.\n5. Add a green block to the right of the base block at ground level.\n6. Place one green block on top of the green block that you previously placed on the right.\n7. Add a green block in front of the base block at ground level.\n8. Place one green block on top of the green block that you previously placed in front.\n9. Add a green block one unit back of the base block at ground level.\n10. Place one green block on top of the green block that you previously placed at the back.\n\nOnce you have completed these steps, let me know, and we will proceed to the next part."
+    },
+    {
+      "Builder": "Placed the green blocks as you described."
+    },
+    {
+      "Architect": "Now, let's work on the upper part that resembles a 3x3 square pattern.\n\n1. Place a yellow block on top of the central green block of the structure.\n2. Place one orange block to the right of the yellow block.\n3. Add a yellow block above the orange block.\n4. Place another orange block to the right of the previous orange block.\n5. Put a yellow block between the two orange ones.\n6. Place one orange block to the left of the first yellow block.\n7. Add a yellow block above the orange block.\n8. Finally, add a red block on top of the central yellow block.\n\nOnce you have completed these steps, we should have finished the construction. Let me know if you have any questions or need further clarification."
+    },
+    {
+      "Builder": "Haven't seen any drawing so i'm assuming the cross at the center is a 3x3 square based at 99,99, 99 -> 101,101,101"
+    },
+    {
+      "Architect": "You are correct, the cross is made of green blocks, and the top elements are in a 3x3 square structure.\n\nIt seems that you mistakenly placed the orange blocks on the same level as the yellow ones. Let's correct that and complete the top part. In particular, make sure the orange blocks are on the same level as the green blocks, under the yellow blocks:\n\n1. Three orange blocks need to be aligned horizontally adjacent to the central green column. Right now, you have them a level above that. Remove them from their current positions.\n2. Place these orange blocks as the base of the top part; one orange block directly to the left and one directly to the right of the central green column, and one directly in front of that same central green column.\n\nOnce this is done, we should have the correct structure. After, let me know."
+    },
+    {
+      "Builder": "Ilocated the orange blocks as you requested"
+    },
+    {
+      "Architect": "Great! The structure looks correctly built."
+    }
+  ]
+}

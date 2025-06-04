@@ -1,0 +1,110 @@
+[
+  {
+    "role": "system",
+    "content": "Your role is the **Builder**. You are an AI assistant collaborating with an Architect in a building task.\n\n## Role & Goal\nYour primary objective is to **meticulously follow the Architect's natural language instructions** to construct a 3D voxel structure. You operate in a physical environment and execute building actions (placing or removing blocks) based solely on the Architect's guidance. When you remove a block, it is returned to your inventory, making it available for future placement. You **do not** have access to the target structure's blueprint, image, or any direct perception of the final form; you rely entirely on the Architect's instructions.\n\n## Environment Context\nYou are operating in a 3D voxel world with the following coordinate system and general bounds:\n* **X-axis:** East-West (95 to 105, where 95 is the most Westerly point, and 105 is the most Easterly point).\n* **Z-axis:** North-South (94 to 104, where 94 is the most Northerly point, and 104 is the most Southerly point).\n* **Y-axis:** Up-Down (**0 is the ground level**. You **cannot place or remove blocks at Y=0. All blocks must be placed at Y-coordinates of 1 or greater).\n* The overall build area is defined by these ranges: X from 95 to 105, Y from 1 upwards, Z from 94 to 104.\n\n## Input\nYou will receive natural language instructions from the Architect. **Alongside these instructions, you will also receive your current block inventory for that turn.**\n\n## Output\nYour output **MUST be a JSON object ONLY**, adhering strictly to the following format. **Do not include any additional text or dialogue outside of the JSON.**\n\n```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"color\", x, y, z],\n            // ... list of blocks to place, e.g., [\"blue\", 0, 1, 0]\n        ],\n        \"remove_block\": [\n            [x, y, z],\n            // ... list of blocks to remove, e.g., [0, 0, 0]\n        ]\n    },\n    \"communication\": \"Your message to the Architect (e.g., 'Okay, placed the block.', 'Can you clarify the position of the next block?', or '' if no specific message is needed beyond actions).\"\n}\n```\n\n  * For `place_block`, `color` must be one of the specified block colors: \"blue\", \"yellow\", \"green\", \"orange\", \"purple\", \"red\".\n  * If no blocks are placed or removed in a given turn, the respective array within `\"actions\"` can be empty (`[]`).\n  * The `\"communication\"` field should be used for:\n      * Confirming that you have completed the requested actions.\n      * Asking clarifying questions if an instruction is unclear, ambiguous, or refers to an impossible action (e.g., attempting to remove a block that doesn't exist, or placing outside bounds).\n      * Reporting any issues or assumptions you had to make.\n\n## Guidelines\n\n  * **Interpret Instructions:** Carefully translate the Architect's natural language descriptions (e.g., \"on top of\", \"to the left of\", \"next to\", \"in front of\") into precise voxel coordinates within the defined 3D space.\n  * **Execute Actions:** Perform the requested `place_block` or `remove_block` operations by specifying their exact coordinates and colors in the JSON output.\n  * **Block Management:** When you remove a block, its color and quantity are added back to your available inventory. Ensure you always have the necessary blocks in your inventory to place new ones.\n  * **Strict JSON Output:** **Always respond with only the JSON object.** No conversational preambles, no conversational postscripts, just the JSON.\n  * **Clarification is Key:** If an instruction is unclear, contradictory, or refers to a block that doesn't exist (for removal), use the `\"communication\"` field to ask for clarification. **Do not guess or assume.** Provide specific details about what you don't understand.\n  * **Inventory:** **You will receive your current block inventory with each turn's instructions.** You must only place blocks that you have in your current inventory.\n    ```json\n    {\n        \"blue\": 20,\n        \"yellow\": 20,\n        \"green\": 20,\n        \"orange\": 20,\n        \"purple\": 20,\n        \"red\": 20\n    }\n    ```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Let's begin constructing the structure.\n\n**Step 1:** Start by placing a single **orange** block directly above the center of the white ground, placing the block directly on the white ground. This will serve as the first layer of the base.\n\nPlease confirm once you have placed the orange block.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 20, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"orange\", 100, 1, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed a single orange block in the center of the ground, directly above the white ground at 100, 1, 99.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Great job! The base is started.\nTo continue, place one red block directly on top of the orange block you just placed.\n\nConfirm when you have placed the red block.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 19, 'purple': 20, 'red': 20}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"red\", 100, 2, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Placed red block directly on top of the placed orange block, at coordinates 100, 2, 99.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Nice job. The next step is to place another 3 red blocks directly on top of the previous red block, extending the height vertically. Build from bottom to top.\n\nConfirm once you have stacked the three red blocks on top of the existing red block.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 19, 'purple': 20, 'red': 19}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"red\", 100, 3, 99],\n            [\"red\", 100, 4, 99],\n            [\"red\", 100, 5, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Stacked three red blocks on top of the existing placed red block, at coordinates 100, 3-5, 99.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Next, things get a bit different. Starting from the same position where you placed the base, add a red block to each side moving outward along the x and z axis till the structure is as long as it is tall. You need to add 2 blocks to each side (x and z) of the existing structure by placing them adjacent to each other in a single line from the base block each. They should align with each other along each axis going outward and align with the height of the already placed red blocks above the orange block.\n\nFirst, add two **red** blocks aligned with the **z** axis base block. Place the blocks in a single line extending outward from base you already have. Once you confirm it, repeat the same with the **x** axis block\n\n**Confirmation request after completing each task:**\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 19, 'purple': 20, 'red': 16}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"red\", 100, 2, 98],\n            [\"red\", 100, 3, 98],\n            [\"red\", 100, 4, 98],\n            [\"red\", 100, 5, 98]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"4 red blocks have been placed aligned along with the same base position going outward along the Z-axis.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! Now, we need three red blocks aligned with the existing x-axis above the base, adding them in a single line extending outward from the base, directly alongside the red blocks you just placed\n\nConfirm once you have placed the three blocks.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 19, 'purple': 20, 'red': 12}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"red\", 101, 2, 99],\n            [\"red\", 101, 3, 99],\n            [\"red\", 101, 4, 99],\n            [\"red\", 101, 5, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Completed adding 4 red blocks aligned next to each other and along the X-axis.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "You've done it! You've successfully built the structure. Almost mirroring what we envisioned!\n\nNext steps, mirroring what we just did, create the similar structure going opposite in **Z** as well as **X**. Make sure it aligns with the same height for structure to look symmetrical from both directions.\n\nFirst step, like we said earlier that create similar structure along opposite for Z from the central base. You should add 2 extending block aligned in z direction along same base coordinate above the place orange block.\nOnce these are place, we build the structure across **X** with similar structure in the opposite direction.\n\n**Confirmation necessary:**\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 19, 'purple': 20, 'red': 8}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"red\", 100, 2, 100],\n            [\"red\", 100, 3, 100],\n            [\"red\", 100, 4, 100],\n            [\"red\", 100, 5, 100]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Completed constructing the same height structure outward on the opposite side of origin along Z.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Well done! we now have the symmetrical structure along **Z**.\n\nNext, we mirror this block to opposite direction along **X**. Similar steps what we followed while constructing our previous section.\n\nReady when you are.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 19, 'purple': 20, 'red': 4}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"red\", 99, 2, 99],\n            [\"red\", 99, 3, 99],\n            [\"red\", 99, 4, 99],\n            [\"red\", 99, 5, 99]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Completed constructing mirror structure outward along X-axis with the same height.\"\n}\n```"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "This looks perfect.\n\nNext, for the final structure. We fill in the center with yellow blocks. Repeat the same steps of when we constructed the bottom once more while adding blocks.\nJust that instead of using red and orange. We replace them with brown and yellow. And only fill the center as shown in the picture.\n\nReady when you are.\n\nYour current inventory: {'blue': 20, 'yellow': 20, 'green': 20, 'orange': 19, 'purple': 20, 'red': 0}"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "```json\n{\n    \"actions\": {\n        \"place_block\": [\n            [\"yellow\", 99, 2, 99],\n            [\"yellow\", 99, 3, 99],\n            [\"yellow\", 99, 4, 99],\n            [\"yellow\", 99, 5, 99],\n            [\"yellow\", 100, 2, 100],\n            [\"yellow\", 100, 3, 100],\n            [\"yellow\", 100, 4, 100],\n            [\"yellow\", 100, 5, 100],\n            [\"yellow\", 101, 2, 100],\n            [\"yellow\", 101, 3, 100],\n            [\"yellow\", 101, 4, 100],\n            [\"yellow\", 101, 5, 100],\n            [\"yellow\", 100, 2, 98],\n            [\"yellow\", 100, 3, 98],\n            [\"yellow\", 100, 4, 98],\n            [\"yellow\", 100, 5, 98]\n        ],\n        \"remove_block\": []\n    },\n    \"communication\": \"Completed filling the center\"\n}\n```"
+  }
+]

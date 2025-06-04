@@ -1,0 +1,27 @@
+{
+  "structure_id": "C3_blue-original-L",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "Thank you for providing the structure details. Let's begin building the structure step by step.\n\nStart by placing a blue block in the center of the area.\n\nPlease confirm once you've placed the block."
+    },
+    {
+      "Builder": "Placed a blue block at the center of the area (100, 1, 99)."
+    },
+    {
+      "Architect": "Got it. The first block is in place. Let's move to the next step.\n\nMove one step to the right of the blue block you just placed and put another blue block there.\n\nPlease confirm once you've placed the block."
+    },
+    {
+      "Builder": "I placed a blue block to the right of the center blue block (101, 1, 99)."
+    },
+    {
+      "Architect": "The two blocks are side-by-side horizontally just as I asked. Good job.\n\nTo finish the task, place another blue block directly on top of either of the two blue blocks you already placed.\n\nPlease confirm once you've placed the block."
+    },
+    {
+      "Builder": "I placed a blue block on top of the Eastern blue block (101, 2, 99)."
+    },
+    {
+      "Architect": "You have replicated the structure perfectly."
+    }
+  ]
+}

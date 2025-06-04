@@ -1,0 +1,39 @@
+{
+  "structure_id": "C14_diagonal-zigzag",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "### Step 1: Begin Building the Base with Blue Blocks\n\nFirst, let's start with the blue blocks at the bottom level.\n\n1. Place two blue blocks side by side directly on top of the ground.\n2. Once you have the two blue blocks side by side, place a third blue block directly on top of one of the two blue blocks, centered above them."
+    },
+    {
+      "Builder": "Placed the blue blocks as instructed: Two side by side on top of ground and one directly on top."
+    },
+    {
+      "Architect": "You did a great job with the blue blocks! Let's move on to the next row of the structure with the red blocks.\n\n1. Place a red block on top of each of the two blue blocks side-by-side on the ground.\n2. Repeat, and place a red block directly above each of the two red blocks you just placed."
+    },
+    {
+      "Builder": "Placed red blocks at specified points."
+    },
+    {
+      "Architect": "Excellent! The red blocks are in place. Now let's add the purple blocks on top.\n\n1. Place two purple blocks so that each one is displaced diagonally towards the upper left and upper right from the top red block.\n2. On top of each purple block, add another one directly above.\n\nEnsure that you are working within the bounds visible to you. Let me know once you've placed the purple blocks!"
+    },
+    {
+      "Builder": "Placed the purple blocks as instructed."
+    },
+    {
+      "Architect": "Thank you for adding the purple blocks, but it seems they were incorrectly placed. Let's reposition them accurately.\n\n1. Remove the purple blocks you just added.\n2. Place two purple blocks so that one is directly to the upper left and the other directly to the upper right of the highest red block in a diagonal fashion.\n3. Add another purple block on top of each new purple block you just placed on top of the red blocks."
+    },
+    {
+      "Builder": "Removed the existing purple blocks and placed them north of the highest red blocks according to your latest instructions."
+    },
+    {
+      "Architect": "The purple blocks are still not where they need to be to align with the structure. Let's go through their placment step by step specifically.\n\n1. Remove the purple blocks you just placed.\n2. This time, place one purple block directly above the red block that is a bit higher to the bottom right.\n3. Then place the other purple block directly above the red block that is a bit higher to the bottom left.\n\nOnce these are correctly positioned, add one additional purple block directly above each of these newly placed purple blocks. This will create a diagonal alignment at the top of the structure."
+    },
+    {
+      "Builder": "Successfully removed and replaced the purple blocks to align them correctly as per your instructions."
+    },
+    {
+      "Architect": "Upon confirmation of the structure, everything is correctly positioned.  You've done an excellent job."
+    }
+  ]
+}

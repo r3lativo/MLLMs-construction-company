@@ -1,0 +1,44 @@
+[
+  {
+    "block_color": "blue",
+    "x": 100,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "blue",
+    "x": 101,
+    "y": 1,
+    "z": 100
+  },
+  {
+    "block_color": "blue",
+    "x": 100,
+    "y": 1,
+    "z": 101
+  },
+  {
+    "block_color": "blue",
+    "x": 101,
+    "y": 1,
+    "z": 101
+  },
+  {
+    "block_color": "purple",
+    "x": 100,
+    "y": 2,
+    "z": 100
+  },
+  {
+    "block_color": "green",
+    "x": 101,
+    "y": 2,
+    "z": 101
+  },
+  {
+    "block_color": "green",
+    "x": 102,
+    "y": 1,
+    "z": 101
+  }
+]
