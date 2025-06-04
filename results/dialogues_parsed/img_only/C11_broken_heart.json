@@ -1,0 +1,57 @@
+{
+  "structure_id": "C11_broken_heart",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Let's begin constructing the structure.\n\n**Step 1:** Start by placing a single **orange** block directly above the center of the white ground, placing the block directly on the white ground. This will serve as the first layer of the base.\n\nPlease confirm once you have placed the orange block."
+    },
+    {
+      "Builder": "Placed a single orange block in the center of the ground, directly above the white ground at 100, 1, 99."
+    },
+    {
+      "Architect": "Great job! The base is started.\nTo continue, place one red block directly on top of the orange block you just placed.\n\nConfirm when you have placed the red block."
+    },
+    {
+      "Builder": "Placed red block directly on top of the placed orange block, at coordinates 100, 2, 99."
+    },
+    {
+      "Architect": "Nice job. The next step is to place another 3 red blocks directly on top of the previous red block, extending the height vertically. Build from bottom to top.\n\nConfirm once you have stacked the three red blocks on top of the existing red block."
+    },
+    {
+      "Builder": "Stacked three red blocks on top of the existing placed red block, at coordinates 100, 3-5, 99."
+    },
+    {
+      "Architect": "Next, things get a bit different. Starting from the same position where you placed the base, add a red block to each side moving outward along the x and z axis till the structure is as long as it is tall. You need to add 2 blocks to each side (x and z) of the existing structure by placing them adjacent to each other in a single line from the base block each. They should align with each other along each axis going outward and align with the height of the already placed red blocks above the orange block.\n\nFirst, add two **red** blocks aligned with the **z** axis base block. Place the blocks in a single line extending outward from base you already have. Once you confirm it, repeat the same with the **x** axis block\n\n**Confirmation request after completing each task:**"
+    },
+    {
+      "Builder": "4 red blocks have been placed aligned along with the same base position going outward along the Z-axis."
+    },
+    {
+      "Architect": "Great! Now, we need three red blocks aligned with the existing x-axis above the base, adding them in a single line extending outward from the base, directly alongside the red blocks you just placed\n\nConfirm once you have placed the three blocks."
+    },
+    {
+      "Builder": "Completed adding 4 red blocks aligned next to each other and along the X-axis."
+    },
+    {
+      "Architect": "You've done it! You've successfully built the structure. Almost mirroring what we envisioned!\n\nNext steps, mirroring what we just did, create the similar structure going opposite in **Z** as well as **X**. Make sure it aligns with the same height for structure to look symmetrical from both directions.\n\nFirst step, like we said earlier that create similar structure along opposite for Z from the central base. You should add 2 extending block aligned in z direction along same base coordinate above the place orange block.\nOnce these are place, we build the structure across **X** with similar structure in the opposite direction.\n\n**Confirmation necessary:**"
+    },
+    {
+      "Builder": "Completed constructing the same height structure outward on the opposite side of origin along Z."
+    },
+    {
+      "Architect": "Well done! we now have the symmetrical structure along **Z**.\n\nNext, we mirror this block to opposite direction along **X**. Similar steps what we followed while constructing our previous section.\n\nReady when you are."
+    },
+    {
+      "Builder": "Completed constructing mirror structure outward along X-axis with the same height."
+    },
+    {
+      "Architect": "This looks perfect.\n\nNext, for the final structure. We fill in the center with yellow blocks. Repeat the same steps of when we constructed the bottom once more while adding blocks.\nJust that instead of using red and orange. We replace them with brown and yellow. And only fill the center as shown in the picture.\n\nReady when you are."
+    },
+    {
+      "Builder": "Completed filling the center"
+    },
+    {
+      "Architect": ""
+    }
+  ]
+}

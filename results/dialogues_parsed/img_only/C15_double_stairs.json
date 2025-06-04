@@ -1,0 +1,30 @@
+{
+  "structure_id": "C15_double_stairs",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "## Structure Summary\nThe target structure consists of a multi-layered and multi-colored voxel assembly with a large, colorful 2D surface layer and a smaller 3D stack on one side.\n\n## Step 1:\nLet's start by creating the first relatively flat 2D layer. This layer is composed of five horizontal columns, each with distinct colors and lengths.\nTo begin, place a 2-block tall and 1-block wide green column about one third of the way from the left side of the ground.\n\nAfter that, place a 2-block tall and 2-block wide purple column immediately to the right of the green column.\n\nBuilder, please confirm once you've placed these initial structures so we can proceed."
+    },
+    {
+      "Builder": "Okay, I've placed the initial columns as instructed."
+    },
+    {
+      "Architect": "Great! You've successfully placed the first two columns of the structure. Let's proceed by adding the central green section.\n\nSet the 3 green blocks to the right  of the top of the two purples blocks.\n\nPlease confirm once you've added the green blocks."
+    },
+    {
+      "Architect": "Great! Now, place the yellow blocks. Place the 3 yellow blocks to the right of the top of the three green blocks.\n\nPlease confirm once you've placed the yellow blocks."
+    },
+    {
+      "Architect": "The first layer of the flat structure is progressing nicely. Now, let's add the orange blocks.\n\nPlace the two orange blocks to the right of the top of the 3 yellow blocks and have the front one higher by 1 level than the other one.\n\nPlease confirm once you've added the orange blocks."
+    },
+    {
+      "Architect": "Great! Now comes the extra blocks. There will only be one higher layer of yellow blocks. Place 3 yellow blocks on top of their lower counterparts.\nNow on to the other stack. Firstly, place 3 green blocks above the green blocks on the base.\n\nInitially the height will give the stack a strange shape compared to the reference image. This will look just fine soon. Adding the green blocks next to the existing structure, so adding more green blocks (which will also make the top of the stack more level) should add to the overall effect you should be going for.\n\nPlease let me know when you have done this."
+    },
+    {
+      "Architect": "Thanks for the confirmation of your progress. I see what you mean, but you are building the thing correctly, the reference image is right. Feel free to place another green and yellow blocks following your initial pattern and get even more green blocks with yellow identical to your first layer.\nIf you are ready, then confirm once you've added the last row to the remaining structure."
+    },
+    {
+      "Architect": "Very well, I see the thing. I see you have replicated the structure as described. I already said that you can even make the top of the main stack entirely level by placing three more green blocks on top, two (to the left) of the already placed upper green blocks and the one (to the right) of the already placed upper green blocks, in correspondence with or distinctively green and yellow until the end with or without any distinguishing feature as encountered.\n\nMake the adjustments if you want.\n\nIf you confirm nothing else is to be made, I can now tell ``. If that's not the case, please tell me so."
+    }
+  ]
+}

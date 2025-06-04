@@ -1,0 +1,39 @@
+{
+  "structure_id": "C4_flower_new",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "Hello Builder. Let's build a structure step by step. This structure will be a 1-block-deep, plus sign made out of green blocks, with an additional section of intersecting orange and yellow blocks.\n\nLet's start by creating the top horizontal bar of the plus sign:\n1. Place a green block directly in front of you.\n2. To the right of that green block, place a green block.\n3. Place two more green blocks to the right, one touching the previous one. The second of these will be the right-most block of this horizontal bar. You should now have four green blocks in a line extending to your right.\n\nPlease confirm once you've completed these steps."
+    },
+    {
+      "Builder": "I have placed four green blocks in a straight line extending to my right."
+    },
+    {
+      "Architect": "Excellent, that's the top bar of the plus sign done. Next, we'll add the left and right vertical bars.\n\n1. Directly in front of the first green block (the left-most block of the four you just placed), place a green block.\n2. Below the last green block (the right-most block of the four you just placed), place a green block.\n3. Below the new block on a line with the left-most block in step 1, place a green block.\n\nThis should continue the vertical lines down from the left-most and right-most blocks of the top bar. Confirm once these steps are complete."
+    },
+    {
+      "Builder": "I have placed three blocks to extend the verticals left and right of the top bar of the plus sign."
+    },
+    {
+      "Architect": "Great, you're almost there. We need to complete the verticals on the left and right.\n\n1. Above the bottom block directly in front of you (the second block vertically to the left of the top bar), place a green block.\n2. Below the lowest green block on the far right, place a green block to extend this bar.\n\nConfirm once you've added these blocks. The structure on the right side should be identical to the left side."
+    },
+    {
+      "Builder": "I have added the leftmost and rightmost blocks to the vertical portions left and right of the plus sign, mirroring each other around the top bar."
+    },
+    {
+      "Architect": "Great job! You've completed the plus sign base using all green blocks.\n\nNext, we'll add the intersecting orange and yellow blocks.\n\n1. Below and to the right of the plus sign intersection (the block in the middle of the intersection of the + sign), place an orange block.\n2. Below and to the right of the orange block you just placed, place a yellow block.\n3. Below and to the right of the yellow block you just placed, place an orange block.\n\nLet's work on adding another section on top of those blocks.\n\n1. Directly above the orange block you just placed, place another yellow block.\n2. Directly to the right of the first yellow block you placed in the previous turn, place another orange block.\n\nConfirm once you've added these steps."
+    },
+    {
+      "Builder": "I have placed the additional section orange/yellow blocks for you, confirming the placement of these blocks."
+    },
+    {
+      "Architect": "Almost done! We are just missing two more blocks.\n\n1. Directly above the yellow block to the right-end of the intersecting blocks, place another orange block.\n2. Directly to the right of the yellow block you just placed, place another yellow block.\n\nConfirm once these blocks are placed and we should be finished."
+    },
+    {
+      "Builder": "You should be all set! I have finished the structure."
+    },
+    {
+      "Architect": ""
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "structure_id": "C6_rectangle-chain",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "Let's start constructing the first layer of the structure.\n\n1. Build the following four rows horizontally from left to right.\n   - It's easiest to construct it on the ground level.  Start by placing a single purple block.\n   - Then, place four blue blocks consecutively on the right.\n2. Place three purple blocks directly behind the first purple block. These should form the second column.\n\nPlease confirm once you have completed this part of the first layer by saying \"Finished foundation layer.\""
+    },
+    {
+      "Builder": "Finished foundation layer."
+    },
+    {
+      "Architect": "Great work! It looks like you've completed the foundation layer correctly. The second layer will be more complex, but we'll build it step by step.\n\n1. First, Let's place the first row of the second layer.\n   - Above the first purple block of your foundation, place a green block.\n   - Above the next four blue blocks of your foundation, place green blocks in the same order.\n2. Next, place a green block directly behind the first block of the second layer, and a blue block above the next purple block.  There will be a total of four green blocks behind the first four green blocks.\n\nPlease confirm once you have completed both rows of the second layer by saying \"Finished second layer.\""
+    },
+    {
+      "Builder": "Finished second layer."
+    },
+    {
+      "Architect": "It seems you've correctly placed all of the first and second rows. But, you've misplaced one block, which should be a blue instead of green.\n\n1. Instead of the blue block, make sure to place a green block directly behind it. This block should go on top of the first purple block of the second row of the foundation layer.\n\nPlease fix this block and then confirm by saying \"Finished fixing second layer.\""
+    },
+    {
+      "Builder": "Finished fixing second layer"
+    },
+    {
+      "Architect": "Fantastic. Let's start the second part of the second layer.\n\n1. Place a red block to the left of the first one you just place and make sure there's a total of four red blocks horizontally.\n2. Place a red block in front of the first red block.\n   - Then, place another row of red blocks horizontally behind it.\n3. Finish the part off by placing a purple block in the middle of the last row of red blocks.  This will form the middle pillar.\n\nConfirm by saying \"Finished second part of the second layer.\""
+    },
+    {
+      "Builder": "Finished second part of the second layer"
+    },
+    {
+      "Architect": "You have correctly built the majority of it but there are a few issues in the red section.\n1. Correct the vertical alignment of the red blocks so that there are two blocks directly behind the first row of red blocks.\n2. Place one more purple block directly in front of this middle purple block you just placed.\n\nNext, let's move on to the final part:\n\n1. Place the following blocks as the third layer.\n   - On top of the second part of the last row.\n       - in this order, place a purple block.\n       - then three blue blocks.\n   - Lastly, finish the whole layer by placing one orange block on top of each one of the middle pillars.\n\nPlease confirm by saying \"Finished the third part of the third layer.\""
+    },
+    {
+      "Builder": "Completed the second part of third layer. I've realized I've finished both parts. However, instead of mentioning this, please confirm with 'RENAMED third part the of third layer"
+    },
+    {
+      "Architect": "The section you referred to as the \"second part of the third layer\" has been renamed the \"third part of the third layer.\"\n\nIt appears that you've finished the entire third layer. Given the description you've provided and the structure you've built, this is indeed what the structure would look like.\n\nYou can now confirm completion with ``."
+    }
+  ]
+}

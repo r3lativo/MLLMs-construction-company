@@ -1,0 +1,33 @@
+{
+  "structure_id": "C9_asterisk",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Before you start building, consider a cross shape.\nThe cross is composed of a larger green square in the middle and four extensions (up, down, left, right) which are one block wide.\nEach extension ends with three blue blocks stacked vertically.\n\nNow, start with the green block foundation in the middle part of the cross.\n\nTo create the foundation:\n\n1. Place 3 green blocks in a single horizontal row at the center of the area.\n2. On top of these three green blocks, place 1 additional green block.\n3. In front of the middle green block, place 1 additional green block.\n4. Behind the middle green block, place 1 additional green block.\n5. To the left of the middle green block, place 1 additional green block.\n6. To the right of the middle green block, place 1 additional green block.\n7. On top of the middle green block, place 1 additional green block.\n\nConfirm once you have completed these steps."
+    },
+    {
+      "Builder": "Okay, placed the green blocks as instructed for the cross foundation."
+    },
+    {
+      "Architect": "Great! The foundation looks good.\n\nNext, let's start adding the blue blocks.\n\n**Upward Extension:**\n\n1. Move to the top of the upper-most middle green block.\n2. Place 1 blue block.\n\n**Downward Extension:**\n\n1. Move to the bottom of the lower-most middle green block.\n2. Place 1 blue block.\n\n**Leftward Extension:**\n\n1. Move to the left of the left-most middle green block.\n2. Place 1 blue block.\n\n**Rightward Extension:**\n\n1. Move to the right of the right-most middle green block.\n2. Place 1 blue block.\n\n**Central Vertical Extension:**\n\n1. Move to the top of the top-most middle green block.\n2. Place 1 blue block.\n\nOnce you've placed these blocks, confirm."
+    },
+    {
+      "Builder": "Okay, placed the blue blocks as instructed for the extensions."
+    },
+    {
+      "Architect": "Excellent, nice job.\n\nNow, we will continue adding to each of the blue stacks. The goal is to reach a height of three blue blocks in each stack.\n\n**Upward Extension:**\n\n1. On top of the existing blue block at the top, place 2 more blue blocks.\n\n**Downward Extension:**\n\n1. On top of the existing blue block at the bottom, place 2 more blue blocks.\n\n**Leftward Extension:**\n\n1. On top of the existing blue block to the left, place 2 more blue blocks.\n\n**Rightward Extension:**\n\n1. On top of the existing blue block to the right, place 2 more blue blocks.\n\nComplete these steps and confirm your progress."
+    },
+    {
+      "Builder": "Okay, placed the blue blocks as instructed for the extensions."
+    },
+    {
+      "Architect": "The blue stacks are looking good.\n\nThe final step is to add three additional blocks to the center of the stack to complete the highest point.\n\n1. On top of the tallest blue block, place 3 more blue blocks.\n2. Place these 3 blue blocks on top of each other.\n3. On top of the third blue block, place 1 green block.\n\nOnce you have placed these blocks successfully, confirm completion."
+    },
+    {
+      "Builder": "Okay, placed the blocks as instructed for the center stack to the top."
+    },
+    {
+      "Architect": "Excellent work. The structure looks complete from all the images you provided."
+    }
+  ]
+}

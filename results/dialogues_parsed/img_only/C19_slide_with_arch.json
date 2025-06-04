@@ -1,0 +1,30 @@
+{
+  "structure_id": "C19_slide_with_arch",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "To begin building the structure, let's start with the base in the center of the world.\n\n1. **Foundation Layer:** Place a 3x3 grid of purple blocks directly on top of the ground on top of the white blocks. Verify it looks like a flat square of purple blocks.\n2. **Connecting Horizontal Layer:** Place two green blocks directly adjacent to one another horizontally on top of the central two purple blocks. This should extend horizontally from the center.\n\nAfter completing these steps, confirm that you have built this base correctly before proceeding to the next layer."
+    },
+    {
+      "Builder": "I have placed the 3x3 grid of purple blocks on top of the ground and the two green blocks horizontally on top of the specified purple blocks. Please confirm if the base is constructed correctly."
+    },
+    {
+      "Architect": "Your base looks correct based on your description! Let's proceed to construct the vertical pillars.\n\n1. **Left Pillar:**\n - Add a single green block directly on top of the leftmost green block you're already built.\n - Then, add two more green blocks on top of the first, so you have a vertical line of 3 green blocks.\n\n2. **Right Pillar:**\n - Repeat the same process to the right of the middle purple block.\n - Add a single green block directly on top of the rightmost green block initially placed.\n - Then, add two more green blocks on top of the first, so you have a vertical line of 3 green blocks next to the original green horizontal blocks.\n\nConfirm you see two  tall vertical green pillars, each consisting of 3 blocks in height, adjacent to the previously placed green blocks, before moving on."
+    },
+    {
+      "Builder": "I see two tall vertical green pillars, each consisting of 3 blocks in height, and adjacent to the two green blocks."
+    },
+    {
+      "Architect": "Now, let's proceed by expanding our vertical construction.\n\n1. **Middle Pillar:**\n - Add two purple blocks directly on top of the center-most purple block of the initial base. There should now be a 2 block tall vertical pillar right in the center.\n - Add one more purple block on top of those two, making it a total of 3 purple blocks in this central pillar.\n\nOnce you confirm the central purple pillar is correctly constructed, move on to the next step: adding purple blocks to the center of each side.\n\n2. **Horizontal bars on all 4 sides:**\n - Add two purple blocks on top of the purple blocks in the bottom middle-left and middle-right of your construction.\n - Repeat to the front and back as well, extending these new purple blocks horizontally and centered on the single-block width of the initial constructs. You should now see a plus sign of purple blocks in all 4 directions, each 2 blocks long (chain of 3 total including center if counted).\n\nConfirm this structure before moving on."
+    },
+    {
+      "Builder": "I have added the indicated blocks. Please confirm that the current middle construction is as requested, before continuing."
+    },
+    {
+      "Architect": "It looks like there is a misconception in our current structure - you constructed the middle pillar using only 2 instead of 3 blocks in that tower.\n\nTo correct the first mistake, please add 1 more purple block vertically on top of the middle pillar until it's made up of 3 blocks.\n\nOnce fixed, let's move on to adding purple blocks to the center of each side, you've done it properly as we've indicated (taking action on all 4 sides with 2 blocks total as requested).\n\nWith confirmation this looks correct, we proceed to the next step.\n\n1. **Second layer of purple cross-bars:**\n - Add a single purple block directly on top of each of the 4 horizontal arms that extend from the center.\n\nThe structure should now be symmetrical, detailing a larger square in the center and bars extending all four directions,\neach frame built of 3 vertically stacked blocks, but the central one graduated with 5 blocks.\n\nConfirm that your current reconstruction matches these details before moving on to building the final components."
+    },
+    {
+      "Architect": "We can confirm that the structure is symmetrically appended, the sequence to finish the task would involve placing the last components:\n\n1. **Final Top Layer:**\n - Add three red blocks directly on top of the middle-most purple block and above each of the other three purple extremities present in the most recent top layer.\n - Essentially forming a 2x2 square of three blocks in each side going outward from center.\n\nYour assembly should establish the final result, resembling the provided structure. Confirm your materialization and space of the intended construction,\n\ndepending on the confirmation:"
+    }
+  ]
+}

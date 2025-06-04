@@ -1,0 +1,45 @@
+{
+  "structure_id": "C18_overlapping-reticles",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Alright, let's start building this structure step by step.\n\nFirst, we'll focus on the blue base. Place 4 blue blocks in a square-shaped foundation. Place the 4 blocks side by side, each adjacent to the other, so that they form a 2x2 square.\n\nProceed when you're ready with the blue base."
+    },
+    {
+      "Builder": "Placed the 4 blue blocks in a 2x2 square at ground level with the bottom front left coordinate at 100,1,100."
+    },
+    {
+      "Architect": "Great job on placing the blue base. Next, let's build the purple part of the structure. Place the first purple block on top of the front left blue block.\n\nGive me a confirmation when you've placed the purple block."
+    },
+    {
+      "Builder": "Placed the purple block on top of the front left blue block."
+    },
+    {
+      "Architect": "Great, now I want you to place the second purple block one level above and directly to the front of the first purple block.\n\nOnce that's done, let me know."
+    },
+    {
+      "Builder": "Placed the second purple block one level above, directly in front of the first purple block"
+    },
+    {
+      "Architect": "Good job placing the second purple block!\n\nNow, let's build the green part of the structure. Add a third green block on the right side of the back right bottom blue block.\n\nLet me know once you're done!"
+    },
+    {
+      "Builder": "I need confirmation, do you mean the right side *relative to the structure* or right side *relative to the world*?"
+    },
+    {
+      "Architect": "My apologies for any confusion, I meant the right side FROM THE WEIRD'S PERSPECTIVE.\n\nSo the block you've placed is the correct one. Now add two more green blocks, one on top of the first green one, and one in front of the first. Let me know when this is done."
+    },
+    {
+      "Builder": "Placed 2 green blocks. Placed the first one on top of the first green block at 101,2,101. Placed the second green block to the right of the block at 101,1,101, i.e., at 102,1,101"
+    },
+    {
+      "Architect": "Perfect! Now, let's finish the green section. Place one more green block. Place this block directly on top of the front green block that's on the ground.\n\nOnce you've done that, we can move on to the next part of the structure. Confirm once the block is placed."
+    },
+    {
+      "Builder": "Placed the fourth green block on top of the front green block (at 102,1, 100) which is at 102,2,101"
+    },
+    {
+      "Architect": "Excellent work! The structure is now complete."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "structure_id": "C7_scissors",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Let's start building this structure.\n\nFirst, focus on the foundation. We need to place red blocks in three separate, aligned layers. The foundation will be a single row of red blocks at the start.\n\nStart by placing seven red blocks directly on the white blocks in a single horizontal row. Make sure they are touching each other. Once this is complete, let me know."
+    },
+    {
+      "Builder": "Placed the red blocks in a single horizontal row."
+    },
+    {
+      "Architect": "Great job! That's the first layer of the foundation complete.\n\nThis time, add another layer of red blocks, but place it on top of the existing row such that there is a gap of one block in the center (essentially creating an 'H' shape). So, you will have three red blocks on the left, a gap in the middle, and three red blocks on the right.\n\nMake sure the blocks are aligned directly above the blocks in the first layer.\n\nOnce you have completed this layer, let me know."
+    },
+    {
+      "Builder": "Placed the red blocks to construct an 'H' shape on top of the first layer."
+    },
+    {
+      "Architect": "Great! Now, let's add the final layer of red blocks.\n\nFor this last layer, place one red block directly on top of each of the blocks in the second layer, maintaining the 'H' shape. This means you will have three red blocks on the left, a single block in the center (aligned with the gap below), and three red blocks on the right, all placed one level up from the previous layer.\n\nOnce you have completed this layer, let me know."
+    },
+    {
+      "Builder": "Placed the final layer of red blocks, maintaining the 'H' shape one level up from the previous layer."
+    },
+    {
+      "Architect": "You've built the foundation structure correctly!\n\nNow, let's move on to the body of the structure. We will build an orange structure directly surrounding the innermost layer of red blocks.\n\nPlace six orange blocks in the shape of a tall rectangle with a height of 3 blocks around each side of the innermost layer of the red 'H'. So start bystanding on the floor and placing an orange block to the left of the second highest red block on the far left side of the lower structure. Place two more blocks on top of it.\n\nOn the right side, do the same thing\u2014to the right of the second highest red block on the far right side of the lower structure, place an orange block on the floor. Similarly, add two more blocks on top of it.\n\nOnce you have completed these column, let me know."
+    },
+    {
+      "Builder": "Placed orange blocks in the shape of a tall rectangle above the red blocks forming the foundation."
+    },
+    {
+      "Architect": "Perfect! Now, let's connect the two columns with orange blocks, forming the base of our structure.\n\nPlace three orange blocks directly under the space between the two columns. To do so, start by putting the first orange block on the floor under the highest small orange block. Then place the second and third orange blocks directly on top of it.\n\nOnce you have completed this, let me know."
+    },
+    {
+      "Builder": "Placed the orange blocks directly under the space between the two columns."
+    },
+    {
+      "Architect": "Great job! Now, we're ready to build the top part of the structure.\n\nStarting from the middle block of the three orange blocks you just placed, build two towers of red blocks, one in each direction. Each tower will be three blocks tall and two blocks wide. So, place two red blocks side by side on top of the middle orange block, and then add another layer of two red blocks directly on top, and finally one more layer of two red blocks on top of that. Do the same on the other side of the middle orange block.\n\nOnce you have completed the towers, let me know."
+    },
+    {
+      "Builder": "I do not have red blocks in my inventory. I cannot place the red blocks for the towers."
+    },
+    {
+      "Architect": "It looks like there's a misunderstanding. The required red blocks should be available from the ones you've built in the middle layers.\nFor building the two towers of red blocks, you should use the red blocks in the middle part of the structure. Start from the central red block of the second-highest layer and start building up from there.\n\nLet's clarify the steps to build the towers:\n\n1. Identify the central red block of the second-highest layer.\n2. Place one red block on top of it.\n3. Place another red block directly on top of the previous one.\n4. Repeat this process for the second tower starting from the central red blocks towards the left and right sides respectively, placing 2 on each and 2 on top of each.\n\nOnce you have completed the towers, let me know."
+    },
+    {
+      "Builder": "Please clarify. But assuming you meant to add to the top of the central blocks already built, I will use those blocks to place on top of the existing red blocks instead."
+    },
+    {
+      "Architect": "Great understanding.\n\n1. First, let's build the left tower. Place two red blocks side by side on top of the leftmost tower of the middle red blocks.\n2. Then, place two more blocks directly on top of the previously placed red blocks.\n3. For the right tower, repeat the same process on the rightmost tower of the middle red blocks.\n\nOnce you have completed the towers, let me know.\n\nThen we will make the final changes to the structure."
+    },
+    {
+      "Builder": "Placed red blocks for the two towers, one on each side of the middle red block."
+    },
+    {
+      "Architect": "Perfect!\n\nNow, to complete the structure, we need to add angled arms extending from the top, forming a \"V\" shape.\n\n1. Start by placing 2 red blocks diagonally on the second level block to the right of the middle tower in front of the leftmost blocks.\n2. Place 2 blocks above the newly placed red blocks.\n3. Place one block at the bottom level of the new placement, and two blocks on top of that.\n\nNext, repeat the same steps but mirrored on the right side of the middle block, starting from the second level block to the left of the rightmost blocks.\n\nOnce everything is completed, confirm, and ."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "structure_id": "C1_bell",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "Let's begin constructing the structure.\n\nFirst, we'll lay the foundations. The structure should be fairly centered, so place four green blocks in a single vertical line, starting directly on the ground (this is the highest y coordinate allowed for ground blocks).\n\nConfirm once you've placed all four green blocks."
+    },
+    {
+      "Builder": "Ok, placed the 4 green blocks in a vertical line"
+    },
+    {
+      "Architect": "Perfect. Now, let's build the columns. Place 4 red blocks directly beside the green column of blocks on the right (from the top-down perspective), vertically aligned with them.\n\nOnce done, confirm."
+    },
+    {
+      "Builder": "Ok, placed the red blocks vertically aligned beside the green column"
+    },
+    {
+      "Architect": "Excellent. Now, on top of the uppermost red block, place another vertical red block. This will start the arch on the right. Then build a yellow block directly it (on the right from it).\n\nConfirm once done."
+    },
+    {
+      "Builder": "Ok, built the starting blocks for the arch on the right"
+    },
+    {
+      "Architect": "Great. Now, let's extend the arch to the left (toward the green column).\n\nPlace 5 orange blocks horizontally clinched with the right yellow block on the y level with the red columns.\n\nOnce done, confirm."
+    },
+    {
+      "Builder": "Ok, 5 orange blocks placed on the y level with the red columns and on the left of the yellow block"
+    },
+    {
+      "Architect": "Now let's make the arch bigger. Place 3 orange blocks vertically lined up on the leftmost orange block of the arch you previously placed.\nThen do the same but on the 2nd leftmost orange block.\n\nConfirm once done."
+    },
+    {
+      "Builder": "OK, 3 orange blocks vertically lined up on the leftmost orange block and the 2nd leftmost orange block of the arch"
+    },
+    {
+      "Architect": "Perfect. Now, let's continue building the arch. Place 2 orange blocks vertically lined up on the leftmost orange block and the 2nd leftmost orange block at the y level with the red columns.\n\nConfirm once done."
+    },
+    {
+      "Builder": "Ok, blocks placed"
+    },
+    {
+      "Architect": "It seems like you haven't placed the blocks I asked for. On top of the green column (on the left), place one single red block.\n\nOnce done, confirm."
+    },
+    {
+      "Builder": "Ok, a red block was placed on top of the green column"
+    },
+    {
+      "Architect": "On top of the red block you just placed add vertically 4 red blocks.\n\nOn top of the middle orange block of the arch add an additional orange block.\n\nOnce done, confirm."
+    },
+    {
+      "Builder": "Blocks placed"
+    },
+    {
+      "Architect": "Now, let's add the top of the structure.\n\nWe'll start with the purple line that is the uppermost level of the structure.\n\nOn top of the leftmost green block, place a purple block.\n\nOn top of the leftmost orange block of the arch, place a purple block.\nOn top of the rightmost orange block of the arch\n\nThen do the same on top of the next orange blocks of the arch, left to right.\n\nOnce done, confirm."
+    },
+    {
+      "Builder": "All purple blocks placed"
+    },
+    {
+      "Architect": "You're finished."
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "structure_id": "C11_broken_heart",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "block_color": "red",
+      "x": 100,
+      "y": 1,
+      "z": 99
+    },
+    {
+      "block_color": "orange",
+      "x": 101,
+      "y": 1,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 100,
+      "y": 1,
+      "z": 100
+    },
+    {
+      "block_color": "red",
+      "x": 101,
+      "y": 1,
+      "z": 100
+    },
+    {
+      "block_color": "orange",
+      "x": 100,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 101,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "red",
+      "x": 99,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 99,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 99,
+      "y": 4,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 102,
+      "y": 4,
+      "z": 100
+    },
+    {
+      "block_color": "red",
+      "x": 100,
+      "y": 4,
+      "z": 100
+    },
+    {
+      "block_color": "red",
+      "x": 99,
+      "y": 5,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 100,
+      "y": 5,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 101,
+      "y": 5,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 102,
+      "y": 5,
+      "z": 100
+    }
+  ]
+}

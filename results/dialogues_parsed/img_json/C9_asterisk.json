@@ -1,0 +1,51 @@
+{
+  "structure_id": "C9_asterisk",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "Builder, let's start constructing a symmetrical structure made of blue and green blocks.\n\n**Step 1: Center of the structure**\n\nTo define the center of the structure, start by placing a row of three **green blocks** side by side at the center of your work area.\nEnsure that the three green blocks are aligned horizontally.\nOnce you've placed the three green blocks, let me know."
+    },
+    {
+      "Builder": "I have placed the three green blocks to define the center of the structure."
+    },
+    {
+      "Architect": "**Step 2: Horizontal Expansion**\n\nGreat! The center is now defined. We can proceed with the cross like structure around it.\n\nAdd a pair of green blocks, one to the left and one to the right of each of the three green blocks from the central row. Place them directly adjacent to the central green blocks on both sides.\n\nThe resulting structure should be a cross made of green blocks, three blocks long and three blocks wide, with the center block being at the intersection.\n\nPlease confirm once you have done that."
+    },
+    {
+      "Builder": ""
+    },
+    {
+      "Architect": "Very good! The cross shape of the structure is done.\n\n**Step 3: Adding blue dots**\n\nBefore adding the outer blue blocks, we need 4 blue dots around the green blocks.\n\nAdd a blue block one block above each of the four outer green blocks of the upper layer.\n\nLet me know once you have done that."
+    },
+    {
+      "Builder": ""
+    },
+    {
+      "Architect": "Great work on that section!\n\n**Step 4: Adding outer layers**\n\nWe will now finish the blue square formation by adding a blue block for each corner of this structure. The outer-most blue blocks will go one block on the same horizontal level as the base of the existing structure.\n- Starting from the left, place a blue block on the same horizontal level as the base blocks, one block to the left of the blocks that you have already placed.\n- Place one blue block for the middle of the right side by moving horizontally one block to the right from the existing upper left blue block.\n- Place one blue block for the middle of the upper side by moving horizontally one block up from the existing bottom left blue block.\n- Place one blue block for the middle of the left side by moving horizontally one block down from the existing upper right blue block.\n\nLet me know once you are done with that."
+    },
+    {
+      "Builder": "There are already blue blocks at (99, 2, 99), (101, 2, 99), (101, 2, 101), but the request seems to place new blocks at their respective locations. Can you clarify if they need replacement?"
+    },
+    {
+      "Architect": "Don't worry about replacing or removing existing blocks.\nMost of these blocks look great, but it looks like the blocks from the middle sections are supposed to be closer to the blocks of the central layer of green blocks.\n- For the middle of the right side: move the blue block to be one block to the right from the existing right-side blue block of the central layer.\n- For the middle of the upper side: make sure the new blue block is aligned horizontally one block up from the existing top blue block of the central layer.\n- Make sure the existing blocks on the left side align properly as well, ensuring symmetry.\n\nSimple adjustments for the symmetry, let me know if you need further help."
+    },
+    {
+      "Builder": ""
+    },
+    {
+      "Architect": "All of the blue blocks seem to fit perfectly except for one, which is still not aligned correctly to the central green section.\nReview the configuration to make sure you have the top row correctly aligned. The top blue block row should be directly aligned with the green row below it.\n- For the upper side, remove the misplaced blue block and add one blue block for the middle of the upper side by moving horizontally one block above the existing top blue block of the central layer.\n\nOtherwise, it looks great!  Let me know when you are done, and I will confirm the completion of the structure."
+    },
+    {
+      "Builder": ""
+    },
+    {
+      "Architect": "It looks like all of the blocks apart from the blocks on the top side are already placed as expected.\nAdd a block to the upper side, specifically one block above and adjacent to the existing chimney.\nOtherwise, it looks great!\n\nI will finish once everything looks perfect."
+    },
+    {
+      "Builder": "Done!"
+    },
+    {
+      "Architect": "You have successfully finished the construction."
+    }
+  ]
+}

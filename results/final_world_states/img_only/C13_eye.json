@@ -1,0 +1,192 @@
+{
+  "structure_id": "C13_eye",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "block_color": "red",
+      "x": 99,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 98,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 97,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 96,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 95,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 100,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 101,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 102,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 103,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 104,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 100,
+      "y": 4,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 99,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 98,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 97,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 96,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 95,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 100,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 101,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 102,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 103,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 104,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "purple",
+      "x": 99,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 98,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 97,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 96,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 95,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 100,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 101,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 102,
+      "y": 2,
+      "z": 100
+    },
+    {
+      "block_color": "purple",
+      "x": 103,
+      "y": 100,
+      "z": 2
+    },
+    {
+      "block_color": "purple",
+      "x": 104,
+      "y": 2,
+      "z": 100
+    }
+  ]
+}

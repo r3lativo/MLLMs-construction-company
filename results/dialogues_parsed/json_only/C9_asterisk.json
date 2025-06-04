@@ -1,0 +1,42 @@
+{
+  "structure_id": "C9_asterisk",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "To start the building project, let's begin by laying down the foundation. Since I understand you can only view a small area at a time, we will start in the middle of the structure.\n\nStart by placing three blue blocks in a row in front of you with one block of space between each block. Check back with me after you have placed all three blue blocks."
+    },
+    {
+      "Builder": "I have placed three blue blocks at the locations specified."
+    },
+    {
+      "Architect": "Good. Now that you have the middle section of the bottom row placed, let's fill in the rest of the base. In the row behind the 3 blue blocks that you have just placed, place 2 blue blocks with one block of space between each block and the other blue block.\n\nAfter you do, let me know when you're done."
+    },
+    {
+      "Builder": "I have placed two blue blocks at the locations specified."
+    },
+    {
+      "Architect": "Great job. Now let's place a central blue block on top of the first three blue blocks you placed, where the three blue blocks actually meet. Let me know when you are finished.\n\nRemember, there should be a blue block directly above the blue blocks on the ground directly in front of you."
+    },
+    {
+      "Builder": "I have placed one blue block directly above the three blue blocks"
+    },
+    {
+      "Architect": "Excellent. Now let's create the \"legs\" of the structure. You will place 3 green blocks up against each side of the blue block you just placed on top of the three that you placed on the ground. These blocks should be in the spaces where the blocks at the same level meet, on this as well as the \"base\" level.\n\nConfirm when you have placed the green blocks."
+    },
+    {
+      "Builder": "I have placed the four green blocks as instructed."
+    },
+    {
+      "Architect": "Perfect. Now let's extend the green blocks to form the core of the structure.\n\nFill in the next rows (both above and below the row with the top 4 green blocks) with green to match the structure from top to bottom. You will have two rows to work with on each level. In all, you should place 8 green blocks. This should complete the central \"core\" of the design. Make sure it is solid on all sides. Let me know when you are finished."
+    },
+    {
+      "Builder": "I have completed 8 green blocks as per the instructions"
+    },
+    {
+      "Architect": "You're making great progress! Now, you need to fill in the remaining blue blocks.\n\nIn the three \"columns\" that currently have blue blocks on the bottom layer, place blue blocks on the bottom layer along the same axis on the right and left sides of the green column that we have just finished, on both the bottom layer and the top layer.\n\nThere should be 6 blue blocks in total once you complete this step.\n\nOnce you complete this, you should complete the whole structure. Check back with me when you finish this step. Good luck!"
+    },
+    {
+      "Architect": "Perfect! You have successfully completed all the steps for constructing the desired structure."
+    }
+  ]
+}

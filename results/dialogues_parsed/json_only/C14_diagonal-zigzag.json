@@ -1,0 +1,51 @@
+{
+  "structure_id": "C14_diagonal-zigzag",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "Alright, Builder. The structure incorporates three different colored blocks located in specific places relative to each other. Let's break it down step by step.\n\nLook out for an open area where we will start building. This is a four-level structure. Let's start with the foundation.\n\n**Step 1: Foundation**\nFirst, place 2 blue blocks next to each other on the ground.\n\nPlease confirm once you have placed these block."
+    },
+    {
+      "Builder": "Okay, the 2 blue blocks were placed in a 1x2 configuration on the ground level at 100, 1, 100 and 101, 1, 100."
+    },
+    {
+      "Architect": "Great job, Builder! You've placed the first two blue blocks correctly. Let's proceed to the second row.\n\n**Step 2: Second Row**\nNext, place 1 blue block on top of the first blue block you placed, and then place another blue block on top of the second blue block you placed. Confirm once you've done that.\n\nPlease confirm once you have placed these blocks."
+    },
+    {
+      "Builder": "Okay, the two blue blocks were placed in a 1x2 configuration directly on top of the lower blue blocks."
+    },
+    {
+      "Architect": "Good job. Now let's move onto the third row, which will be made of red blocks.\n\n**Step 3: Third Row**\nPlace 1 red block to the left of each blue block in the second row (so these red blocks will be diagonally aligned with the bottom blue blocks).\nSo, place a red block from the center of the two lower blue blocks, on top of the center of the two upper blue blocks. Then, do the same to the other side.\nConfirm once you've done that."
+    },
+    {
+      "Builder": "Okay, the two red blocks were placed diagonally next to each of the top two blue blocks."
+    },
+    {
+      "Architect": "I see two red blocks were placed diagonally to the right from the pairs of blue blocks. Let's correct that.\n\nWhen I said, \"Place 1 red block to the left of each blue block in the second row,\" I meant to place them next to the blue blocks in the z-axis, not the x-axis.\n\n**Step 3 Retry:**\nPlace 1 red block to the left of the lower pair of blue blocks, directly above the lower pair of blue blocks. Then, place another red block to the right of the upper pair of blue blocks, directly above the upper pair of blue blocks. Once that's done, confirm with me.\n\nPlease confirm once you have placed these blocks."
+    },
+    {
+      "Builder": "Okay, removal and repositioning of red blocks was successful."
+    },
+    {
+      "Architect": "Now let's move onto the fourth row. This row will be made of purple blocks.\n\n**Step 4: Purple base**\n Place 1 purple block to the left of the lower red block. Then, place another purple block to the left of the upper red block.\nNext, place 1 purple block to the right of the lower red block. Then, place another purple block to the right of the upper red block.\nConfirm once you've done that."
+    },
+    {
+      "Builder": "Okay, the four purple blocks have been placed appropriately."
+    },
+    {
+      "Architect": "The leftmost purple block was placed to the left of both the lower and upper red blocks though, not just to the left of the lower red block. Let's reposition it properly.\n\nStep 4 Retry: Remove the leftmost purple block and place it so that it's directly above the leftmost red block.\n\n**Repeated step:**\n1. Remove the leftmost purple block.\n2. Place 1 purple block above the lower left red block\n3. Place another purple block next to the upper right red block, above it.\n\nConfirm once you've done that.\n\nYou did a great job on the other purple blocks. The final top part should be easy.\n\nThe rest of the structure is easy.\n\nPlease confirm once you have repositioned these blocks."
+    },
+    {
+      "Builder": "Two purple blocks were repositioned to topmost blocks on the left. The rest of the two purple blocks still hold correctly in place in based on the instruction given."
+    },
+    {
+      "Architect": "I see, it is like you just shifted the purple blocks. I see, let's repair the final step.\n\nThe last, top-most layer has to go back to the original plan. They were supposed to be directly centered above the previous layer.\n\nStep 5:\n1. Remove the leftmost and rightmost purple blocks.\n2. Place 1 purple block above the bottom center of the lower purple blocks.\n3. Place another purple block above the top centre of the lower purple blocks.\n\nGood job on the rest of the purple block placement, it makes the final step easy to understand. You've done a great job building the structure. Great work! Confirm once you've done that.\n\nPlease confirm once you have repositioned these blocks."
+    },
+    {
+      "Builder": "Repositioning final two purple blocks to center and top of the previous layer."
+    },
+    {
+      "Architect": "Thanks for confirming. Just one last tweak. Remove the rightmost purple block on the final layer, then place a single purple block above the leftmost purple block on the second-to-last layer.\n\nSeems like you've done a fantastic job. The structure looks complete.\n\n****"
+    }
+  ]
+}

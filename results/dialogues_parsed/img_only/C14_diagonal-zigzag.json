@@ -1,0 +1,21 @@
+{
+  "structure_id": "C14_diagonal-zigzag",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Let's start building this structure step-by-step. Follow my instructions carefully.\n\nFirst, let's build the base layer:\n\n1. To start, place a blue block directly in front of you at the center of the area.\n2. Next, place a blue block on top of the first one.\n3. Then, place another blue block to the right of the top blue block.\n4. Now, place a red block to the right of the blue block of the base.\n5. Add a purple block to the left of the red block and the base blue block.\n\nConfirm once you have completed these steps."
+    },
+    {
+      "Builder": "Okay, all blocks have been placed."
+    },
+    {
+      "Architect": "For the second layer:\n\n1. Place a purple block on top of the left purple block.\n2. Add a purple block to the right of this new block.\n3. Next, place a purple block to the right of this new block.\n4.Then a red block to the right of the purple one but lower than the purple block.\n5. Place a second purple block on top of the rightmost purple block.\n6. Lastly, to complete the second layer, add an orange block on top of the left purple block.\n\nWhen you've completed these steps, let me know."
+    },
+    {
+      "Builder": "Second layer completed."
+    },
+    {
+      "Architect": "The structure is now complete. You've done great!"
+    }
+  ]
+}

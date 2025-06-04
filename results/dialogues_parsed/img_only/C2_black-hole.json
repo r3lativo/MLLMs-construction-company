@@ -1,0 +1,27 @@
+{
+  "structure_id": "C2_black-hole",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "Sure! Let's start constructing the structure.\n\nFor this design, let the central blank space be the reference center.\n\nLet's start with the base layer:\n\n1. Place 1 red block directly in the center of the area.\n2. On each of the four sides of the red block (north, east, south, and west), place 1 red block touching it.\n3. On each of the four diagonal sides of the initial four red blocks (northeast, southeast, southwest, and northwest), place 1 red block touching them.\n4. On each of the four cardinal sides of the diagonally connected red blocks, place 1 red block touching them such that they are forming a cross shape with the red blocks.\n\nOnce you\u2019ve done this, please confirm, and we'll move on to the next layer."
+    },
+    {
+      "Builder": "Completed placing the red blocks as instructed."
+    },
+    {
+      "Architect": "Great job! The base layer looks good.\n\nNow we'll add the next layer of purple blocks.\n\nStarting from the bottom-most purple blocks:\n\n1. Place one purple block directly on top of each end of the red cross shape.\n2. Next, on each red block next to each end of the cross shape, place one purple block on top of it. This should extend the purple blocks one layer farther outward to create an L-shape.\n3. Finally, surround each red block in the second layer with one layer of purple blocks so there is a complete covering of each red block that is not already covered.\n\nConfirm when you\u2019re done, and we\u2019ll proceed."
+    },
+    {
+      "Builder": "Completed placing the purple blocks as instructed."
+    },
+    {
+      "Architect": "Excellent!\n\nLastly, let's add the final layer of purple blocks:\n\n1. Place one purple block on top of each of the second layer of red blocks, creating a \"T\" shape.\n\nOnce you finish, please confirm, and then we are done!\n\nKeep up the good work!"
+    },
+    {
+      "Builder": "Completed placing the purple blocks as instructed."
+    },
+    {
+      "Architect": ""
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "structure_id": "C20_rainbow-lasso",
+  "condition": "img_only",
+  "dialogue": [
+    {
+      "Architect": "To construct the target structure, we need to focus on making a three-dimensional structure resembling a plus shape extending upwards.\n\nStart with the central cross foundation.\n\n1. Place a **red block** at the center of your working area.\n2. Place a **yellow block** directly south (forward) of the red block.\n3. Place another **yellow block** directly north (backward) of the red block.\n4. Place an **orange block** directly east (right) of the red block.\n5. Place a **green block** directly west (left) of the red block.\n\nI'll then add an additional layer on top.\n\nOnce that's ready, let me know!"
+    },
+    {
+      "Builder": "Okay, placed the blocks for the central cross foundation."
+    },
+    {
+      "Architect": "Great! The central foundation looks like it is being set up correctly.\n\nTo create the intermediate layer, start by placing the following blocks:\n\n1. place a **green block** directly south of your green block.\n2. place a **green block** directly north of your green block.\n3. place a **yellow block** directly on top of the red block.\n4. place a **yellow block** to the left of the yellow block you just placed.\n5. place a **yellow block** to the right of the yellow block you just placed.\n\nThese blocks all form another layer on top of your foundation that should be in an orthogonal cross pattern.\n\nConfirm once you've finished this layer."
+    },
+    {
+      "Architect": "Great! That forms the second layer of our orthogonal cross shape. Now let's add the final upper layer that extends from the top of the central vertical column.\n\n1. Place a **blue block** directly on top of the yellow block.\n2. Place another **blue block** on top of the northern yellow block.\n3. Place another **blue block** directly east of the middle blue block.\n4. Place a **purple block** directly on top of the eastern blue block.\n4. Place another **purple block** directly on top of the central blue block.\n5. Place another **purple block** directly on top of the northern blue block.\n\nThis will complete the final vertical structure of our model.\n\nLet me know once this top layer is complete and we will check the final result."
+    },
+    {
+      "Architect": "I can confirm that the resulting structure matches the target structure. That's the last piece; from the provided images the created structure seems identical to the reference.\n\nGood job!"
+    }
+  ]
+}

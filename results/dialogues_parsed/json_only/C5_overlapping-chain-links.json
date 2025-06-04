@@ -1,0 +1,33 @@
+{
+  "structure_id": "C5_overlapping-chain-links",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "Let's start building the base of the structure. I want you to place 3 red blocks in a row.\n\nThe first block should be ground level in front of you.\n\nPlace the second and third blocks immediately to its right in a single row. Please confirm once you've placed the three red blocks or let me know if you need further clarification.\nThe current area should now look like:\n```\nRRR\n```"
+    },
+    {
+      "Builder": "Placed 3 red blocks in a row at coordinates (100, 1, 100), (101, 1, 100), and (102, 1, 100)."
+    },
+    {
+      "Architect": "Perfect! You've correctly placed the base layer of red blocks.\n\nNext, I need you to add a red block to the left of the first one you placed in the base layer. This should form a T shape of red blocks.\nThe current area should look like:\n```\nR\nRRR\n```\n\nAfter that, you can place four red blocks in a line, starting from the first red block of the base and moving one block upwards at each step.\nThe current area should finally look like:\n```\n     R\nR\nRRRR\n```"
+    },
+    {
+      "Builder": "Placed a block to the left of the base layer and placed a row of red blocks upwards across the base blocks."
+    },
+    {
+      "Architect": "Now let's start to add the purple blocks!\n\nI want you to place a purple block to the right and slightly up from the last red block you placed. So this purple block should be at the same height as the red ones and located on the **ground level**, but 1 block away and up.\n\nThe current area should look like:\n```\n     R\nR\n    P\nRRRR\n```"
+    },
+    {
+      "Builder": "Placed the purple block."
+    },
+    {
+      "Architect": "Great! You should now have a purple block adjacent and up rightmost red block of the second row.\n\nStarting from the first purple block, go ahead and place 3 purple blocks adjacent and slightly up from the remaining 3 red blocks.\n\nThe final top area structure should like the following:\n```\n     R\n    P\nPPPP\n  R\nRRRR\n```\n\nPlease confirm once you're done or let me know if you have any questions."
+    },
+    {
+      "Builder": "I've placed the purple blocks using the location of the first purple block as a reference"
+    },
+    {
+      "Architect": "Perfect! The last step is to add another purple block on the top of the backmost one that is facing upwards.\n\nThe correct structure should look like:\n```\n     R\n   PP\n    P\nPPPP\n  R\nRRRR\n```\n\nGreat work! The structure is now complete.\n\n``"
+    }
+  ]
+}

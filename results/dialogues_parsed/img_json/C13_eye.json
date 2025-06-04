@@ -1,0 +1,51 @@
+{
+  "structure_id": "C13_eye",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "Builder, let's begin constructing the structure.\n\nFirst, focus on the base of the structure, which will be entirely made up of purple blocks. This base is one block high and spans across five blocks wide.\n\n1. Place a single purple block on the ground directly in front of you. This will be the reference point for the rest of the structure.\n2. To the left of the positioned purple block, place another purple block.\n3. Place another purple block to the right of the initial block, creating a row of three purple blocks.\n4. Add a purple block to the left of the first purple block.\n5. Finally, place a purple block to the right of the last purple block. You should now have a solid row of five purple blocks."
+    },
+    {
+      "Builder": "Five purple blocks placed in a row, one high, five wide."
+    },
+    {
+      "Architect": "Great job on placing the base row of purple blocks!\n\nNext, we will start building the second layer. This layer will have a purple block on each end and blue blocks in the middle.\n\n1. Place a purple block directly on top of the leftmost purple block from the base layer.\n2. Next, place a blue block directly on top of the second purple block from the left.\n3. Then, place a blue block directly on top of the middle purple block.\n4. After that, place a blue block directly on top of the second purple block from the right.\n5. Finally, place a purple block directly on top of the rightmost purple block from the base layer."
+    },
+    {
+      "Builder": "Purple and blue blocks placed as instructed."
+    },
+    {
+      "Architect": "Excellent! The second layer is complete.\n\nNow, let's move on to the third layer. This layer is similar to the second layer but with an additional purple block on the far left.\n\n1. Place a purple block directly on top of the purple block to the left of the leftmost blue block from the second layer. This is the new block on the far left.\n2. Place a purple block directly on top of the purple block to the right of the leftmost blue block from the second layer.\n3. Place a blue block directly on top of the middle blue block from the second layer.\n4. Place a purple block directly on top of the purple block to the left of the rightmost blue block from the second layer.\n5. Place a purple block directly on top of the rightmost purple block from the second layer."
+    },
+    {
+      "Builder": "Purple and blue blocks placed as instructed."
+    },
+    {
+      "Architect": "Excellent work on the third layer.\n\nFor the next layer, we will further modify the structure. Each block on this layer will be stacked on top of a block from the previous layer.\n\n1. Place a purple block directly on top of the leftmost purple block from the third layer.\n2. Place a blue block directly on top of the purple block to the right of the leftmost purple block from the third layer.\n3. Place a blue block directly on top of the blue block from the previous layer.\n4. Place a purple block directly on top of the purple block to the right of the rightmost blue block from the third layer.\n5. Lastly, place a purple block directly on top of the rightmost purple block from the third layer."
+    },
+    {
+      "Builder": "Blocks placed on the fourth layer as instructed."
+    },
+    {
+      "Architect": "Great, the fourth layer is now complete.\n\nNext, we will add the final fifth layer. Place all of the blocks in this layer on top of the corresponding blocks from the fourth layer.\n\n1. Place the first purple block directly on top of the leftmost purple block from the fourth layer.\n2. Place the second purple block directly on top of the purple block to the right of the leftmost purple block.\n3. Place the third purple block directly on top of the blue block to the right of the leftmost purple block.\n4. Place the fourth purple block directly on top of the blue block to the right of the previous block.\n5. Place the fifth purple block directly on top of the rightmost purple block."
+    },
+    {
+      "Builder": "Purple blocks placed on the final fifth layer as instructed. Done!"
+    },
+    {
+      "Architect": "The core structure is now complete. Great job!\n\nNext, we will create the top, horizontal portion of the structure that extends outwards. This will be made of red blocks.\n\n1. Place a red block on the ground, two blocks to the left of the leftmost column of the structure and directly in front of you.\n2. Place a red block directly beside the first red block, to its immediate right.\n3. Place a red block directly in front of the last placed red block.\n4. Place another red block directly to the right of the red block you just placed.\n5. Place three red blocks directly on top of the three middle blocks you just placed. They should be directly in line with each other, each on top of the blocks in the layer below."
+    },
+    {
+      "Builder": "Red blocks placed as instructed."
+    },
+    {
+      "Architect": "Perfect! The top, horizontal portion of the structure is now complete.\n\nLastly, we will build the vertical structure that extends upwards. Place all of the blocks in this structure on top of the corresponding blocks from the layer below.\n\n1. Place the first red block directly on top of the leftmost block of the horizontal structure from the second layer.\n2. Place a red block directly to the right of the red block you just placed.\n3. Place a red block directly to the right of the last placed red block.\n4. Place a red block directly to the right of the last placed red block.\n5. Place a red block directly to the right of the last placed red block.\n\nNow you should have successfully replicated the target structure. If everything looks correct, please confirm."
+    },
+    {
+      "Builder": "Red blocks placed as instructed."
+    },
+    {
+      "Architect": ""
+    }
+  ]
+}

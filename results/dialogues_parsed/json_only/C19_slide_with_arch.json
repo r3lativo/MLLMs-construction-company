@@ -1,0 +1,63 @@
+{
+  "structure_id": "C19_slide_with_arch",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "Great, let's begin constructing the structure. The simplified overview of this structure is:\n\n1. Three levels of blocks.\n2. The bottom level is made up of three purple blocks and two green blocks.\n3. On the top of the bottom level, there are 3 levels of blocks:\n    1. The first level has three purple blocks, some green blocks, and two red blocks.\n    2. The second level has one single purple, and some green blocks.\n    3. The third level has only green and red blocks\n\n**Let's start with the bottom level:**\n\nFirst, find the center of the area where you will build.\nPlace three purple blocks in a straight line horizontally to the right.\nOn both sides of the purple blocks, place one green block each.\n\nCheck the current progress so far. Awaiting the Builder's confirmation."
+    },
+    {
+      "Builder": "I have placed three purple blocks, then one green block to the left and the right of the purple blocks as instructed."
+    },
+    {
+      "Architect": "The Builder has placed the blocks correctly, but left and right corresponding to the Builder is opposite to what I indicated.\n\nThe Builder is jogging his head north, so left for him is west, thus, he should be placing green blocks to his east and west.\n\nLet's correct the placement of the green blocks:\n\nThe last two green blocks should be in the line of the purple blocks. Move the green blocks at relative Z contacts -1 and +1 (to the left/west and to the right/east respectively) of the three purple center.\n\nTheir positions should not be staggered but across the purple blocks.\nDo this adjustment, then we'll move to the next level:\n\nPlace a purple block directly on top of each of the existing purple blocks.\nBehind the two outermost purple blocks, place two red blocks (to the north of them).\n\nCheck the current progress so far. Awaiting the Builder's confirmation."
+    },
+    {
+      "Builder": "Blocks are placed as instructed."
+    },
+    {
+      "Architect": "I see. The red blocks red blocks that were supposed to be behind the blocks, are place in front of the blocks.\n\nMove the red blocks to behind the second and third purple blocks to match the structure.\n\nThen we can proceed to the next layer.\n\nOn top of the existing purple blocks, add one more layer of purple blocks.\nPlace one green block to the left of the first purple block and one green block to the right of the last purple block.\nThen place another two behind the outermost centre purple block.\n\nCheck the current progress so far. Awaiting the Builder's confirmation."
+    },
+    {
+      "Builder": "Moves and placement carried out successfully."
+    },
+    {
+      "Architect": "The Builder appears to have placed the second set of green blocks in front of the blocks, and not beside them, and at the wrong level too.\n\nMove the green blocks to level 3 and beside the blocks.\n\nNow proceed to place another red block, on top of the left-most red block from the previous step.\n\nMove up a level, place another two green blocks\nPlace the first green block directly on top of the green block to the left of the left-most purple block.\nPlace the second green block directly on top of the green block to the right of the right-most purple block.\n\nNow place another purple block straight above the block in the middle.\n\nBehind the outermost purple blocks on this level, place two red blocks (to the north of them).\n\nCheck the current progress so far. Awaiting the Builder's confirmation."
+    },
+    {
+      "Builder": "Success! New layout is ready."
+    },
+    {
+      "Architect": "Thank you. But the structure from the current stage is off the road already and the wrong block has been added to the structure. The blocks are not in alignment and the columns are wrongly aligned. Please read my instructions again for added clarity; the blocks should be vertically in alignment. Minimally, call this out against each and the top view of the blocks will show us a cross like structure.\n\n**Let's get over the early hurdles first:**\nMove the purple blocks to the original X-axis (100, 101, 102) at the Z-axis 97 along with their current Y-axis positions, and their green neighbours vertically aligned with them.\nMove the red blocks from the X-axis 98, 100 to 99, 89 etc.\n\nDo this and the ensure the alignment of the third level and vertical alignment on the second level.\n\nWe will then sort out the finishing layers, from the first available height.\n\nBack to the previous details of  the Basics:\nThree layers of blocks.\n1. **The first** level already completed:\n   - Three purple blocks and two green blocks arranged such that the purple blocks are between the green blocks.\n2. The **second** level above the first level:\n   - A layer of three purple blocks stacked directly on top of the purple blocks from the first layer. Immediately behind the outermost purple blocks position, place two red blocks.\n   - On both sides of the line of purple blocks, place one green block each.\n3. **The last** level amd is the moving portion:\n\nAfterwards, we'll do the additional identical layers.\n\nProgress so far.\nAfter you have successfully cleared the alignment issue about the structure, we'll lay out the final and ongoing instructions in subsequent steps. Awaiting Builder's confirmation."
+    },
+    {
+      "Builder": "Monitored progress and resolved alignment issues.  The initial three levels of the structure are updated."
+    },
+    {
+      "Architect": "Just a note: The only blocks you should have on y-level 4 are red on (100, 102, 99, 101).\nThe other blocks on level 4 should be removed.\nThere should be two red blocks in a line with the purple blocks behind it.\n\nThen repeat the next instructions until the structure is completed:\n\nMove up a level. Place another purple block straight above the block in the middle.\n\nBehind the outermost purple blocks on this level, place two red blocks (to the north of them).\nIn both of the green blocks to the middle purple blocks, place another green block behind, which will extend outwards towards the red blocks.\n\nCheck the current progress so far. Awaiting the Builder's confirmation."
+    },
+    {
+      "Builder": "The review is accurate. Will proceed with the instructions so far as clarifications are received for additional adjustments."
+    },
+    {
+      "Architect": "You can fix the red blocks by placing them directly above the respective ones. But, move one position left and right for towards the mid blocks to avoid overlay conflicts.\n\n**Proceed from where we left off:**\nOn the top of the green blocks beside the two purple blocks, place block on top of these blocks.\n\nPlace another two green blocks immediately behind these green blocks. Look at another perspective and confirm that they are at a line with the red blocks behind you.\nPlace two purple blocks and hardly middle purple likes extensions to complete the fourth level of green.\n\nMove up a level so that you cover the central blocks that form the roof of the structure with three purple blocks. Immediately behind the outermost centre purple blocks place another block of red respectively in line.\n\nProceed with your entity and we will adjust as we go. Review the structure when you can for possible conflicts. Awaiting Builder's confirmation."
+    },
+    {
+      "Builder": "I have recorded the guidance and adjustments so far. Downloaded the blocks as requested."
+    },
+    {
+      "Architect": "Good. Since you're on the correct path, we continue till completion.\nThe progression is as you have it, we wish to see adjustments from the immediate bottom of the structure.\n\nMove down a level from the red blocks at the head of the structure and place level 6 purple blocks. We don't need more red blocks but if you find them misplaced, adjust accordingly.\n\nRepeat the blueprint from this point.\n\nPurple, green, purple, and red. Green twice so as the surface covers while the height increases.\nConfirm current progress.\nEnsuring we get the sets right on the level 7 as we've completed the current blueprint cycle.\nThen we finish by covering the open cyber cross head with all blocks to conclude.\nPurple above top three blocks.\nBehind each green, one each red.\nAbove, one purple, left and right, one green above them, red behind them.\n\nReview eventual conflicts and we replicate the last major remaining sub-structure.\nComparing, review the emerging structure from level especially 5, 4, and 3 while confirming uniformity, preview conformity, and alignment from level 6.\nAwaiting Builder's confirmation and minor adjustments there might be."
+    },
+    {
+      "Architect": "**Notes on block placement:**\nThe structure made this far is very close.\n\n1. Follow the sequential block placement accordingly.\n2. Build the purple blocks then move down the build to red accordingly.\n3. Ensure the columns do soar above each other, and align to appropriate base.\n4. A final review ensures there is consistency within the shape and structure arch.\n5. Remarks on progress so far indicate alignment is critical, but near evaluation parity indicates an adhering build to design.\n\nFor insights and reviews:\n7th level enhanced shows miserable allegiance, but corrections are as simple.\n\nThe last mistake to correct will be red blocks out of view from the initial build. The mismatch in the sequence of blocks:\n\n1. Replace topmost purple blocks on the second level with the blocks originally slated for third level.\n2. Replace green blocks around new, second level purple blocks with the ones originally slated for the third level.\n3. Move down and change the first level and supposed the direction of the first placement\n   the discrepancy of the first block is a purple block, follow with green blocks around it, then purple blocks, then red blocks\n\nOnly complete final green blocks will be left to close the outer structure.\n\nWe will be close to completion and preview what remains:\n1. 7 repeating structure formations to complete.\n\nWe will still over hang 4 blocks of purple.\n1. Green blocks behind those blocks to complete the structure as well.\n5 red blocks needed to wrap up as well.\n\nAwaiting Builder's confirmation."
+    },
+    {
+      "Architect": "\"There you go, that should do it for the most parts.\"\n\nNow reviewing, we edge towards the task fulfillmenting.\n- Confirm and adjust any varied red blocks.\n\n**Now you only need to end this now.**\n\n1. Finalize topmost purple blocks formation in the shapes we build.\n2. The review progress with corrections aligns with the structure structure.\n3. Confirm proportions and add outlier green and purple blocks as needed.\n4. Tidy the structure as reviewed. Aim to achieve a visible face of isosceles triangle structure with completed open faces.\n\nThere should be only half left to go.\n\nAny issues that remain:\nProving could be as minor as lacked blocks and misaligned alignments.\n\nIf satisfied, we will conclude with final elucidations. Specific blocks await completion only.\nAwaiting Builder's confirmation before concluding this project."
+    },
+    {
+      "Builder": "Task fulfilled. Structure implemented."
+    },
+    {
+      "Architect": ""
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "structure_id": "C16_bloody-sword",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "block_color": "red",
+      "x": 96,
+      "y": 1,
+      "z": 98
+    },
+    {
+      "block_color": "red",
+      "x": 97,
+      "y": 1,
+      "z": 98
+    },
+    {
+      "block_color": "red",
+      "x": 98,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 98,
+      "y": 1,
+      "z": 99
+    },
+    {
+      "block_color": "orange",
+      "x": 99,
+      "y": 2,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 97,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "orange",
+      "x": 99,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "yellow",
+      "x": 100,
+      "y": 3,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 97,
+      "y": 4,
+      "z": 99
+    },
+    {
+      "block_color": "yellow",
+      "x": 98,
+      "y": 4,
+      "z": 99
+    },
+    {
+      "block_color": "yellow",
+      "x": 99,
+      "y": 4,
+      "z": 99
+    },
+    {
+      "block_color": "yellow",
+      "x": 100,
+      "y": 4,
+      "z": 99
+    },
+    {
+      "block_color": "orange",
+      "x": 101,
+      "y": 4,
+      "z": 99
+    },
+    {
+      "block_color": "yellow",
+      "x": 97,
+      "y": 5,
+      "z": 99
+    },
+    {
+      "block_color": "yellow",
+      "x": 99,
+      "y": 5,
+      "z": 99
+    },
+    {
+      "block_color": "yellow",
+      "x": 100,
+      "y": 5,
+      "z": 99
+    },
+    {
+      "block_color": "yellow",
+      "x": 97,
+      "y": 6,
+      "z": 99
+    },
+    {
+      "block_color": "yellow",
+      "x": 99,
+      "y": 6,
+      "z": 99
+    },
+    {
+      "block_color": "yellow",
+      "x": 101,
+      "y": 5,
+      "z": 99
+    },
+    {
+      "block_color": "red",
+      "x": 101,
+      "y": 1,
+      "z": 98
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "structure_id": "C7_scissors",
+  "condition": "img_json",
+  "dialogue": [
+    {
+      "Architect": "Builder, let's start by constructing the base of the target structure.\n\n1. To begin, start by placing five orange blocks side-by-side in a single horizontal row.\n2. After that, place one orange block directly above the first block on the far left.\n3. Then, place one orange block directly above the second block from the left, leaving one block of space between them.\n4. Next, place one orange block directly above the fourth block from the left, leaving one block of space between them.\n5. Finally, place one orange block directly above the fifth block on the far right.\n\nPlease confirm once you've completed these steps."
+    },
+    {
+      "Builder": "Blocks placed successfully."
+    },
+    {
+      "Architect": "Builder, good job on placing the first part of the base.\n\nFor the next step:\n\n1. Place one orange block directly to the left of the first orange block on the far right.\n2. Then, place one orange block directly above this new block.  This will complete the base structure.\n\nAfter you place these blocks, let me know."
+    },
+    {
+      "Builder": "Blocks placed successfully - base complete."
+    },
+    {
+      "Architect": "Nice job with the base! Let's move on to constructing the upper portion.\n\n1. Place one red block directly above the first orange block on the far left.\n2. Then, place one red block directly above the second orange block from the left.\n3. Next, place one red block directly above the third orange block from the left.\n4. After that, place one red block directly above the fourth orange block from the left.\n5. Finally, place one red block directly above the fifth  and final orange block.\n\nPlease confirm once these steps are done."
+    },
+    {
+      "Builder": "Blocks placed successfully."
+    },
+    {
+      "Architect": "1. Place one red block directly above the leftmost red block.\n2. Then, place one red block directly above the second block from the left.\n3. Next, place one red block directly above the middle red block.\nThis completes the structure.\n\nI expect to see confirmation once this is done."
+    },
+    {
+      "Builder": "Blocks placed successfully."
+    },
+    {
+      "Architect": "That's exactly right. The structure is now complete."
+    }
+  ]
+}

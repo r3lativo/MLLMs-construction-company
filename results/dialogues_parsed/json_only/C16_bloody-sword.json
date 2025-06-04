@@ -1,0 +1,69 @@
+{
+  "structure_id": "C16_bloody-sword",
+  "condition": "json_only",
+  "dialogue": [
+    {
+      "Architect": "Let's start building the structure. First, create the ground level, which is composed of red blocks.\n\n1. Place **2 red blocks** side by side to make a horizontal line.\n2. Directly to the right of your first 2 red blocks, place **1 red block** centered above them, on top of where the inside blocks touch. So, you should have an upward-facing red \"L\".\n3. Directly to the right of your 3 red blocks, place **1 orange block** centered above the middle block, on top of where the inside blocks touch. So, you should have an upward-facing red-orange \"L\".\n4. Directly to the right of your 4 blocks, place **1 purple block** centered above the orange block.\n\nPlease confirm once you have completed this first level."
+    },
+    {
+      "Builder": "blocks placed."
+    },
+    {
+      "Architect": "It looks like you placed the first two red blocks correctly, but the third block is to the right and too high. The purple block is too far away.\n\nLet's fix the red blocks.\n\nYou need to remove the red block at the upper-right corner.\nThen to the right of your 2 red blocks that are on the ground, place an **extra red block**. You should have 3 red blocks on the ground in a line now.\n\nOnce you've corrected this, please confirm."
+    },
+    {
+      "Builder": "Red blocks corrected."
+    },
+    {
+      "Architect": "Great! Now let's correct the placement of the purple block.\nThe orange block is missing from this level.\n\nPlease remove the purple block.\nThen, directly center and to the right of your line of 3 red blocks, place an **orange block** at the same level.\n\nOnce you've added this block, please confirm."
+    },
+    {
+      "Builder": "Levels corrected."
+    },
+    {
+      "Architect": "Nice! It looks like you've fixed the first level correctly.\n\nNow, let's move on to the second level.\n\n1. Directly above the two middle red blocks beneath it, add a **red block**.\n2. Directly to the right of that red block, place a 2-block-long streak of **orange and yellow blocks**. The orange block should be directly above the orange block from the level below it.\n\nOnce you've completed this level, please confirm."
+    },
+    {
+      "Builder": "Second level done, is it correct?"
+    },
+    {
+      "Architect": "It looks mostly good, but there's a slight mistake.\n\nYou need to remove the yellow block.\nDirectly above the orange block on the first level, place an **orange block**.\nDirectly to the right of that orange block, place a **yellow block**.\n\nConfirm once you've completed this level."
+    },
+    {
+      "Builder": "Level fixed."
+    },
+    {
+      "Architect": "Your second level is now correct.\n\nProceed with the third level.\n\n1. Add a **red block** centered directly on top of the red block in the middle of the second level.\n2. Directly to the right of the red block, place **3 yellow blocks in a row**, splitting them above the two orange blocks and the yellow block on the level below it.\n3. Last in this level, directly to the right of this row of yellow blocks, place an **orange block** directly above the lower orange block.\n\nConfirm when this level is completed."
+    },
+    {
+      "Builder": "Third level done, is it correct?"
+    },
+    {
+      "Architect": "Your third level looks correct.\n\nLet's proceed with the fourth level.\n\n1. Directly above the leftmost grey block, add a **yellow block**.\n2. Next, center a **yellow block** directly above the middle of the three yellow blocks from the level below.\n3. Lastly, place one **yellow** block directly above and to the right, above the rightmost yellow block from the level below.\n\nConfirm when this level is completed."
+    },
+    {
+      "Builder": ""
+    },
+    {
+      "Architect": "Apologies for the confusion. Let me clarify. In this structure, all the other blocks that are not red, orange, purple, or yellow are actually grey. But the \"grey\" blocks here are the base ground.\n\nStart again from my instructions for the fourth level:\n\n1. Directly above the leftmost red block, add a **yellow block**.\n2. Next, center a **yellow block** directly above the middle of the three yellow blocks from the level below.\n3. Lastly, place one **yellow** block directly above and to the right, above the rightmost yellow block from the level below.\n\nConfirm when this level is completed."
+    },
+    {
+      "Builder": "Fourth level done, confirmed."
+    },
+    {
+      "Architect": "Your fourth level looks correct.\n\nLet's proceed with the fifth level.\n\n1. Add a **yellow block** directly above the leftmost yellow block from the level below.\n2. Next, directly above the middle yellow block from the level below, center a **yellow block**.\n\nOnce you've added these blocks, confirm."
+    },
+    {
+      "Builder": "Fifth level done."
+    },
+    {
+      "Architect": "You are almost there!\n\nTo finish off the entire structure:\n\n1. Add a **yellow block** directly above the rightmost yellow block from the level below.\n2. Lastly add a **red block** on the ground to the right of the orange block on the first level, filling the orange block's area.\n\nConfirm once you've completed this level."
+    },
+    {
+      "Builder": ""
+    },
+    {
+      "Architect": "Perfect! Based on the current state of the world, you've completed the structure.\n\nWell done!"
+    }
+  ]
+}
